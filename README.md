@@ -1,44 +1,61 @@
-# Eat The Reich System
+# An EAT THE REICH System (Unofficial)
 
-![Foundry v12](https://img.shields.io/badge/foundry-v12-green)
+<p align="center">
+    <img alt="Foundry Version 12 support" src="https://img.shields.io/badge/Foundry-v12-informational">
+    <img alt="Latest Release Download Count" src="https://img.shields.io/github/downloads/philote/eat-the-reich/latest/total"> 
+    <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/philote/eat-the-reich"> 
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/philote/eat-the-reich">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/philote/eat-the-reich">
+</p>
+<p align="center">
+    <img alt="GitHub" src="https://img.shields.io/github/license/philote/eat-the-reich"> 
+    <a href="https://github.com/philote/eat-the-reich/issues">
+        <img alt="GitHub issues" src="https://img.shields.io/github/issues/philote/eat-the-reich">
+    </a> 
+    <a href="https://github.com/philote/eat-the-reich/network">
+        <img alt="GitHub forks" src="https://img.shields.io/github/forks/philote/eat-the-reich">
+    </a> 
+    <a href="https://github.com/philote/eat-the-reich/stargazers">
+        <img alt="GitHub stars" src="https://img.shields.io/github/stars/philote/eat-the-reich">
+    </a>
+</p>
+<p align="center">
+   	<a href='https://ko-fi.com/G2G3I91JQ' target='_blank'>
+        <img height='36' style='border:0px;height:36px;' src='https://storage.ko-fi.com/cdn/kofi3.png?v=6' border='0' alt='Buy Me a Coffee at ko-fi.com' />
+    </a>
+</p>
 
-This system is an Eat The Reich system that you can use as a starting point for building your own custom systems. It's similar to Simple World-building, but has examples of creating attributes in code rather than dynamically through the UI.
+### An Unofficial EAT THE REICH System for Foundry VTT
+EAT THE REICH is a chaotic, ultraviolent tabletop RPG where players take on the roles of vampiric commandos on a bloody mission to tear through Nazi-occupied France during World War II. Written by [Grant Howitt](https://bsky.app/profile/gshowitt.bsky.social) and illustrated by [Will Kirkby](https://bsky.app/profile/chamonkee.bsky.social), and published by [Rowan, Rook and Decard](https://rowanrookanddecard.com). The game blends pulpy action, dark humor, and horror as players use their supernatural abilities to slaughter Nazis and consume their blood. With fast-paced mechanics and a rebellious tone, EAT THE REICH delivers an over-the-top, cathartic power fantasy drenched in gore and irreverence.
 
-### Getting Help
+Find the books here: 
+[EAT THE REICH](https://rowanrookanddecard.com/product-category/game-systems/eat-the-reich)
 
-Check out the [Official Foundry VTT Discord](https://discord.gg/foundryvtt)! The #system-development channel has helpful pins and is a good place to ask questions about any part of the foundry application.
+This Eat the Reich Package for Foundry VTT is an independent production by Joseph Hopson (ephson) and is not affiliated with Rowan, Rook and Decard or Will Kirkby. It is published under the RR&D Community License.
 
-For more static references, the [Knowledge Base](https://foundryvtt.com/kb/) and [API Documentation](https://foundryvtt.com/api/) provide different levels of detail. For the most detail, you can find the client side code in your foundry installation location. Classes are documented in individual files under `resources/app/client` and `resources/app/common`, and the code is collated into a single file at `resources/app/public/scripts/foundry.js`.
+If you’ve enjoyed my work and find value in what I create, please consider supporting me with a small donation on [Ko-fi](https://ko-fi.com/G2G3I91JQ). I truly love what I do, and your support helps me dedicate time and resources to ongoing development. Every contribution, no matter the size, makes a difference and allows me to continue doing what I’m passionate about. Thank you for considering—it means the world to me.
 
-#### Tutorial
+## Screenshot
+![Screenshot of the character sheet](assets/screenshot.webp)
+<!-- ![Screenshot of some of the items in the compendium](assets/screenshot2.webp)
+![Screenshot of the Overlord and NPC sheets](assets/screenshot3.webp) -->
 
-For much more information on how to use this system as a starting point for making your own, see the [full tutorial on the Foundry Wiki](https://foundryvtt.wiki/en/development/guides/SD-tutorial)!
+## How to Install
+You can install the latest released version of the system by using this manifest link in Foundry VTT. [Instructions](https://foundryvtt.com/article/tutorial/): [module.json](https://github.com/philote/eat-the-reich/releases/latest/download/module.json)
 
-Note: Tutorial may be out of date, so look out for the Foundry compatibility badge at the top of each page.
+## Features
+- Character Sheet
 
-## Sheet Layout
+### TODO
+- Dice Rolling support
+- NPC Sheet
+- Compendiums
+    - Pre-gens
+    - Pre-gen Items
+- Paris Scene
+- Play/Edit mode for character sheets
 
-This system includes a handful of helper CSS classes to help you lay out your sheets if you're not comfortable diving into CSS fully. Those are:
-
-- `flexcol`: Included by Foundry itself, this lays out the child elements of whatever element you place this on vertically.
-- `flexrow`: Included by Foundry itself, this lays out the child elements of whatever element you place this on horizontally.
-- `flex-center`: When used on something that's using flexrow or flexcol, this will center the items and text.
-- `flex-between`: When used on something that's using flexrow or flexcol, this will attempt to place space between the items. Similar to "justify" in word processors.
-- `flex-group-center`: Add a border, padding, and center all items.
-- `flex-group-left`: Add a border, padding, and left align all items.
-- `flex-group-right`: Add a border, padding, and right align all items.
-- `grid`: When combined with the `grid-Ncol` classes, this will lay out child elements in a grid.
-- `grid-Ncol`: Replace `N` with any number from 1-12, such as `grid-3col`. When combined with `grid`, this will layout child elements in a grid with a number of columns equal to the number specified.
-
-## Compiling the CSS
-
-This repo includes both CSS for the theme and SCSS source files. If you're new to CSS, it's probably easier to just work in those files directly and delete the SCSS directory. If you're interested in using a CSS preprocessor to add support for nesting, variables, and more, you can run `npm install` in this directory to install the dependencies for the scss compiler. After that, just run `npm run build` to compile the SCSS and start a process that watches for new changes.
-
-<!-- ![image](http://mattsmith.in/images/eat-the-reich.png) -->
-
-## Lics
-This Eat the Reich Foundry VTT Package is an independent production by Joseph Hopson (ephson) and is not affiliated with Rowan, Rook and Decard or Will Kirkby. It is published under the RR&D Community License.\
-
+# License & Acknowledgements
 The ‘Eat The Reich’ game is copyright © 2023 Rowan, Rook and Decard. All artwork in the game is copyright © 2023 Will Kirkby. You can find out more and support these games at [rowanrookanddecard.com](https://rowanrookanddecard.com) \
 
 https://rowanrookanddecard.com/rrd-community-licence
