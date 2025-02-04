@@ -56,6 +56,6 @@ You can install the latest released version of the system by using this manifest
 - Play/Edit mode for character sheets
 
 # License & Acknowledgements
-The ‘Eat The Reich’ game is copyright © 2023 Rowan, Rook and Decard. All artwork in the game is copyright © 2023 Will Kirkby. You can find out more and support these games at [rowanrookanddecard.com](https://rowanrookanddecard.com) \
+The ‘Eat The Reich’ game is copyright © 2023 Rowan, Rook and Decard. All artwork in the game is copyright © 2023 Will Kirkby. You can find out more and support these games at [rowanrookanddecard.com](https://rowanrookanddecard.com)
 
 https://rowanrookanddecard.com/rrd-community-licence
