@@ -1,0 +1,66 @@
+{
+  "ETR": {
+    "Placeholder": {
+      "name": "Name",
+      "penalty": "Penalty",
+      "description": "Description"
+    },
+    "Stats": {
+      "Brawl": "Brawl",
+      "Con": "Con",
+      "Fix": "Fix",
+      "Search": "Search",
+      "Shoot": "Shoot",
+      "Sneak": "Sneak",
+      "Terrify": "Terrify"
+    },
+    "SheetLabels": {
+      "Actor": "Eat The Reich Actor Sheet",
+      "Item": "Eat The Reich Item Sheet"
+    },
+    "Actor": {
+      "Character": {
+        "equipment": "Equipment",
+        "blood": "Blood",
+        "loot": "Loot",
+        "abilities": "Abilities",
+        "advancements": "Advancements",
+        "injuries": "Injuries",
+        "lastStand": "Last Stand:"
+      },
+      "NPC": {
+
+      }
+    },
+    "Item": {
+      "base": {
+        "FIELDS": {
+          "description": {"label": "Description"},
+          "bonus": {
+            "label": "Bonus",
+            "hint": "This is the bonus value of the item"
+          },
+          "isActive": {
+            "label": "Active",
+            "hint": "This is the active status of the loot"
+          },
+          "selected": {"label": "Selected"},
+          "uses": {"label": "Uses"}
+        }
+      },
+      "name": "Name"
+    }
+  },
+  "TYPES": {
+    "Actor": {
+      "character": "Character",
+      "npc": "NPC"
+    },
+    "Item": {
+      "ability": "Ability",
+      "advance": "Advance",
+      "equipment": "Equipment",
+      "loot": "Loot"
+    }
+  }
+}

@@ -1,0 +1,463 @@
+<div class="scrollable">
+	{{! Sheet Header }}
+	<header class="sheet-header">
+		<img
+			class="profile-img"
+			src="{{actor.img}}"
+			data-edit="img"
+			data-action="onEditImage"
+			title="{{actor.name}}"
+			height="100"
+			width="100"
+		/>
+		<div class="stat-group">
+			{{!-- <h4>Stats</h4> --}}
+			<div class='stats flexcol'>
+				{{#each system.stats as |stat key|}}
+				<div class='stat'>
+					<label
+						class='resource-label rollable flexlarge align-right'
+						data-action='roll'
+						data-roll='(@stats.{{key}}.current)d6'
+						data-label='{{localize (lookup @root.config.stats key)}}'
+						>{{localize (lookup @root.config.stats key)}}</label>
+					<input
+						type='text'
+						name='system.stats.{{key}}.value'
+						value='{{stat.value}}'
+						class="stat-score"
+						data-dtype='Number'
+					/>
+					/
+					<input
+						type='text'
+						name='system.stats.{{key}}.current'
+						value='{{stat.current}}'
+						class="stat-score"
+						data-dtype='Number'
+					/>
+				</div>
+				{{/each}}
+			</div>
+		</div>
+		<div class="header-fields">
+			<h1 class="document-name">
+				<input 
+					name="name" 
+					type="text" 
+					value="{{actor.name}}" 
+					placeholder="{{localize "ETR.Placeholder.name"}}" 
+				/>
+			</h1>
+			{{#if editable}}
+				<prose-mirror
+					name="system.description"
+					data-document-u-u-i-d="{{actor.uuid}}"
+					value="{{system.description}}"
+					collaborate="true"
+					toggled="true"
+				>
+					{{{enrichedDescription}}}
+				</prose-mirror>
+			{{else}}
+				{{{enrichedDescription}}}
+			{{/if}}
+		</div>
+
+	</header>
+	<section class="body">
+		<aside class="sidebar">
+			<h3 class="title_rotated">{{localize "ETR.Actor.Character.blood"}}</h3>
+			{{#times system.blood.max}}
+			<div class="blood-step">
+				<span>{{inc @index}}</span>
+				<input
+					type="checkbox"
+					class="blood"
+					data-action="onBloodUpdate"
+					data-property="system.blood.value"
+					data-value="{{@index}}"
+					{{checked (gt ../system.blood.value @index)}}
+				/>
+			</div>
+			{{/times}}
+		</aside>
+		<section class="main">
+			<div class="equipment">
+				<h2>
+					{{localize "ETR.Actor.Character.equipment"}}
+					<div class="item-controls">
+						{{#if @root.editable}}
+							<button
+								class="item-control item-create"
+								title="{{localize 'DOCUMENT.Create' type="Item"}}"
+								data-action="createDoc"
+								data-document-class="Item"
+								data-type="equipment"
+							>
+								<i class="fas fa-plus"></i>
+							</button>
+						{{/if}}
+					</div>
+				</h2>
+				<ol class="items-list">
+					{{#each equipment as |item id|}}
+						<li
+							class="item flexrow"
+							data-item-id="{{item._id}}"
+							data-drag="true"
+							data-document-class="Item"
+						>
+							<div class="item-info {{#if (eq system.uses.max system.uses.value)}}used{{/if}}">
+								<span class="item-name">{{item.name}}</span>
+								<span class="item-bounus">{{item.system.bonus.value}}</span>
+							</div>
+							<div class="uses clock-widget clock-list-item">
+								<div class="boxes">
+									{{#times system.uses.max}}
+										<input
+											type="checkbox"
+											class="uses"
+											data-action="onClockUpdate"
+											data-property="system.uses"
+											data-value="{{@index}}"
+											{{checked (gt item.system.uses.value @index)}}
+										/>
+									{{/times}}
+								</div>
+							</div>
+							<div class="item-controls">
+								<a
+									class="item-control item-edit"
+									title="{{localize 'DOCUMENT.Update' type="Equipment"}}"
+									data-action="viewDoc"
+								>
+									<i class="fas fa-edit"></i>
+								</a>
+								{{#if @root.editable}}
+									<a
+										class="item-control item-delete"
+										title="{{localize 'DOCUMENT.Delete' type="Equipment"}}"
+										data-action="deleteDoc"
+									>
+										<i class="fas fa-trash"></i>
+									</a>
+								{{/if}}
+							</div>
+						</li>
+					{{/each}}
+				</ol>
+			</div>
+			<div class="loot">
+				<h4>
+					{{localize "ETR.Actor.Character.loot"}}
+					<div class="item-controls">
+						{{#if (lte loot.length 0)}}
+							<button
+								class="item-control item-create"
+								title="{{localize 'DOCUMENT.Create' type="Item"}}"
+								data-action="createDoc"
+								data-document-class="Item"
+								data-type="loot"
+							>
+								<i class="fas fa-plus"></i>
+							</button>
+						{{/if}}
+					</div>
+				</h4>
+				<ol class="items-list">
+					{{#each loot as |item id|}}
+						<li
+							class="item flexrow"
+							data-item-id="{{item._id}}"
+							data-drag="true"
+							data-document-class="Item"
+						>
+							<div class="item-info">
+								<span class="item-name">{{item.name}}</span>
+								<span class="item-bounus">{{item.system.bonus.value}}</span>
+							</div>
+							<div class="uses clock-widget clock-list-item">
+								<div class="boxes">
+									{{#times system.uses.max}}
+										<input
+											type="checkbox"
+											class="uses"
+											data-action="onClockUpdate"
+											data-property="system.uses"
+											data-value="{{@index}}"
+											{{checked (gt item.system.uses.value @index)}}
+										/>
+									{{/times}}
+								</div>
+							</div>
+							<div class="item-controls">
+								<a
+									class="item-control item-edit"
+									title="{{localize 'DOCUMENT.Update' type="Loot"}}"
+									data-action="viewDoc"
+								>
+									<i class="fas fa-edit"></i>
+								</a>
+								{{#if @root.editable}}
+									<a
+										class="item-control item-delete"
+										title="{{localize 'DOCUMENT.Delete' type="Loot"}}"
+										data-action="deleteDoc"
+									>
+										<i class="fas fa-trash"></i>
+									</a>
+								{{/if}}
+							</div>
+						</li>
+					{{/each}}
+				</ol>
+			</div>
+			<div class="abilities">
+				<h2>{{localize "ETR.Actor.Character.abilities"}}
+					<div class="item-controls">
+						{{#if @root.editable}}
+							<button
+								class="item-control item-create"
+								title="{{localize 'DOCUMENT.Create' type="Item"}}"
+								data-action="createDoc"
+								data-document-class="Item"
+								data-type="ability"
+							>
+								<i class="fas fa-plus"></i>
+							</button>
+						{{/if}}
+					</div>
+				</h2>
+				<ol class="items-list">
+					{{#each abilities as |item id|}}
+						<li
+							class="item flexrow"
+							data-item-id="{{item._id}}"
+							data-drag="true"
+							data-document-class="Item"
+						>
+							<div class="item-info">
+								<span class="item-name">{{item.name}}</span>
+								<span class="item-description">{{item.system.description.value}}</span>
+								<span class="item-bounus">{{item.system.bonus.value}}</span>
+							</div>
+							<div class="item-controls">
+								<a
+									class="item-control item-edit"
+									title="{{localize 'DOCUMENT.Update' type="ability"}}"
+									data-action="viewDoc"
+								>
+									<i class="fas fa-edit"></i>
+								</a>
+								{{#if @root.editable}}
+									<a
+										class="item-control item-delete"
+										title="{{localize 'DOCUMENT.Delete' type="ability"}}"
+										data-action="deleteDoc"
+									>
+										<i class="fas fa-trash"></i>
+									</a>
+								{{/if}}
+							</div>
+						</li>
+					{{/each}}
+				</ol>
+			</div>
+			<div class="advancements">
+				<h2>{{localize "ETR.Actor.Character.advancements"}}
+					<div class="item-controls">
+						{{#if @root.editable}}
+							<button
+								class="item-control item-create"
+								title="{{localize 'DOCUMENT.Create' type="Item"}}"
+								data-action="createDoc"
+								data-document-class="Item"
+								data-type="advance"
+							>
+								<i class="fas fa-plus"></i>
+							</button>
+						{{/if}}
+					</div>
+				</h2>
+				<ol class="items-list">
+					{{#each advances as |item id|}}
+						<li
+							class="item flexrow"
+							data-item-id="{{item._id}}"
+							data-drag="true"
+							data-document-class="Item"
+						>
+							<input
+								type="checkbox"
+								class="advance-selected"
+								data-action="onAdvanceSelected"
+								data-property="system.selected.value"
+								{{checked item.system.selected.value}}
+							/>
+							<div class="item-info {{#if (eq system.selected.value false)}}used{{/if}}">
+								<span class="item-name">{{item.name}}</span>
+								<span class="item-description">{{item.system.description.value}}</span>
+								<span class="item-bounus">{{item.system.bonus.value}}</span>
+							</div>
+							<div class="item-controls">
+								<a
+									class="item-control item-edit"
+									title="{{localize 'DOCUMENT.Update' type="advance"}}"
+									data-action="viewDoc"
+								>
+									<i class="fas fa-edit"></i>
+								</a>
+								{{#if @root.editable}}
+									<a
+										class="item-control item-delete"
+										title="{{localize 'DOCUMENT.Delete' type="advance"}}"
+										data-action="deleteDoc"
+									>
+										<i class="fas fa-trash"></i>
+									</a>
+								{{/if}}
+							</div>
+						</li>
+					{{/each}}
+				</ol>
+			</div>
+			<div class="injuries">
+				<h2>{{localize "ETR.Actor.Character.injuries"}}</h2>
+				<div class="grid grid-3col">
+					<h4>1-2</h4>
+					<h4>3-4</h4>
+					<h4>5-6</h4>
+
+					{{!-- 1-2 --}}
+					<div class="injury">
+						<input
+							type="checkbox"
+							name="system.injuries.oneTwo.first.selected"
+							{{checked system.injuries.oneTwo.first.selected}}
+						/>
+						<input 
+							type="text" 
+							name="system.injuries.oneTwo.first.name"
+							value="{{system.injuries.oneTwo.first.name}}" 
+							placeholder="{{localize "ETR.Placeholder.name"}}"
+							data-dtype="String"/>
+					</div>
+					{{!-- 3-4 --}}
+					<div class="injury">
+						<input
+							type="checkbox"
+							name="system.injuries.threeFour.first.selected"
+							{{checked system.injuries.threeFour.first.selected}}
+						/>
+						<input 
+							type="text" 
+							name="system.injuries.threeFour.first.name" 
+							value="{{system.injuries.threeFour.first.name}}" 
+							placeholder="{{localize "ETR.Placeholder.name"}}"
+							data-dtype="String"/>
+					</div>
+					{{!-- 5-6 --}}
+					<div class="injury">
+						<input
+							type="checkbox"
+							name="system.injuries.fiveSix.first.selected"
+							{{checked system.injuries.fiveSix.first.selected}}
+						/>
+						<input 
+							type="text" 
+							name="system.injuries.fiveSix.first.name" 
+							value="{{system.injuries.fiveSix.first.name}}" 
+							placeholder="{{localize "ETR.Placeholder.name"}}"
+
+							data-dtype="String"/>
+					</div>
+
+					{{!-- 1-2:severeInjury --}}
+					<div class="injury severeInjury">
+						<div class="flexrow">
+							<input
+								type="checkbox"
+								name="system.injuries.oneTwo.second.selected"
+								{{checked system.injuries.oneTwo.second.selected}}
+							/>
+							<input 
+								type="text" 
+								name="system.injuries.oneTwo.second.name" 
+								value="{{system.injuries.oneTwo.second.name}}" 
+								placeholder="{{localize "ETR.Placeholder.name"}}"
+								data-dtype="String"/>
+						</div>
+						<input 
+							type="text" 
+							name="system.injuries.oneTwo.second.penalty" 
+							value="{{system.injuries.oneTwo.second.penalty}}" 
+							placeholder="{{localize "ETR.Placeholder.penalty"}}"
+							data-dtype="String"/>
+					</div>
+					{{!-- 3-4:severeInjury --}}
+					<div class="injury severeInjury">
+						<div class="flexrow">
+							<input
+								type="checkbox"
+								name="system.injuries.threeFour.second.selected"
+								{{checked system.injuries.threeFour.second.selected}}
+							/>
+							<input 
+								type="text" 
+								name="system.injuries.threeFour.second.name" 
+								value="{{system.injuries.threeFour.second.name}}" 
+								placeholder="{{localize "ETR.Placeholder.name"}}"
+								data-dtype="String"/>
+						</div>
+						<input 
+							type="text" 
+							name="system.injuries.threeFour.second.penalty" 
+							value="{{system.injuries.threeFour.second.penalty}}" 
+							placeholder="{{localize "ETR.Placeholder.penalty"}}"
+							data-dtype="String"/>
+					</div>
+					{{!-- 5-6:severeInjury --}}
+					<div class="injury severeInjury">
+						<div class="flexrow">
+							<input
+								type="checkbox"
+								name="system.injuries.fiveSix.second.selected"
+								{{checked system.injuries.fiveSix.second.selected}}
+							/>
+							<input 
+								type="text" 
+								name="system.injuries.fiveSix.second.name" 
+								value="{{system.injuries.fiveSix.second.name}}" 
+								placeholder="{{localize "ETR.Placeholder.name"}}"
+								data-dtype="String"/>
+						</div>
+						<input 
+							type="text" 
+							name="system.injuries.fiveSix.second.penalty" 
+							value="{{system.injuries.fiveSix.second.penalty}}" 
+							placeholder="{{localize "ETR.Placeholder.penalty"}}"
+							data-dtype="String"/>
+					</div>
+				</div>
+			</div>
+			<div class="last-stand">
+				<h4>{{localize "ETR.Actor.Character.lastStand"}}</h4>
+				<input 
+					type="text" 
+					name="system.lastStand.name" 
+					value="{{system.lastStand.name}}" 
+					placeholder="{{localize "ETR.Placeholder.name"}}"
+					data-dtype="String"/>
+				<span>(</span>
+				<input 
+					type="Number" 
+					name="system.lastStand.dice" 
+					value="{{system.lastStand.dice}}" 
+					placeholder="{{localize "ETR.Placeholder.name"}}"
+					data-dtype="Number"/>
+				<span>D6)</span>
+			</div>
+		</section>
+	</section>
+</div>

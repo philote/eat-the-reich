@@ -1,0 +1,37 @@
+<section class="equipment">
+	<div class="uses clock-widget">
+		<label>Uses</label>
+		<div class="controls">
+			<button
+				type="button"
+				data-action="onClockUpdate"
+				data-action-type="sizeIncrease"
+				data-property="system.uses"
+			>
+				<i class="fa-solid fa-plus"></i>
+			</button>
+			<button
+				type="button"
+				data-action="onClockUpdate"
+				data-action-type="sizeDecrease"
+				data-property="system.uses"
+				{{#if (lte system.uses.max 1)}}disabled{{/if}}
+			>
+				<i class="fa-solid fa-minus"></i>
+			</button>
+		</div>
+		<div class="boxes">
+		{{#times system.uses.max}}
+			<input
+				type="checkbox"
+				class="uses"
+				data-action="onClockUpdate"
+				data-action-type="valueUpdate"
+				data-property="system.uses"
+				data-value="{{@index}}"
+				{{checked (gt ../system.uses.value @index)}}
+			/>
+		{{/times}}
+		</div>
+	</div>
+</section>

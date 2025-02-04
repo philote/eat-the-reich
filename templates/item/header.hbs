@@ -1,0 +1,15 @@
+<header class="sheet-header">
+	<div class="header-fields">
+		{{formInput
+			fields.name
+			name="name"
+			value=item._source.name
+			placeholder=(localize "Name")
+		}}
+		{{formInput 
+			systemFields.bonus.fields.value 
+			value=system.bonus.value 
+			placeholder=(localize "Bonus")
+		}}
+	</div>
+</header>

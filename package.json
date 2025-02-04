@@ -1,0 +1,21 @@
+{
+  "name": "eat-the-reich",
+  "version": "2.0.0",
+  "description": "CSS compiler for the Eat The Reich system",
+  "scripts": {
+    "build": "sass src/scss/eat-the-reich.scss css/eat-the-reich.css --style=expanded --no-source-map",
+    "watch": "sass src/scss/eat-the-reich.scss css/eat-the-reich.css --style=expanded --source-map --watch",
+    "pushLDBtoJSON": "node ./tools/pushLDBtoJSON.mjs",
+    "pullJSONtoLDB": "node ./tools/pullJSONtoLDB.mjs"
+  },
+  "browserslist": [
+    "last 3 versions"
+  ],
+  "author": "Joseph Hopson (ephson)",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@foundryvtt/foundryvtt-cli": "^1.0.3",
+    "sass": "^1.53.0"
+  }
+}

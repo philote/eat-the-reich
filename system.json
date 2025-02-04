@@ -1,0 +1,74 @@
+{
+	"id": "eat-the-reich",
+	"title": "Eat the Reich",
+	"description": "The Eat the Reich system for FoundryVTT",
+	"version": "#{VERSION}#",
+	"compatibility": {
+		"minimum": 12,
+		"verified": "12.331",
+		"maximum": 12
+	},
+	"authors": [
+		{
+			"name": "ephson",
+			"url": "https://github.com/philote",
+			"discord": "ephson",
+			"reddit": "u/ephson"
+		}
+	],
+	"documentTypes": {
+		"Actor": {
+			"character": {
+				"htmlFields": ["description"]
+			},
+			"npc": {
+				"htmlFields": [
+					"description",
+					"attack.description",
+					"challenge.description",
+					"extra.description"
+				]
+			}
+		},
+		"Item": {
+			"ability": {},
+			"advance": {},
+			"equipment": {},
+			"loot": {}
+		}
+	},
+	"flags": {
+		"hotReload": {
+			"extensions": ["css", "html", "hbs", "json"],
+			"paths": ["css", "lang", "templates"]
+		}
+	},
+	"esmodules": ["module/eat-the-reich.mjs"],
+	"styles": ["css/eat-the-reich.css"],
+	"languages": [
+		{
+			"lang": "en",
+			"name": "English",
+			"path": "lang/en.json"
+		}
+	],
+	"packs": [],
+	"packFolders": [],
+	"url": "#{URL}#",
+	"manifest": "#{MANIFEST}#",
+	"download": "#{DOWNLOAD}#",
+	"license": "LICENSE.txt",
+	"readme": "README.md",
+	"bugs": "Replace this with a link to file issues or tickets",
+	"changelog": "CHANGELOG.md",
+	"primaryTokenAttribute": "blood",
+	"secondaryTokenAttribute": null,
+	"background": "systems/eat-the-reich/assets/cover.webp",
+	"media": [
+		{
+			"type": "setup",
+			"url": "systems/eat-the-reich/assets/cover.webp",
+			"thumbnail": "systems/eat-the-reich/assets/cover.webp"
+		}
+	]
+}

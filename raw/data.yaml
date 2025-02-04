@@ -1,0 +1,104 @@
+Roll Mechanics
+  Player action - Dice Pool
+  - pick a stat (or roll 2 dice)
+  - get dice equal to the stat
+  - add dice from equipment, abilities, advances, and injuries
+  - ROLL
+  - discard 1,2,3s
+  - 4,5 success +1 damage, defense or blood
+  - 6 critical success +2 damage, defense, blood or activate a SPECIAL
+  - allocate dice: (As you allocate each dice, add one detail that describes the scene as it happens. If those details satisfy new bonus dice conditions on the equipment or abilities you’re using, you can roll those bonus dice at this stage.)
+    - advance an objective: reduce the Objective’s rating by 1, critical by 2
+    - eliminate a threat: reduce the Threat’s rating by 1, critical by 2
+    - defend against an attack: remove one of the GM’s Attack dice, critical remove two
+    - feed on a nazi +blood: gain 1 Blood, critical 2 Blood
+    - activate a SPECIAL: Only usable when a critical is rolled
+
+  GM action - Threat Pool
+  - get dice equal to the Threat Attack Rating
+  - ROLL
+  - discard 1,2,3s
+  - 4,5,6 success +1 damage
+  - After Player allocation of Dice: if the GM has Attack dice remaining, you roll [1d6] for a category and mark an Injury. If the GM has three or more Attack dice remaining, you instead mark all Injuries in that category and are Downed 
+
+  Flashbacks (when 2 success the button shows on the chat)
+    Roll on the flashback tables to define a question, or choose one that appeals
+    When your flashback is over, add 2 dice to your pool, then roll all of your dice again. The second result stands.
+
+Character
+  name [String]
+  image
+  Stats
+    BRAWL [initial / modified]
+    CON [initial / modified]
+    FIX [initial / modified]
+    SEARCH [initial / modified]
+    SHOOT [initial / modified]
+    SNEAK [initial / modified]
+    TERRIFY [initial / modified]
+  EQUIPMENT [Items]
+    - The last use of any item of equipment that starts with more than one use adds an additional bonus dice to the pool.
+    name [String]
+    description [HTMLField]
+    Uses
+    Bonus Die [requirement, number of dice]
+  Loot [Items] (only one is active at a time)
+    isActive [Boolean]
+    Name [String]
+    description [HTMLField]
+    Uses
+    Bonus Die [requirement, number of dice]
+  Blood
+    Uses
+  ABILITIES [Items]
+    name [String]
+    description [HTMLField]
+    Bonus Die [requirement, number of dice]
+  ADVANCES [Items]
+    name [String]
+    description [HTMLField]
+    Bonus Die [requirement, number of dice]
+    Selected [Boolean]
+  INJURIES [set of checkboxes]
+    category {1-2, 3-4, 5-6}
+    name [String]
+    mods [string]
+    Selected [Boolean]
+  LAST STAND
+    name [String]
+    dice ???
+
+NPC (Threat)
+  name [String]
+  image
+  Attack [Int, rollable] (When a Threat’s rating is reduced to 0, reduce its Attack to 0)
+    If the GM rolls zero successes on their Attack dice, increase the Threat’s Attack by 1, once the player has resolved their action.
+    add a message to the chat log that the Threat’s Attack has increased by 1.
+  Attack Description [String]
+  Threat Rating [Uses]
+  Description [HTMLField]
+  REINFORCEMENTS [Button] 
+    when threat is reduced to 0, show a button to restore threat by 1D6 & reduce Attack by 1
+    Make this a setting?
+  Challenge Rating 
+    negates successes spent to lower its rating equal to its Challenge
+  Challenge Description [String]
+  Extra Rules/Info [List]
+    Name [String]
+    Description [HTMLField]
+
+Übermenschen
+
+Location
+  Could Use code from clocks to do this objectives OR make locations actors and have the objective clock on the token
+  Objective [Objective]
+  Secondary Objectives [Objective]
+  description [HTMLField]
+  enemies [Threats]
+  Loot [Items]
+
+Objective
+  Name [String]
+  Description [HTMLField]
+  Challenge Rating 
+    negates successes spent to lower its rating equal to its Challenge
