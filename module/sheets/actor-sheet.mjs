@@ -371,24 +371,59 @@ export class EatTheReichActorSheet extends api.HandlebarsApplicationMixin(
 		event.preventDefault();
 		const dataset = target.dataset;
 
-		// Handle item rolls.
+		// console.log('dataset', dataset);
+		// console.log('this.actor.getRollData()', this.actor.getRollData());
+
+		const stat = dataset.stat
 		switch (dataset.rollType) {
-			case "item":
-				const item = this._getEmbeddedDocument(target);
-				if (item) return item.roll();
+			case "stat": {
+				let label = dataset.label ? dataset.label : "";
+				let stat = dataset.stat ? parseInt(dataset.stat) : 0;
+				
+				console.log('stat', stat);
+				// create dialog -> roll -> chat
+				// let roll = new Roll(`${stat}d6`, this.actor.getRollData());
+				// await roll.toMessage({
+				// 	speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+				// 	flavor: label,
+				// 	rollMode: game.settings.get("core", "rollMode"),
+				// });
+				const content = await renderTemplate("systems/eat-the-reich/templates/dialog/stat-roll.hbs", {
+					stat: stat,
+					label: label,
+				});
+
+				const rollDialog = await foundry.applications.api.DialogV2.wait({
+					window: { title: "EAT THE REICH Roll" },
+					content,
+					modal: true,
+					buttons: [
+						{
+							label: "Roll the Dice",
+							action: "roll",
+							callback: (event, button, dialog) => {
+								return { 
+									dice: button.form.elements.totalDiceInput.value, 
+								 };
+							}
+						}
+					],
+				});
+				console.log("rollDialog.dice", rollDialog.dice);
+			}
 		}
 
 		// Handle rolls that supply the formula directly.
-		if (dataset.roll) {
-			let label = dataset.label ? `[ability] ${dataset.label}` : "";
-			let roll = new Roll(dataset.roll, this.actor.getRollData());
-			await roll.toMessage({
-				speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-				flavor: label,
-				rollMode: game.settings.get("core", "rollMode"),
-			});
-			return roll;
-		}
+		// if (dataset.roll) {
+		// 	let label = dataset.label ? `[ability] ${dataset.label}` : "";
+		// 	let roll = new Roll(dataset.roll, this.actor.getRollData());
+		// 	await roll.toMessage({
+		// 		speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+		// 		flavor: label,
+		// 		rollMode: game.settings.get("core", "rollMode"),
+		// 	});
+		// 	return roll;
+		// }
 	}
 
 	/** Helper Functions */

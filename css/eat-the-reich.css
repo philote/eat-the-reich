@@ -1,17 +1,45 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+/* Utilities. */
+@font-face {
+  font-family: "Yonkers";
+  src: url("../assets/fonts/Yonkers/Yonkers.ttf") format("truetype");
+}
+@font-face {
+  font-family: "veteran typewriter";
+  src: url("../assets/fonts/veteran-typewriter/veteran typewriter.ttf") format("truetype");
+}
+@font-face {
+  font-family: "gabriele-l";
+  src: url("../assets/fonts/gabriele/gabriele-l.ttf") format("truetype");
+}
+@font-face {
+  font-family: "gabriele-d";
+  src: url("../assets/fonts/gabriele/gabriele-d.ttf") format("truetype");
+}
+@font-face {
+  font-family: "gabriele-br";
+  src: url("../assets/fonts/gabriele/gabriele-br.ttf") format("truetype");
+}
+@font-face {
+  font-family: "gabriele-bad";
+  src: url("../assets/fonts/gabriele/gabriele-bad.ttf") format("truetype");
+}
 :root {
   --etr-c-dark: #191813;
   --etr-c-dark-trans: rgba(25, 24, 19, 0.75);
+  --etr-c-dark-trans-lt: rgba(25, 24, 19, 0.25);
   --etr-c-faint: #c9c7b8;
   --etr-c-beige: #b5b3a4;
   --etr-c-tan: #444444;
   --etr-c-white: #ffffff;
   --etr-c-black: #000000;
+  --etr-c-link: rgb(229, 156, 178);
+  --etr-c-link-shadow: rgb(213, 75, 116);
 }
 
 .theme-dark {
   --etr-c-dark: #c9c7b8;
   --etr-c-dark-trans: rgba(201, 199, 184, 0.75);
+  --etr-c-dark-trans-lt: rgba(201, 199, 184, 0.25);
   --etr-c-faint: #191813;
   --etr-c-beige: #444444;
   --etr-c-tan: #b5b3a4;
@@ -22,8 +50,9 @@
 }
 
 /* Global styles */
+/* Utilities. */
 .window-app {
-  font-family: "Roboto", sans-serif;
+  font-family: "gabriele-l", "Courier New", monospace;
 }
 
 .rollable:hover, .rollable:focus {
@@ -243,9 +272,37 @@
   text-align: center;
 }
 
+/* Dialogs */
+.dialog .etr-form-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.dialog .etr-form-group label {
+  flex: 4;
+  text-align: left;
+  margin-right: 10px;
+}
+.dialog .etr-form-group input[type=number] {
+  flex: 1;
+  padding: 0 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  text-align: right;
+}
+.dialog .etr-form-group input[type=number]:focus {
+  outline: none;
+  border-color: #007BFF;
+  box-shadow: 0 0 4px #ccc;
+}
+
 /* Styles limited to eat-the-reich sheets */
+/* Utilities. */
+/* Utilities. */
+/* Utilities. */
 .eat-the-reich {
-  font-family: "Roboto", sans-serif;
+  font-family: "gabriele-l", "Courier New", monospace;
   color: var(--etr-c-black);
 }
 .eat-the-reich button {
@@ -254,6 +311,17 @@
 }
 .eat-the-reich button i {
   margin: 0;
+}
+.eat-the-reich textarea {
+  background: var(--color-cool-4);
+  --color-text-selection-bg: var(--color-cool-3);
+  min-height: 20px;
+  padding: 0.5rem;
+  font-family: "gabriele-l", "Courier New", monospace;
+  color: var(--color-light-3);
+  user-select: text;
+  resize: none;
+  align-content: center;
 }
 .eat-the-reich input[type=checkbox]::before {
   color: var(--etr-c-dark-trans);
@@ -272,30 +340,32 @@
   font-size: var(--font-size-48);
 }
 .eat-the-reich h2 {
-  font-size: var(--font-size-18);
+  font-size: var(--font-size-20);
 }
 .eat-the-reich h3 {
   font-size: var(--font-size-20);
 }
 .eat-the-reich h4 {
-  font-size: var(--font-size-20);
+  font-size: var(--font-size-18);
+  font-weight: bold;
+  border-bottom: 1px solid var(--etr-c-dark-trans-lt);
 }
 .eat-the-reich h1, .eat-the-reich h2, .eat-the-reich h3 {
   text-shadow: 1px 1px 4px #000;
-  text-transform: uppercase;
-  font-weight: bold;
   border-bottom: 1px solid var(--etr-c-dark-trans);
 }
 .eat-the-reich h1, .eat-the-reich h2, .eat-the-reich h3, .eat-the-reich h4 {
   margin: 1rem 0 0.5rem;
 }
-.eat-the-reich h2, .eat-the-reich h3 {
+.eat-the-reich h2, .eat-the-reich h3, .eat-the-reich h4 {
   padding-left: 10px;
   padding-bottom: 2px;
 }
 .eat-the-reich h1, .eat-the-reich h2, .eat-the-reich h3, .eat-the-reich h4, .eat-the-reich h5, .eat-the-reich h6 {
-  font-family: "Roboto", sans-serif;
+  font-family: Arial, sans-serif;
   color: var(--etr-c-black);
+  font-weight: bold;
+  text-transform: uppercase;
 }
 .eat-the-reich .title_rotated {
   writing-mode: vertical-lr;
@@ -303,10 +373,6 @@
   border-left: 1px solid var(--etr-c-dark-trans);
   padding: 0;
   padding-left: 2px;
-}
-.eat-the-reich prose-mirror,
-.eat-the-reich .editor-container {
-  min-height: 100px;
 }
 .eat-the-reich prose-mirror .editor-content,
 .eat-the-reich .editor-container .editor-content {
@@ -330,15 +396,19 @@
 .eat-the-reich header.sheet-header .stat-group .stats .stat {
   display: grid;
   grid-column: span 4/span 4;
-  grid-template-columns: 40px 40px 5px 40px;
+  grid-template-columns: 60px 40px 5px 40px;
   gap: 5px;
   margin: 1px 0;
   padding: 0;
   align-items: center;
   text-align: center;
 }
-.eat-the-reich header.sheet-header .stat-group .stats .stat input[type=Text] {
-  height: 1.5rem;
+.eat-the-reich header.sheet-header .stat-group .stats .stat .resource-label {
+  font-family: "gabriele-bad", "Courier New", monospace;
+}
+.eat-the-reich header.sheet-header .stat-group .stats .stat input[type=number] {
+  height: 1.3rem;
+  font-weight: bold;
 }
 .eat-the-reich header.sheet-header .header-fields {
   display: flex;
@@ -353,15 +423,18 @@
   text-align: center;
   height: var(--font-size-48);
 }
-.eat-the-reich header.sheet-header .header-fields prose-mirror,
-.eat-the-reich header.sheet-header .header-fields .editor-container {
+.eat-the-reich header.sheet-header .header-fields textarea {
+  background: none;
   text-align: center;
+  min-height: 152px;
+  font-family: "Yonkers", serif;
+  font-size: var(--font-size-16);
 }
 .eat-the-reich header.sheet-header .profile-img {
   flex: 0 0 175px;
-  height: 175px;
+  height: 210px;
   margin: 0;
-  border: 2px solid var(--color-border-dark);
+  border: 2px solid var(--etr-c-beige);
   border-radius: 0px;
 }
 .eat-the-reich .body {
@@ -394,10 +467,13 @@
   flex-direction: column;
   gap: 15px;
 }
-.eat-the-reich .body .main .equipment h2,
+.eat-the-reich .body .main .equipment h2, .eat-the-reich .body .main .equipment h4,
 .eat-the-reich .body .main .loot h2,
+.eat-the-reich .body .main .loot h4,
 .eat-the-reich .body .main .abilities h2,
-.eat-the-reich .body .main .advancements h2 {
+.eat-the-reich .body .main .abilities h4,
+.eat-the-reich .body .main .advancements h2,
+.eat-the-reich .body .main .advancements h4 {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -412,6 +488,7 @@
   padding: 0px 4px;
   font-weight: bold;
   text-shadow: unset;
+  font-family: "gabriele-bad", "Courier New", monospace;
 }
 .eat-the-reich .body .main .injuries .injury {
   display: flex;
@@ -441,6 +518,7 @@
   padding: 0px 2px;
   font-weight: bold;
   text-shadow: unset;
+  font-family: "gabriele-bad", "Courier New", monospace;
 }
 .eat-the-reich .body .main .last-stand input[type=number] {
   width: 45px;
@@ -508,6 +586,7 @@
   flex-wrap: nowrap;
   gap: 4px;
   margin-bottom: 5px;
+  font-family: "gabriele-bad", "Courier New", monospace;
 }
 .eat-the-reich .items-list .item:last-child {
   margin-bottom: 0;

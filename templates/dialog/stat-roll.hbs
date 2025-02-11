@@ -1,0 +1,56 @@
+<div id="etr-roll-dialog">
+	<section class="flexcol">
+		<fieldset class="flexcol">
+			<legend>{{localize "ETR.Dice.dice"}}</legend>
+			<div class="dialog-stats etr-form-group">
+				<label for="stat">{{localize (concat "ETR.Stats." label)}}</label>
+				<input
+					type="number"
+					class="rollDice rollDiceInput"
+					id="stat"
+					name="stat"
+					data-prev="{{diceDefault}}"
+					data-action-input="updateDice"
+					value="{{diceDefault}}"
+					min="0"
+				/>
+			</div>
+			<div class="dialog-equipment etr-form-group">
+				<label for="equipment">{{localize "ETR.Dice.equipment"}}</label>
+				<input
+					type="number"
+					class="rollDice rollDiceInput"
+					id="equipment"
+					name="equipment"
+					data-prev="0"
+					data-action-input="updateEquipmentDice"
+					value="0"
+					min="0"
+				/>
+			</div>
+			<div class="dialog-abilities etr-form-group">
+				<label for="abilities">{{localize "ETR.Dice.abilities"}}</label>
+				<input
+					type="number"
+					class="rollDice rollDiceInput"
+					id="abilities"
+					name="abilities"
+					data-prev="0"
+					data-action-input="updateAbilityDice"
+					value="0"
+					min="0"
+				/>
+			</div>
+            <div class="dialog-total etr-form-group">
+				<label class="total">{{localize "ETR.Dice.total"}}</label>
+				<span id="totalDicePool" class="total">0</span>
+				<input type="hidden" id="totalDicePoolInput" name="totalDicePool">
+			</div>
+		</fieldset>
+	</section>
+</div>
+
+{{!-- <input>
+    Dice: {{stat}}
+    <input type="hidden" id="totalDiceInput" name="totaDice" value="{{stat}}">
+</div> --}}

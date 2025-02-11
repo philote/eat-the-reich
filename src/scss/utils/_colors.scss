@@ -1,16 +1,20 @@
 :root {
   --etr-c-dark: #191813;
   --etr-c-dark-trans: rgba(25, 24, 19, 0.75);
+  --etr-c-dark-trans-lt: rgba(25, 24, 19, 0.25);
   --etr-c-faint: #c9c7b8;
   --etr-c-beige: #b5b3a4;
   --etr-c-tan: #444444;
   --etr-c-white: #ffffff;
   --etr-c-black: #000000;
+  --etr-c-link:  rgb(229, 156, 178);
+  --etr-c-link-shadow: rgb(213, 75, 116);
 }
 
 .theme-dark {
   --etr-c-dark: #c9c7b8;
   --etr-c-dark-trans: rgba(201, 199, 184, 0.75);
+  --etr-c-dark-trans-lt: rgba(201, 199, 184, 0.25);
   --etr-c-faint: #191813;
   --etr-c-beige: #444444;
   --etr-c-tan: #b5b3a4;
@@ -25,6 +29,7 @@ $c-black: var(--etr-c-black);
 
 $c-dark: var(--etr-c-dark);
 $c-dark-trans: var(--etr-c-dark-trans);
+$c-dark-trans-lt: var(--etr-c-dark-trans-lt);
 $c-faint: var(--etr-c-faint);
 $c-beige: var(--etr-c-beige);
 $c-tan: var(--etr-c-tan);

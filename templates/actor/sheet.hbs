@@ -11,18 +11,25 @@
 			width="100"
 		/>
 		<div class="stat-group">
-			{{!-- <h4>Stats</h4> --}}
+			<h4>{{localize "ETR.Actor.Character.Stats.label"}}</h4>
 			<div class='stats flexcol'>
+				<div class='stat'>
+					<span>&nbsp;</span>
+					<span>{{localize "ETR.Actor.Character.Stats.initial"}}</span>
+					<span>&nbsp;</span>
+					<span>{{localize "ETR.Actor.Character.Stats.current"}}</span>
+				</div>
 				{{#each system.stats as |stat key|}}
 				<div class='stat'>
 					<label
 						class='resource-label rollable flexlarge align-right'
 						data-action='roll'
-						data-roll='(@stats.{{key}}.current)d6'
+						data-roll-type="stat"
+						data-stat={{stat.current}}
 						data-label='{{localize (lookup @root.config.stats key)}}'
 						>{{localize (lookup @root.config.stats key)}}</label>
 					<input
-						type='text'
+						type='number'
 						name='system.stats.{{key}}.value'
 						value='{{stat.value}}'
 						class="stat-score"
@@ -30,7 +37,7 @@
 					/>
 					/
 					<input
-						type='text'
+						type='number'
 						name='system.stats.{{key}}.current'
 						value='{{stat.current}}'
 						class="stat-score"
@@ -49,21 +56,17 @@
 					placeholder="{{localize "ETR.Placeholder.name"}}" 
 				/>
 			</h1>
-			{{#if editable}}
-				<prose-mirror
-					name="system.description"
-					data-document-u-u-i-d="{{actor.uuid}}"
-					value="{{system.description}}"
-					collaborate="true"
-					toggled="true"
-				>
-					{{{enrichedDescription}}}
-				</prose-mirror>
-			{{else}}
-				{{{enrichedDescription}}}
-			{{/if}}
+			<div class="description">
+				<textarea 
+					type="text" 
+					name="system.description" 
+					value="{{system.description}}" 
+					placeholder="{{localize "ETR.Placeholder.penalty"}}"
+					data-dtype="String">
+						{{system.description}}
+				</textarea>
+			</div>
 		</div>
-
 	</header>
 	<section class="body">
 		<aside class="sidebar">
@@ -265,7 +268,8 @@
 				</ol>
 			</div>
 			<div class="advancements">
-				<h2>{{localize "ETR.Actor.Character.advancements"}}
+				<h4>
+					{{localize "ETR.Actor.Character.advancements"}}
 					<div class="item-controls">
 						{{#if @root.editable}}
 							<button
@@ -279,7 +283,7 @@
 							</button>
 						{{/if}}
 					</div>
-				</h2>
+				</h4>
 				<ol class="items-list">
 					{{#each advances as |item id|}}
 						<li
@@ -336,12 +340,12 @@
 							name="system.injuries.oneTwo.first.selected"
 							{{checked system.injuries.oneTwo.first.selected}}
 						/>
-						<input 
+						<textarea 
 							type="text" 
 							name="system.injuries.oneTwo.first.name"
 							value="{{system.injuries.oneTwo.first.name}}" 
 							placeholder="{{localize "ETR.Placeholder.name"}}"
-							data-dtype="String"/>
+							data-dtype="String">{{system.injuries.oneTwo.first.name}}</textarea>
 					</div>
 					{{!-- 3-4 --}}
 					<div class="injury">
@@ -350,12 +354,12 @@
 							name="system.injuries.threeFour.first.selected"
 							{{checked system.injuries.threeFour.first.selected}}
 						/>
-						<input 
+						<textarea 
 							type="text" 
 							name="system.injuries.threeFour.first.name" 
 							value="{{system.injuries.threeFour.first.name}}" 
 							placeholder="{{localize "ETR.Placeholder.name"}}"
-							data-dtype="String"/>
+							data-dtype="String">{{system.injuries.threeFour.first.name}}</textarea>
 					</div>
 					{{!-- 5-6 --}}
 					<div class="injury">
@@ -364,13 +368,12 @@
 							name="system.injuries.fiveSix.first.selected"
 							{{checked system.injuries.fiveSix.first.selected}}
 						/>
-						<input 
+						<textarea 
 							type="text" 
 							name="system.injuries.fiveSix.first.name" 
 							value="{{system.injuries.fiveSix.first.name}}" 
 							placeholder="{{localize "ETR.Placeholder.name"}}"
-
-							data-dtype="String"/>
+							data-dtype="String">{{system.injuries.fiveSix.first.name}}</textarea>
 					</div>
 
 					{{!-- 1-2:severeInjury --}}
@@ -381,19 +384,19 @@
 								name="system.injuries.oneTwo.second.selected"
 								{{checked system.injuries.oneTwo.second.selected}}
 							/>
-							<input 
+							<textarea 
 								type="text" 
 								name="system.injuries.oneTwo.second.name" 
 								value="{{system.injuries.oneTwo.second.name}}" 
 								placeholder="{{localize "ETR.Placeholder.name"}}"
-								data-dtype="String"/>
+								data-dtype="String">{{system.injuries.oneTwo.second.name}}</textarea>
 						</div>
-						<input 
+						<textarea 
 							type="text" 
 							name="system.injuries.oneTwo.second.penalty" 
 							value="{{system.injuries.oneTwo.second.penalty}}" 
 							placeholder="{{localize "ETR.Placeholder.penalty"}}"
-							data-dtype="String"/>
+							data-dtype="String">{{system.injuries.oneTwo.second.penalty}}</textarea>
 					</div>
 					{{!-- 3-4:severeInjury --}}
 					<div class="injury severeInjury">
@@ -403,19 +406,19 @@
 								name="system.injuries.threeFour.second.selected"
 								{{checked system.injuries.threeFour.second.selected}}
 							/>
-							<input 
+							<textarea 
 								type="text" 
 								name="system.injuries.threeFour.second.name" 
 								value="{{system.injuries.threeFour.second.name}}" 
 								placeholder="{{localize "ETR.Placeholder.name"}}"
-								data-dtype="String"/>
+								data-dtype="String">{{system.injuries.threeFour.second.name}}</textarea>
 						</div>
-						<input 
+						<textarea 
 							type="text" 
 							name="system.injuries.threeFour.second.penalty" 
 							value="{{system.injuries.threeFour.second.penalty}}" 
 							placeholder="{{localize "ETR.Placeholder.penalty"}}"
-							data-dtype="String"/>
+							data-dtype="String">{{system.injuries.threeFour.second.penalty}}</textarea>
 					</div>
 					{{!-- 5-6:severeInjury --}}
 					<div class="injury severeInjury">
@@ -425,19 +428,19 @@
 								name="system.injuries.fiveSix.second.selected"
 								{{checked system.injuries.fiveSix.second.selected}}
 							/>
-							<input 
+							<textarea 
 								type="text" 
 								name="system.injuries.fiveSix.second.name" 
 								value="{{system.injuries.fiveSix.second.name}}" 
 								placeholder="{{localize "ETR.Placeholder.name"}}"
-								data-dtype="String"/>
+								data-dtype="String">{{system.injuries.fiveSix.second.name}}</textarea>
 						</div>
-						<input 
+						<textarea 
 							type="text" 
 							name="system.injuries.fiveSix.second.penalty" 
 							value="{{system.injuries.fiveSix.second.penalty}}" 
 							placeholder="{{localize "ETR.Placeholder.penalty"}}"
-							data-dtype="String"/>
+							data-dtype="String">{{system.injuries.fiveSix.second.penalty}}</textarea>
 					</div>
 				</div>
 			</div>

@@ -1,2 +1,39 @@
-$font-primary: 'Roboto', sans-serif;
-$font-secondary: 'Roboto', sans-serif;
+@use '../utils/variables' as *;
+
+$fonts-path: '#{$asset-path}fonts/';
+
+@font-face {
+    font-family: 'Yonkers';
+    src: url('#{$fonts-path}Yonkers/Yonkers.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'veteran typewriter';
+    src: url('#{$fonts-path}veteran-typewriter/veteran typewriter.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'gabriele-l';
+    src: url('#{$fonts-path}gabriele/gabriele-l.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'gabriele-d';
+    src: url('#{$fonts-path}gabriele/gabriele-d.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'gabriele-br';
+    src: url('#{$fonts-path}gabriele/gabriele-br.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'gabriele-bad';
+    src: url('#{$fonts-path}gabriele/gabriele-bad.ttf') format('truetype');
+}
+
+
+$font-primary: 'gabriele-l', 'Courier New', monospace;
+$font-primary-bold:  'gabriele-bad', 'Courier New', monospace;
+$font-secondary: 'Yonkers', serif;
+$font-header: Arial, sans-serif;

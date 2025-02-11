@@ -26,11 +26,22 @@
         "abilities": "Abilities",
         "advancements": "Advancements",
         "injuries": "Injuries",
-        "lastStand": "Last Stand:"
+        "lastStand": "Last Stand:",
+        "Stats": {
+          "label": "Stats",
+          "initial": "Init",
+          "current": "Cur"
+        }
       },
       "NPC": {
 
       }
+    },
+    "Dice": {
+      "dice": "Dice",
+      "total": "Total",
+      "equipment": "Equipment",
+      "abilities": "Abilities"
     },
     "Item": {
       "base": {
@@ -49,7 +60,21 @@
         }
       },
       "name": "Name"
-    }
+    },
+    "Settings": {
+			"game": {
+				"heading": "EAT THE REICH",
+				"publisher": {
+					"title": "Rowan, Rook and Decard"
+				},
+				"github": {
+					"title": "Module Repository"
+				},
+				"kofi": {
+					"title": "Support me on Ko-fi"
+				}
+			}
+		}
   },
   "TYPES": {
     "Actor": {

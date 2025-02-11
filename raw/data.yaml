@@ -1,3 +1,35 @@
+Player Roll dialog
+- [input] pre-filled stat / stat-less pool
+- [Input] add from EQ
+  - [Input] add from Loot
+- [Input] add from Abilities
+  - [Input] add from Advances
+- show current severe injuries and impacts (text only at 1st)
+- show Dice Pool Total
+- BTNs: Roll | x
+
+Player Chat output
+- 1,2,3 shows greyed out
+- 4,5 shows white (+1)
+- 6 shows pink (+2 | SPECIAL)
+- allow dice to be allocated...
+  - click to cross out with Icon on what was allocated to [objective, threat, defend, feed, (if 6) special]
+- show a flashback button - > rolls on table
+  - new button that rerolls the pool but with 2 extra dice (gray out this roll, new one stands)
+
+GM Roll dialog 
+- [Input] Threat Name
+- [Input] show threat rating pool
+
+GM Chat output
+- 1,2,3 shows greyed out
+- 4,5,6 shows white (+1)
+- toggleable, to crossout when players allocate to them
+- if any dice above 3 and not crossed out, message that user rolls for Injury and marks one Injury in that category
+- if any 3 dice are above 3 and not crossed out, show message that user rolls for Injury & marks all Injury in one category
+
+-----
+
 Roll Mechanics
   Player action - Dice Pool
   - pick a stat (or roll 2 dice)
@@ -24,6 +56,8 @@ Roll Mechanics
   Flashbacks (when 2 success the button shows on the chat)
     Roll on the flashback tables to define a question, or choose one that appeals
     When your flashback is over, add 2 dice to your pool, then roll all of your dice again. The second result stands.
+
+-----
 
 Character
   name [String]

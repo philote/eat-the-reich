@@ -25,9 +25,6 @@ globalThis.eat_the_reich = {
 		EatTheReichActorSheet,
 		EatTheReichItemSheet,
 	},
-	utils: {
-		rollItemMacro,
-	},
 	models,
 };
 
@@ -68,77 +65,51 @@ Hooks.once("init", function () {
 	utils.registerHandlebarsHelpers();
 });
 
-/* -------------------------------------------- */
-/*  Ready Hook                                  */
-/* -------------------------------------------- */
+Hooks.on("renderSettings", (app, html) => {
+    const header = document.createElement("h2");
+    header.innerText = game.i18n.localize('ETR.Settings.game.heading');
 
-Hooks.once("ready", function () {
-	// Wait to register hotbar drop hook on ready so that modules could register earlier if they want to
-	Hooks.on("hotbarDrop", (bar, data, slot) => createDocMacro(data, slot));
+    const pbtaSettings = document.createElement("div");
+    html.find("#settings-game")?.after(header, pbtaSettings);
+
+    const buttons = [
+        {
+            action: (ev) => {
+                ev.preventDefault();
+                window.open("https://rowanrookanddecard.com", "_blank");
+            },
+            iconClasses: ["fa-solid", "fa-book"],
+            label: game.i18n.localize('ETR.Settings.game.publisher.title')
+        },
+        {
+            action: (ev) => {
+                ev.preventDefault();
+                window.open("https://github.com/philote/eat-the-reich", "_blank");
+            },
+            iconClasses: ["fab", "fa-github"],
+            label: game.i18n.localize(`ETR.Settings.game.github.title`)
+        },
+        {
+            action: (ev) => {
+                ev.preventDefault();
+                window.open("https://ko-fi.com/ephson", "_blank");
+            },
+            iconClasses: ["fa-solid", "fa-mug-hot"],
+            label: game.i18n.localize("ETR.Settings.game.kofi.title")
+        },
+    ].map(({ action, iconClasses, label }) => {
+        const button = document.createElement("button");
+        button.type = "button";
+
+        const icon = document.createElement("i");
+        icon.classList.add(...iconClasses);
+
+        button.append(icon, game.i18n.localize(label));
+
+        button.addEventListener("click", action);
+
+        return button;
+    });
+
+    pbtaSettings.append(...buttons);
 });
-
-/* -------------------------------------------- */
-/*  Hotbar Macros                               */
-/* -------------------------------------------- */
-
-/**
- * Create a Macro from an Item drop.
- * Get an existing item macro if one exists, otherwise create a new one.
- * @param {Object} data     The dropped data
- * @param {number} slot     The hotbar slot to use
- * @returns {Promise}
- */
-async function createDocMacro(data, slot) {
-	// First, determine if this is a valid owned item.
-	if (data.type !== "Item") return;
-	if (!data.uuid.includes("Actor.") && !data.uuid.includes("Token.")) {
-		return ui.notifications.warn(
-			"You can only create macro buttons for owned Items"
-		);
-	}
-	// If it is, retrieve it based on the uuid.
-	const item = await Item.fromDropData(data);
-
-	// Create the macro command using the uuid.
-	const command = `game.eatthereich.rollItemMacro("${data.uuid}");`;
-	let macro = game.macros.find(
-		(m) => m.name === item.name && m.command === command
-	);
-	if (!macro) {
-		macro = await Macro.create({
-			name: item.name,
-			type: "script",
-			img: item.img,
-			command: command,
-			flags: { "eat-the-reich.itemMacro": true },
-		});
-	}
-	game.user.assignHotbarMacro(macro, slot);
-	return false;
-}
-
-/**
- * Create a Macro from an Item drop.
- * Get an existing item macro if one exists, otherwise create a new one.
- * @param {string} itemUuid
- */
-function rollItemMacro(itemUuid) {
-	// Reconstruct the drop data so that we can load the item.
-	const dropData = {
-		type: "Item",
-		uuid: itemUuid,
-	};
-	// Load the item from the uuid.
-	Item.fromDropData(dropData).then((item) => {
-		// Determine if the item loaded and if it's an owned item.
-		if (!item || !item.parent) {
-			const itemName = item?.name ?? itemUuid;
-			return ui.notifications.warn(
-				`Could not find item ${itemName}. You may need to delete and recreate this macro.`
-			);
-		}
-
-		// Trigger the item roll
-		item.roll();
-	});
-}

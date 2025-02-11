@@ -5,11 +5,11 @@ export const ETR = {};
  * @type {Object}
  */
 ETR.stats = {
-  brawl: 'ETR.Stats.Brawl',
-  con: 'ETR.Stats.Con',
-  fix: 'ETR.Stats.Fix',
-  search: 'ETR.Stats.Search',
-  shoot: 'ETR.Stats.Shoot',
-  sneak: 'ETR.Stats.Sneak',
-  terrify: 'ETR.Stats.Terrify',
+  Brawl: 'ETR.Stats.Brawl',
+  Con: 'ETR.Stats.Con',
+  Fix: 'ETR.Stats.Fix',
+  Search: 'ETR.Stats.Search',
+  Shoot: 'ETR.Stats.Shoot',
+  Sneak: 'ETR.Stats.Sneak',
+  Terrify: 'ETR.Stats.Terrify',
 };

@@ -1,20 +1,23 @@
-// Add custom fonts by visiting and search https://fonts.google.com
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
-// Import utilities.
-@import 'utils/typography';
-@import 'utils/colors';
-@import 'utils/mixins';
-@import 'utils/variables';
+/* Utilities. */
+@use 'utils/variables';
+@use 'utils/typography';
+@use 'utils/colors';
 
 /* Global styles */
-@import 'global/window';
-@import 'global/grid';
-@import 'global/flex';
+@use 'global/window';
+@use 'global/grid';
+@use 'global/flex';
+
+/* Dialogs */
+@use 'components/dialog';
 
 /* Styles limited to eat-the-reich sheets */
+@use 'components/forms';
+@use 'components/resource';
+@use 'components/items';
+
 .eat-the-reich {
-  @import 'components/forms';
-  @import 'components/resource';
-  @import 'components/items';
+  @include forms.forms;
+  @include resource.resource;
+  @include items.items;
 }

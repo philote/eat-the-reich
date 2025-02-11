@@ -1,41 +1,47 @@
-.clock-widget {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
+@use '../utils/variables' as *;
+@use '../utils/colors' as *;
+@use '../utils/typography' as *;
 
-  .controls {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 4px;
-    gap: 4px;
-  }
-
-  .boxes {
-    flex: 1;
+@mixin resource {
+  .clock-widget {
     display: flex;
     align-items: center;
-    justify-content: flex-start;
     flex-wrap: wrap;
-
-    input[type="checkbox"] {
-      margin: 0 0 0 4px;
-      // TODO: use custom colors
-      &:not(:first-child:last-child):last-child::before {
-        color: hsl(321deg 70.11% 17.06%);
-      }
-      &:not(:first-child:last-child):last-child::after {
-        color: hsl(321deg 84.11% 58.04%);
+  
+    .controls {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 4px;
+      gap: 4px;
+    }
+  
+    .boxes {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+  
+      input[type="checkbox"] {
+        margin: 0 0 0 4px;
+        // TODO: use custom colors
+        &:not(:first-child:last-child):last-child::before {
+          color: hsl(321deg 70.11% 17.06%);
+        }
+        &:not(:first-child:last-child):last-child::after {
+          color: hsl(321deg 84.11% 58.04%);
+        }
       }
     }
-  }
-
-  &.clock-list-item {
-    flex: 0 0 auto;
-    max-width: 145px;
-
-    .boxes {
-      justify-content: flex-end;
+  
+    &.clock-list-item {
+      flex: 0 0 auto;
+      max-width: 145px;
+  
+      .boxes {
+        justify-content: flex-end;
+      }
     }
   }
 }
