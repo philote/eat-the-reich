@@ -1,8 +1,17 @@
 .dialog {
+
+	#etr-roll-dialog {
+		section.flexcol {
+			gap: 20px;
+		}
+	}
+
 	.etr-form-group {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+
+		
 	
 		label {
 			flex: 4;

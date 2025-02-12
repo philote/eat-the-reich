@@ -3,15 +3,15 @@
 		<fieldset class="flexcol">
 			<legend>{{localize "ETR.Dice.dice"}}</legend>
 			<div class="dialog-stats etr-form-group">
-				<label for="stat">{{localize (concat "ETR.Stats." label)}}</label>
+				<label for="stat">{{localize "ETR.Dice.stat"}}{{localize (concat "ETR.Stats." label)}}</label>
 				<input
 					type="number"
 					class="rollDice rollDiceInput"
 					id="stat"
 					name="stat"
-					data-prev="{{diceDefault}}"
+					data-prev="{{stat}}"
 					data-action-input="updateDice"
-					value="{{diceDefault}}"
+					value="{{stat}}"
 					min="0"
 				/>
 			</div>
@@ -41,12 +41,23 @@
 					min="0"
 				/>
 			</div>
+			{{!-- <hr>
             <div class="dialog-total etr-form-group">
 				<label class="total">{{localize "ETR.Dice.total"}}</label>
 				<span id="totalDicePool" class="total">0</span>
 				<input type="hidden" id="totalDicePoolInput" name="totalDicePool">
-			</div>
+			</div> --}}
 		</fieldset>
+		{{#if hasInjuries}}
+		<fieldset class="flexcol">
+			<legend>{{localize "ETR.Dice.injuries"}}</legend>
+			{{#each injuries as |injury key|}}
+			<div>
+				{{injury.second.name}}<br><b>{{localize "ETR.Dice.penalty"}}</b> {{injury.second.penalty}}
+			</div>
+			{{/each}}
+		</fieldset>
+		{{/if}}
 	</section>
 </div>
 

@@ -25,6 +25,8 @@ export default class EatTheReichCharacter extends EatTheReichActorBase {
 		const requiredInteger = { required: true, nullable: false, integer: true };
 		const schema = super.defineSchema();
 
+		schema.shortDescription = new fields.StringField({ required: true, blank: true }),
+
 		// Iterate over Stat names and create a new SchemaField for each.
 		schema.stats = new fields.SchemaField(
 			Object.keys(CONFIG.ETR.stats).reduce((obj, stat) => {

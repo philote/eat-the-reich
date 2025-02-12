@@ -38,10 +38,15 @@
       }
     },
     "Dice": {
-      "dice": "Dice",
+      "title": "EAT THE REICH Roll",
+      "label": "Roll the Dice",
+      "dice": "Build Your Dice Pool",
+      "stat": "STAT: ",
       "total": "Total",
-      "equipment": "Equipment",
-      "abilities": "Abilities"
+      "equipment": "Equipment Dice",
+      "abilities": "Abilities Dice",
+      "injuries": "Your Injuries",
+      "penalty": "Penalty:"
     },
     "Item": {
       "base": {

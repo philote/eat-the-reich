@@ -131,6 +131,7 @@ export class EatTheReichActorSheet extends api.HandlebarsApplicationMixin(
 	async _preparePartContext(partId, context) {
 		switch (partId) {
 			case "sheet":
+				console.log(this.actor.system.shortDescription)
 				// Enrich Description info for display
 				context.enrichedDescription = await TextEditor.enrichHTML(
 					this.actor.system.description,
@@ -377,53 +378,54 @@ export class EatTheReichActorSheet extends api.HandlebarsApplicationMixin(
 		const stat = dataset.stat
 		switch (dataset.rollType) {
 			case "stat": {
-				let label = dataset.label ? dataset.label : "";
-				let stat = dataset.stat ? parseInt(dataset.stat) : 0;
-				
-				console.log('stat', stat);
-				// create dialog -> roll -> chat
-				// let roll = new Roll(`${stat}d6`, this.actor.getRollData());
-				// await roll.toMessage({
-				// 	speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-				// 	flavor: label,
-				// 	rollMode: game.settings.get("core", "rollMode"),
-				// });
+				const statLabel = dataset.label ? dataset.label : "";
+				const statValue = dataset.stat ? parseInt(dataset.stat) : 0;
+				const selectedSeriousInjuries = Object.fromEntries(
+					Object.entries(this.actor.system.injuries)
+						.filter(([_, group]) => group.second?.selected)
+				);
+				const hasSeriousInjury = Object.keys(selectedSeriousInjuries).length > 0;
+
 				const content = await renderTemplate("systems/eat-the-reich/templates/dialog/stat-roll.hbs", {
-					stat: stat,
-					label: label,
+					stat: statValue,
+					label: statLabel,
+					injuries: selectedSeriousInjuries,
+					hasInjuries: hasSeriousInjury
 				});
 
-				const rollDialog = await foundry.applications.api.DialogV2.wait({
-					window: { title: "EAT THE REICH Roll" },
+				// Dialog
+				const dicePool = await foundry.applications.api.DialogV2.wait({
+					window: { title: "ETR.Dice.title" },
 					content,
 					modal: true,
 					buttons: [
 						{
-							label: "Roll the Dice",
+							label: "ETR.Dice.label",
 							action: "roll",
-							callback: (event, button, dialog) => {
-								return { 
-									dice: button.form.elements.totalDiceInput.value, 
-								 };
-							}
+							callback: (event, button, dialog) => new FormDataExtended(button.form)
 						}
 					],
+					rejectClose: false
 				});
-				console.log("rollDialog.dice", rollDialog.dice);
+				
+				if(dicePool) {
+					// Chat Message
+					const totalDice = dicePool.object.stat + dicePool.object.equipment + dicePool.object.abilities
+					const roll = await new Roll(`{${totalDice}d6}`).evaluate();
+					const chatData = {
+						dice: roll.dice[0].results,
+						stat: statLabel
+					}
+					const template = "systems/eat-the-reich/templates/chat/die-pool-output.hbs";
+
+					ChatMessage.create({
+						speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+						rollMode: game.settings.get("core", "rollMode"),
+						content: await renderTemplate(template, chatData),
+					});
+				}
 			}
 		}
-
-		// Handle rolls that supply the formula directly.
-		// if (dataset.roll) {
-		// 	let label = dataset.label ? `[ability] ${dataset.label}` : "";
-		// 	let roll = new Roll(dataset.roll, this.actor.getRollData());
-		// 	await roll.toMessage({
-		// 		speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-		// 		flavor: label,
-		// 		rollMode: game.settings.get("core", "rollMode"),
-		// 	});
-		// 	return roll;
-		// }
 	}
 
 	/** Helper Functions */

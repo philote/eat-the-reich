@@ -1,0 +1,32 @@
+@use '../utils/colors' as *;
+@use '../utils/typography' as *;
+
+#chat-log {
+    .chat-message {
+        .message-header {
+            font-family: $font-primary;
+            color: $c-dark;    
+        }
+        font-family: $font-primary;
+        color: $c-dark;
+        background: none;
+        background-color: $c-faint;
+    }
+}
+
+.etr-roll {
+    .dice-tooltip .dice-rolls .roll.critical {
+        color: $c-white;
+        filter: sepia(0.5) hue-rotate(280deg);
+    }
+    
+    .dice-tooltip .dice-rolls .roll.success {
+        color: $c-white;
+        filter: sepia(0.5) hue-rotate(60deg);
+    }
+    
+    .dice-tooltip .dice-rolls .roll.discard {
+        color: $c-beige;
+        text-decoration: line-through;
+    }
+}

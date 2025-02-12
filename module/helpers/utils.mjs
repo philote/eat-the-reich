@@ -37,4 +37,21 @@ export function registerHandlebarsHelpers() {
 		const newVale = parseInt(value) + 1;
 		return newVale;
 	});
+
+	Handlebars.registerHelper("etrPlayerDie", function(die) {
+		const total = Number(die);
+
+		switch (total) {
+			case 6: {
+				return "critical";
+			}
+			case 5:
+			case 4: {
+				return "success";
+			}
+			default: {
+				return "discard";
+			}
+		}
+	});
 }

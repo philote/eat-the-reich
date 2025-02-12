@@ -272,7 +272,36 @@
   text-align: center;
 }
 
+/* Chat */
+/* Utilities. */
+#chat-log .chat-message {
+  font-family: "gabriele-l", "Courier New", monospace;
+  color: var(--etr-c-dark);
+  background: none;
+  background-color: var(--etr-c-faint);
+}
+#chat-log .chat-message .message-header {
+  font-family: "gabriele-l", "Courier New", monospace;
+  color: var(--etr-c-dark);
+}
+
+.etr-roll .dice-tooltip .dice-rolls .roll.critical {
+  color: var(--etr-c-white);
+  filter: sepia(0.5) hue-rotate(280deg);
+}
+.etr-roll .dice-tooltip .dice-rolls .roll.success {
+  color: var(--etr-c-white);
+  filter: sepia(0.5) hue-rotate(60deg);
+}
+.etr-roll .dice-tooltip .dice-rolls .roll.discard {
+  color: var(--etr-c-beige);
+  text-decoration: line-through;
+}
+
 /* Dialogs */
+.dialog #etr-roll-dialog section.flexcol {
+  gap: 20px;
+}
 .dialog .etr-form-group {
   display: flex;
   justify-content: space-between;
@@ -418,7 +447,7 @@
 .eat-the-reich header.sheet-header .header-fields .document-name input[type=text] {
   margin: 0;
   width: 100%;
-  font-size: var(--font-size-48);
+  font-size: var(--font-size-36);
   font-weight: bold;
   text-align: center;
   height: var(--font-size-48);

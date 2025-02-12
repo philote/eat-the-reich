@@ -56,16 +56,11 @@
 					placeholder="{{localize "ETR.Placeholder.name"}}" 
 				/>
 			</h1>
-			<div class="description">
-				<textarea 
-					type="text" 
-					name="system.description" 
-					value="{{system.description}}" 
-					placeholder="{{localize "ETR.Placeholder.penalty"}}"
-					data-dtype="String">
-						{{system.description}}
-				</textarea>
-			</div>
+			<textarea 
+				type="text" 
+				name="system.shortDescription"
+				value="{{system.shortDescription}}" 
+				data-dtype="String">{{system.shortDescription}}</textarea>
 		</div>
 	</header>
 	<section class="body">
