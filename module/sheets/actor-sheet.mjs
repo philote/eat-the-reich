@@ -73,8 +73,16 @@ export class EatTheReichActorSheet extends api.HandlebarsApplicationMixin(
 
 	/** @override */
 	static PARTS = {
-		sheet: {
-			template: "systems/eat-the-reich/templates/actor/sheet.hbs",
+		character: {
+			template: "systems/eat-the-reich/templates/actor/character-sheet.hbs",
+			scrollable: [""],
+		},
+		threat: {
+			template: "systems/eat-the-reich/templates/actor/threat-sheet.hbs",
+			scrollable: [""],
+		},
+		location: {
+			template: "systems/eat-the-reich/templates/actor/location-sheet.hbs",
 			scrollable: [""],
 		},
 	};
@@ -83,16 +91,16 @@ export class EatTheReichActorSheet extends api.HandlebarsApplicationMixin(
 	_configureRenderOptions(options) {
 		super._configureRenderOptions(options);
 		if (options.mode && this.isEditable) this.#mode = options.mode;
-		options.parts = ["sheet"];
-		// Don't show the other tabs if only limited view
-		if (this.document.limited) return;
-		// Control which parts show based on document subtype
+		// if (this.document.limited) return;
 		switch (this.document.type) {
 			case "character":
-				// options.parts.push('features', 'gear', 'spells');
+				options.parts = ["character"];
 				break;
 			case "npc":
-				// options.parts.push('gear');
+				options.parts = ["threat"];
+				break;
+			case "location":
+				options.parts = ["location"];
 				break;
 		}
 	}
@@ -130,8 +138,9 @@ export class EatTheReichActorSheet extends api.HandlebarsApplicationMixin(
 	/** @override */
 	async _preparePartContext(partId, context) {
 		switch (partId) {
-			case "sheet":
-				console.log(this.actor.system.shortDescription)
+			case "character":
+			case "threat":
+			case "location":
 				// Enrich Description info for display
 				context.enrichedDescription = await TextEditor.enrichHTML(
 					this.actor.system.description,

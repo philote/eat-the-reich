@@ -47,6 +47,9 @@ export class EatTheReichItemSheet extends api.HandlebarsApplicationMixin(
 		equipment: {
 			template: "systems/eat-the-reich/templates/item/equipment.hbs",
 		},
+		objective: {
+			template: "systems/eat-the-reich/templates/item/objective.hbs",
+		},
 		description: {
 			template: "systems/eat-the-reich/templates/item/description.hbs",
 			scrollable: [""],
@@ -63,7 +66,10 @@ export class EatTheReichItemSheet extends api.HandlebarsApplicationMixin(
 				options.parts.push("description");
 				break;
 			case "advance":
-				options.parts.push("description", "advance");
+				options.parts.push("advance", "description");
+				break;
+			case "objective":
+				options.parts.push("objective", "description");
 				break;
 			case "loot":
 				options.parts.push("equipment");

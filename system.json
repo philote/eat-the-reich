@@ -28,13 +28,17 @@
 					"challenge.description",
 					"extra.description"
 				]
+			},
+			"location": {
+				"htmlFields": ["description"]
 			}
 		},
 		"Item": {
 			"ability": {},
 			"advance": {},
 			"equipment": {},
-			"loot": {}
+			"loot": {},
+			"objective": {}
 		}
 	},
 	"flags": {

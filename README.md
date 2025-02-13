@@ -40,8 +40,8 @@ If you’ve enjoyed my work and find value in what I create, please consider sup
 <!-- ![Screenshot of some of the items in the compendium](assets/screenshot2.webp)
 ![Screenshot of the Overlord and NPC sheets](assets/screenshot3.webp) -->
 
-## How to Install
-You can install the latest released version of the system by using this manifest link in Foundry VTT. [Instructions](https://foundryvtt.com/article/tutorial/): [module.json](https://github.com/philote/eat-the-reich/releases/latest/download/module.json)
+## How to Install (This is not released yet, so there is nothing to install)
+~~You can install the latest released version of the system by using this manifest link in Foundry VTT. [Instructions](https://foundryvtt.com/article/tutorial/): [module.json](https://github.com/philote/eat-the-reich/releases/latest/download/module.json)~~
 
 ## Features
 - Character Sheet
@@ -54,6 +54,7 @@ You can install the latest released version of the system by using this manifest
     - Pre-gens
     - Pre-gen Items
 - Paris Scene
+- Clean up Light mode (looks like crud right now)
 - Play/Edit mode for character sheets
 
 # License & Acknowledgements

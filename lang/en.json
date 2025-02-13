@@ -1,4 +1,18 @@
 {
+  "TYPES": {
+    "Actor": {
+      "character": "Character",
+      "npc": "Threat",
+      "location": "Location"
+    },
+    "Item": {
+      "ability": "Ability",
+      "advance": "Advance",
+      "equipment": "Equipment",
+      "loot": "Loot",
+      "objective": "Objective"
+    }
+  },
   "ETR": {
     "Placeholder": {
       "name": "Name",
@@ -19,6 +33,11 @@
       "Item": "Eat The Reich Item Sheet"
     },
     "Actor": {
+      "Location": {
+        "FIELDS": {
+          
+        }
+      },
       "Character": {
         "equipment": "Equipment",
         "blood": "Blood",
@@ -64,7 +83,14 @@
           "uses": {"label": "Uses"}
         }
       },
-      "name": "Name"
+      "name": "Name",
+      "objective": {
+        "FIELDS": {
+          "challengeRating": {
+            "label": "Challenge Rating"
+          }
+        }
+      }
     },
     "Settings": {
 			"game": {
@@ -80,17 +106,5 @@
 				}
 			}
 		}
-  },
-  "TYPES": {
-    "Actor": {
-      "character": "Character",
-      "npc": "NPC"
-    },
-    "Item": {
-      "ability": "Ability",
-      "advance": "Advance",
-      "equipment": "Equipment",
-      "loot": "Loot"
-    }
   }
 }

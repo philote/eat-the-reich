@@ -41,6 +41,7 @@ Hooks.once("init", function () {
 	CONFIG.Actor.dataModels = {
 		character: models.EatTheReichCharacter,
 		npc: models.EatTheReichNPC,
+		location: models.EatTheReichLocation,
 	};
 	CONFIG.Item.documentClass = EatTheReichItem;
 	CONFIG.Item.dataModels = {
@@ -48,6 +49,7 @@ Hooks.once("init", function () {
 		advance: models.EatTheReichAdvance,
 		equipment: models.EatTheReichEquipment,
 		loot: models.EatTheReichLoot,
+		objective: models.EatTheReichObjective,
 	};
 
 	// Register sheet application classes
