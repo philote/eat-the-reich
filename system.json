@@ -59,7 +59,7 @@
 	"download": "#{DOWNLOAD}#",
 	"license": "LICENSE.txt",
 	"readme": "README.md",
-	"bugs": "Replace this with a link to file issues or tickets",
+	"bugs": "https://github.com/philote/eat-the-reich/issues",
 	"changelog": "CHANGELOG.md",
 	"primaryTokenAttribute": "blood",
 	"secondaryTokenAttribute": null,

@@ -45,9 +45,10 @@ You can install the latest released version of the system by using this manifest
 
 ## Features
 - Character Sheet
+- Basic Dice Pool support
 
 ### TODO
-- Dice Rolling support
+- Advanced Dice Rolling support
 - NPC Sheet
 - Compendiums
     - Pre-gens
