@@ -4,11 +4,8 @@ Style
     Different background for Threats?
     Figure out white vs bone font coloring inconsistency
     Test and fix light mode
-Threats
-    get reinforcements button functioning
-    create and hook up GM roll
-    Design change for ubermenschen?
-    If the GM rolls zero successes on their Attack dice, increase the Threat’s Attack by 1 once the player has resolved their action.
+    GM rolls should be different style than player rolls
+    Threats - Design change for ubermenschen?
 character
     check if name field needs to be larger
     Make Injuries rollable
@@ -16,10 +13,8 @@ character
 Macro
     PC roll without stats
     GM roll without Threat rating
-Objectives 
-    change rating into a clock interface
 Locations
-    adding items is borked
+    BUG: adding items is borked
 chat messages
     clean them up
     use different dice for GM vs Player

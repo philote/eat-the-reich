@@ -71,9 +71,8 @@
                 disabled
             {{/if}}>
                 <i class="fa-solid fa-people-group"></i>
-                Reinforcements
+                {{localize "ETR.Actor.NPC.reinforcements"}}
             </button>
-            
 		</div>
 	</header>
     <hr>
@@ -85,9 +84,12 @@
                 value=system.attack.value
                 label=systemFields.attack.label 
             }}
-            <button>
-                <i class="fa-solid fa-dice"></i>
-                {{localize "ETR.Actor.NPC.FIELDS.attack.label"}}
+            <button data-action="attack"
+                {{#if (eq system.attack.value 0)}}
+                    disabled
+                {{/if}}>
+                    <i class="fa-solid fa-dice"></i>
+                    {{localize "ETR.Actor.NPC.FIELDS.attack.label"}}
             </button>
             {{formInput
                 systemFields.attack.fields.description 

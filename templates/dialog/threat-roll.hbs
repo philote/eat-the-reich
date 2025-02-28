@@ -1,0 +1,20 @@
+<div id="etr-roll-dialog">
+	<section class="flexcol">
+		<fieldset class="flexcol">
+			<legend>{{localize "ETR.Dice.dice"}}</legend>
+			<div class="dialog-threat-attack etr-form-group">
+				<label for="attack">Attack Rating</label>
+				<input
+					type="number"
+					class="rollDice rollDiceInput"
+					id="attack"
+					name="attack"
+					data-prev="{{attack}}"
+					data-action-input="updateDice"
+					value="{{attack}}"
+					min="0"
+				/>
+			</div>
+		</fieldset>
+	</section>
+</div>

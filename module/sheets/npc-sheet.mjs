@@ -18,6 +18,7 @@ export default class EatTheReichNPCSheet extends EatTheReichActorSheet {
 			roll: this._onRoll,
 			onClockUpdate: this._onClockUpdate,
 			reinforcements: this._onReinforcements,
+			attack: this._onAttack,
 		},
 	};
 
@@ -88,17 +89,59 @@ export default class EatTheReichNPCSheet extends EatTheReichActorSheet {
 	 *
 	 **************/
 
+	static async _onAttack(event, target) {
+		event.preventDefault();
+		const attackValue = this.actor.system.attack.value;
+
+		const content = await renderTemplate("systems/eat-the-reich/templates/dialog/threat-roll.hbs", {
+			attack: attackValue,
+		});
+
+		// Dialog
+		const dicePool = await foundry.applications.api.DialogV2.wait({
+			window: { title: "ETR.Dice.title" },
+			content,
+			modal: true,
+			buttons: [
+				{
+					label: "ETR.Dice.label",
+					action: "roll",
+					callback: (event, button, dialog) => new FormDataExtended(button.form)
+				}
+			],
+			rejectClose: false
+		});
+		
+		if(dicePool) {
+			// Chat Message
+			const roll = await new Roll(`{${dicePool.object.attack}d6}`).evaluate();
+			const results = roll.dice[0].results;
+			const chatData = {
+				dice: results,
+				stat: game.i18n.localize("ETR.Dice.gmRoll")
+			}
+			const template = "systems/eat-the-reich/templates/chat/die-pool-output.hbs";
+
+			ChatMessage.create({
+				speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+				rollMode: game.settings.get("core", "rollMode"),
+				content: await renderTemplate(template, chatData),
+			});
+			
+			// If the GM rolls zero successes on their Attack dice, increase the Threat’s Attack by 1
+			console.log("results", results);
+			const successes = results.filter(r => r.result >= 4);
+			if(successes.length === 0) {
+				const newAttack = this.actor.system.attack.value + 1;
+				await this.actor.update({
+					"system.attack.value": newAttack
+				});
+			}
+		}
+	}
+
 	static async _onReinforcements(event, target) {
 		event.preventDefault();
-		console.log("Reinforcements");
-		/*
-			restore threat by 1D6 & reduce Attack by 1
-			- set system.threatRating.value to 0
-			- set system.threatRating.max to 1D6
-			- set system.attack.value to (system.attack.value - 1)
-			- show a chat message that reinforcements have arrived
-		*/
-		
 		const newThreatMax = await new Roll("1d6").evaluate();
 		const newAttack = this.actor.system.attack.value - 1;
 		
@@ -107,16 +150,11 @@ export default class EatTheReichNPCSheet extends EatTheReichActorSheet {
 			"system.threatRating.max": newThreatMax.total,
 			"system.attack.value": newAttack
 		});
-		// const chatData = {
-		// 	threat: newThreat.total,
-		// 	attack: newAttack
-		// }
-		// const template = "systems/eat-the-reich/templates/chat/reinforcements.hbs";
-		// ChatMessage.create({
-		// 	speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-		// 	rollMode: game.settings.get("core", "rollMode"),
-		// 	content: await renderTemplate(template, chatData),
-		// });
+
+		ChatMessage.create({
+			speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+			content: game.i18n.localize("ETR.Actor.NPC.reinforcementsArrival"),
+		});
 	}
 
 	static async _onClockUpdate(event, target) {

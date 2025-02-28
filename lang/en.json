@@ -68,6 +68,8 @@
       },
       "NPC": {
         "extras": "Extra Info",
+        "reinforcements": "Reinforcements",
+        "reinforcementsArrival": "Reinforcements have arrived!",
         "name": {
           "label": "Name"
         },
@@ -98,7 +100,8 @@
       "equipment": "Equipment Dice",
       "abilities": "Abilities Dice",
       "injuries": "Your Injuries",
-      "penalty": "Penalty:"
+      "penalty": "Penalty:",
+      "gmRoll": "GM Roll"
     },
     "Item": {
       "uses": {
