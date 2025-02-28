@@ -1,10 +1,6 @@
 Styling
-    Figure out better default font that supports bold and italic
     Test and fix light mode
-    GM rolls should be different style than player rolls
 character
-    Make Injuries rollable
-    Make Last Stand rollable
     check if name field needs to be larger
 Locations
     adding items is borked
@@ -15,6 +11,7 @@ Styling
     Different background for Threats?
     Figure out white vs bone font coloring inconsistency
     Threats - Design change for ubermenschen?
+    GM rolls should be different style than player rolls
 Macros
     PC roll without stats
     GM roll without Threat rating

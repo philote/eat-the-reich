@@ -1,58 +1,71 @@
-@use '../utils/variables' as *;
+@use "../utils/variables" as *;
 
-$fonts-path: '#{$asset-path}fonts/';
+$fonts-path: "#{$asset-path}fonts/";
 
 @font-face {
-    font-family: 'Yonkers';
-    src: url('#{$fonts-path}Yonkers/Yonkers.ttf') format('truetype');
+	font-family: "Yonkers";
+	src: url("#{$fonts-path}Yonkers/Yonkers.ttf") format("truetype");
+    font-weight: normal;
+	font-style: normal;
 }
 
 @font-face {
-    font-family: 'veteran typewriter';
-    src: url('#{$fonts-path}veteran-typewriter/veteran typewriter.ttf') format('truetype');
+	font-family: "gabriele";
+	src: url("#{$fonts-path}gabriele/gabriele-l.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
 }
 
 @font-face {
-    font-family: 'gabriele-l';
-    src: url('#{$fonts-path}gabriele/gabriele-l.ttf') format('truetype');
+	font-family: "gabriele";
+	src: url("#{$fonts-path}gabriele/gabriele-bad.ttf") format("truetype");
+	font-weight: bold;
+	font-style: normal;
+}
+
+
+@font-face {
+	font-family: "Erika Type";
+	src: url("#{$fonts-path}erica-type/Erika Type.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
 }
 
 @font-face {
-    font-family: 'gabriele-d';
-    src: url('#{$fonts-path}gabriele/gabriele-d.ttf') format('truetype');
+	font-family: "Erika Type";
+	src: url("#{$fonts-path}erica-type/Erika Type_B.ttf") format("truetype");
+	font-weight: bold;
+	font-style: normal;
 }
 
 @font-face {
-    font-family: 'gabriele-br';
-    src: url('#{$fonts-path}gabriele/gabriele-br.ttf') format('truetype');
+	font-family: "TeX Gyre Cursor";
+	src: url("#{$fonts-path}TeX-Gyre-Cursor/texgyrecursor-bold.otf") format("opentype");
+	font-weight: bold;
+	font-style: normal;
 }
 
 @font-face {
-    font-family: 'gabriele-bad';
-    src: url('#{$fonts-path}gabriele/gabriele-bad.ttf') format('truetype');
+	font-family: "TeX Gyre Cursor";
+	src: url("#{$fonts-path}TeX-Gyre-Cursor/texgyrecursor-regular.otf") format("opentype");
+	font-weight: normal;
+	font-style: normal;
 }
 
 @font-face {
-    font-family: 'Erika Type_B';
-    src: url('#{$fonts-path}erica-type/Erika Type_B.ttf') format('truetype');
+    font-family: "TeX Gyre Cursor";
+    src: url("#{$fonts-path}TeX-Gyre-Cursor/texgyrecursor-italic.otf") format("opentype");
+    font-weight: normal;
+    font-style: italic;
 }
 
 @font-face {
-    font-family: 'Erika Type_BI';
-    src: url('#{$fonts-path}erica-type/Erika Type_BI.ttf') format('truetype');
+    font-family: "TeX Gyre Cursor";
+    src: url("#{$fonts-path}TeX-Gyre-Cursor/texgyrecursor-bolditalic.otf") format("opentype");
+    font-weight: bold;
+    font-style: italic;
 }
 
-@font-face {
-    font-family: 'Erika Type_I';
-    src: url('#{$fonts-path}erica-type/Erika Type_I.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Erika Type';
-    src: url('#{$fonts-path}erica-type/Erika Type.ttf') format('truetype');
-}
-
-$font-primary: 'gabriele-l', 'Courier New', monospace;
-$font-primary-bold:  'Erika Type_B', 'Courier New', monospace;
-$font-secondary: 'Yonkers', serif;
+$font-primary: "TeX Gyre Cursor", "Courier New", monospace;
+$font-secondary: "Yonkers", serif;
 $font-header: Arial, sans-serif;

@@ -129,7 +129,6 @@ export default class EatTheReichNPCSheet extends EatTheReichActorSheet {
 			});
 			
 			// If the GM rolls zero successes on their Attack dice, increase the Threat’s Attack by 1
-			console.log("results", results);
 			const successes = results.filter(r => r.result >= 4);
 			if(successes.length === 0) {
 				const newAttack = this.actor.system.attack.value + 1;

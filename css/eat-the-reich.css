@@ -2,42 +2,56 @@
 @font-face {
   font-family: "Yonkers";
   src: url("../assets/fonts/Yonkers/Yonkers.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 @font-face {
-  font-family: "veteran typewriter";
-  src: url("../assets/fonts/veteran-typewriter/veteran typewriter.ttf") format("truetype");
-}
-@font-face {
-  font-family: "gabriele-l";
+  font-family: "gabriele";
   src: url("../assets/fonts/gabriele/gabriele-l.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 @font-face {
-  font-family: "gabriele-d";
-  src: url("../assets/fonts/gabriele/gabriele-d.ttf") format("truetype");
-}
-@font-face {
-  font-family: "gabriele-br";
-  src: url("../assets/fonts/gabriele/gabriele-br.ttf") format("truetype");
-}
-@font-face {
-  font-family: "gabriele-bad";
+  font-family: "gabriele";
   src: url("../assets/fonts/gabriele/gabriele-bad.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Erika Type_B";
-  src: url("../assets/fonts/erica-type/Erika Type_B.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Erika Type_BI";
-  src: url("../assets/fonts/erica-type/Erika Type_BI.ttf") format("truetype");
-}
-@font-face {
-  font-family: "Erika Type_I";
-  src: url("../assets/fonts/erica-type/Erika Type_I.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
 }
 @font-face {
   font-family: "Erika Type";
   src: url("../assets/fonts/erica-type/Erika Type.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Erika Type";
+  src: url("../assets/fonts/erica-type/Erika Type_B.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "TeX Gyre Cursor";
+  src: url("../assets/fonts/TeX-Gyre-Cursor/texgyrecursor-bold.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "TeX Gyre Cursor";
+  src: url("../assets/fonts/TeX-Gyre-Cursor/texgyrecursor-regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "TeX Gyre Cursor";
+  src: url("../assets/fonts/TeX-Gyre-Cursor/texgyrecursor-italic.otf") format("opentype");
+  font-weight: normal;
+  font-style: italic;
+}
+@font-face {
+  font-family: "TeX Gyre Cursor";
+  src: url("../assets/fonts/TeX-Gyre-Cursor/texgyrecursor-bolditalic.otf") format("opentype");
+  font-weight: bold;
+  font-style: italic;
 }
 :root {
   --etr-c-dark: #191813;
@@ -56,7 +70,7 @@
   --etr-c-dark: #c9c7b8;
   --etr-c-dark-trans: rgba(201, 199, 184, 0.75);
   --etr-c-dark-trans-lt: rgba(201, 199, 184, 0.25);
-  --etr-c-faint: #191813;
+  --etr-c-faint: #0d0f17;
   --etr-c-beige: #444444;
   --etr-c-tan: #b5b3a4;
   --etr-c-white: #000000;
@@ -68,7 +82,7 @@
 /* Global styles */
 /* Utilities. */
 .window-app {
-  font-family: "gabriele-l", "Courier New", monospace;
+  font-family: "TeX Gyre Cursor", "Courier New", monospace;
 }
 
 .rollable:hover, .rollable:focus {
@@ -311,27 +325,27 @@
 /* Chat */
 /* Utilities. */
 #chat-log .chat-message {
-  font-family: "gabriele-l", "Courier New", monospace;
+  font-family: "TeX Gyre Cursor", "Courier New", monospace;
   color: var(--etr-c-dark);
   background: none;
   background-color: var(--etr-c-faint);
+  border: 1px solid var(--etr-c-beige);
 }
 #chat-log .chat-message .message-header {
-  font-family: "gabriele-l", "Courier New", monospace;
+  font-family: "TeX Gyre Cursor", "Courier New", monospace;
   color: var(--etr-c-dark);
 }
 
 .etr-roll .dice-tooltip .dice-rolls .roll.critical {
   color: var(--etr-c-white);
-  filter: sepia(0.5) hue-rotate(280deg);
+  filter: sepia(0.9) hue-rotate(300deg);
 }
 .etr-roll .dice-tooltip .dice-rolls .roll.success {
   color: var(--etr-c-white);
-  filter: sepia(0.5) hue-rotate(60deg);
+  filter: sepia(0.9) hue-rotate(60deg);
 }
 .etr-roll .dice-tooltip .dice-rolls .roll.discard {
-  color: var(--etr-c-beige);
-  text-decoration: line-through;
+  color: var(--etr-c-white);
 }
 
 /* Dialogs */
@@ -367,7 +381,7 @@
 /* Utilities. */
 /* Utilities. */
 .eat-the-reich {
-  font-family: "gabriele-l", "Courier New", monospace;
+  font-family: "TeX Gyre Cursor", "Courier New", monospace;
   color: var(--etr-c-black);
 }
 .eat-the-reich .check-label {
@@ -382,7 +396,7 @@
   --color-text-selection-bg: var(--color-cool-3);
   min-height: 20px;
   padding: 0.5rem;
-  font-family: "gabriele-l", "Courier New", monospace;
+  font-family: "TeX Gyre Cursor", "Courier New", monospace;
   color: var(--color-light-3);
   user-select: text;
   resize: none;
@@ -457,6 +471,22 @@
   background-color: var(--etr-c-faint);
   color: var(--etr-c-black);
 }
+.eat-the-reich .header-btn {
+  padding: 0;
+  width: fit-content;
+}
+.eat-the-reich .header-btn h4 {
+  margin: 0;
+  text-transform: uppercase;
+  color: var(--etr-c-white);
+  background-color: var(--etr-c-dark-trans);
+  padding: 0px 4px;
+  font-weight: bold;
+  text-shadow: unset;
+  font-family: "TeX Gyre Cursor", "Courier New", monospace;
+  font-weight: bold;
+  white-space: nowrap;
+}
 .eat-the-reich header.sheet-header {
   align-items: flex-start;
   display: flex;
@@ -477,7 +507,8 @@
   text-align: center;
 }
 .eat-the-reich header.sheet-header .stat-group .stats .stat .resource-label {
-  font-family: "Erika Type_B", "Courier New", monospace;
+  font-family: "TeX Gyre Cursor", "Courier New", monospace;
+  font-weight: bold;
 }
 .eat-the-reich header.sheet-header .stat-group .stats .stat input[type=number] {
   height: 1.3rem;
@@ -549,7 +580,8 @@
   padding: 0px 4px;
   font-weight: bold;
   text-shadow: unset;
-  font-family: "Erika Type_B", "Courier New", monospace;
+  font-family: "TeX Gyre Cursor", "Courier New", monospace;
+  font-weight: bold;
 }
 .eat-the-reich .body .main .injuries .injury {
   display: flex;
@@ -579,7 +611,8 @@
   padding: 0px 2px;
   font-weight: bold;
   text-shadow: unset;
-  font-family: "Erika Type_B", "Courier New", monospace;
+  font-family: "TeX Gyre Cursor", "Courier New", monospace;
+  font-weight: bold;
 }
 .eat-the-reich .body .main .last-stand input[type=number] {
   width: 45px;
@@ -719,7 +752,7 @@
   flex-wrap: nowrap;
   gap: 4px;
   margin-bottom: 5px;
-  font-family: "gabriele-l", "Courier New", monospace;
+  font-family: "TeX Gyre Cursor", "Courier New", monospace;
 }
 .eat-the-reich .items-list .item:last-child {
   margin-bottom: 0;
@@ -728,8 +761,8 @@
   flex: 1;
 }
 .eat-the-reich .items-list .item .item-info .item-name {
+  font-family: "TeX Gyre Cursor", "Courier New", monospace;
   font-weight: bold;
-  font-family: "Erika Type_B", "Courier New", monospace;
 }
 .eat-the-reich .items-list .item .item-info .item-description,
 .eat-the-reich .items-list .item .item-info .item-bonus {

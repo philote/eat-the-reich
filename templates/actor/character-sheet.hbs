@@ -323,7 +323,14 @@
 				</ol>
 			</div>
 			<div class="injuries">
-				<h2>{{localize "ETR.Actor.Character.injuries"}}</h2>
+				<button 
+					class="header-btn" 
+					data-action="onInjuryRoll">
+					<h4>
+						<i class="fa-solid fa-dice"></i>
+						{{localize "ETR.Actor.Character.injuries.label"}}
+					</h4>
+				</button>
 				<div class="grid grid-3col">
 					<h4>1-2</h4>
 					<h4>3-4</h4>
@@ -441,7 +448,14 @@
 				</div>
 			</div>
 			<div class="last-stand">
-				<h4>{{localize "ETR.Actor.Character.lastStand"}}</h4>
+				<button 
+					class="header-btn" 
+					data-action="onLastStandRoll">
+					<h4>
+						<i class="fa-solid fa-dice"></i>
+						{{localize "ETR.Actor.Character.lastStand"}}
+					</h4>
+				</button>
 				<input 
 					type="text" 
 					name="system.lastStand.name" 

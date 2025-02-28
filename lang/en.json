@@ -58,8 +58,14 @@
         "loot": "Loot",
         "abilities": "Abilities",
         "advancements": "Advancements",
-        "injuries": "Injuries",
-        "lastStand": "Last Stand:",
+        "injuries": {
+          "label": "Injuries",
+          "rollMessage": "<strong>GM Attack Dice < 3:</strong> Tick off the first unchecked box in the <strong>{category}</strong> category.<br><strong>GM Attack Dice >= 3:</strong> You are taken down. Mark off all available boxes in the <strong>{category}</strong> category.<hr><em>If both boxes are already marked, pick an alternate category.</em>",
+          "oneTwo": "1-2",
+          "threeFour": "3-4",
+          "fiveSix": "5-6"
+        },
+        "lastStand": "Last Stand",
         "Stats": {
           "label": "Stats",
           "initial": "Init",
@@ -101,7 +107,8 @@
       "abilities": "Abilities Dice",
       "injuries": "Your Injuries",
       "penalty": "Penalty:",
-      "gmRoll": "GM Roll"
+      "gmRoll": "GM Roll",
+      "lastStandRoll": "Last Stand Roll"
     },
     "Item": {
       "uses": {

@@ -15,6 +15,8 @@ export default class EatTheReichCharacterSheet extends EatTheReichActorSheet {
 			onClockUpdate: this._onClockUpdate,
 			onBloodUpdate: this._onBloodUpdate,
 			onAdvanceSelected: this._onAdvanceSelected,
+			onInjuryRoll: this._onInjuryRoll,
+			onLastStandRoll: this._onLastStandRoll,
 		},
 	};
 
@@ -108,6 +110,56 @@ export default class EatTheReichCharacterSheet extends EatTheReichActorSheet {
 	 *   ACTIONS
 	 *
 	 **************/
+
+	static async _onInjuryRoll(event, target) {
+		event.preventDefault();
+		const roll = await new Roll('1d6').evaluate();
+		let category = "";
+		switch (roll.total) {
+			case 1:
+			case 2:
+				category = game.i18n.localize('ETR.Actor.Character.injuries.oneTwo');
+				break;
+			case 3:
+			case 4:
+				category = game.i18n.localize('ETR.Actor.Character.injuries.threeFour');
+				break;
+			case 5:
+			case 6:
+				category = game.i18n.localize('ETR.Actor.Character.injuries.fiveSix');
+				break;
+		}
+		const message = game.i18n.format('ETR.Actor.Character.injuries.rollMessage', {category: game.i18n.localize('ETR.Actor.Character.injuries.oneTwo')});
+
+		ui.notifications.info(message);
+		ChatMessage.create({
+			speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+			flavor: game.i18n.localize('ETR.Actor.Character.injuries.label'),
+			content: message,
+		});
+	}
+
+	static async _onLastStandRoll(event, target) {
+		event.preventDefault();
+		console.log("Last Stand Roll");
+		const lastStandDice = this.actor.system.lastStand.dice;
+		const lastStandName = this.actor.system.lastStand.name;
+		// Chat Message
+		const roll = await new Roll(`{${lastStandDice}d6}`).evaluate();
+		const results = roll.dice[0].results;
+		const chatData = {
+			dice: results,
+			stat: game.i18n.localize("ETR.Dice.lastStandRoll")
+		}
+		const template = "systems/eat-the-reich/templates/chat/die-pool-output.hbs";
+
+		ChatMessage.create({
+			speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+			rollMode: game.settings.get("core", "rollMode"),
+			flavor: lastStandName,
+			content: await renderTemplate(template, chatData),
+		});
+	}
 
 	static async _onAdvanceSelected(event, target) {
 		event.preventDefault();

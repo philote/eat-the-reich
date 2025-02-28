@@ -100,10 +100,6 @@
     justify-content: space-between;
     align-items: center;
   }
-
-  // .extra-info h4 {
-  //   margin-top: ;
-  // }
   
   .title_rotated {
     writing-mode: vertical-lr;
@@ -128,6 +124,24 @@
       }
     }
   }
+
+  .header-btn {
+    padding: 0;
+    width: fit-content;
+    
+    h4 {
+      margin: 0;
+      text-transform: uppercase;
+      color: var(--etr-c-white);
+      background-color: var(--etr-c-dark-trans);
+      padding: 0px 4px;
+      font-weight: bold;
+      text-shadow: unset;
+      font-family: $font-primary;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+  }
   
   header.sheet-header {
     align-items: flex-start;
@@ -150,7 +164,8 @@
           text-align: center;
   
           .resource-label {
-            font-family: $font-primary-bold;
+            font-family: $font-primary;
+            font-weight: bold;
           }
   
           input[type="number"] {
@@ -240,7 +255,8 @@
           padding: 0px 4px;
           font-weight: bold;
           text-shadow: unset;
-          font-family: $font-primary-bold;
+          font-family: $font-primary;
+          font-weight: bold;
         }
   
         .injury {
@@ -275,7 +291,8 @@
           padding: 0px 2px;
           font-weight: bold;
           text-shadow: unset;
-          font-family: $font-primary-bold;
+          font-family: $font-primary;
+          font-weight: bold;
         }
   
         // input[type="text"] {
