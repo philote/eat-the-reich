@@ -1,0 +1,171 @@
+<div class="scrollable">
+    {{! Sheet Header }}
+	<header class="sheet-header">
+        <img
+            class="profile-img"
+            src="{{actor.img}}"
+            data-edit="img"
+            data-action="onEditImage"
+            title="{{actor.name}}"
+            height="100"
+            width="100"
+        />
+		<div class="header-fields">
+			<h1 class="document-name">
+                {{formInput
+                    fields.name
+                    name="name"
+                    value=actor._source.name
+                    placeholder=(localize "ETR.Actor.NPC.name.label")
+                }}
+			</h1>
+            <div class="rating clock-widget">
+                <label>{{localize "ETR.Actor.NPC.rating.label"}}</label>
+                <div class="controls">
+                    <button
+                        class="icon"
+                        type="button"
+                        data-action="onClockUpdate"
+                        data-action-type="sizeIncrease"
+                        data-property="system.threatRating"
+                    >
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                    <button
+                        class="icon"
+                        type="button"
+                        data-action="onClockUpdate"
+                        data-action-type="sizeDecrease"
+                        data-property="system.threatRating"
+                        {{#if (lte system.threatRating.max 1)}}disabled{{/if}}
+                    >
+                        <i class="fa-solid fa-minus"></i>
+                    </button>
+                </div>
+                <div class="boxes">
+                {{#times system.threatRating.max}}
+                    <input
+                        type="checkbox"
+                        class="threatRating"
+                        data-action="onClockUpdate"
+                        data-action-type="valueUpdate"
+                        data-property="system.threatRating"
+                        data-value="{{@index}}"
+                        {{checked (gt ../system.threatRating.value @index)}}
+                    />
+                {{/times}}
+                </div>
+            </div>
+            <label class="check-label">
+                {{formInput 
+                    systemFields.isUbermenschen.fields.value 
+                    value=system.isUbermenschen.value
+                    label=systemFields.isUbermenschen.label 
+                }}
+                {{localize "ETR.Actor.NPC.FIELDS.isUbermenschen.label"}}
+            </label>
+            {{#if (not system.isUbermenschen.value)}}
+            <button>
+                <i class="fa-solid fa-people-group"></i>
+                Reinforcements
+            </button>
+            {{/if}}
+		</div>
+	</header>
+    <hr>
+    <section class="threat-body">
+        {{!-- Attack --}}
+        <div class="threat-attr">
+            {{formInput 
+                systemFields.attack.fields.value 
+                value=system.attack.value
+                label=systemFields.attack.label 
+            }}
+            <button>
+                <i class="fa-solid fa-dice"></i>
+                {{localize "ETR.Actor.NPC.FIELDS.attack.label"}}
+            </button>
+            {{formInput
+                systemFields.attack.fields.description 
+                value=system.attack.description
+                placeholder=(localize "ETR.Actor.NPC.FIELDS.attack.description")
+            }}
+        </div>
+        <div class="threat-attr">
+            {{!-- Challenge --}}
+            {{formInput 
+                systemFields.challenge.fields.value 
+                value=system.challenge.value
+                label=systemFields.challenge.label 
+            }}
+            <label>{{localize "ETR.Actor.NPC.FIELDS.challenge.label"}}</label>
+            {{formInput
+                systemFields.challenge.fields.description 
+                value=system.challenge.description
+                placeholder=(localize "ETR.Actor.NPC.FIELDS.challenge.description")
+            }}
+        </div>
+        {{formGroup
+            systemFields.description.fields.value
+            value=system.description.value
+            enriched=enrichedDescription
+            label=systemFields.description.label 
+            documentUUID=actor.uuid
+            toggled=true
+            stacked=true
+        }}
+        <div class="extra-info">
+            <h4 class="item-section-header">
+                {{localize "ETR.Actor.NPC.extras"}}
+                <div class="item-controls">
+                    {{#if @root.editable}}
+                        <button
+                            class="item-control item-create icon"
+                            title="{{localize 'DOCUMENT.Create' type="Item"}}"
+                            data-action="createDoc"
+                            data-document-class="Item"
+                            data-type="extraInfo"
+                        >
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    {{/if}}
+                </div>
+            </h4>
+            <ol class="items-list">
+                {{#each extraInfo as |item id|}}
+                    <li
+                        class="item"
+                        data-item-id="{{item._id}}"
+                        data-drag="true"
+                        data-document-class="Item"
+                    >
+                        <div class="flexrow">
+                            <div class="item-info">
+                                <span class="item-name">{{item.name}}</span>
+                            </div>
+                            <div class="item-controls">
+                                <a
+                                    class="item-control item-edit"
+                                    title="{{localize 'DOCUMENT.Update' type="Extra Info"}}"
+                                    data-action="viewDoc"
+                                >
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                {{#if @root.editable}}
+                                    <a
+                                        class="item-control item-delete"
+                                        title="{{localize 'DOCUMENT.Delete' type="Extra Info"}}"
+                                        data-action="deleteDoc"
+                                    >
+                                        <i class="fas fa-trash"></i>
+                                    </a>
+                                {{/if}}
+                            </div>
+                        </div>
+                        <span class="item-description">{{{item.system.description.value}}}</span>
+                    </li>
+                {{/each}}
+            </ol>
+        </div>
+    </section>
+</div>

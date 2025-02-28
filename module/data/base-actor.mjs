@@ -5,7 +5,9 @@ export default class EatTheReichActorBase extends foundry.abstract
 	static defineSchema() {
 		const fields = foundry.data.fields;
 		const schema = {};
-		schema.description = new fields.HTMLField();
+		schema.description = new fields.SchemaField({
+			value: new fields.HTMLField({ required: true, blank: true }),
+		});
 		return schema;
 	}
 }

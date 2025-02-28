@@ -1,8 +1,9 @@
 <section class="equipment">
 	<div class="uses clock-widget">
-		<label>Uses</label>
+		<label>{{localize "ETR.Item.uses.label"}}</label>
 		<div class="controls">
 			<button
+				class="icon"
 				type="button"
 				data-action="onClockUpdate"
 				data-action-type="sizeIncrease"
@@ -11,6 +12,7 @@
 				<i class="fa-solid fa-plus"></i>
 			</button>
 			<button
+				class="icon"
 				type="button"
 				data-action="onClockUpdate"
 				data-action-type="sizeDecrease"
@@ -20,7 +22,7 @@
 				<i class="fa-solid fa-minus"></i>
 			</button>
 		</div>
-		<div class="boxes">
+		<div class="boxes uses">
 		{{#times system.uses.max}}
 			<input
 				type="checkbox"

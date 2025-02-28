@@ -14,12 +14,13 @@ Player Chat output
 - 6 shows pink (+2 | SPECIAL)
 - allow dice to be allocated...
   - click to cross out with Icon on what was allocated to [objective, threat, defend, feed, (if 6) special]
-- show a flashback button - > rolls on table
-  - new button that rerolls the pool but with 2 extra dice (gray out this roll, new one stands)
+- show a flashback button - > rolls on table (show only when 2 successes of fewer are rolled)
+  - new button that rerolls the pool but with 2 extra dice (gray out the original roll, new one stands)
 
 GM Roll dialog 
 - [Input] Threat Name
 - [Input] show threat rating pool
+- [Input] Extra Threats in Play
 
 GM Chat output
 - 1,2,3 shows greyed out
@@ -108,13 +109,15 @@ NPC (Threat)
   Attack [Int, rollable] (When a Threat’s rating is reduced to 0, reduce its Attack to 0)
     If the GM rolls zero successes on their Attack dice, increase the Threat’s Attack by 1, once the player has resolved their action.
     add a message to the chat log that the Threat’s Attack has increased by 1.
+    when rating = 0 then attack = 0 too (Maybe just mark it out, not set to 0)
   Attack Description [String]
-  Threat Rating [Uses]
-  Description [HTMLField]
+  Rating [Uses]
+    At the end of each round, if a Threat was reduced to 0 rating, restore its rating by 1D6 and return its Attack to half its starting value (rounded down).
   REINFORCEMENTS [Button] 
     when threat is reduced to 0, show a button to restore threat by 1D6 & reduce Attack by 1
     Make this a setting?
-  Challenge Rating 
+  Description [HTMLField]
+  Challenge 
     negates successes spent to lower its rating equal to its Challenge
   Challenge Description [String]
   Extra Rules/Info [List]
@@ -134,5 +137,6 @@ Location
 Objective
   Name [String]
   Description [HTMLField]
-  Challenge Rating 
+  Rating 
+  Challenge
     negates successes spent to lower its rating equal to its Challenge

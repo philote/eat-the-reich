@@ -4,7 +4,6 @@
     <section class="tooltip-part">
       <div class="dice">
         <ul class="dice-rolls">
-          {{log dice}}
           {{#each dice as |die key|}}
             <li class="roll die d6 {{etrPlayerDie die.result}}">{{die.result}}</li>
           {{/each}}

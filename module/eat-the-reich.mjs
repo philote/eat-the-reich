@@ -2,8 +2,7 @@
 import { EatTheReichActor } from "./documents/actor.mjs";
 import { EatTheReichItem } from "./documents/item.mjs";
 // Import sheet classes.
-import { EatTheReichActorSheet } from "./sheets/actor-sheet.mjs";
-import { EatTheReichItemSheet } from "./sheets/item-sheet.mjs";
+import * as applications from "./sheets/_module.mjs";
 // Import helper/utility classes and constants.
 import { ETR } from "./helpers/config.mjs";
 // Import DataModel classes
@@ -21,10 +20,7 @@ globalThis.eat_the_reich = {
 		EatTheReichActor,
 		EatTheReichItem,
 	},
-	applications: {
-		EatTheReichActorSheet,
-		EatTheReichItemSheet,
-	},
+	applications,
 	models,
 };
 
@@ -50,16 +46,28 @@ Hooks.once("init", function () {
 		equipment: models.EatTheReichEquipment,
 		loot: models.EatTheReichLoot,
 		objective: models.EatTheReichObjective,
+		extraInfo: models.EatTheReichExtraInfo,
 	};
 
 	// Register sheet application classes
 	Actors.unregisterSheet("core", ActorSheet);
-	Actors.registerSheet("eat-the-reich", EatTheReichActorSheet, {
-		makeDefault: true,
+	Actors.registerSheet("eat-the-reich", applications.EatTheReichCharacterSheet, {
+		types: ["character"],
+        makeDefault: true,
 		label: "ETR.SheetLabels.Actor",
 	});
+    Actors.registerSheet("eat-the-reich", applications.EatTheReichNPCSheet, {
+		types: ["npc"],
+        makeDefault: true,
+		label: "ETR.SheetLabels.NPC",
+	});
+    Actors.registerSheet("eat-the-reich", applications.EatTheReichLocationSheet, {
+		types: ["location"],
+        makeDefault: true,
+		label: "ETR.SheetLabels.Location",
+	});
 	Items.unregisterSheet("core", ItemSheet);
-	Items.registerSheet("eat-the-reich", EatTheReichItemSheet, {
+	Items.registerSheet("eat-the-reich", applications.EatTheReichItemSheet, {
 		makeDefault: true,
 		label: "ETR.SheetLabels.Item",
 	});

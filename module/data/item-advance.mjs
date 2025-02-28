@@ -3,7 +3,7 @@ import EatTheReichItemBase from "./base-item.mjs";
 export default class EatTheReichAdvance extends EatTheReichItemBase {
 	static LOCALIZATION_PREFIXES = [
 		"ETR.Item.base", 
-		"ETR.Item.Advance"
+		"ETR.Item.advance"
 	];
 
 	static defineSchema() {

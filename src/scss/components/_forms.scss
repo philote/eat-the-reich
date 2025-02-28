@@ -8,10 +8,13 @@
     font-family: $font-primary;
     color: $c-black;
   }
-  
-  button {
-    background-color: none;
-    border: none;
+
+  .check-label {
+    display: flex;
+    align-items: center;
+  }
+
+  button.icon {
     i {
       margin: 0;
     }
@@ -42,10 +45,6 @@
       color: #ee9b3a;
     }
   }
-  
-  // a {
-    
-  // }
   
   a:hover {
     color: $c-link;
@@ -94,6 +93,17 @@
     font-weight: bold;
     text-transform: uppercase;
   }
+
+  .item-section-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  // .extra-info h4 {
+  //   margin-top: ;
+  // }
   
   .title_rotated {
     writing-mode: vertical-lr;
@@ -110,6 +120,7 @@
       border: $c-beige 1px dashed;
       border-radius: 4px;
       padding: 0 10px;
+      background-color: #00000042;
   
       &.ProseMirror {
         background-color: $c-faint;
@@ -159,7 +170,7 @@
         input[type="text"] {
           margin: 0;
           width: 100%;
-          font-size: var(--font-size-36);
+          font-size: var(--font-size-32);
           font-weight: bold;
           text-align: center;
           height: var(--font-size-48);
@@ -186,7 +197,7 @@
   
   .body {
     display: flex;
-    margin: 0 0 0 5px;
+    margin: 20px 0 0 5px;
     gap: 25px;
   
     .sidebar {
@@ -215,20 +226,7 @@
       flex: 1;
       display: flex;
       flex-direction: column;
-      gap: 15px;
-  
-      .equipment,
-      .loot,
-      .abilities,
-      .advancements {
-  
-        h2, h4 {
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-          align-items: center;
-        }
-      }
+      gap: 20px;
       
       .injuries {
         
@@ -288,6 +286,105 @@
           text-align: center;
         }
       }
+    }
+  }
+
+  &.npc {
+
+    header.sheet-header {
+      .profile-img {
+        flex: 0 0 175px;
+        height: 175px;
+        margin: 0;
+        border: 2px solid $c-beige;
+        border-radius: 0px;
+      }
+
+      .header-fields {
+
+      }
+    }
+
+    .threat-body {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
+  
+      .threat-attr {
+        display: flex;
+        gap: 10px;
+  
+        input[type=number] {
+          flex: 0;
+          min-width: 40px;
+          text-align: center;
+        }
+  
+        button, label {
+          width: 200px;
+          text-align: center;
+          align-content: center;
+        }
+  
+        label {
+          margin: 0 5px;
+        }
+      }
+    }
+  }
+
+  &.location {
+    prose-mirror {
+      min-height: 100px;
+    }
+
+    header.sheet-header {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 10px;
+      
+      h1, .location-header {
+        width: 100%;
+      }
+
+      h1 input {
+        height: 48px;
+        line-height: 48px;
+        font-size: var(--font-size-32);
+        font-weight: bold;
+        text-align: center;
+        margin: 0;
+        width: 100%;
+      }
+
+      .location-header {
+        display: flex;
+        gap: 10px;
+
+        .profile-img {
+          flex: 0 0 175px;
+          height: 175px;
+        }
+
+        .form-group {
+          flex: 1;
+          align-content: center;
+
+          prose-mirror {
+              min-height: 140px;
+          }
+        }
+      }
+
+      
+    }
+    
+    .location-body {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
   }
 }

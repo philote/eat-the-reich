@@ -11,3 +11,4 @@ export { default as EatTheReichLoot } from './item-loot.mjs';
 export { default as EatTheReichAbility } from './item-ability.mjs';
 export { default as EatTheReichAdvance } from './item-advance.mjs';
 export { default as EatTheReichObjective } from './item-objective.mjs';
+export { default as EatTheReichExtraInfo } from './item-extra-info.mjs';

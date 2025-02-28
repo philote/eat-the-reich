@@ -32,8 +32,27 @@ $fonts-path: '#{$asset-path}fonts/';
     src: url('#{$fonts-path}gabriele/gabriele-bad.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'Erika Type_B';
+    src: url('#{$fonts-path}erica-type/Erika Type_B.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Erika Type_BI';
+    src: url('#{$fonts-path}erica-type/Erika Type_BI.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Erika Type_I';
+    src: url('#{$fonts-path}erica-type/Erika Type_I.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Erika Type';
+    src: url('#{$fonts-path}erica-type/Erika Type.ttf') format('truetype');
+}
 
 $font-primary: 'gabriele-l', 'Courier New', monospace;
-$font-primary-bold:  'gabriele-bad', 'Courier New', monospace;
+$font-primary-bold:  'Erika Type_B', 'Courier New', monospace;
 $font-secondary: 'Yonkers', serif;
 $font-header: Arial, sans-serif;

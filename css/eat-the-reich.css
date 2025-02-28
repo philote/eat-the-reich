@@ -23,6 +23,22 @@
   font-family: "gabriele-bad";
   src: url("../assets/fonts/gabriele/gabriele-bad.ttf") format("truetype");
 }
+@font-face {
+  font-family: "Erika Type_B";
+  src: url("../assets/fonts/erica-type/Erika Type_B.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Erika Type_BI";
+  src: url("../assets/fonts/erica-type/Erika Type_BI.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Erika Type_I";
+  src: url("../assets/fonts/erica-type/Erika Type_I.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Erika Type";
+  src: url("../assets/fonts/erica-type/Erika Type.ttf") format("truetype");
+}
 :root {
   --etr-c-dark: #191813;
   --etr-c-dark-trans: rgba(25, 24, 19, 0.75);
@@ -74,7 +90,27 @@
   height: 100%;
   background-image: url("../assets/bg.webp");
   background-size: cover;
+  background-position: center;
   opacity: 0.15;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.eat-the-reich.location .window-content {
+  position: relative;
+}
+.eat-the-reich.location .window-content::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 100%;
+  background-image: linear-gradient(rgba(63, 38, 7, 0.6862745098), rgba(23, 13, 1, 0.8549019608)), url("../assets/paper.webp");
+  background-size: cover cover;
+  background-position: top center;
+  opacity: 1;
   z-index: -1;
   pointer-events: none;
 }
@@ -334,11 +370,11 @@
   font-family: "gabriele-l", "Courier New", monospace;
   color: var(--etr-c-black);
 }
-.eat-the-reich button {
-  background-color: none;
-  border: none;
+.eat-the-reich .check-label {
+  display: flex;
+  align-items: center;
 }
-.eat-the-reich button i {
+.eat-the-reich button.icon i {
   margin: 0;
 }
 .eat-the-reich textarea {
@@ -396,6 +432,12 @@
   font-weight: bold;
   text-transform: uppercase;
 }
+.eat-the-reich .item-section-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
 .eat-the-reich .title_rotated {
   writing-mode: vertical-lr;
   border: none;
@@ -408,6 +450,7 @@
   border: var(--etr-c-beige) 1px dashed;
   border-radius: 4px;
   padding: 0 10px;
+  background-color: rgba(0, 0, 0, 0.2588235294);
 }
 .eat-the-reich prose-mirror .editor-content.ProseMirror,
 .eat-the-reich .editor-container .editor-content.ProseMirror {
@@ -433,7 +476,7 @@
   text-align: center;
 }
 .eat-the-reich header.sheet-header .stat-group .stats .stat .resource-label {
-  font-family: "gabriele-bad", "Courier New", monospace;
+  font-family: "Erika Type_B", "Courier New", monospace;
 }
 .eat-the-reich header.sheet-header .stat-group .stats .stat input[type=number] {
   height: 1.3rem;
@@ -447,7 +490,7 @@
 .eat-the-reich header.sheet-header .header-fields .document-name input[type=text] {
   margin: 0;
   width: 100%;
-  font-size: var(--font-size-36);
+  font-size: var(--font-size-32);
   font-weight: bold;
   text-align: center;
   height: var(--font-size-48);
@@ -468,7 +511,7 @@
 }
 .eat-the-reich .body {
   display: flex;
-  margin: 0 0 0 5px;
+  margin: 20px 0 0 5px;
   gap: 25px;
 }
 .eat-the-reich .body .sidebar {
@@ -494,19 +537,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 15px;
-}
-.eat-the-reich .body .main .equipment h2, .eat-the-reich .body .main .equipment h4,
-.eat-the-reich .body .main .loot h2,
-.eat-the-reich .body .main .loot h4,
-.eat-the-reich .body .main .abilities h2,
-.eat-the-reich .body .main .abilities h4,
-.eat-the-reich .body .main .advancements h2,
-.eat-the-reich .body .main .advancements h4 {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  gap: 20px;
 }
 .eat-the-reich .body .main .injuries h4 {
   width: fit-content;
@@ -517,7 +548,7 @@
   padding: 0px 4px;
   font-weight: bold;
   text-shadow: unset;
-  font-family: "gabriele-bad", "Courier New", monospace;
+  font-family: "Erika Type_B", "Courier New", monospace;
 }
 .eat-the-reich .body .main .injuries .injury {
   display: flex;
@@ -547,16 +578,88 @@
   padding: 0px 2px;
   font-weight: bold;
   text-shadow: unset;
-  font-family: "gabriele-bad", "Courier New", monospace;
+  font-family: "Erika Type_B", "Courier New", monospace;
 }
 .eat-the-reich .body .main .last-stand input[type=number] {
   width: 45px;
   text-align: center;
 }
+.eat-the-reich.npc header.sheet-header .profile-img {
+  flex: 0 0 175px;
+  height: 175px;
+  margin: 0;
+  border: 2px solid var(--etr-c-beige);
+  border-radius: 0px;
+}
+.eat-the-reich.npc .threat-body {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+.eat-the-reich.npc .threat-body .threat-attr {
+  display: flex;
+  gap: 10px;
+}
+.eat-the-reich.npc .threat-body .threat-attr input[type=number] {
+  flex: 0;
+  min-width: 40px;
+  text-align: center;
+}
+.eat-the-reich.npc .threat-body .threat-attr button, .eat-the-reich.npc .threat-body .threat-attr label {
+  width: 200px;
+  text-align: center;
+  align-content: center;
+}
+.eat-the-reich.npc .threat-body .threat-attr label {
+  margin: 0 5px;
+}
+.eat-the-reich.location prose-mirror {
+  min-height: 100px;
+}
+.eat-the-reich.location header.sheet-header {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.eat-the-reich.location header.sheet-header h1, .eat-the-reich.location header.sheet-header .location-header {
+  width: 100%;
+}
+.eat-the-reich.location header.sheet-header h1 input {
+  height: 48px;
+  line-height: 48px;
+  font-size: var(--font-size-32);
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+  width: 100%;
+}
+.eat-the-reich.location header.sheet-header .location-header {
+  display: flex;
+  gap: 10px;
+}
+.eat-the-reich.location header.sheet-header .location-header .profile-img {
+  flex: 0 0 175px;
+  height: 175px;
+}
+.eat-the-reich.location header.sheet-header .location-header .form-group {
+  flex: 1;
+  align-content: center;
+}
+.eat-the-reich.location header.sheet-header .location-header .form-group prose-mirror {
+  min-height: 140px;
+}
+.eat-the-reich.location .location-body {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 .eat-the-reich .clock-widget {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  margin: 5px 0;
 }
 .eat-the-reich .clock-widget .controls {
   display: flex;
@@ -575,10 +678,10 @@
 .eat-the-reich .clock-widget .boxes input[type=checkbox] {
   margin: 0 0 0 4px;
 }
-.eat-the-reich .clock-widget .boxes input[type=checkbox]:not(:first-child:last-child):last-child::before {
+.eat-the-reich .clock-widget .boxes.uses input[type=checkbox]:not(:first-child:last-child):last-child::before {
   color: hsl(321, 70.11%, 17.06%);
 }
-.eat-the-reich .clock-widget .boxes input[type=checkbox]:not(:first-child:last-child):last-child::after {
+.eat-the-reich .clock-widget .boxes.uses input[type=checkbox]:not(:first-child:last-child):last-child::after {
   color: hsl(321, 84.11%, 58.04%);
 }
 .eat-the-reich .clock-widget.clock-list-item {
@@ -615,7 +718,7 @@
   flex-wrap: nowrap;
   gap: 4px;
   margin-bottom: 5px;
-  font-family: "gabriele-bad", "Courier New", monospace;
+  font-family: "gabriele-l", "Courier New", monospace;
 }
 .eat-the-reich .items-list .item:last-child {
   margin-bottom: 0;
@@ -625,10 +728,7 @@
 }
 .eat-the-reich .items-list .item .item-info .item-name {
   font-weight: bold;
-  text-transform: uppercase;
-  color: var(--etr-c-white);
-  background-color: var(--etr-c-dark-trans);
-  padding: 0px 2px;
+  font-family: "Erika Type_B", "Courier New", monospace;
 }
 .eat-the-reich .items-list .item .item-info .item-description,
 .eat-the-reich .items-list .item .item-info .item-bonus {
@@ -636,6 +736,12 @@
 }
 .eat-the-reich .items-list .item .used {
   filter: brightness(70%);
+}
+.eat-the-reich.character .items-list .item .item-info .item-name {
+  text-transform: uppercase;
+  color: var(--etr-c-white);
+  background-color: var(--etr-c-dark-trans);
+  padding: 0px 2px;
 }
 
 /*# sourceMappingURL=eat-the-reich.css.map */

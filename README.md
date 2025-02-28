@@ -61,3 +61,28 @@ If you’ve enjoyed my work and find value in what I create, please consider sup
 The ‘Eat The Reich’ game is copyright © 2023 Rowan, Rook and Decard. All artwork in the game is copyright © 2023 Will Kirkby. You can find out more and support these games at [rowanrookanddecard.com](https://rowanrookanddecard.com)
 
 https://rowanrookanddecard.com/rrd-community-licence
+
+### Icons used
+Occupy iconby Cathelineau under CC BY 3.0
+https://game-icons.net/1x1/cathelineau/occupy.html
+
+Fanged skull iconby Lorc under CC BY 3.0
+https://game-icons.net/1x1/lorc/fanged-skull.html
+
+Upgrade iconby Delapouite under CC BY 3.0
+https://game-icons.net/1x1/delapouite/upgrade.html
+
+Skills iconby Delapouite under CC BY 3.0
+https://game-icons.net/1x1/delapouite/skills.html
+
+Backpack iconby Delapouite under CC BY 3.0
+https://game-icons.net/1x1/delapouite/backpack.html
+
+Strongbox iconby Delapouite under CC BY 3.0
+https://game-icons.net/1x1/delapouite/strongbox.html
+
+Flying target iconby Delapouite under CC BY 3.0
+https://game-icons.net/1x1/delapouite/flying-target.html
+
+Info iconby Delapouite under CC BY 3.0
+https://game-icons.net/1x1/delapouite/info.html

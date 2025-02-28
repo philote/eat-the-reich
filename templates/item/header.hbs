@@ -1,15 +1,12 @@
 <header class="sheet-header">
 	<div class="header-fields">
-		{{formInput
+		{{formGroup
 			fields.name
 			name="name"
 			value=item._source.name
-			placeholder=(localize "Name")
-		}}
-		{{formInput 
-			systemFields.bonus.fields.value 
-			value=system.bonus.value 
-			placeholder=(localize "Bonus")
+			label=(localize "ETR.Item.name.label")
+			classes="stacked"
+			stacked=true
 		}}
 	</div>
 </header>

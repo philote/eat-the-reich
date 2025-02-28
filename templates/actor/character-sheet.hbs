@@ -49,12 +49,12 @@
 		</div>
 		<div class="header-fields">
 			<h1 class="document-name">
-				<input 
-					name="name" 
-					type="text" 
-					value="{{actor.name}}" 
-					placeholder="{{localize "ETR.Placeholder.name"}}" 
-				/>
+				{{formInput
+                    fields.name
+                    name="name"
+                    value=actor._source.name
+                    placeholder=(localize "ETR.Item.name.label")
+                }}
 			</h1>
 			<textarea 
 				type="text" 
@@ -82,12 +82,12 @@
 		</aside>
 		<section class="main">
 			<div class="equipment">
-				<h2>
+				<h2 class="item-section-header">
 					{{localize "ETR.Actor.Character.equipment"}}
 					<div class="item-controls">
 						{{#if @root.editable}}
 							<button
-								class="item-control item-create"
+								class="item-control item-create icon"
 								title="{{localize 'DOCUMENT.Create' type="Item"}}"
 								data-action="createDoc"
 								data-document-class="Item"
@@ -111,7 +111,7 @@
 								<span class="item-bounus">{{item.system.bonus.value}}</span>
 							</div>
 							<div class="uses clock-widget clock-list-item">
-								<div class="boxes">
+								<div class="boxes uses">
 									{{#times system.uses.max}}
 										<input
 											type="checkbox"
@@ -147,12 +147,12 @@
 				</ol>
 			</div>
 			<div class="loot">
-				<h4>
+				<h4 class="item-section-header">
 					{{localize "ETR.Actor.Character.loot"}}
 					<div class="item-controls">
 						{{#if (lte loot.length 0)}}
 							<button
-								class="item-control item-create"
+								class="item-control item-create icon"
 								title="{{localize 'DOCUMENT.Create' type="Item"}}"
 								data-action="createDoc"
 								data-document-class="Item"
@@ -176,7 +176,7 @@
 								<span class="item-bounus">{{item.system.bonus.value}}</span>
 							</div>
 							<div class="uses clock-widget clock-list-item">
-								<div class="boxes">
+								<div class="boxes uses">
 									{{#times system.uses.max}}
 										<input
 											type="checkbox"
@@ -212,11 +212,12 @@
 				</ol>
 			</div>
 			<div class="abilities">
-				<h2>{{localize "ETR.Actor.Character.abilities"}}
+				<h2 class="item-section-header">
+					{{localize "ETR.Actor.Character.abilities"}}
 					<div class="item-controls">
 						{{#if @root.editable}}
 							<button
-								class="item-control item-create"
+								class="item-control item-create icon"
 								title="{{localize 'DOCUMENT.Create' type="Item"}}"
 								data-action="createDoc"
 								data-document-class="Item"
@@ -263,12 +264,12 @@
 				</ol>
 			</div>
 			<div class="advancements">
-				<h4>
+				<h4 class="item-section-header">
 					{{localize "ETR.Actor.Character.advancements"}}
 					<div class="item-controls">
 						{{#if @root.editable}}
 							<button
-								class="item-control item-create"
+								class="item-control item-create icon"
 								title="{{localize 'DOCUMENT.Create' type="Item"}}"
 								data-action="createDoc"
 								data-document-class="Item"

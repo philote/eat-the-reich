@@ -11,7 +11,18 @@ export default class EatTheReichLocation extends EatTheReichActorBase {
 		const requiredInteger = { required: true, nullable: false, integer: true };
 		const schema = super.defineSchema();
 
-		// TODO
+		schema.enemies = new fields.SchemaField({
+			value: new fields.HTMLField({ required: true, blank: true }),
+		});
+
+		// TODO maybe add a list of document IDs to track threats
+		/*
+		UUID
+		Name
+		Starting Threat level
+		Description
+		(actions: open, refresh, remove | create, add on drop)
+		*/
 
 		return schema;
 	}

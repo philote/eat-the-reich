@@ -1,7 +1,10 @@
 <section class="description">
-	{{formInput
+	{{formGroup
 		systemFields.description.fields.value
 		value=system.description.value
-		placeholder=(localize "Description")
+		enriched=enrichedDescription
+		label=systemFields.description.label 
+		toggled=true
+		stacked=true
 	}}
 </section>

@@ -10,7 +10,8 @@
       "advance": "Advance",
       "equipment": "Equipment",
       "loot": "Loot",
-      "objective": "Objective"
+      "objective": "Objective",
+      "extraInfo": "Extra Info"
     }
   },
   "ETR": {
@@ -30,12 +31,25 @@
     },
     "SheetLabels": {
       "Actor": "Eat The Reich Actor Sheet",
+      "NPC": "Eat The Reich Threat Sheet",
+      "Location": "Eat The Reich Location Sheet",
       "Item": "Eat The Reich Item Sheet"
     },
     "Actor": {
-      "Location": {
+      "base": {
         "FIELDS": {
-          
+          "description": {
+            "label": "Description"
+          }
+        }
+      },
+      "Location": {
+        "objectives": "Objectives",
+        "secondaryObjectives": "Secondary Objectives",
+        "FIELDS": {
+          "enemies": {
+            "label": "Enemies"
+          }
         }
       },
       "Character": {
@@ -53,7 +67,26 @@
         }
       },
       "NPC": {
-
+        "extras": "Extra Info",
+        "name": {
+          "label": "Name"
+        },
+        "FIELDS": {
+          "isUbermenschen": {
+            "label": "Ubermenschen"
+          },
+          "attack": {
+            "label": "Attack",
+            "description": "Attack Description"
+          },
+          "challenge": {
+            "label": "Challenge",
+            "description": "Challenge Description"
+          }
+        },
+        "rating": {
+          "label": "Rating"
+        }
       }
     },
     "Dice": {
@@ -68,9 +101,14 @@
       "penalty": "Penalty:"
     },
     "Item": {
+      "uses": {
+        "label": "Uses"
+      },
+      "name": {
+          "label": "Name"
+        },
       "base": {
         "FIELDS": {
-          "description": {"label": "Description"},
           "bonus": {
             "label": "Bonus",
             "hint": "This is the bonus value of the item"
@@ -78,16 +116,46 @@
           "isActive": {
             "label": "Active",
             "hint": "This is the active status of the loot"
-          },
-          "selected": {"label": "Selected"},
-          "uses": {"label": "Uses"}
+          }
         }
       },
-      "name": "Name",
       "objective": {
         "FIELDS": {
-          "challengeRating": {
-            "label": "Challenge Rating"
+          "challenge": {
+            "label": "Challenge"
+          },
+          "description": {
+            "label": "Description"
+          },
+          "rating": {
+            "label": "Rating"
+          },
+          "isSecondary": {
+            "label": "Secondary Objective"
+          }
+        }
+      },
+      "extraInfo": {
+        "FIELDS": {
+          "description": {
+            "label": "Description"
+          }
+        }
+      },
+      "advance": {
+        "FIELDS": {
+          "description": {
+            "label": "Description"
+          },
+          "selected": {
+            "label": "Selected"
+          }
+        }
+      },
+      "ability": {
+        "FIELDS": {
+          "description": {
+            "label": "Description"
           }
         }
       }

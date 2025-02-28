@@ -68,4 +68,67 @@ export class EatTheReichItem extends Item {
       return roll;
     }
   }
+
+  static ICONS_PATH = `systems/eat-the-reich/assets/icons/`;
+
+  static getDefaultArtwork(actorData) {
+    switch (actorData.type) {
+			case 'ability': {
+				return {
+          img: `${this.ICONS_PATH}skills.svg`,
+          texture: {
+            src: `${this.ICONS_PATH}skills.svg`,
+          },
+        };
+			}
+      case 'advance': {
+				return {
+          img: `${this.ICONS_PATH}upgrade.svg`,
+          texture: {
+            src: `${this.ICONS_PATH}upgrade.svg`,
+          },
+        };
+			}
+      case 'equipment': {
+				return {
+          img: `${this.ICONS_PATH}backpack.svg`,
+          texture: {
+            src: `${this.ICONS_PATH}backpack.svg`,
+          },
+        };
+			}
+      case 'loot': {
+				return {
+          img: `${this.ICONS_PATH}strongbox.svg`,
+          texture: {
+            src: `${this.ICONS_PATH}strongbox.svg`,
+          },
+        };
+			}
+      case 'objective': {
+				return {
+          img: `${this.ICONS_PATH}target.svg`,
+          texture: {
+            src: `${this.ICONS_PATH}target.svg`,
+          },
+        };
+			}
+      case 'extraInfo': {
+				return {
+          img: `${this.ICONS_PATH}info.svg`,
+          texture: {
+            src: `${this.ICONS_PATH}info.svg`,
+          },
+        };
+			}
+			default: {
+				return {
+          img: this.DEFAULT_ICON,
+          texture: {
+            src: this.DEFAULT_ICON,
+          },
+        };
+			}
+		}
+  }
 }

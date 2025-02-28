@@ -1,7 +1,17 @@
 <section class="loot">
 	{{formGroup 
-		systemFields.challengeRating.fields.value 
-		value=system.challengeRating.value
-		label=systemFields.challengeRating.label 
+		systemFields.rating.fields.value 
+		value=system.rating.value
+		label=systemFields.rating.label 
+	}}
+	{{formGroup 
+		systemFields.challenge.fields.value 
+		value=system.challenge.value
+		label=systemFields.challenge.label 
+	}}
+	{{formGroup 
+		systemFields.isSecondary.fields.value 
+		value=system.isSecondary.value
+		label=systemFields.isSecondary.label 
 	}}
 </section>

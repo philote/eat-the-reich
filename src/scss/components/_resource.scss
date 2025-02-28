@@ -7,6 +7,7 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+    margin: 5px 0;
   
     .controls {
       display: flex;
@@ -22,15 +23,20 @@
       align-items: center;
       justify-content: flex-start;
       flex-wrap: wrap;
-  
+
       input[type="checkbox"] {
         margin: 0 0 0 4px;
-        // TODO: use custom colors
-        &:not(:first-child:last-child):last-child::before {
-          color: hsl(321deg 70.11% 17.06%);
-        }
-        &:not(:first-child:last-child):last-child::after {
-          color: hsl(321deg 84.11% 58.04%);
+      }
+  
+      &.uses {
+        input[type="checkbox"] {
+          // TODO: use custom colors
+          &:not(:first-child:last-child):last-child::before {
+            color: hsl(321deg 70.11% 17.06%);
+          }
+          &:not(:first-child:last-child):last-child::after {
+            color: hsl(321deg 84.11% 58.04%);
+          }
         }
       }
     }

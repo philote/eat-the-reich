@@ -4,7 +4,7 @@ const { api, sheets } = foundry.applications;
  * Extend the basic ItemSheet with some very simple modifications
  * @extends {ItemSheetV2}
  */
-export class EatTheReichItemSheet extends api.HandlebarsApplicationMixin(
+export default class EatTheReichItemSheet extends api.HandlebarsApplicationMixin(
 	sheets.ItemSheetV2
 ) {
 	constructor(options = {}) {
@@ -54,6 +54,9 @@ export class EatTheReichItemSheet extends api.HandlebarsApplicationMixin(
 			template: "systems/eat-the-reich/templates/item/description.hbs",
 			scrollable: [""],
 		},
+		bonus: {
+			template: "systems/eat-the-reich/templates/item/bonus.hbs",
+		},
 	};
 
 	/** @override */
@@ -63,19 +66,22 @@ export class EatTheReichItemSheet extends api.HandlebarsApplicationMixin(
 		// Control which parts show based on document subtype
 		switch (this.document.type) {
 			case "ability":
-				options.parts.push("description");
+				options.parts.push("bonus", "description");
 				break;
 			case "advance":
-				options.parts.push("advance", "description");
+				options.parts.push("bonus", "advance", "description");
 				break;
 			case "objective":
 				options.parts.push("objective", "description");
 				break;
 			case "loot":
-				options.parts.push("equipment");
+				options.parts.push("bonus", "equipment");
 				break;
 			case "equipment":
-				options.parts.push("equipment");
+				options.parts.push("bonus", "equipment");
+				break;
+			case "extraInfo":
+				options.parts.push("description");
 				break;
 		}
 	}
@@ -93,6 +99,7 @@ export class EatTheReichItemSheet extends api.HandlebarsApplicationMixin(
 			item: this.item,
 			// Adding system and flags for easier access
 			system: this.item.system,
+			systemSource: this.item.system._source,
 			flags: this.item.flags,
 			// Adding a pointer to CONFIG.ETR
 			config: CONFIG.ETR,
@@ -109,14 +116,11 @@ export class EatTheReichItemSheet extends api.HandlebarsApplicationMixin(
 		switch (partId) {
 			case "description":
 				context.enrichedDescription = await TextEditor.enrichHTML(
-					this.item.system.description,
+					this.item.system.description.value,
 					{
-						// Whether to show secret blocks in the finished html
 						secrets: this.document.isOwner,
-						// Data to fill in for inline rolls
 						rollData: this.item.getRollData(),
-						// Relative UUID resolution
-						relativeTo: this.item,
+						relativeTo: this.item
 					}
 				);
 		}
@@ -159,12 +163,10 @@ export class EatTheReichItemSheet extends api.HandlebarsApplicationMixin(
 					index--;
 				}
 				clockProp.value = index;
-				await this.item.update({ [property]: clockProp });
 				break;
 			}
 			case "sizeIncrease":
 				++clockProp.max;
-				await this.item.update({ [property]: clockProp });
 				break;
 			case "sizeDecrease":
 				if (clockProp.max > clockMin) {
@@ -173,9 +175,9 @@ export class EatTheReichItemSheet extends api.HandlebarsApplicationMixin(
 						clockProp.value = clockProp.max;
 					}
 				}
-				await this.item.update({ [property]: clockProp });
 				break;
 		}
+		await this.item.update({ [property]: clockProp });
 	}
 
 	/**

@@ -1,1 +1,241 @@
-<div>Hello Location!</div>
+<div class="scrollable">
+    <header class="sheet-header">
+        <h1 class="document-name">
+            {{formInput
+                fields.name
+                name="name"
+                value=actor._source.name
+                placeholder=(localize "ETR.Actor.NPC.name.label")
+            }}
+        </h1>
+        <div class="location-header">
+            <img
+                class="profile-img"
+                src="{{actor.img}}"
+                data-edit="img"
+                data-action="onEditImage"
+                title="{{actor.name}}"
+                height="100"
+                width="100"
+            />
+            {{formGroup
+                systemFields.description.fields.value
+                value=system.description.value
+                enriched=enrichedDescription
+                label=systemFields.description.label 
+                toggled=true
+                stacked=true
+            }}
+        </div>
+    </header>
+    <section class="location-body">
+        <div class="objectives">
+            <h2 class="item-section-header">
+                {{localize "ETR.Actor.Location.objectives"}}
+                <div class="item-controls">
+                    {{#if @root.editable}}
+                        <button
+                            class="item-control item-create icon"
+                            title="{{localize 'DOCUMENT.Create' type="Item"}}"
+                            data-action="createDoc"
+                            data-document-class="Item"
+                            data-type="objective"
+                        >
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    {{/if}}
+                </div>
+            </h2>
+            <ol class="items-list">
+                {{#each objectives as |item id|}}
+                    <li
+                        class="item flexrow"
+                        data-item-id="{{item._id}}"
+                        data-drag="true"
+                        data-document-class="Item"
+                    >
+                        <div class="item-info">
+                            <span class="item-name">{{item.name}}</span>
+                        </div>
+                        <div class="item-controls">
+                            <a
+                                class="item-control item-edit"
+                                title="{{localize 'DOCUMENT.Update' type="Objective"}}"
+                                data-action="viewDoc"
+                            >
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            {{#if @root.editable}}
+                                <a
+                                    class="item-control item-delete"
+                                    title="{{localize 'DOCUMENT.Delete' type="Objective"}}"
+                                    data-action="deleteDoc"
+                                >
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            {{/if}}
+                        </div>
+                    </li>
+                {{/each}}
+            </ol>
+        </div>
+        <div class="loot">
+            <h4 class="item-section-header">
+                {{localize "ETR.Actor.Character.loot"}}
+                <div class="item-controls">
+                    <button
+                        class="item-control item-create icon"
+                        title="{{localize 'DOCUMENT.Create' type="Item"}}"
+                        data-action="createDoc"
+                        data-document-class="Item"
+                        data-type="loot"
+                    >
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </h4>
+            <ol class="items-list">
+                {{#each loot as |item id|}}
+                    <li
+                        class="item flexrow"
+                        data-item-id="{{item._id}}"
+                        data-drag="true"
+                        data-document-class="Item"
+                    >
+                        <div class="item-info">
+                            <span class="item-name">{{item.name}}</span>
+                            <span class="item-bounus">{{item.system.bonus.value}}</span>
+                        </div>
+                        <div class="item-controls">
+                            <a
+                                class="item-control item-edit"
+                                title="{{localize 'DOCUMENT.Update' type="Loot"}}"
+                                data-action="viewDoc"
+                            >
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            {{#if @root.editable}}
+                                <a
+                                    class="item-control item-delete"
+                                    title="{{localize 'DOCUMENT.Delete' type="Loot"}}"
+                                    data-action="deleteDoc"
+                                >
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            {{/if}}
+                        </div>
+                    </li>
+                {{/each}}
+            </ol>
+        </div>
+        {{formGroup
+            systemFields.enemies.fields.value
+            value=system.enemies.value
+            enriched=enrichedEnemies
+            label=systemFields.enemies.label 
+            toggled=true
+            stacked=true
+        }}
+        <div class="secondary-objectives">
+            <h2 class="item-section-header">
+                {{localize "ETR.Actor.Location.secondaryObjectives"}}
+                <div class="item-controls">
+                    {{#if @root.editable}}
+                        <button
+                            class="item-control item-create icon"
+                            title="{{localize 'DOCUMENT.Create' type="Item"}}"
+                            data-action="createDoc"
+                            data-document-class="Item"
+                            data-type="objective"
+                        >
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    {{/if}}
+                </div>
+            </h2>
+            <ol class="items-list">
+                {{#each secondaryObjectives as |item id|}}
+                    <li
+                        class="item flexrow"
+                        data-item-id="{{item._id}}"
+                        data-drag="true"
+                        data-document-class="Item"
+                    >
+                        <div class="item-info">
+                            <span class="item-name">{{item.name}}</span>
+                        </div>
+                        <div class="item-controls">
+                            <a
+                                class="item-control item-edit"
+                                title="{{localize 'DOCUMENT.Update' type="Objective"}}"
+                                data-action="viewDoc"
+                            >
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            {{#if @root.editable}}
+                                <a
+                                    class="item-control item-delete"
+                                    title="{{localize 'DOCUMENT.Delete' type="Objective"}}"
+                                    data-action="deleteDoc"
+                                >
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            {{/if}}
+                        </div>
+                    </li>
+                {{/each}}
+            </ol>
+        </div>
+        <div class="equipment">
+            <h2 class="item-section-header">
+                {{localize "ETR.Actor.Character.equipment"}}
+                <div class="item-controls">
+                    {{#if @root.editable}}
+                        <button
+                            class="item-control item-create icon"
+                            title="{{localize 'DOCUMENT.Create' type="Item"}}"
+                            data-action="createDoc"
+                            data-document-class="Item"
+                            data-type="equipment"
+                        >
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    {{/if}}
+                </div>
+            </h2>
+            <ol class="items-list">
+                {{#each equipment as |item id|}}
+                    <li
+                        class="item flexrow"
+                        data-item-id="{{item._id}}"
+                        data-drag="true"
+                        data-document-class="Item"
+                    >
+                        <div class="item-info {{#if (eq system.uses.max system.uses.value)}}used{{/if}}">
+                            <span class="item-name">{{item.name}}</span>
+                            <span class="item-bounus">{{item.system.bonus.value}}</span>
+                        </div>
+                        <div class="item-controls">
+                            <a
+                                class="item-control item-edit"
+                                title="{{localize 'DOCUMENT.Update' type="Equipment"}}"
+                                data-action="viewDoc"
+                            >
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            {{#if @root.editable}}
+                                <a
+                                    class="item-control item-delete"
+                                    title="{{localize 'DOCUMENT.Delete' type="Equipment"}}"
+                                    data-action="deleteDoc"
+                                >
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            {{/if}}
+                        </div>
+                    </li>
+                {{/each}}
+            </ol>
+        </div>
+    </section>
+</div>

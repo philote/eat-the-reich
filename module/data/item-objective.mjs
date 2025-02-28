@@ -12,15 +12,35 @@ export default class EatTheReichObjective extends EatTheReichItemBase {
 		const schema = super.defineSchema();
 		
 		schema.description = new fields.SchemaField({
-			value: new fields.StringField({ required: true, blank: true }),
+			value: new fields.HTMLField({ required: true, blank: true }),
 		});
 		
-		schema.challengeRating = new fields.SchemaField({
+		schema.rating = new fields.SchemaField({
 			value: new fields.NumberField({
 				...requiredInteger,
-				initial: 1,
+				initial: 2,
 				min: 0,
 			}),
+			max: new fields.NumberField({
+				...requiredInteger,
+				initial: 12,
+				min: 2,
+			})
+		});
+
+		schema.challenge = new fields.SchemaField({
+			description: new fields.StringField({ required: true, blank: true }),
+			value: new fields.NumberField({
+				...requiredInteger,
+				initial: 0,
+				min: 0,
+			})
+		});
+
+		schema.isSecondary = new fields.SchemaField({
+			value: new fields.BooleanField({
+				initial: false,
+			})
 		});
 
 		return schema;

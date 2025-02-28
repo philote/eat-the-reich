@@ -4,7 +4,7 @@ const { api, sheets } = foundry.applications;
  * Extend the basic ActorSheet with some very simple modifications
  * @extends {ActorSheetV2}
  */
-export class EatTheReichActorSheet extends api.HandlebarsApplicationMixin(
+export default class EatTheReichActorSheet extends api.HandlebarsApplicationMixin(
 	sheets.ActorSheetV2
 ) {
 	constructor(options = {}) {
@@ -20,7 +20,6 @@ export class EatTheReichActorSheet extends api.HandlebarsApplicationMixin(
 			height: 700,
 		},
 		window: {
-			icon: "fa-solid fa-skull",
 			resizable: true,
 		},
 		actions: {
@@ -28,10 +27,6 @@ export class EatTheReichActorSheet extends api.HandlebarsApplicationMixin(
 			viewDoc: this._viewDoc,
 			createDoc: this._createDoc,
 			deleteDoc: this._deleteDoc,
-			roll: this._onRoll,
-			onClockUpdate: this._onClockUpdate,
-			onBloodUpdate: this._onBloodUpdate,
-			onAdvanceSelected: this._onAdvanceSelected,
 		},
 		// Custom property that's merged into `this.options`
 		dragDrop: [{ dragSelector: "[data-drag]", dropSelector: null }],
@@ -39,6 +34,39 @@ export class EatTheReichActorSheet extends api.HandlebarsApplicationMixin(
 			submitOnChange: true,
 		},
 	};
+
+	/** @override */
+	_configureRenderOptions(options) {
+		super._configureRenderOptions(options);
+		if (options.mode && this.isEditable) this.#mode = options.mode;
+		// TODO: Refactor to use _configureRenderParts in v13
+	}
+
+	/** @override */
+	async _prepareContext(options) {
+		// Output initialization
+		const context = {
+			isPlay: this.isPlayMode,
+			// Validates both permissions and compendium status
+			editable: this.isEditable,
+			owner: this.document.isOwner,
+			limited: this.document.limited,
+			gm: game.user.isGM,
+			// Add the actor document.
+			actor: this.actor,
+			// Add the actor's data to context.data for easier access, as well as flags.
+			system: this.actor.system,
+			systemSource: this.actor.system._source,
+			flags: this.actor.flags,
+			// Adding a pointer to CONFIG.ETR
+			config: CONFIG.ETR,
+			// Necessary for formInput and formFields helpers
+			fields: this.document.schema.fields,
+			systemFields: this.document.system.schema.fields,
+		};
+
+		return context;
+	}
 
 	/**
 	 * Available sheet modes.
@@ -71,135 +99,6 @@ export class EatTheReichActorSheet extends api.HandlebarsApplicationMixin(
 		return this.#mode === EatTheReichActorSheet.MODES.EDIT;
 	}
 
-	/** @override */
-	static PARTS = {
-		character: {
-			template: "systems/eat-the-reich/templates/actor/character-sheet.hbs",
-			scrollable: [""],
-		},
-		threat: {
-			template: "systems/eat-the-reich/templates/actor/threat-sheet.hbs",
-			scrollable: [""],
-		},
-		location: {
-			template: "systems/eat-the-reich/templates/actor/location-sheet.hbs",
-			scrollable: [""],
-		},
-	};
-
-	/** @override */
-	_configureRenderOptions(options) {
-		super._configureRenderOptions(options);
-		if (options.mode && this.isEditable) this.#mode = options.mode;
-		// if (this.document.limited) return;
-		switch (this.document.type) {
-			case "character":
-				options.parts = ["character"];
-				break;
-			case "npc":
-				options.parts = ["threat"];
-				break;
-			case "location":
-				options.parts = ["location"];
-				break;
-		}
-	}
-
-	/* -------------------------------------------- */
-
-	/** @override */
-	async _prepareContext(options) {
-		// Output initialization
-		const context = {
-			isPlay: this.isPlayMode,
-			// Validates both permissions and compendium status
-			editable: this.isEditable,
-			owner: this.document.isOwner,
-			limited: this.document.limited,
-			gm: game.user.isGM,
-			// Add the actor document.
-			actor: this.actor,
-			// Add the actor's data to context.data for easier access, as well as flags.
-			system: this.actor.system,
-			flags: this.actor.flags,
-			// Adding a pointer to CONFIG.ETR
-			config: CONFIG.ETR,
-			// Necessary for formInput and formFields helpers
-			fields: this.document.schema.fields,
-			systemFields: this.document.system.schema.fields,
-		};
-
-		// Offloading context prep to a helper function
-		this._prepareItems(context);
-
-		return context;
-	}
-
-	/** @override */
-	async _preparePartContext(partId, context) {
-		switch (partId) {
-			case "character":
-			case "threat":
-			case "location":
-				// Enrich Description info for display
-				context.enrichedDescription = await TextEditor.enrichHTML(
-					this.actor.system.description,
-					{
-						// Whether to show secret blocks in the finished html
-						secrets: this.document.isOwner,
-						// Data to fill in for inline rolls
-						rollData: this.actor.getRollData(),
-						// Relative UUID resolution
-						relativeTo: this.actor,
-					}
-				);
-				break;
-		}
-		return context;
-	}
-
-	/**
-	 * Organize and classify Items for Actor sheets.
-	 *
-	 * @param {object} context The context object to mutate
-	 */
-	_prepareItems(context) {
-		// Initialize containers.
-		// You can just use `this.document.itemTypes` instead
-		// if you don't need to subdivide a given type like
-		// this sheet does with spells
-		const abilities = [];
-		const advances = [];
-		const equipment = [];
-		const loot = [];
-
-		// Iterate through items, allocating to containers
-		for (let i of this.document.items) {
-			// Append to abilities.
-			if (i.type === "ability") {
-				abilities.push(i);
-			}
-			// Append to advances.
-			else if (i.type === "advance") {
-				advances.push(i);
-			}
-			// Append to equipment.
-			else if (i.type === "equipment") {
-				equipment.push(i);
-			}
-			// Append to loot.
-			else if (i.type === "loot") {
-				loot.push(i);
-			}
-		}
-
-		// Sort then assign
-		context.abilities = abilities.sort((a, b) => (a.sort || 0) - (b.sort || 0));
-		context.advances = advances.sort((a, b) => (a.sort || 0) - (b.sort || 0));
-		context.equipment = equipment.sort((a, b) => (a.sort || 0) - (b.sort || 0));
-		context.loot = loot.sort((a, b) => (a.sort || 0) - (b.sort || 0));
-	}
-
 	/**
 	 * Actions performed after any render of the Application.
 	 * Post-render steps are not awaited by the render process.
@@ -215,59 +114,50 @@ export class EatTheReichActorSheet extends api.HandlebarsApplicationMixin(
 		// That you may want to implement yourself.
 	}
 
+	/** The following pieces set up drag handling and are unlikely to need modification  */
+
+	/**
+	 * Returns an array of DragDrop instances
+	 * @type {DragDrop[]}
+	 */
+	get dragDrop() {
+		return this.#dragDrop;
+	}
+
+	// This is marked as private because there's no real need
+	// for subclasses or external hooks to mess with it directly
+	#dragDrop;
+
+	/**
+	 * Create drag-and-drop workflow handlers for this Application
+	 * @returns {DragDrop[]}     An array of DragDrop handlers
+	 * @private
+	 */
+	#createDragDropHandlers() {
+		return this.options.dragDrop.map((d) => {
+			d.permissions = {
+				dragstart: this._canDragStart.bind(this),
+				drop: this._canDragDrop.bind(this),
+			};
+			d.callbacks = {
+				dragstart: this._onDragStart.bind(this),
+				dragover: this._onDragOver.bind(this),
+				drop: this._onDrop.bind(this),
+			};
+			return new DragDrop(d);
+		});
+	}
+
 	/**************
 	 *
 	 *   ACTIONS
 	 *
 	 **************/
 
-	static async _onAdvanceSelected(event, target) {
-		event.preventDefault();
-		const { property } = target.dataset;
-		const item = this._getEmbeddedDocument(target);
-		if (!item) return;
-		let prop = foundry.utils.deepClone(
-			foundry.utils.getProperty(item, property)
-		);
-		await item.update({ [property]: !prop });
-	}
-
-	static async _onBloodUpdate(event, target) {
-		event.preventDefault();
-		const { value, property } = target.dataset;
-		let prop = foundry.utils.deepClone(
-			foundry.utils.getProperty(this.actor, property)
-		);
-		let index = Number(value) + 1; // Adjust for 1-index
-		// Handle clicking the same checkbox to unset its value.
-		if (!event.target.checked && prop === index) {
-			index--;
-		}
-		prop = index;
-		await this.actor.update({ [property]: prop });
-	}
-
-	static async _onClockUpdate(event, target) {
-		event.preventDefault();
-		const { value, property } = target.dataset;
-		const item = this._getEmbeddedDocument(target);
-		if (!item) return;
-		let clockProp = foundry.utils.deepClone(
-			foundry.utils.getProperty(item, property)
-		);
-		let index = Number(value) + 1; // Adjust for 1-index
-		// Handle clicking the same checkbox to unset its value.
-		if (!event.target.checked && clockProp.value === index) {
-			index--;
-		}
-		clockProp.value = index;
-		await item.update({ [property]: clockProp });
-	}
-
 	/**
 	 * Handle changing a Document's image.
 	 *
-	 * @this EatTheReichActorSheet
+	 * @this EatTheReichCharacterSheet
 	 * @param {PointerEvent} event   The originating click event
 	 * @param {HTMLElement} target   The capturing HTML element which defined a [data-action]
 	 * @returns {Promise}
@@ -295,7 +185,7 @@ export class EatTheReichActorSheet extends api.HandlebarsApplicationMixin(
 	/**
 	 * Toggle Edit vs. Play mode
 	 *
-	 * @this EatTheReichActorSheet
+	 * @this EatTheReichCharacterSheet
 	 * @param {PointerEvent} event   The originating click event
 	 * @param {HTMLElement} target   The capturing HTML element which defined a [data-action]
 	 */
@@ -304,16 +194,16 @@ export class EatTheReichActorSheet extends api.HandlebarsApplicationMixin(
 			console.error("You can't switch to Edit mode if the sheet is uneditable");
 			return;
 		}
-		this.#mode = this.isPlayMode
-			? EatTheReichActorSheet.MODES.EDIT
-			: EatTheReichActorSheet.MODES.PLAY;
+		// this.#mode = this.isPlayMode
+		// 	? EatTheReichActorSheet.MODES.EDIT
+		// 	: EatTheReichActorSheet.MODES.PLAY;
 		this.render();
 	}
 
 	/**
 	 * Renders an embedded document's sheet
 	 *
-	 * @this EatTheReichActorSheet
+	 * @this EatTheReichCharacterSheet
 	 * @param {PointerEvent} event   The originating click event
 	 * @param {HTMLElement} target   The capturing HTML element which defined a [data-action]
 	 * @protected
@@ -326,7 +216,7 @@ export class EatTheReichActorSheet extends api.HandlebarsApplicationMixin(
 	/**
 	 * Handles item deletion
 	 *
-	 * @this EatTheReichActorSheet
+	 * @this EatTheReichCharacterSheet
 	 * @param {PointerEvent} event   The originating click event
 	 * @param {HTMLElement} target   The capturing HTML element which defined a [data-action]
 	 * @protected
@@ -339,7 +229,7 @@ export class EatTheReichActorSheet extends api.HandlebarsApplicationMixin(
 	/**
 	 * Handle creating a new Owned Item for the actor using initial data defined in the HTML dataset
 	 *
-	 * @this EatTheReichActorSheet
+	 * @this EatTheReichCharacterSheet
 	 * @param {PointerEvent} event   The originating click event
 	 * @param {HTMLElement} target   The capturing HTML element which defined a [data-action]
 	 * @private
@@ -355,6 +245,7 @@ export class EatTheReichActorSheet extends api.HandlebarsApplicationMixin(
 				parent: this.actor,
 			}),
 		};
+		
 		// Loop through the dataset and add it to our docData
 		for (const [dataKey, value] of Object.entries(target.dataset)) {
 			// These data attributes are reserved for the action handling
@@ -366,75 +257,7 @@ export class EatTheReichActorSheet extends api.HandlebarsApplicationMixin(
 		}
 
 		// Finally, create the embedded document!
-		await docCls.create(docData, { parent: this.actor });
-	}
-
-	/**
-	 * Handle clickable rolls.
-	 *
-	 * @this EatTheReichActorSheet
-	 * @param {PointerEvent} event   The originating click event
-	 * @param {HTMLElement} target   The capturing HTML element which defined a [data-action]
-	 * @protected
-	 */
-	static async _onRoll(event, target) {
-		event.preventDefault();
-		const dataset = target.dataset;
-
-		// console.log('dataset', dataset);
-		// console.log('this.actor.getRollData()', this.actor.getRollData());
-
-		const stat = dataset.stat
-		switch (dataset.rollType) {
-			case "stat": {
-				const statLabel = dataset.label ? dataset.label : "";
-				const statValue = dataset.stat ? parseInt(dataset.stat) : 0;
-				const selectedSeriousInjuries = Object.fromEntries(
-					Object.entries(this.actor.system.injuries)
-						.filter(([_, group]) => group.second?.selected)
-				);
-				const hasSeriousInjury = Object.keys(selectedSeriousInjuries).length > 0;
-
-				const content = await renderTemplate("systems/eat-the-reich/templates/dialog/stat-roll.hbs", {
-					stat: statValue,
-					label: statLabel,
-					injuries: selectedSeriousInjuries,
-					hasInjuries: hasSeriousInjury
-				});
-
-				// Dialog
-				const dicePool = await foundry.applications.api.DialogV2.wait({
-					window: { title: "ETR.Dice.title" },
-					content,
-					modal: true,
-					buttons: [
-						{
-							label: "ETR.Dice.label",
-							action: "roll",
-							callback: (event, button, dialog) => new FormDataExtended(button.form)
-						}
-					],
-					rejectClose: false
-				});
-				
-				if(dicePool) {
-					// Chat Message
-					const totalDice = dicePool.object.stat + dicePool.object.equipment + dicePool.object.abilities
-					const roll = await new Roll(`{${totalDice}d6}`).evaluate();
-					const chatData = {
-						dice: roll.dice[0].results,
-						stat: statLabel
-					}
-					const template = "systems/eat-the-reich/templates/chat/die-pool-output.hbs";
-
-					ChatMessage.create({
-						speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-						rollMode: game.settings.get("core", "rollMode"),
-						content: await renderTemplate(template, chatData),
-					});
-				}
-			}
-		}
+		await docCls.create(docData, { parent: this.actor, renderSheet: true });
 	}
 
 	/** Helper Functions */
@@ -631,40 +454,6 @@ export class EatTheReichActorSheet extends api.HandlebarsApplicationMixin(
 
 		// Perform the update
 		return this.actor.updateEmbeddedDocuments("Item", updateData);
-	}
-
-	/** The following pieces set up drag handling and are unlikely to need modification  */
-
-	/**
-	 * Returns an array of DragDrop instances
-	 * @type {DragDrop[]}
-	 */
-	get dragDrop() {
-		return this.#dragDrop;
-	}
-
-	// This is marked as private because there's no real need
-	// for subclasses or external hooks to mess with it directly
-	#dragDrop;
-
-	/**
-	 * Create drag-and-drop workflow handlers for this Application
-	 * @returns {DragDrop[]}     An array of DragDrop handlers
-	 * @private
-	 */
-	#createDragDropHandlers() {
-		return this.options.dragDrop.map((d) => {
-			d.permissions = {
-				dragstart: this._canDragStart.bind(this),
-				drop: this._canDragDrop.bind(this),
-			};
-			d.callbacks = {
-				dragstart: this._onDragStart.bind(this),
-				dragover: this._onDragOver.bind(this),
-				drop: this._onDrop.bind(this),
-			};
-			return new DragDrop(d);
-		});
 	}
 
 	/********************

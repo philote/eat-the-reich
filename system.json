@@ -19,18 +19,13 @@
 	"documentTypes": {
 		"Actor": {
 			"character": {
-				"htmlFields": ["description"]
+				"htmlFields": ["description.value"]
 			},
 			"npc": {
-				"htmlFields": [
-					"description",
-					"attack.description",
-					"challenge.description",
-					"extra.description"
-				]
+				"htmlFields": ["description.value"]
 			},
 			"location": {
-				"htmlFields": ["description"]
+				"htmlFields": ["description.value", "enemies.value"]
 			}
 		},
 		"Item": {
@@ -38,7 +33,12 @@
 			"advance": {},
 			"equipment": {},
 			"loot": {},
-			"objective": {}
+			"objective": {
+				"htmlFields": ["description.value"]
+			},
+			"extraInfo": {
+				"htmlFields": ["description.value"]
+			}
 		}
 	},
 	"flags": {

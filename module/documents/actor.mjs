@@ -40,4 +40,35 @@ export class EatTheReichActor extends Actor {
   getRollData() {
     return { ...super.getRollData(), ...(this.system.getRollData?.() ?? null) };
   }
+
+  static ICONS_PATH = `systems/eat-the-reich/assets/icons/`;
+
+  static getDefaultArtwork(actorData) {
+    switch (actorData.type) {
+			case 'character': {
+				return {
+          img: `${this.ICONS_PATH}fanged-skull.svg`,
+          texture: {
+            src: `${this.ICONS_PATH}fanged-skull.svg`,
+          },
+        };
+			}
+      case 'location': {
+				return {
+          img: `${this.ICONS_PATH}occupy.svg`,
+          texture: {
+            src: `${this.ICONS_PATH}occupy.svg`,
+          },
+        };
+			}
+			default: {
+				return {
+          img: this.DEFAULT_ICON,
+          texture: {
+            src: this.DEFAULT_ICON,
+          },
+        };
+			}
+		}
+  }
 }
