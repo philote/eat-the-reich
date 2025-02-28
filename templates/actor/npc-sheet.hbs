@@ -64,12 +64,16 @@
                 }}
                 {{localize "ETR.Actor.NPC.FIELDS.isUbermenschen.label"}}
             </label>
-            {{#if (not system.isUbermenschen.value)}}
-            <button>
+            <button data-action="reinforcements"
+            {{#if system.isUbermenschen.value}}
+                disabled
+            {{else if (lt system.threatRating.value system.threatRating.max)}}
+                disabled
+            {{/if}}>
                 <i class="fa-solid fa-people-group"></i>
                 Reinforcements
             </button>
-            {{/if}}
+            
 		</div>
 	</header>
     <hr>

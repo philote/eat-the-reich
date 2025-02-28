@@ -458,6 +458,7 @@
   color: var(--etr-c-black);
 }
 .eat-the-reich header.sheet-header {
+  align-items: flex-start;
   display: flex;
   gap: 10px;
   margin-bottom: 10px;

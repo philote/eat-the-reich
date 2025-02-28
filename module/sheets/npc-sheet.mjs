@@ -17,6 +17,7 @@ export default class EatTheReichNPCSheet extends EatTheReichActorSheet {
 		actions: {
 			roll: this._onRoll,
 			onClockUpdate: this._onClockUpdate,
+			reinforcements: this._onReinforcements,
 		},
 	};
 
@@ -87,6 +88,37 @@ export default class EatTheReichNPCSheet extends EatTheReichActorSheet {
 	 *
 	 **************/
 
+	static async _onReinforcements(event, target) {
+		event.preventDefault();
+		console.log("Reinforcements");
+		/*
+			restore threat by 1D6 & reduce Attack by 1
+			- set system.threatRating.value to 0
+			- set system.threatRating.max to 1D6
+			- set system.attack.value to (system.attack.value - 1)
+			- show a chat message that reinforcements have arrived
+		*/
+		
+		const newThreatMax = await new Roll("1d6").evaluate();
+		const newAttack = this.actor.system.attack.value - 1;
+		
+		await this.actor.update({
+			"system.threatRating.value": 0,
+			"system.threatRating.max": newThreatMax.total,
+			"system.attack.value": newAttack
+		});
+		// const chatData = {
+		// 	threat: newThreat.total,
+		// 	attack: newAttack
+		// }
+		// const template = "systems/eat-the-reich/templates/chat/reinforcements.hbs";
+		// ChatMessage.create({
+		// 	speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+		// 	rollMode: game.settings.get("core", "rollMode"),
+		// 	content: await renderTemplate(template, chatData),
+		// });
+	}
+
 	static async _onClockUpdate(event, target) {
 		event.preventDefault();
 		let { actionType, value, property } = target.dataset;
@@ -94,10 +126,6 @@ export default class EatTheReichNPCSheet extends EatTheReichActorSheet {
 			foundry.utils.getProperty(this.actor, property)
 		);
 		const clockMin = 1;
-		console.log("property", property);
-		console.log("actionType", actionType);
-		console.log("value", value);
-		console.log("clockProp", clockProp);
 
 		switch (actionType) {
 			case "valueUpdate": {
