@@ -113,35 +113,36 @@ export default class EatTheReichCharacterSheet extends EatTheReichActorSheet {
 
 	static async _onInjuryRoll(event, target) {
 		event.preventDefault();
-		const roll = await new Roll('1d6').evaluate();
+		const roll = await new Roll("1d6").evaluate();
 		let category = "";
 		switch (roll.total) {
 			case 1:
 			case 2:
-				category = game.i18n.localize('ETR.Actor.Character.injuries.oneTwo');
+				category = game.i18n.localize("ETR.Actor.Character.injuries.oneTwo");
 				break;
 			case 3:
 			case 4:
-				category = game.i18n.localize('ETR.Actor.Character.injuries.threeFour');
+				category = game.i18n.localize("ETR.Actor.Character.injuries.threeFour");
 				break;
 			case 5:
 			case 6:
-				category = game.i18n.localize('ETR.Actor.Character.injuries.fiveSix');
+				category = game.i18n.localize("ETR.Actor.Character.injuries.fiveSix");
 				break;
 		}
-		const message = game.i18n.format('ETR.Actor.Character.injuries.rollMessage', {category: game.i18n.localize('ETR.Actor.Character.injuries.oneTwo')});
+		const message = game.i18n.format("ETR.Actor.Character.injuries.rollMessage", {
+			category: game.i18n.localize("ETR.Actor.Character.injuries.oneTwo"),
+		});
 
 		ui.notifications.info(message);
 		ChatMessage.create({
 			speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-			flavor: game.i18n.localize('ETR.Actor.Character.injuries.label'),
+			flavor: game.i18n.localize("ETR.Actor.Character.injuries.label"),
 			content: message,
 		});
 	}
 
 	static async _onLastStandRoll(event, target) {
 		event.preventDefault();
-		console.log("Last Stand Roll");
 		const lastStandDice = this.actor.system.lastStand.dice;
 		const lastStandName = this.actor.system.lastStand.name;
 		// Chat Message
@@ -149,8 +150,8 @@ export default class EatTheReichCharacterSheet extends EatTheReichActorSheet {
 		const results = roll.dice[0].results;
 		const chatData = {
 			dice: results,
-			stat: game.i18n.localize("ETR.Dice.lastStandRoll")
-		}
+			stat: game.i18n.localize("ETR.Dice.lastStandRoll"),
+		};
 		const template = "systems/eat-the-reich/templates/chat/die-pool-output.hbs";
 
 		ChatMessage.create({
@@ -166,9 +167,7 @@ export default class EatTheReichCharacterSheet extends EatTheReichActorSheet {
 		const { property } = target.dataset;
 		const item = this._getEmbeddedDocument(target);
 		if (!item) return;
-		let prop = foundry.utils.deepClone(
-			foundry.utils.getProperty(item, property)
-		);
+		let prop = foundry.utils.deepClone(foundry.utils.getProperty(item, property));
 		await item.update({ [property]: !prop });
 	}
 
@@ -215,23 +214,27 @@ export default class EatTheReichCharacterSheet extends EatTheReichActorSheet {
 	static async _onRoll(event, target) {
 		event.preventDefault();
 		const dataset = target.dataset;
-		const stat = dataset.stat
+		const stat = dataset.stat;
 		switch (dataset.rollType) {
 			case "stat": {
 				const statLabel = dataset.label ? dataset.label : "";
 				const statValue = dataset.stat ? parseInt(dataset.stat) : 0;
 				const selectedSeriousInjuries = Object.fromEntries(
-					Object.entries(this.actor.system.injuries)
-						.filter(([_, group]) => group.second?.selected)
+					Object.entries(this.actor.system.injuries).filter(
+						([_, group]) => group.second?.selected
+					)
 				);
 				const hasSeriousInjury = Object.keys(selectedSeriousInjuries).length > 0;
 
-				const content = await renderTemplate("systems/eat-the-reich/templates/dialog/stat-roll.hbs", {
-					stat: statValue,
-					label: statLabel,
-					injuries: selectedSeriousInjuries,
-					hasInjuries: hasSeriousInjury
-				});
+				const content = await renderTemplate(
+					"systems/eat-the-reich/templates/dialog/stat-roll.hbs",
+					{
+						stat: statValue,
+						label: statLabel,
+						injuries: selectedSeriousInjuries,
+						hasInjuries: hasSeriousInjury,
+					}
+				);
 
 				// Dialog
 				const dicePool = await foundry.applications.api.DialogV2.wait({
@@ -242,21 +245,25 @@ export default class EatTheReichCharacterSheet extends EatTheReichActorSheet {
 						{
 							label: "ETR.Dice.label",
 							action: "roll",
-							callback: (event, button, dialog) => new FormDataExtended(button.form)
-						}
+							callback: (event, button, dialog) => new FormDataExtended(button.form),
+						},
 					],
-					rejectClose: false
+					rejectClose: false,
 				});
-				
-				if(dicePool) {
+
+				if (dicePool) {
 					// Chat Message
-					const totalDice = dicePool.object.stat + dicePool.object.equipment + dicePool.object.abilities
+					const totalDice =
+						dicePool.object.stat +
+						dicePool.object.equipment +
+						dicePool.object.abilities;
 					const roll = await new Roll(`{${totalDice}d6}`).evaluate();
 					const chatData = {
 						dice: roll.dice[0].results,
-						stat: statLabel
-					}
-					const template = "systems/eat-the-reich/templates/chat/die-pool-output.hbs";
+						stat: statLabel,
+					};
+					const template =
+						"systems/eat-the-reich/templates/chat/die-pool-output.hbs";
 
 					ChatMessage.create({
 						speaker: ChatMessage.getSpeaker({ actor: this.actor }),

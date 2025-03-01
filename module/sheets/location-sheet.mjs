@@ -55,7 +55,7 @@ export default class EatTheReichLocationSheet extends EatTheReichActorSheet {
 			{
 				secrets: this.document.isOwner,
 				rollData: this.actor.getRollData(),
-				relativeTo: this.actor
+				relativeTo: this.actor,
 			}
 		);
 		context.enrichedEnemies = await TextEditor.enrichHTML(
@@ -63,7 +63,7 @@ export default class EatTheReichLocationSheet extends EatTheReichActorSheet {
 			{
 				secrets: this.document.isOwner,
 				rollData: this.actor.getRollData(),
-				relativeTo: this.actor
+				relativeTo: this.actor,
 			}
 		);
 		return context;
@@ -95,15 +95,16 @@ export default class EatTheReichLocationSheet extends EatTheReichActorSheet {
 			// Append to loot.
 			else if (i.type === "loot") {
 				loot.push(i);
-			}
-			else if (i.type === "equipment") {
+			} else if (i.type === "equipment") {
 				equipment.push(i);
 			}
 		}
 		context.equipment = equipment.sort((a, b) => (a.sort || 0) - (b.sort || 0));
 		context.loot = loot.sort((a, b) => (a.sort || 0) - (b.sort || 0));
 		context.objectives = objectives.sort((a, b) => (a.sort || 0) - (b.sort || 0));
-		context.secondaryObjectives = secondaryObjectives.sort((a, b) => (a.sort || 0) - (b.sort || 0));
+		context.secondaryObjectives = secondaryObjectives.sort(
+			(a, b) => (a.sort || 0) - (b.sort || 0)
+		);
 	}
 
 	/**************
@@ -112,11 +113,49 @@ export default class EatTheReichLocationSheet extends EatTheReichActorSheet {
 	 *
 	 **************/
 
-	/** @override */
+	/**
+	 * Handle creating a new Owned Item for the actor using initial data defined in the HTML dataset
+	 *
+	 * @param {PointerEvent} event   The originating click event
+	 * @param {HTMLElement} target   The capturing HTML element which defined a [data-action]
+	 * @private
+	 */
 	static async _createDocLocation(event, target) {
-		console.log("TEST _createDoc.event", event);
-		console.log("_createDoc.target", target);
-		// EatTheReichActorSheet._createDoc(event, target);
+		// Retrieve the configured document class for Item
+		const docCls = getDocumentClass(target.dataset.documentClass);
+		// Prepare the document creation data by initializing it a default name.
+		const docData = {
+			name: docCls.defaultName({
+				// defaultName handles an undefined type gracefully
+				type: target.dataset.type,
+				parent: this.actor,
+			}),
+		};
+		// If subtype is secondaryObjective, set the isSecondary flag to true
+		if (
+			target.dataset.subtype &&
+			(target.dataset.subtype = "secondaryObjective")
+		) {
+			let system = {
+				isSecondary: {
+					value: true,
+				},
+			};
+			docData["system"] = system;
+		}
+
+		// Loop through the dataset and add it to our docData
+		for (const [dataKey, value] of Object.entries(target.dataset)) {
+			// These data attributes are reserved for the action handling
+			if (["action", "documentClass"].includes(dataKey)) continue;
+			// Nested properties require dot notation in the HTML, e.g. anything with `system`
+			// An example exists in spells.hbs, with `data-system.spell-level`
+			// which turns into the dataKey 'system.spellLevel'
+			foundry.utils.setProperty(docData, dataKey, value);
+		}
+
+		// Finally, create the embedded document!
+		await docCls.create(docData, { parent: this.actor, renderSheet: true });
 	}
 
 	/**
@@ -131,23 +170,27 @@ export default class EatTheReichLocationSheet extends EatTheReichActorSheet {
 		event.preventDefault();
 		const dataset = target.dataset;
 
-		const stat = dataset.stat
+		const stat = dataset.stat;
 		switch (dataset.rollType) {
 			case "stat": {
 				const statLabel = dataset.label ? dataset.label : "";
 				const statValue = dataset.stat ? parseInt(dataset.stat) : 0;
 				const selectedSeriousInjuries = Object.fromEntries(
-					Object.entries(this.actor.system.injuries)
-						.filter(([_, group]) => group.second?.selected)
+					Object.entries(this.actor.system.injuries).filter(
+						([_, group]) => group.second?.selected
+					)
 				);
 				const hasSeriousInjury = Object.keys(selectedSeriousInjuries).length > 0;
 
-				const content = await renderTemplate("systems/eat-the-reich/templates/dialog/stat-roll.hbs", {
-					stat: statValue,
-					label: statLabel,
-					injuries: selectedSeriousInjuries,
-					hasInjuries: hasSeriousInjury
-				});
+				const content = await renderTemplate(
+					"systems/eat-the-reich/templates/dialog/stat-roll.hbs",
+					{
+						stat: statValue,
+						label: statLabel,
+						injuries: selectedSeriousInjuries,
+						hasInjuries: hasSeriousInjury,
+					}
+				);
 
 				// Dialog
 				const dicePool = await foundry.applications.api.DialogV2.wait({
@@ -158,21 +201,25 @@ export default class EatTheReichLocationSheet extends EatTheReichActorSheet {
 						{
 							label: "ETR.Dice.label",
 							action: "roll",
-							callback: (event, button, dialog) => new FormDataExtended(button.form)
-						}
+							callback: (event, button, dialog) => new FormDataExtended(button.form),
+						},
 					],
-					rejectClose: false
+					rejectClose: false,
 				});
-				
-				if(dicePool) {
+
+				if (dicePool) {
 					// Chat Message
-					const totalDice = dicePool.object.stat + dicePool.object.equipment + dicePool.object.abilities
+					const totalDice =
+						dicePool.object.stat +
+						dicePool.object.equipment +
+						dicePool.object.abilities;
 					const roll = await new Roll(`{${totalDice}d6}`).evaluate();
 					const chatData = {
 						dice: roll.dice[0].results,
-						stat: statLabel
-					}
-					const template = "systems/eat-the-reich/templates/chat/die-pool-output.hbs";
+						stat: statLabel,
+					};
+					const template =
+						"systems/eat-the-reich/templates/chat/die-pool-output.hbs";
 
 					ChatMessage.create({
 						speaker: ChatMessage.getSpeaker({ actor: this.actor }),
