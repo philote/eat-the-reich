@@ -30,12 +30,19 @@
   
       &.uses {
         input[type="checkbox"] {
-          // TODO: use custom colors
           &:not(:first-child:last-child):last-child::before {
-            color: hsl(321deg 70.11% 17.06%);
+            color: $c-checkbox-boom;
           }
           &:not(:first-child:last-child):last-child::after {
-            color: hsl(321deg 84.11% 58.04%);
+            color: $c-checkbox-boom-checked;
+          }
+        }
+        input[type="checkbox"]:checked {
+          &:not(:first-child:last-child):last-child::before {
+            color: black;
+          }
+          &:not(:first-child:last-child):last-child::after {
+            color: $c-checkbox-boom-checked;
           }
         }
       }

@@ -1,31 +1,38 @@
 :root {
   --etr-c-dark: #191813;
   --etr-c-dark-trans: rgba(25, 24, 19, 0.75);
-  --etr-c-dark-trans-lt: rgba(25, 24, 19, 0.25);
+  --etr-c-dark-trans-lt: rgba(255, 255, 255, 0.25);
   --etr-c-faint: #c9c7b8;
   --etr-c-beige: #b5b3a4;
   --etr-c-tan: #444444;
   --etr-c-white: #ffffff;
   --etr-c-black: #000000;
+  --etr-c-black-trans: rgba(0, 0, 0, 0.25);
   --etr-c-link:  rgb(229, 156, 178);
   --etr-c-link-shadow: rgb(213, 75, 116);
+  --etr-c-checkbox-boom: #ba2385;
+  --etr-c-checkbox-boom-checked: #f262c0;
 }
 
 .theme-dark {
   --etr-c-dark: #c9c7b8;
   --etr-c-dark-trans: rgba(201, 199, 184, 0.75);
-  --etr-c-dark-trans-lt: rgba(201, 199, 184, 0.25);
+  --etr-c-dark-trans-lt: #c9c7b840;
   --etr-c-faint: #0d0f17;
   --etr-c-beige: #444444;
   --etr-c-tan: #b5b3a4;
   --etr-c-white: #000000;
-  --etr-c-black: #ffffff;
+  --etr-c-black: #eae9dc;
+  --etr-c-black-trans: rgba(255, 255, 255, 0.25);
   --etr-c-link:  rgb(229, 156, 178);
   --etr-c-link-shadow: rgb(213, 75, 116);
+  --etr-c-checkbox-boom: #9c5583;
+  --etr-c-checkbox-boom-checked: #ee3aaf;
 }
 
 $c-white: var(--etr-c-white);
 $c-black: var(--etr-c-black);
+$c-black-trans: var(--etr-c-black-trans);
 
 $c-dark: var(--etr-c-dark);
 $c-dark-trans: var(--etr-c-dark-trans);
@@ -35,3 +42,5 @@ $c-beige: var(--etr-c-beige);
 $c-tan: var(--etr-c-tan);
 $c-link: var(--etr-c-link);
 $c-link-shadow: var(--etr-c-link-shadow);
+$c-checkbox-boom: var(--etr-c-checkbox-boom);
+$c-checkbox-boom-checked: var(--etr-c-checkbox-boom-checked);

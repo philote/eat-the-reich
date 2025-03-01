@@ -15,7 +15,7 @@
   }
 }
 
-.eat-the-reich  .window-content {
+.eat-the-reich.character  .window-content {
   position: relative;
 
   &::before {
@@ -35,25 +35,25 @@
   }
 }
 
-.eat-the-reich.location .window-content {
-  position: relative;
+// .eat-the-reich.location .window-content {
+//   position: relative;
 
-  &::before {
-    content: '';
-    display: block;
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    height: 100%;
-    background-image: linear-gradient(
-      #3f2607af, 
-      #170d01da
-    ), url("#{$asset-path}paper.webp");
-    background-size: cover cover;
-    background-position: top center;
-    opacity: 1;
-    z-index: -1;
-    pointer-events: none;
-  }
-}
+//   &::before {
+//     content: '';
+//     display: block;
+//     position: absolute;
+//     left: 0;
+//     top: 0;
+//     right: 0;
+//     height: 100%;
+//     background-image: linear-gradient(
+//       #3f2607af, 
+//       #170d01da
+//     ), url("#{$asset-path}paper.webp");
+//     background-size: cover cover;
+//     background-position: top center;
+//     opacity: 1;
+//     z-index: -1;
+//     pointer-events: none;
+//   }
+// }
