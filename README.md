@@ -8,7 +8,7 @@
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/philote/eat-the-reich">
 </p>
 <p align="center">
-    <img alt="GitHub" src="https://img.shields.io/github/license/philote/eat-the-reich"> 
+    <!-- <img alt="GitHub" src="https://img.shields.io/github/license/philote/eat-the-reich">  -->
     <a href="https://github.com/philote/eat-the-reich/issues">
         <img alt="GitHub issues" src="https://img.shields.io/github/issues/philote/eat-the-reich">
     </a> 
@@ -40,7 +40,7 @@ If you’ve enjoyed my work and find value in what I create, please consider sup
 ![Screenshot of the location sheet, threat sheet, GM dice roll dialog](assets/screenshot2.webp)
 ![Screenshot of the light mode of the character and item sheets](assets/screenshot3.webp)
 
-## How to Install (This is not released yet, so there is nothing to install)
+## How to Install
 You can install the latest released version of the system by using this manifest link in Foundry VTT. [Instructions](https://foundryvtt.com/article/tutorial/): [module.json](https://github.com/philote/eat-the-reich/releases/latest/download/module.json)
 
 ## Features
