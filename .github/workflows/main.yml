@@ -107,8 +107,8 @@ jobs:
         run: npm ci
       
       # Pull JSON to LDB packs
-      - name: Build Packs
-        run: npm run pullJSONtoLDB
+      # - name: Build Packs
+      #   run: npm run pullJSONtoLDB
 
       # Create a "system.zip" archive containing all the system's required files.
       # If you have other directories or files that will need to be added to
