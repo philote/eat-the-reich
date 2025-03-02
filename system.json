@@ -73,6 +73,16 @@
 			"type": "setup",
 			"url": "systems/eat-the-reich/assets/cover.webp",
 			"thumbnail": "systems/eat-the-reich/assets/cover.webp"
+		},
+		{
+			"type": "screenshot",
+			"url": "systems/eat-the-reich/assets/screenshot.webp",
+			"caption": "Eat the Reich character sheet screenshot from Foundry VTT."
+		},
+		{
+		  "type": "setup",
+		  "url": "systems/eat-the-reich/assets/package_image.webp",
+		  "thumbnail": "systems/eat-the-reich/assets/package_image_thumb.webp"
 		}
 	]
 }
