@@ -26,7 +26,7 @@
 </p>
 
 ### An Unofficial EAT THE REICH System for Foundry VTT
-EAT THE REICH is a chaotic, ultraviolent tabletop RPG where players take on the roles of vampiric commandos on a bloody mission to tear through Nazi-occupied France during World War II. Written by [Grant Howitt](https://bsky.app/profile/gshowitt.bsky.social) and illustrated by [Will Kirkby](https://bsky.app/profile/chamonkee.bsky.social), and published by [Rowan, Rook and Decard](https://rowanrookanddecard.com). The game blends pulpy action, dark humor, and horror as players use their supernatural abilities to slaughter Nazis and consume their blood. With fast-paced mechanics and a rebellious tone, EAT THE REICH delivers an over-the-top, cathartic power fantasy drenched in gore and irreverence.
+EAT THE REICH is a chaotic, ultra-violet tabletop RPG where players take on the roles of vampiric commandos on a bloody mission to tear through Nazi-occupied France during World War II. Written by [Grant Howitt](https://bsky.app/profile/gshowitt.bsky.social) and illustrated by [Will Kirkby](https://bsky.app/profile/chamonkee.bsky.social), and published by [Rowan, Rook and Decard](https://rowanrookanddecard.com). The game blends pulpy action, dark humor, and horror as players use their supernatural abilities to slaughter Nazis and consume their blood. With fast-paced mechanics and a rebellious tone, EAT THE REICH delivers an over-the-top, cathartic power fantasy drenched in gore and irreverence.
 
 Find the books here: 
 [EAT THE REICH](https://rowanrookanddecard.com/product-category/game-systems/eat-the-reich)
@@ -36,26 +36,44 @@ This Eat the Reich Package for Foundry VTT is an independent production by Josep
 If you’ve enjoyed my work and find value in what I create, please consider supporting me with a small donation on [Ko-fi](https://ko-fi.com/G2G3I91JQ). I truly love what I do, and your support helps me dedicate time and resources to ongoing development. Every contribution, no matter the size, makes a difference and allows me to continue doing what I’m passionate about. Thank you for considering—it means the world to me.
 
 ## Screenshot
-![Screenshot of the character sheet](assets/screenshot.webp)
-<!-- ![Screenshot of some of the items in the compendium](assets/screenshot2.webp)
-![Screenshot of the Overlord and NPC sheets](assets/screenshot3.webp) -->
+![Screenshot of the character sheet, item sheets, dice roll dialog](assets/screenshot.webp)
+![Screenshot of the location sheet, threat sheet, GM dice roll dialog](assets/screenshot2.webp)
+![Screenshot of the light mode of the character and item sheets](assets/screenshot3.webp)
 
 ## How to Install (This is not released yet, so there is nothing to install)
-~~You can install the latest released version of the system by using this manifest link in Foundry VTT. [Instructions](https://foundryvtt.com/article/tutorial/): [module.json](https://github.com/philote/eat-the-reich/releases/latest/download/module.json)~~
+You can install the latest released version of the system by using this manifest link in Foundry VTT. [Instructions](https://foundryvtt.com/article/tutorial/): [module.json](https://github.com/philote/eat-the-reich/releases/latest/download/module.json)
 
 ## Features
 - Character Sheet
+- NPC/Threat Sheet
+- Location Sheet
+- Item Sheets for [advance, bonus, description, equipment, objective]
 - Basic Dice Pool support
+- Supports light and dark modes
 
 ### TODO
-- Advanced Dice Rolling support
-- NPC Sheet
-- Compendiums
-    - Pre-gens
-    - Pre-gen Items
-- Paris Scene
-- Clean up Light mode (looks like crud right now)
 - Play/Edit mode for character sheets
+Styling
+    Different background for Threats & items
+    Threats - Design change for ubermenschen?
+    GM rolls should be different style than player rolls in chat
+- Macros
+    - PC roll without stats
+    - GM roll without Threat rating
+- Chat messages
+    - use different dice images for GM vs Player?
+    - add more messaging about the roll
+    - Sort dice into categories
+    - PC: make dice clickable to allocate them on chat messages
+    - GM: make dice clickable to cross them out on chat messages
+- Rolls
+    - Make Injuries effect the sheet/rolls automatically
+- Pre-made Compendiums
+    - create pre-made characters
+    - Pre-gen Items
+    - add map scene
+- chat messages
+    - add flashback re-rolling
 
 # License & Acknowledgements
 The ‘Eat The Reich’ game is copyright © 2023 Rowan, Rook and Decard. All artwork in the game is copyright © 2023 Will Kirkby. You can find out more and support these games at [rowanrookanddecard.com](https://rowanrookanddecard.com)
