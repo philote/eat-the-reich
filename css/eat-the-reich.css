@@ -56,33 +56,37 @@
 :root {
   --etr-c-dark: #191813;
   --etr-c-dark-trans: rgba(25, 24, 19, 0.75);
-  --etr-c-dark-trans-lt: rgba(255, 255, 255, 0.25);
+  --etr-c-dark-trans-lt: rgba(25, 24, 19, 0.6);
   --etr-c-faint: #c9c7b8;
   --etr-c-beige: #b5b3a4;
   --etr-c-tan: #444444;
   --etr-c-white: #ffffff;
-  --etr-c-black: #000000;
+  --etr-c-black: #2d2b27;
   --etr-c-black-trans: rgba(0, 0, 0, 0.25);
+  --etr-c-inputs: rgba(255, 252, 235, 0.38);
   --etr-c-link: rgb(229, 156, 178);
   --etr-c-link-shadow: rgb(213, 75, 116);
   --etr-c-checkbox-boom: #ba2385;
   --etr-c-checkbox-boom-checked: #f262c0;
+  --etr-c-window-title: #eceada;
 }
 
 .theme-dark {
   --etr-c-dark: #c9c7b8;
   --etr-c-dark-trans: rgba(201, 199, 184, 0.75);
-  --etr-c-dark-trans-lt: #c9c7b840;
+  --etr-c-dark-trans-lt: rgba(201, 199, 184, 0.6);
   --etr-c-faint: #0d0f17;
   --etr-c-beige: #444444;
   --etr-c-tan: #b5b3a4;
   --etr-c-white: #000000;
-  --etr-c-black: #eae9dc;
+  --etr-c-black: #efe6d8;
   --etr-c-black-trans: rgba(255, 255, 255, 0.25);
+  --etr-c-inputs: #302831;
   --etr-c-link: rgb(229, 156, 178);
   --etr-c-link-shadow: rgb(213, 75, 116);
   --etr-c-checkbox-boom: #9c5583;
   --etr-c-checkbox-boom-checked: #ee3aaf;
+  --etr-c-window-title: #c9c7b8;
 }
 
 /* Global styles */
@@ -111,7 +115,7 @@
   background-image: url("../assets/bg.webp");
   background-size: cover;
   background-position: center;
-  opacity: 0.15;
+  opacity: 0.1;
   z-index: -1;
   pointer-events: none;
 }
@@ -369,7 +373,6 @@
 /* Utilities. */
 .eat-the-reich {
   font-family: "TeX Gyre Cursor", "Courier New", monospace;
-  color: var(--etr-c-black);
 }
 .eat-the-reich .check-label {
   display: flex;
@@ -383,8 +386,7 @@
 .eat-the-reich textarea,
 .eat-the-reich .editor-content,
 .eat-the-reich button {
-  background: var(--etr-c-dark-trans-lt);
-  color: var(--etr-c-black);
+  background: var(--etr-c-inputs);
   border: 1px solid var(--etr-c-black-trans);
 }
 .eat-the-reich input[type=text]:disabled,
@@ -392,9 +394,7 @@
 .eat-the-reich textarea:disabled,
 .eat-the-reich .editor-content:disabled,
 .eat-the-reich button:disabled {
-  background: red;
-  color: var(--etr-c-black);
-  border: 1px solid var(--etr-c-black-trans);
+  opacity: 0.75;
 }
 .eat-the-reich textarea {
   min-height: 20px;
@@ -407,9 +407,6 @@
 }
 .eat-the-reich input[type=checkbox]::before {
   color: var(--etr-c-dark-trans);
-}
-.eat-the-reich input[type=checkbox]:checked:after {
-  color: #ee9b3a;
 }
 .eat-the-reich a:hover {
   color: var(--etr-c-link);
@@ -424,6 +421,9 @@
   text-shadow: none;
   font-weight: bold;
   text-transform: uppercase;
+}
+.eat-the-reich h1.window-title {
+  color: var(--etr-c-window-title);
 }
 .eat-the-reich h1 {
   font-size: var(--font-size-48);
@@ -469,11 +469,13 @@
   width: fit-content;
 }
 .eat-the-reich .header-btn h4 {
+  border: none;
+  flex: 0 0 auto;
+  background-color: var(--etr-c-dark-trans-lt);
+  color: var(--etr-c-white);
   margin: 0;
   text-transform: uppercase;
-  color: var(--etr-c-white);
-  background-color: var(--etr-c-dark-trans);
-  padding: 0px 4px;
+  padding: 3px 4px 4px 4px;
   font-weight: bold;
   text-shadow: unset;
   font-family: "TeX Gyre Cursor", "Courier New", monospace;
@@ -563,17 +565,16 @@
   flex-direction: column;
   gap: 20px;
 }
-.eat-the-reich .body .main .injuries h4 {
+.eat-the-reich .body .main .injuries h5 {
   width: fit-content;
   margin: 0;
+  align-items: center;
   text-transform: uppercase;
   color: var(--etr-c-white);
-  background-color: var(--etr-c-dark-trans);
-  padding: 0px 4px;
+  background-color: var(--etr-c-dark-trans-lt);
+  padding: 2px 4px;
   font-weight: bold;
-  text-shadow: unset;
   font-family: "TeX Gyre Cursor", "Courier New", monospace;
-  font-weight: bold;
 }
 .eat-the-reich .body .main .injuries .injury {
   display: flex;
@@ -593,18 +594,6 @@
   gap: 5px;
   color: var(--etr-c-tan);
   padding-bottom: 2px;
-}
-.eat-the-reich .body .main .last-stand h4 {
-  flex: 0 0 auto;
-  margin: 0;
-  text-transform: uppercase;
-  color: var(--etr-c-white);
-  background-color: var(--etr-c-dark-trans);
-  padding: 0px 2px;
-  font-weight: bold;
-  text-shadow: unset;
-  font-family: "TeX Gyre Cursor", "Courier New", monospace;
-  font-weight: bold;
 }
 .eat-the-reich .body .main .last-stand input[type=number] {
   width: 45px;
@@ -772,8 +761,8 @@
 .eat-the-reich.character .items-list .item .item-info .item-name {
   text-transform: uppercase;
   color: var(--etr-c-white);
-  background-color: var(--etr-c-dark-trans);
-  padding: 0px 2px;
+  background-color: var(--etr-c-dark-trans-lt);
+  padding: 0px 4px 2px 4px;
 }
 
 /*# sourceMappingURL=eat-the-reich.css.map */

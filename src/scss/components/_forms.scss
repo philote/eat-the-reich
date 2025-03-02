@@ -6,7 +6,6 @@
 
   & {
     font-family: $font-primary;
-    color: $c-black;
   }
 
   .check-label {
@@ -26,14 +25,11 @@
   .editor-content,
   button 
   {
-    background: $c-dark-trans-lt;
-    color: $c-black;
+    background: $c-inputs;
     border: 1px solid $c-black-trans;
 
     &:disabled {
-      background: red;
-      color: $c-black;
-      border: 1px solid $c-black-trans;
+      opacity: 0.75;
     }
   }
   
@@ -50,9 +46,6 @@
   input[type="checkbox"] {
     &::before {
       color: $c-dark-trans;
-    }
-    &:checked:after {
-      color: #ee9b3a;
     }
   }
   
@@ -71,6 +64,10 @@
     text-shadow: none;
     font-weight: bold;
     text-transform: uppercase;
+  }
+
+  h1.window-title {
+    color: $c-window-title;
   }
   
   h1 {
@@ -133,14 +130,15 @@
   .header-btn {
     padding: 0;
     width: fit-content;
-    // background: none;
     
     h4 {
+      border: none;
+      flex: 0 0 auto;
+      background-color: $c-dark-trans-lt;
+      color: $c-white;
       margin: 0;
       text-transform: uppercase;
-      color: var(--etr-c-white);
-      background-color: var(--etr-c-dark-trans);
-      padding: 0px 4px;
+      padding: 3px 4px 4px 4px;
       font-weight: bold;
       text-shadow: unset;
       font-family: $font-primary;
@@ -251,17 +249,16 @@
       
       .injuries {
         
-        h4 {
+        h5 {
           width: fit-content;
           margin: 0;
+          align-items: center;
           text-transform: uppercase;
-          color: var(--etr-c-white);
-          background-color: var(--etr-c-dark-trans);
-          padding: 0px 4px;
+          color: $c-white;
+          background-color: $c-dark-trans-lt;
+          padding: 2px 4px;
           font-weight: bold;
-          text-shadow: unset;
           font-family: $font-primary;
-          font-weight: bold;
         }
   
         .injury {
@@ -287,23 +284,6 @@
         color: $c-tan;
         padding-bottom: 2px;
   
-        h4 {
-          flex: 0 0 auto;
-          margin: 0;
-          text-transform: uppercase;
-          color: var(--etr-c-white);
-          background-color: var(--etr-c-dark-trans);
-          padding: 0px 2px;
-          font-weight: bold;
-          text-shadow: unset;
-          font-family: $font-primary;
-          font-weight: bold;
-        }
-  
-        // input[type="text"] {
-  
-        // }
-  
         input[type="number"] {
           width: 45px;
           text-align: center;
@@ -321,10 +301,6 @@
         margin: 0;
         border: 2px solid $c-beige;
         border-radius: 0px;
-      }
-
-      .header-fields {
-
       }
     }
 
