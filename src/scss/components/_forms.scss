@@ -114,7 +114,6 @@
   
   prose-mirror, 
   .editor-container {
-  
     .editor-content {
       // border: $c-beige 1px dashed;
       border-radius: 4px;
@@ -152,6 +151,19 @@
     display: flex;
     gap: 10px;
     margin-bottom: 10px;
+
+    .document-name {
+      line-height: 0;
+
+      input[type="text"] {
+        margin: 0;
+        width: 100%;
+        font-size: var(--font-size-32);
+        font-weight: bold;
+        text-align: center;
+        height: 42px;
+      }
+    }
   
     .stat-group {
       flex: 0;
@@ -183,23 +195,21 @@
     .header-fields {
       display: flex;
       flex-direction: column;
-      gap: 5px;
-  
-      .document-name {
-        
-        input[type="text"] {
-          margin: 0;
-          width: 100%;
-          font-size: var(--font-size-32);
-          font-weight: bold;
-          text-align: center;
-          height: var(--font-size-48);
-        }
+      gap: 10px;
+
+      .stat h4 {
+        margin: 0;
+        border: none;
+      }
+      
+      .flexrow {
+        display: flex;
+        gap: 10px;
       }
   
       textarea {
         text-align: center;
-        min-height: 152px;
+        min-height: 180px;
         font-family: $font-secondary;
         font-size: var(--font-size-16);
       }
@@ -207,7 +217,8 @@
   
     .profile-img {
       flex: 0 0 175px;
-      height: 210px;
+      height: 233px;
+      object-fit: cover;
       margin: 0;
       border: 2px solid $c-beige;
       border-radius: 0px;
@@ -228,7 +239,6 @@
       gap: 5px;
       margin-top: 10px;
       min-width: 35px;
-      color: $c-tan;
       
       .blood-step {
         display: flex;
@@ -256,7 +266,7 @@
           text-transform: uppercase;
           color: $c-white;
           background-color: $c-dark-trans-lt;
-          padding: 2px 4px;
+          padding: 0px 4px 2px 4px;
           font-weight: bold;
           font-family: $font-primary;
         }
@@ -281,7 +291,7 @@
         display: flex;
         align-items: center;
         gap: 5px;
-        color: $c-tan;
+
         padding-bottom: 2px;
   
         input[type="number"] {
@@ -298,9 +308,6 @@
       .profile-img {
         flex: 0 0 175px;
         height: 175px;
-        margin: 0;
-        border: 2px solid $c-beige;
-        border-radius: 0px;
       }
     }
 
@@ -348,16 +355,6 @@
         width: 100%;
       }
 
-      h1 input {
-        height: 48px;
-        line-height: 48px;
-        font-size: var(--font-size-32);
-        font-weight: bold;
-        text-align: center;
-        margin: 0;
-        width: 100%;
-      }
-
       .location-header {
         display: flex;
         gap: 10px;
@@ -376,8 +373,6 @@
           }
         }
       }
-
-      
     }
     
     .location-body {

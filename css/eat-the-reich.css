@@ -69,6 +69,8 @@
   --etr-c-checkbox-boom: #ba2385;
   --etr-c-checkbox-boom-checked: #f262c0;
   --etr-c-window-title: #eceada;
+  --etr-c-dice-crit-filter: sepia(0.9) hue-rotate(320deg);
+  --etr-c-dice-success-filter: sepia(0.9) hue-rotate(80deg);
 }
 
 .theme-dark {
@@ -87,6 +89,8 @@
   --etr-c-checkbox-boom: #9c5583;
   --etr-c-checkbox-boom-checked: #ee3aaf;
   --etr-c-window-title: #c9c7b8;
+  --etr-c-dice-crit-filter: sepia(0.9) hue-rotate(320deg);
+  --etr-c-dice-success-filter: sepia(0.9) hue-rotate(80deg);
 }
 
 /* Global styles */
@@ -319,7 +323,7 @@
   font-family: "TeX Gyre Cursor", "Courier New", monospace;
   color: var(--etr-c-dark);
   background: none;
-  background-color: var(--etr-c-faint);
+  background-color: var(--etr-c-white);
   border: 1px solid var(--etr-c-beige);
 }
 #chat-log .chat-message .message-header {
@@ -328,15 +332,15 @@
 }
 
 .etr-roll .dice-tooltip .dice-rolls .roll.critical {
-  color: var(--etr-c-white);
-  filter: sepia(0.9) hue-rotate(300deg);
+  color: #000000;
+  filter: var(--etr-c-dice-crit-filter);
 }
 .etr-roll .dice-tooltip .dice-rolls .roll.success {
-  color: var(--etr-c-white);
-  filter: sepia(0.9) hue-rotate(60deg);
+  color: #000000;
+  filter: var(--etr-c-dice-success-filter);
 }
 .etr-roll .dice-tooltip .dice-rolls .roll.discard {
-  color: var(--etr-c-white);
+  color: #000000;
 }
 
 /* Dialogs */
@@ -488,6 +492,17 @@
   gap: 10px;
   margin-bottom: 10px;
 }
+.eat-the-reich header.sheet-header .document-name {
+  line-height: 0;
+}
+.eat-the-reich header.sheet-header .document-name input[type=text] {
+  margin: 0;
+  width: 100%;
+  font-size: var(--font-size-32);
+  font-weight: bold;
+  text-align: center;
+  height: 42px;
+}
 .eat-the-reich header.sheet-header .stat-group {
   flex: 0;
 }
@@ -512,25 +527,26 @@
 .eat-the-reich header.sheet-header .header-fields {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 10px;
 }
-.eat-the-reich header.sheet-header .header-fields .document-name input[type=text] {
+.eat-the-reich header.sheet-header .header-fields .stat h4 {
   margin: 0;
-  width: 100%;
-  font-size: var(--font-size-32);
-  font-weight: bold;
-  text-align: center;
-  height: var(--font-size-48);
+  border: none;
+}
+.eat-the-reich header.sheet-header .header-fields .flexrow {
+  display: flex;
+  gap: 10px;
 }
 .eat-the-reich header.sheet-header .header-fields textarea {
   text-align: center;
-  min-height: 152px;
+  min-height: 180px;
   font-family: "Yonkers", serif;
   font-size: var(--font-size-16);
 }
 .eat-the-reich header.sheet-header .profile-img {
   flex: 0 0 175px;
-  height: 210px;
+  height: 233px;
+  object-fit: cover;
   margin: 0;
   border: 2px solid var(--etr-c-beige);
   border-radius: 0px;
@@ -549,7 +565,6 @@
   gap: 5px;
   margin-top: 10px;
   min-width: 35px;
-  color: var(--etr-c-tan);
 }
 .eat-the-reich .body .sidebar .blood-step {
   display: flex;
@@ -572,7 +587,7 @@
   text-transform: uppercase;
   color: var(--etr-c-white);
   background-color: var(--etr-c-dark-trans-lt);
-  padding: 2px 4px;
+  padding: 0px 4px 2px 4px;
   font-weight: bold;
   font-family: "TeX Gyre Cursor", "Courier New", monospace;
 }
@@ -592,7 +607,6 @@
   display: flex;
   align-items: center;
   gap: 5px;
-  color: var(--etr-c-tan);
   padding-bottom: 2px;
 }
 .eat-the-reich .body .main .last-stand input[type=number] {
@@ -602,9 +616,6 @@
 .eat-the-reich.npc header.sheet-header .profile-img {
   flex: 0 0 175px;
   height: 175px;
-  margin: 0;
-  border: 2px solid var(--etr-c-beige);
-  border-radius: 0px;
 }
 .eat-the-reich.npc .threat-body {
   display: flex;
@@ -639,15 +650,6 @@
   margin-bottom: 10px;
 }
 .eat-the-reich.location header.sheet-header h1, .eat-the-reich.location header.sheet-header .location-header {
-  width: 100%;
-}
-.eat-the-reich.location header.sheet-header h1 input {
-  height: 48px;
-  line-height: 48px;
-  font-size: var(--font-size-32);
-  font-weight: bold;
-  text-align: center;
-  margin: 0;
   width: 100%;
 }
 .eat-the-reich.location header.sheet-header .location-header {
@@ -718,7 +720,6 @@
   padding: 0;
   overflow-y: auto;
   scrollbar-width: thin;
-  color: var(--etr-c-dark);
 }
 .eat-the-reich .items-list .item-controls {
   display: flex;
@@ -756,13 +757,13 @@
   font-weight: normal;
 }
 .eat-the-reich .items-list .item .used {
-  filter: brightness(70%);
+  filter: brightness(80%);
 }
 .eat-the-reich.character .items-list .item .item-info .item-name {
   text-transform: uppercase;
   color: var(--etr-c-white);
   background-color: var(--etr-c-dark-trans-lt);
-  padding: 0px 4px 2px 4px;
+  padding: 0px 4px;
 }
 
 /*# sourceMappingURL=eat-the-reich.css.map */

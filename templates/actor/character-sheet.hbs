@@ -10,43 +10,6 @@
 			height="100"
 			width="100"
 		/>
-		<div class="stat-group">
-			<h4>{{localize "ETR.Actor.Character.Stats.label"}}</h4>
-			<div class='stats flexcol'>
-				<div class='stat'>
-					<span>&nbsp;</span>
-					<span>{{localize "ETR.Actor.Character.Stats.initial"}}</span>
-					<span>&nbsp;</span>
-					<span>{{localize "ETR.Actor.Character.Stats.current"}}</span>
-				</div>
-				{{#each system.stats as |stat key|}}
-				<div class='stat'>
-					<label
-						class='resource-label rollable flexlarge align-right'
-						data-action='roll'
-						data-roll-type="stat"
-						data-stat={{stat.current}}
-						data-label='{{localize (lookup @root.config.stats key)}}'
-						>{{localize (lookup @root.config.stats key)}}</label>
-					<input
-						type='number'
-						name='system.stats.{{key}}.value'
-						value='{{stat.value}}'
-						class="stat-score"
-						data-dtype='Number'
-					/>
-					/
-					<input
-						type='number'
-						name='system.stats.{{key}}.current'
-						value='{{stat.current}}'
-						class="stat-score"
-						data-dtype='Number'
-					/>
-				</div>
-				{{/each}}
-			</div>
-		</div>
 		<div class="header-fields">
 			<h1 class="document-name">
 				{{formInput
@@ -56,11 +19,50 @@
                     placeholder=(localize "ETR.Item.name.label")
                 }}
 			</h1>
-			<textarea 
-				type="text" 
-				name="system.shortDescription"
-				value="{{system.shortDescription}}" 
-				data-dtype="String">{{system.shortDescription}}</textarea>
+			<div class="flexrow">
+				<div class="stat-group">
+					{{!-- <h4>{{localize "ETR.Actor.Character.Stats.label"}}</h4> --}}
+					<div class='stats flexcol'>
+						<div class='stat'>
+							<h4>{{localize "ETR.Actor.Character.Stats.label"}}</h4>
+							<span>{{localize "ETR.Actor.Character.Stats.initial"}}</span>
+							<span>&nbsp;</span>
+							<span>{{localize "ETR.Actor.Character.Stats.current"}}</span>
+						</div>
+						{{#each system.stats as |stat key|}}
+						<div class='stat'>
+							<label
+								class='resource-label rollable flexlarge align-right'
+								data-action='roll'
+								data-roll-type="stat"
+								data-stat={{stat.current}}
+								data-label='{{localize (lookup @root.config.stats key)}}'
+								>{{localize (lookup @root.config.stats key)}}</label>
+							<input
+								type='number'
+								name='system.stats.{{key}}.value'
+								value='{{stat.value}}'
+								class="stat-score"
+								data-dtype='Number'
+							/>
+							/
+							<input
+								type='number'
+								name='system.stats.{{key}}.current'
+								value='{{stat.current}}'
+								class="stat-score"
+								data-dtype='Number'
+							/>
+						</div>
+						{{/each}}
+					</div>
+				</div>
+				<textarea 
+					type="text" 
+					name="system.shortDescription"
+					value="{{system.shortDescription}}" 
+					data-dtype="String">{{system.shortDescription}}</textarea>
+			</div>
 		</div>
 	</header>
 	<section class="body">

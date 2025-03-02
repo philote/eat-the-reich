@@ -5,29 +5,28 @@
     .chat-message {
         .message-header {
             font-family: $font-primary;
-            color: $c-dark;    
+            color: $c-dark;
         }
         font-family: $font-primary;
         color: $c-dark;
         background: none;
-        background-color: $c-faint;
+        background-color: $c-white;
         border: 1px solid $c-beige;
     }
 }
 
 .etr-roll {
     .dice-tooltip .dice-rolls .roll.critical {
-        color: $c-white;
-        filter: sepia(0.9) hue-rotate(300deg);
+        color: #000000;
+        filter: $c-dice-crit-filter;
     }
     
     .dice-tooltip .dice-rolls .roll.success {
-        color: $c-white;
-        filter: sepia(0.9) hue-rotate(60deg);
+        color: #000000;
+        filter: $c-dice-success-filter;
     }
     
     .dice-tooltip .dice-rolls .roll.discard {
-        color: $c-white;
-        // text-decoration: line-through;
+        color: #000000;
     }
 }

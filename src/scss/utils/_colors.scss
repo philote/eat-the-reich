@@ -14,6 +14,8 @@
   --etr-c-checkbox-boom: #ba2385;
   --etr-c-checkbox-boom-checked: #f262c0;
   --etr-c-window-title: #eceada;
+  --etr-c-dice-crit-filter: sepia(0.9) hue-rotate(320deg);
+  --etr-c-dice-success-filter: sepia(0.9) hue-rotate(80deg);
 }
 
 .theme-dark {
@@ -32,6 +34,8 @@
   --etr-c-checkbox-boom: #9c5583;
   --etr-c-checkbox-boom-checked: #ee3aaf;
   --etr-c-window-title: #c9c7b8;
+  --etr-c-dice-crit-filter: sepia(0.9) hue-rotate(320deg);
+  --etr-c-dice-success-filter: sepia(0.9) hue-rotate(80deg);
 }
 
 $c-white: var(--etr-c-white);
@@ -50,3 +54,6 @@ $c-link: var(--etr-c-link);
 $c-link-shadow: var(--etr-c-link-shadow);
 $c-checkbox-boom: var(--etr-c-checkbox-boom);
 $c-checkbox-boom-checked: var(--etr-c-checkbox-boom-checked);
+
+$c-dice-crit-filter: var(--etr-c-dice-crit-filter);
+$c-dice-success-filter: var(--etr-c-dice-success-filter);
