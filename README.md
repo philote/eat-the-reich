@@ -41,7 +41,8 @@ If you’ve enjoyed my work and find value in what I create, please consider sup
 ![Screenshot of the light mode of the character and item sheets](assets/screenshot3.webp)
 
 ## How to Install
-You can install the latest released version of the system by using this manifest link in Foundry VTT. [Instructions](https://foundryvtt.com/article/tutorial/): [module.json](https://github.com/philote/eat-the-reich/releases/latest/download/module.json)
+You can install the latest released version of the system by using this manifest link in Foundry VTT. [Instructions](https://foundryvtt.com/article/tutorial/): 
+https://github.com/philote/eat-the-reich/releases/latest/download/system.json
 
 ## Features
 - Character Sheet
