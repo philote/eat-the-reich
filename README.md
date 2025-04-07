@@ -35,7 +35,7 @@ This Eat the Reich Package for Foundry VTT is an independent production by Josep
 
 If you’ve enjoyed my work and find value in what I create, please consider supporting me with a small donation on [Ko-fi](https://ko-fi.com/G2G3I91JQ). I truly love what I do, and your support helps me dedicate time and resources to ongoing development. Every contribution, no matter the size, makes a difference and allows me to continue doing what I’m passionate about. Thank you for considering—it means the world to me.
 
-## Screenshot
+## Screenshots
 ![Screenshot of the character sheet, item sheets, dice roll dialog](assets/screenshot.webp)
 ![Screenshot of the location sheet, threat sheet, GM dice roll dialog](assets/screenshot2.webp)
 ![Screenshot of the light mode of the character and item sheets](assets/screenshot3.webp)
