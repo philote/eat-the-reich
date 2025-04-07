@@ -2,7 +2,8 @@
   --etr-c-dark: #191813;
   --etr-c-dark-trans: rgba(25, 24, 19, 0.75);
   --etr-c-dark-trans-lt: rgba(25, 24, 19, 0.6);
-  --etr-c-faint: #c9c7b8;
+  --etr-c-faint: #e5e3d3;
+  --etr-c-faint-trans: rgba(229, 227, 211, 0.5);
   --etr-c-beige: #b5b3a4;
   --etr-c-tan: #444444;
   --etr-c-white: #ffffff;
@@ -23,6 +24,7 @@
   --etr-c-dark-trans: rgba(201, 199, 184, 0.75);
   --etr-c-dark-trans-lt: rgba(201, 199, 184, 0.6);
   --etr-c-faint: #0d0f17;
+  --etr-c-faint-trans: rgba(13, 15, 23, 0.5);
   --etr-c-beige: #444444;
   --etr-c-tan: #b5b3a4;
   --etr-c-white: #000000;
@@ -48,6 +50,7 @@ $c-dark: var(--etr-c-dark);
 $c-dark-trans: var(--etr-c-dark-trans);
 $c-dark-trans-lt: var(--etr-c-dark-trans-lt);
 $c-faint: var(--etr-c-faint);
+$c-faint-trans: var(--etr-c-faint-trans);
 $c-beige: var(--etr-c-beige);
 $c-tan: var(--etr-c-tan);
 $c-link: var(--etr-c-link);

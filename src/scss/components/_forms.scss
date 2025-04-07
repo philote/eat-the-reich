@@ -25,8 +25,10 @@
   .editor-content,
   button 
   {
-    background: $c-inputs;
-    border: 1px solid $c-black-trans;
+    // background: $c-inputs;
+    // border: 1px solid $c-black-trans;
+    border: 1px dotted $c-beige;
+    background-color: $c-faint;
 
     &:disabled {
       opacity: 0.75;
@@ -65,13 +67,14 @@
     font-weight: bold;
     text-transform: uppercase;
   }
-
-  h1.window-title {
-    color: $c-window-title;
-  }
   
   h1 {
     font-size: var(--font-size-48);
+    &.window-title {
+      font-size: var(--font-size-13);
+      color: $c-window-title;
+      margin: 0;
+    }
   }
   
   h2 {
@@ -90,6 +93,10 @@
   h1, h2, h3, h4 {
     margin: 1rem 0 0.5rem;
     border-bottom: 1px solid $c-dark-trans;
+
+    &.document-name {
+      border: none;
+    }
   }
   
   h2, h3, h4 {
@@ -112,17 +119,13 @@
     padding-left: 2px;
   }
   
-  prose-mirror, 
-  .editor-container {
+  prose-mirror {
+    border: 1px dotted $c-beige;
+    background-color: $c-faint-trans;
+
     .editor-content {
-      // border: $c-beige 1px dashed;
       border-radius: 4px;
       padding: 0 10px;
-  
-      &.ProseMirror {
-        // background-color: $c-faint;
-        // color: $c-black;
-      }
     }
   }
 
@@ -184,9 +187,10 @@
             font-weight: bold;
           }
   
-          input[type="number"] {
+          input[type=number] {
             height: 1.3rem;
             font-weight: bold;
+            text-align: center;
           }
         }
       }
@@ -279,6 +283,7 @@
           &.severeInjury {
             flex-direction: column;
             gap: 2px;
+            align-items: normal;
           }
   
           input[type="checkbox"] {
@@ -341,10 +346,6 @@
   }
 
   &.location {
-    prose-mirror {
-      min-height: 100px;
-    }
-
     header.sheet-header {
       display: flex;
       flex-direction: column;
@@ -363,16 +364,11 @@
           flex: 0 0 175px;
           height: 175px;
         }
-
-        .form-group {
-          flex: 1;
-          align-content: center;
-
-          prose-mirror {
-              min-height: 140px;
-          }
-        }
       }
+    }
+
+    .form-group {
+      width: 100%;
     }
     
     .location-body {

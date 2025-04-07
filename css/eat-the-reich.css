@@ -57,7 +57,8 @@
   --etr-c-dark: #191813;
   --etr-c-dark-trans: rgba(25, 24, 19, 0.75);
   --etr-c-dark-trans-lt: rgba(25, 24, 19, 0.6);
-  --etr-c-faint: #c9c7b8;
+  --etr-c-faint: #e5e3d3;
+  --etr-c-faint-trans: rgba(229, 227, 211, 0.5);
   --etr-c-beige: #b5b3a4;
   --etr-c-tan: #444444;
   --etr-c-white: #ffffff;
@@ -78,6 +79,7 @@
   --etr-c-dark-trans: rgba(201, 199, 184, 0.75);
   --etr-c-dark-trans-lt: rgba(201, 199, 184, 0.6);
   --etr-c-faint: #0d0f17;
+  --etr-c-faint-trans: rgba(13, 15, 23, 0.5);
   --etr-c-beige: #444444;
   --etr-c-tan: #b5b3a4;
   --etr-c-white: #000000;
@@ -390,8 +392,8 @@
 .eat-the-reich textarea,
 .eat-the-reich .editor-content,
 .eat-the-reich button {
-  background: var(--etr-c-inputs);
-  border: 1px solid var(--etr-c-black-trans);
+  border: 1px dotted var(--etr-c-beige);
+  background-color: var(--etr-c-faint);
 }
 .eat-the-reich input[type=text]:disabled,
 .eat-the-reich input[type=number]:disabled,
@@ -426,11 +428,13 @@
   font-weight: bold;
   text-transform: uppercase;
 }
-.eat-the-reich h1.window-title {
-  color: var(--etr-c-window-title);
-}
 .eat-the-reich h1 {
   font-size: var(--font-size-48);
+}
+.eat-the-reich h1.window-title {
+  font-size: var(--font-size-13);
+  color: var(--etr-c-window-title);
+  margin: 0;
 }
 .eat-the-reich h2 {
   font-size: var(--font-size-20);
@@ -445,6 +449,9 @@
 .eat-the-reich h1, .eat-the-reich h2, .eat-the-reich h3, .eat-the-reich h4 {
   margin: 1rem 0 0.5rem;
   border-bottom: 1px solid var(--etr-c-dark-trans);
+}
+.eat-the-reich h1.document-name, .eat-the-reich h2.document-name, .eat-the-reich h3.document-name, .eat-the-reich h4.document-name {
+  border: none;
 }
 .eat-the-reich h2, .eat-the-reich h3, .eat-the-reich h4 {
   padding-left: 10px;
@@ -463,8 +470,11 @@
   padding: 0;
   padding-left: 2px;
 }
-.eat-the-reich prose-mirror .editor-content,
-.eat-the-reich .editor-container .editor-content {
+.eat-the-reich prose-mirror {
+  border: 1px dotted var(--etr-c-beige);
+  background-color: var(--etr-c-faint-trans);
+}
+.eat-the-reich prose-mirror .editor-content {
   border-radius: 4px;
   padding: 0 10px;
 }
@@ -523,6 +533,7 @@
 .eat-the-reich header.sheet-header .stat-group .stats .stat input[type=number] {
   height: 1.3rem;
   font-weight: bold;
+  text-align: center;
 }
 .eat-the-reich header.sheet-header .header-fields {
   display: flex;
@@ -599,6 +610,7 @@
 .eat-the-reich .body .main .injuries .injury.severeInjury {
   flex-direction: column;
   gap: 2px;
+  align-items: normal;
 }
 .eat-the-reich .body .main .injuries .injury input[type=checkbox] {
   flex: 0;
@@ -640,9 +652,6 @@
 .eat-the-reich.npc .threat-body .threat-attr label {
   margin: 0 5px;
 }
-.eat-the-reich.location prose-mirror {
-  min-height: 100px;
-}
 .eat-the-reich.location header.sheet-header {
   display: flex;
   flex-direction: column;
@@ -660,12 +669,8 @@
   flex: 0 0 175px;
   height: 175px;
 }
-.eat-the-reich.location header.sheet-header .location-header .form-group {
-  flex: 1;
-  align-content: center;
-}
-.eat-the-reich.location header.sheet-header .location-header .form-group prose-mirror {
-  min-height: 140px;
+.eat-the-reich.location .form-group {
+  width: 100%;
 }
 .eat-the-reich.location .location-body {
   display: flex;

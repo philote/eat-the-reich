@@ -76,11 +76,15 @@ Hooks.once("init", function () {
 });
 
 Hooks.on("renderSettings", (app, html) => {
+	if (foundry.utils.isNewerVersion(game.version, "13.0.0")) return;
+	// TODO add v13 version for this later
+
     const header = document.createElement("h2");
     header.innerText = game.i18n.localize('ETR.Settings.game.heading');
 
     const pbtaSettings = document.createElement("div");
-    html.find("#settings-game")?.after(header, pbtaSettings);
+    
+	html[0].querySelector("#settings-game")?.after(header, pbtaSettings);
 
     const buttons = [
         {
