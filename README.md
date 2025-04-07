@@ -1,4 +1,7 @@
 # An EAT THE REICH System (Unofficial)
+<p align="center">
+   	<img src='https://raw.githubusercontent.com/philote/eat-the-reich/refs/heads/main/assets/ETR-compatible-with-logo.webp'/>
+</p>
 
 <p align="center">
     <img alt="Foundry Version 12 support" src="https://img.shields.io/badge/Foundry-v12-informational">
