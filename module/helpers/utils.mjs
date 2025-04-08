@@ -54,4 +54,57 @@ export function registerHandlebarsHelpers() {
 			}
 		}
 	});
+
+	Handlebars.registerHelper("etrGMDie", function(die) {
+		const total = Number(die);
+
+		switch (total) {
+			case 6:
+			case 5:
+			case 4: {
+				return "success";
+			}
+			default: {
+				return "discard";
+			}
+		}
+	});
+
+	/**
+	 * Partitions an array into two groups based on a condition.
+	 * @param {Array} array - The array to partition
+	 * @param {string} property - The property to check
+	 * @param {number|string} value - The value to compare against
+	 * @param {string} operator - The operator to use (eq, ne, gt, lt, ge, le)
+	 * @returns {Object} An object with success and failure arrays
+	 */
+	Handlebars.registerHelper("partition", function(array, property, value, operator) {
+		if (!array || !array.length) return { success: [], failure: [] };
+		
+		const success = [];
+		const failure = [];
+		
+		for (const item of array) {
+			const itemValue = foundry.utils.getProperty(item, property);
+			let condition = false;
+			
+			switch (operator) {
+				case "eq": condition = itemValue == value; break;
+				case "ne": condition = itemValue != value; break;
+				case "gt": condition = itemValue > value; break;
+				case "lt": condition = itemValue < value; break;
+				case "ge": condition = itemValue >= value; break;
+				case "le": condition = itemValue <= value; break;
+				default: condition = false;
+			}
+			
+			if (condition) {
+				success.push(item);
+			} else {
+				failure.push(item);
+			}
+		}
+		
+		return { success, failure };
+	});
 }

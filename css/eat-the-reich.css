@@ -333,16 +333,46 @@
   color: var(--etr-c-dark);
 }
 
-.etr-roll .dice-tooltip .dice-rolls .roll.critical {
+.etr-roll .dice-tooltip {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.etr-roll .dice-tooltip .tooltip-part {
+  padding: 0 5px 0 5px;
+}
+.etr-roll .dice-tooltip .tooltip-part h4 {
+  margin: 0 0 0px 0;
+  padding: 0;
+  font-size: var(--font-size-14);
+  font-family: "TeX Gyre Cursor", "Courier New", monospace;
+  font-weight: bold;
+}
+.etr-roll .dice-tooltip .tooltip-part .bonus-text {
+  margin: 0 0 4px 0;
+  padding: 0;
+  font-size: var(--font-size-12);
+  font-style: italic;
+  color: var(--etr-c-tan);
+  font-family: "TeX Gyre Cursor", "Courier New", monospace;
+}
+.etr-roll .dice-tooltip .dice .dice-rolls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+.etr-roll .dice-tooltip .dice .dice-rolls .roll.critical {
   color: #000000;
   filter: var(--etr-c-dice-crit-filter);
 }
-.etr-roll .dice-tooltip .dice-rolls .roll.success {
+.etr-roll .dice-tooltip .dice .dice-rolls .roll.success {
   color: #000000;
   filter: var(--etr-c-dice-success-filter);
 }
-.etr-roll .dice-tooltip .dice-rolls .roll.discard {
+.etr-roll .dice-tooltip .dice .dice-rolls .roll.discard {
   color: #000000;
+  opacity: 0.7;
 }
 
 /* Dialogs */

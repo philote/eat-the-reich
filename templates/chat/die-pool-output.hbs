@@ -1,14 +1,81 @@
 <section class="etr-chat etr-roll {{result}}">
   <em>{{stat}}</em>
   <div class="dice-tooltip expanded">
-    <section class="tooltip-part">
-      <div class="dice">
-        <ul class="dice-rolls">
-          {{#each dice as |die key|}}
-            <li class="roll die d6 {{etrPlayerDie die.result}}">{{die.result}}</li>
-          {{/each}}
-        </ul>
-      </div>
-    </section>
+    {{#if (eq stat (localize "ETR.Dice.gmRoll"))}}
+      {{! GM Roll - Group by Success and Discard }}
+      {{#with (partition dice "result" 4 "ge") as |partitioned|}}
+        {{#if partitioned.success}}
+          <section class="tooltip-part">
+            <h4>{{localize "ETR.Dice.Categories.Success"}}</h4>
+            <p class="bonus-text">{{localize "ETR.Dice.Categories.BonusText.Success"}}</p>
+            <div class="dice">
+              <ul class="dice-rolls">
+                {{#each partitioned.success as |die key|}}
+                  <li class="roll die d6 success">{{die.result}}</li>
+                {{/each}}
+              </ul>
+            </div>
+          </section>
+        {{/if}}
+        {{#if partitioned.failure}}
+          <section class="tooltip-part">
+            <h4>{{localize "ETR.Dice.Categories.Discarded"}}</h4>
+            <p class="bonus-text">{{localize "ETR.Dice.Categories.BonusText.Discarded"}}</p>
+            <div class="dice">
+              <ul class="dice-rolls">
+                {{#each partitioned.failure as |die key|}}
+                  <li class="roll die d6 discard">{{die.result}}</li>
+                {{/each}}
+              </ul>
+            </div>
+          </section>
+        {{/if}}
+      {{/with}}
+    {{else}}
+      {{! Player Roll - Group by Critical, Success, and Discard }}
+      {{#with (partition dice "result" 6 "eq") as |criticals|}}
+        {{#if criticals.success}}
+          <section class="tooltip-part">
+            <h4>{{localize "ETR.Dice.Categories.Critical"}}</h4>
+            <p class="bonus-text">{{localize "ETR.Dice.Categories.BonusText.Critical"}}</p>
+            <div class="dice">
+              <ul class="dice-rolls">
+                {{#each criticals.success as |die key|}}
+                  <li class="roll die d6 critical">{{die.result}}</li>
+                {{/each}}
+              </ul>
+            </div>
+          </section>
+        {{/if}}
+        {{#with (partition criticals.failure "result" 4 "ge") as |successes|}}
+          {{#if successes.success}}
+            <section class="tooltip-part">
+              <h4>{{localize "ETR.Dice.Categories.Success"}}</h4>
+              <p class="bonus-text">{{localize "ETR.Dice.Categories.BonusText.Success"}}</p>
+              <div class="dice">
+                <ul class="dice-rolls">
+                  {{#each successes.success as |die key|}}
+                    <li class="roll die d6 success">{{die.result}}</li>
+                  {{/each}}
+                </ul>
+              </div>
+            </section>
+          {{/if}}
+          {{#if successes.failure}}
+            <section class="tooltip-part">
+              <h4>{{localize "ETR.Dice.Categories.Discarded"}}</h4>
+              <p class="bonus-text">{{localize "ETR.Dice.Categories.BonusText.Discarded"}}</p>
+              <div class="dice">
+                <ul class="dice-rolls">
+                  {{#each successes.failure as |die key|}}
+                    <li class="roll die d6 discard">{{die.result}}</li>
+                  {{/each}}
+                </ul>
+              </div>
+            </section>
+          {{/if}}
+        {{/with}}
+      {{/with}}
+    {{/if}}
   </div>
 </section>

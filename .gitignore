@@ -33,3 +33,8 @@ foundry
 
 #OS
 .DS_Store
+
+# working files
+raw/*
+.roomodes
+clickable-dice-plan.md

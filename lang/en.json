@@ -108,7 +108,17 @@
       "injuries": "Your Injuries",
       "penalty": "Penalty:",
       "gmRoll": "GM Roll",
-      "lastStandRoll": "Last Stand Roll"
+      "lastStandRoll": "Last Stand Roll",
+      "Categories": {
+        "Critical": "Critical (6)",
+        "Success": "Success (4-5)",
+        "Discarded": "Discarded (1-3)",
+        "BonusText": {
+          "Critical": "+2 damage OR +2 defense OR +2 Blood",
+          "Success": "+1 damage OR +1 defense OR +1 Blood",
+          "Discarded": "No effect"
+        }
+      }
     },
     "Item": {
       "uses": {

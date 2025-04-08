@@ -16,17 +16,56 @@
 }
 
 .etr-roll {
-    .dice-tooltip .dice-rolls .roll.critical {
-        color: #000000;
-        filter: $c-dice-crit-filter;
-    }
     
-    .dice-tooltip .dice-rolls .roll.success {
-        color: #000000;
-        filter: $c-dice-success-filter;
-    }
-    
-    .dice-tooltip .dice-rolls .roll.discard {
-        color: #000000;
+    .dice-tooltip {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        .tooltip-part {
+            padding: 0 5px 0 5px;
+
+            h4 {
+                margin: 0 0 0px 0;
+                padding: 0;
+                font-size: var(--font-size-14);
+                // border-bottom: 1px solid $c-beige;
+                font-family: $font-primary;
+                font-weight: bold;
+            }
+
+            .bonus-text {
+                margin: 0 0 4px 0;
+                padding: 0;
+                font-size: var(--font-size-12);
+                font-style: italic;
+                color: $c-tan;
+                font-family: $font-primary;
+            }
+        }
+
+        .dice {
+            .dice-rolls {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 3px;
+
+                .roll.critical {
+                    color: #000000;
+                    filter: $c-dice-crit-filter;
+                }
+                
+                .roll.success {
+                    color: #000000;
+                    filter: $c-dice-success-filter;
+                }
+                
+                .roll.discard {
+                    color: #000000;
+                    opacity: 0.7;
+                }
+            }
+        }
     }
 }

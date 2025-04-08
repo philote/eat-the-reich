@@ -67,7 +67,6 @@ Styling
 - Chat messages
     - use different dice images for GM vs Player?
     - add more messaging about the roll
-    - Sort dice into categories
     - PC: make dice clickable to allocate them on chat messages
     - GM: make dice clickable to cross them out on chat messages
 - Rolls
