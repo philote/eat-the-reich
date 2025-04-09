@@ -29,20 +29,47 @@
                 pointer-events: none; // Prevent clicks entirely
             }
 
+            &.allocated,
+            &.crossed-out {
+                // Common styles for marked dice (if any needed besides pseudo-element)
+            }
+
             &.allocated {
-                // Use a very obvious style for testing
-                background-color: rgba(76, 175, 80, 0.3) !important; // Greenish tint
-                border: 1px solid #4CAF50 !important;
-                box-shadow: 0 0 3px #4CAF50;
+                // Specific styles for allocated (if needed)
             }
 
             &.crossed-out {
-                 // Use a very obvious style for testing
-                background-color: rgba(244, 67, 54, 0.3) !important; // Reddish tint
-                border: 1px solid #f44336 !important;
-                text-decoration: line-through !important;
+                // Keep line-through for crossed-out
+                text-decoration: line-through;
                 text-decoration-thickness: 2px;
-                opacity: 0.8 !important; // Slightly less opaque than disabled
+                opacity: 0.8; // Keep slight opacity difference
+            }
+
+            // Icon Overlay using ::before pseudo-element
+            &.allocated::before,
+            &.crossed-out::before {
+                content: '\f54c'; // Font Awesome icon for skull
+                // content: '\f715'; // Font Awesome icon for slash
+                // content: '\f00d'; // Font Awesome icon for x
+                font-family: 'Font Awesome 5 Free'; // Use the correct Font Awesome family name
+                font-weight: 900; // Solid style
+                position: absolute;
+                inset: 0; // Cover the parent element
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding-left: 1px;
+                padding-top: 1px;
+                font-size: 1.0em; // Adjust size as needed relative to die number
+                color: rgb(0, 0, 0); // Semi-transparent dark color for the icon
+                z-index: 1; // Ensure icon is on top
+                pointer-events: none; // Allow clicks to pass through to the die itself
+                // Optionally add text-shadow for better visibility
+                // text-shadow: 0 0 2px white;
+            }
+
+            &.crossed-out::before {
+                content: '\f715';
             }
         }
 

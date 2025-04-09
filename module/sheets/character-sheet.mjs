@@ -151,6 +151,7 @@ export default class EatTheReichCharacterSheet extends EatTheReichActorSheet {
 		const chatData = {
 			dice: results,
 			stat: game.i18n.localize("ETR.Dice.lastStandRoll"),
+			isAttack: false,
 		};
 		const template = "systems/eat-the-reich/templates/chat/die-pool-output.hbs";
 
@@ -261,6 +262,7 @@ export default class EatTheReichCharacterSheet extends EatTheReichActorSheet {
 					const chatData = {
 						dice: roll.dice[0].results,
 						stat: statLabel,
+						isAttack: false,
 					};
 					const template =
 						"systems/eat-the-reich/templates/chat/die-pool-output.hbs";

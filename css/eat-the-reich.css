@@ -344,17 +344,29 @@
   filter: grayscale(80%);
   pointer-events: none;
 }
-#chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.d6.allocated {
-  background-color: rgba(76, 175, 80, 0.3) !important;
-  border: 1px solid #4CAF50 !important;
-  box-shadow: 0 0 3px #4CAF50;
-}
 #chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.d6.crossed-out {
-  background-color: rgba(244, 67, 54, 0.3) !important;
-  border: 1px solid #f44336 !important;
-  text-decoration: line-through !important;
+  text-decoration: line-through;
   text-decoration-thickness: 2px;
-  opacity: 0.8 !important;
+  opacity: 0.8;
+}
+#chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.d6.allocated::before, #chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.d6.crossed-out::before {
+  content: "\f54c";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 1px;
+  padding-top: 1px;
+  font-size: 1em;
+  color: rgb(0, 0, 0);
+  z-index: 1;
+  pointer-events: none;
+}
+#chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.d6.crossed-out::before {
+  content: "\f715";
 }
 #chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.critical {
   color: #000000;

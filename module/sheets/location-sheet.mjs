@@ -217,6 +217,7 @@ export default class EatTheReichLocationSheet extends EatTheReichActorSheet {
 					const chatData = {
 						dice: roll.dice[0].results,
 						stat: statLabel,
+						isAttack: false,
 					};
 					const template =
 						"systems/eat-the-reich/templates/chat/die-pool-output.hbs";

@@ -1,7 +1,7 @@
 <section class="etr-chat etr-roll {{result}}">
   <em>{{stat}}</em>
   <div class="dice-tooltip expanded">
-    {{#if (eq stat (localize "ETR.Dice.gmRoll"))}}
+    {{#if isAttack}}
       {{! GM Roll - Group by Success and Discard }}
       {{#with (partition dice "result" 4 "ge") as |partitioned|}}
         {{#if partitioned.success}}
@@ -13,6 +13,7 @@
                 {{#each partitioned.success as |die key|}}
                   <li 
                     class="roll die d6 success" 
+                    data-is-attack="{{../../isAttack}}"
                     data-die-index="{{key}}"
                     data-die-value="{{die.result}}">
                       {{die.result}}

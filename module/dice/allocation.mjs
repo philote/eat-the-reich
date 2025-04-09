@@ -38,8 +38,9 @@ export class DiceAllocation {
 	 * @param {object} data - Additional data provided by the hook.
 	 */
 	static onRenderChatMessage(message, html, data) {
-		const isGMRoll = message.content.includes("ETR.Dice.gmRoll");
-		this._applyStylesFromAttributes(html, isGMRoll);
+		// Check if this message contains any attack dice
+		const isAttackRoll = html.find('.roll.die.d6[data-is-attack="true"]').length > 0;
+		this._applyStylesFromAttributes(html, isAttackRoll);
 	}
 
 	/**
@@ -55,8 +56,9 @@ export class DiceAllocation {
 			const message = game.messages.get(messageId);
 			if (message) {
 				// Pass the specific message element jQuery object
-				const isGMRoll = message.content.includes("ETR.Dice.gmRoll");
-				this._applyStylesFromAttributes($(msgElement), isGMRoll);
+				// Check if this message contains any attack dice
+				const isAttackRoll = html.find('.roll.die.d6[data-is-attack="true"]').length > 0;
+				this._applyStylesFromAttributes($(msgElement), isAttackRoll);
 			}
 		});
 	}
@@ -66,9 +68,9 @@ export class DiceAllocation {
 	 * within the provided HTML jQuery object based on their data attributes.
 	 * This function reads the state from the HTML attributes set by _handleDieClick.
 	 * @param {jQuery} html - jQuery object for the container of dice elements (usually a single message).
-	 * @param {boolean} isGMRoll - Whether the roll was made by a GM.
+	 * @param {boolean} isAttack - Whether the roll was made an attack roll.
 	 */
-	static _applyStylesFromAttributes(html, isGMRoll) {
+	static _applyStylesFromAttributes(html, isAttack) {
 		const diceElements = html.find(".roll.die.d6");
 		diceElements.each((i, el) => {
 			const die = $(el);
@@ -84,7 +86,7 @@ export class DiceAllocation {
 			if (isCrossedOut) die.addClass("crossed-out");
 
 			// Apply disabled state based on value for non-GM rolls
-			if (!isGMRoll && !isNaN(dieValue) && dieValue < 4) {
+			if (!isAttack && !isNaN(dieValue) && dieValue < 4) {
 				die.addClass("disabled");
 			}
 		});
@@ -97,8 +99,8 @@ export class DiceAllocation {
 	 * @param {Event} event - The click event.
 	 */
 	static async _handleDieClick(event) {
-		event.preventDefault(); // Prevent default link behavior if any
-		const die = $(event.currentTarget); // The clicked <li> element
+		event.preventDefault();
+		const die = $(event.currentTarget);
 
 		// Ensure the click is within the chat log specifically
 		if (!die.closest("#chat-log").length) return;
@@ -108,13 +110,11 @@ export class DiceAllocation {
 
 		const messageElement = die.closest(".message");
 		if (!messageElement.length) {
-			console.error("ETR | Could not find parent message element for clicked die.");
 			return;
 		}
 		const messageId = messageElement.data("messageId");
 		const message = game.messages.get(messageId);
 		if (!message) {
-			console.error(`ETR | Could not find message object for ID ${messageId}.`);
 			return;
 		}
 
@@ -124,7 +124,7 @@ export class DiceAllocation {
 			return;
 		}
 
-		const isGMRoll = message.content.includes("ETR.Dice.gmRoll");
+		const isAttack = die.attr("data-is-attack");
 
 		// --- Identify the clicked die uniquely within the message content ---
 		const clickedDieIndex = die.attr("data-die-index"); // Index within its partition
@@ -173,7 +173,7 @@ export class DiceAllocation {
 		let updateNeeded = false;
 		let newState; // To track the intended state for visual feedback
 
-		if (isGMRoll) {
+		if (isAttack) {
 			const isCrossedOut = parsedDie.getAttribute("data-crossed-out") === "true";
 			newState = !isCrossedOut;
 			if (newState) {
@@ -198,7 +198,7 @@ export class DiceAllocation {
 		// --- Provide Immediate Visual Feedback ---
 		// This makes the UI feel responsive, even though the final state
 		// will be reapplied by the render hook after the update.
-		if (isGMRoll) {
+		if (isAttack) {
 			die.toggleClass("crossed-out", newState);
 			die.toggleClass("allocated", false);
 		} else {
@@ -214,7 +214,7 @@ export class DiceAllocation {
 			} catch (err) {
 				console.error("ETR | Error updating message content:", err);
 				// Attempt to revert visual toggle on error to reflect failed save
-				if (isGMRoll) die.toggleClass("crossed-out", !newState);
+				if (isAttack) die.toggleClass("crossed-out", !newState);
 				else die.toggleClass("allocated", !newState);
 			}
 		}

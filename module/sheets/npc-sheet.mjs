@@ -118,7 +118,8 @@ export default class EatTheReichNPCSheet extends EatTheReichActorSheet {
 			const results = roll.dice[0].results;
 			const chatData = {
 				dice: results,
-				stat: game.i18n.localize("ETR.Dice.gmRoll")
+				stat: game.i18n.localize("ETR.Dice.gmRoll"),
+				isAttack: true,
 			}
 			const template = "systems/eat-the-reich/templates/chat/die-pool-output.hbs";
 
@@ -240,7 +241,8 @@ export default class EatTheReichNPCSheet extends EatTheReichActorSheet {
 					const roll = await new Roll(`{${totalDice}d6}`).evaluate();
 					const chatData = {
 						dice: roll.dice[0].results,
-						stat: statLabel
+						stat: statLabel,
+						isAttack: false,
 					}
 					const template = "systems/eat-the-reich/templates/chat/die-pool-output.hbs";
 
