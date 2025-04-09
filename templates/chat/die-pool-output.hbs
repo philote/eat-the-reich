@@ -11,7 +11,12 @@
             <div class="dice">
               <ul class="dice-rolls">
                 {{#each partitioned.success as |die key|}}
-                  <li class="roll die d6 success">{{die.result}}</li>
+                  <li 
+                    class="roll die d6 success" 
+                    data-die-index="{{key}}"
+                    data-die-value="{{die.result}}">
+                      {{die.result}}
+                  </li>
                 {{/each}}
               </ul>
             </div>
@@ -24,7 +29,7 @@
             <div class="dice">
               <ul class="dice-rolls">
                 {{#each partitioned.failure as |die key|}}
-                  <li class="roll die d6 discard">{{die.result}}</li>
+                  <li class="roll die d6 discard" data-die-index="{{key}}" data-die-value="{{die.result}}">{{die.result}}</li>
                 {{/each}}
               </ul>
             </div>
@@ -41,7 +46,7 @@
             <div class="dice">
               <ul class="dice-rolls">
                 {{#each criticals.success as |die key|}}
-                  <li class="roll die d6 critical">{{die.result}}</li>
+                  <li class="roll die d6 critical" data-die-index="{{key}}" data-die-value="{{die.result}}">{{die.result}}</li>
                 {{/each}}
               </ul>
             </div>
@@ -55,7 +60,7 @@
               <div class="dice">
                 <ul class="dice-rolls">
                   {{#each successes.success as |die key|}}
-                    <li class="roll die d6 success">{{die.result}}</li>
+                    <li class="roll die d6 success" data-die-index="{{key}}" data-die-value="{{die.result}}">{{die.result}}</li>
                   {{/each}}
                 </ul>
               </div>
@@ -68,7 +73,7 @@
               <div class="dice">
                 <ul class="dice-rolls">
                   {{#each successes.failure as |die key|}}
-                    <li class="roll die d6 discard">{{die.result}}</li>
+                    <li class="roll die d6 discard" data-die-index="{{key}}" data-die-value="{{die.result}}">{{die.result}}</li>
                   {{/each}}
                 </ul>
               </div>

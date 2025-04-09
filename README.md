@@ -53,6 +53,7 @@ https://github.com/philote/eat-the-reich/releases/latest/download/system.json
 - Location Sheet
 - Item Sheets for [advance, bonus, description, equipment, objective]
 - Basic Dice Pool support
+    - Dice can be marked as used in the chat
 - Supports light and dark modes
 
 ### TODO
@@ -66,9 +67,10 @@ Styling
     - GM roll without Threat rating
 - Chat messages
     - use different dice images for GM vs Player?
-    - add more messaging about the roll
-    - PC: make dice clickable to allocate them on chat messages
-    - GM: make dice clickable to cross them out on chat messages
+    - ~~add more messaging about the roll~~
+    - ~~Sort dice into categories~~
+    - ~~PC: make dice clickable to allocate them on chat messages~~
+    - ~~GM: make dice clickable to cross them out on chat messages~~
 - Rolls
     - Make Injuries effect the sheet/rolls automatically
 - Pre-made Compendiums

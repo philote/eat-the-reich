@@ -8,6 +8,8 @@ import { ETR } from "./helpers/config.mjs";
 // Import DataModel classes
 import * as models from "./data/_module.mjs";
 import * as utils from "./helpers/utils.mjs";
+// Import dice allocation system
+import { DiceAllocation } from "./dice/allocation.mjs";
 
 /* -------------------------------------------- */
 /*  Init Hook                                   */
@@ -22,11 +24,26 @@ globalThis.eat_the_reich = {
 	},
 	applications,
 	models,
+	dice: {
+		DiceAllocation,
+	},
 };
+
+Hooks.on("renderChatMessage", (chatMessage, html, data) => {
+	// Apply styles and potentially other listeners for individual messages
+	DiceAllocation.onRenderChatMessage(chatMessage, html, data);
+});
+
+Hooks.on("renderChatLog", (chatLog, html, data) => {
+	// Apply styles to all messages on initial log render AND attach the single click listener
+	DiceAllocation.chatListeners(html); // Attach the main click listener to the log container
+	DiceAllocation.onRenderChatLog(chatLog, html, data); // Apply initial styles
+});
 
 Hooks.once("init", function () {
 	// Add custom constants for configuration.
 	CONFIG.ETR = ETR;
+	// CONFIG.debug.hooks = true;
 
 	// Define custom Document and DataModel classes
 	CONFIG.Actor.documentClass = EatTheReichActor;
@@ -53,17 +70,17 @@ Hooks.once("init", function () {
 	Actors.unregisterSheet("core", ActorSheet);
 	Actors.registerSheet("eat-the-reich", applications.EatTheReichCharacterSheet, {
 		types: ["character"],
-        makeDefault: true,
+		makeDefault: true,
 		label: "ETR.SheetLabels.Actor",
 	});
-    Actors.registerSheet("eat-the-reich", applications.EatTheReichNPCSheet, {
+	Actors.registerSheet("eat-the-reich", applications.EatTheReichNPCSheet, {
 		types: ["npc"],
-        makeDefault: true,
+		makeDefault: true,
 		label: "ETR.SheetLabels.NPC",
 	});
-    Actors.registerSheet("eat-the-reich", applications.EatTheReichLocationSheet, {
+	Actors.registerSheet("eat-the-reich", applications.EatTheReichLocationSheet, {
 		types: ["location"],
-        makeDefault: true,
+		makeDefault: true,
 		label: "ETR.SheetLabels.Location",
 	});
 	Items.unregisterSheet("core", ItemSheet);
@@ -71,59 +88,67 @@ Hooks.once("init", function () {
 		makeDefault: true,
 		label: "ETR.SheetLabels.Item",
 	});
-	
+
 	utils.registerHandlebarsHelpers();
+
+	// NOTE: DiceAllocation initialization moved to the "ready" hook
 });
+
+// Hook once the game is ready
+// Hooks.once('ready', function() {
+// 	// Initialize dice allocation system
+// 	DiceAllocation.initialize();
+// });
 
 Hooks.on("renderSettings", (app, html) => {
 	if (foundry.utils.isNewerVersion(game.version, "13.0.0")) return;
 	// TODO add v13 version for this later
 
-    const header = document.createElement("h2");
-    header.innerText = game.i18n.localize('ETR.Settings.game.heading');
+	const header = document.createElement("h2");
+	header.innerText = game.i18n.localize("ETR.Settings.game.heading");
 
-    const pbtaSettings = document.createElement("div");
-    
+	const pbtaSettings = document.createElement("div");
+
 	html[0].querySelector("#settings-game")?.after(header, pbtaSettings);
 
-    const buttons = [
-        {
-            action: (ev) => {
-                ev.preventDefault();
-                window.open("https://rowanrookanddecard.com", "_blank");
-            },
-            iconClasses: ["fa-solid", "fa-book"],
-            label: game.i18n.localize('ETR.Settings.game.publisher.title')
-        },
-        {
-            action: (ev) => {
-                ev.preventDefault();
-                window.open("https://github.com/philote/eat-the-reich", "_blank");
-            },
-            iconClasses: ["fab", "fa-github"],
-            label: game.i18n.localize(`ETR.Settings.game.github.title`)
-        },
-        {
-            action: (ev) => {
-                ev.preventDefault();
-                window.open("https://ko-fi.com/ephson", "_blank");
-            },
-            iconClasses: ["fa-solid", "fa-mug-hot"],
-            label: game.i18n.localize("ETR.Settings.game.kofi.title")
-        },
-    ].map(({ action, iconClasses, label }) => {
-        const button = document.createElement("button");
-        button.type = "button";
+	const buttons = [
+		{
+			action: (ev) => {
+				ev.preventDefault();
+				window.open("https://rowanrookanddecard.com", "_blank");
+			},
+			iconClasses: ["fa-solid", "fa-book"],
+			label: game.i18n.localize("ETR.Settings.game.publisher.title"),
+		},
+		{
+			action: (ev) => {
+				ev.preventDefault();
+				window.open("https://github.com/philote/eat-the-reich", "_blank");
+			},
+			iconClasses: ["fab", "fa-github"],
+			label: game.i18n.localize(`ETR.Settings.game.github.title`),
+		},
+		{
+			action: (ev) => {
+				ev.preventDefault();
+				window.open("https://ko-fi.com/ephson", "_blank");
+			},
+			iconClasses: ["fa-solid", "fa-mug-hot"],
+			label: game.i18n.localize("ETR.Settings.game.kofi.title"),
+		},
+	].map(({ action, iconClasses, label }) => {
+		const button = document.createElement("button");
+		button.type = "button";
 
-        const icon = document.createElement("i");
-        icon.classList.add(...iconClasses);
+		const icon = document.createElement("i");
+		icon.classList.add(...iconClasses);
 
-        button.append(icon, game.i18n.localize(label));
+		button.append(icon, game.i18n.localize(label));
 
-        button.addEventListener("click", action);
+		button.addEventListener("click", action);
 
-        return button;
-    });
+		return button;
+	});
 
-    pbtaSettings.append(...buttons);
+	pbtaSettings.append(...buttons);
 });

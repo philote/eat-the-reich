@@ -332,6 +332,42 @@
   font-family: "TeX Gyre Cursor", "Courier New", monospace;
   color: var(--etr-c-dark);
 }
+#chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.d6 {
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  border: 1px solid transparent;
+}
+#chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.d6.disabled {
+  cursor: not-allowed !important;
+  opacity: 0.4 !important;
+  filter: grayscale(80%);
+  pointer-events: none;
+}
+#chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.d6.allocated {
+  background-color: rgba(76, 175, 80, 0.3) !important;
+  border: 1px solid #4CAF50 !important;
+  box-shadow: 0 0 3px #4CAF50;
+}
+#chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.d6.crossed-out {
+  background-color: rgba(244, 67, 54, 0.3) !important;
+  border: 1px solid #f44336 !important;
+  text-decoration: line-through !important;
+  text-decoration-thickness: 2px;
+  opacity: 0.8 !important;
+}
+#chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.critical {
+  color: #000000;
+  filter: var(--etr-c-dice-crit-filter);
+}
+#chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.success:not(.allocated) {
+  color: #000000;
+  filter: var(--etr-c-dice-success-filter);
+}
+#chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.discard:not(.disabled) {
+  color: #000000;
+  opacity: 0.7;
+}
 
 .etr-roll .dice-tooltip {
   margin-top: 10px;
@@ -361,18 +397,6 @@
   display: flex;
   flex-wrap: wrap;
   gap: 3px;
-}
-.etr-roll .dice-tooltip .dice .dice-rolls .roll.critical {
-  color: #000000;
-  filter: var(--etr-c-dice-crit-filter);
-}
-.etr-roll .dice-tooltip .dice .dice-rolls .roll.success {
-  color: #000000;
-  filter: var(--etr-c-dice-success-filter);
-}
-.etr-roll .dice-tooltip .dice .dice-rolls .roll.discard {
-  color: #000000;
-  opacity: 0.7;
 }
 
 /* Dialogs */
