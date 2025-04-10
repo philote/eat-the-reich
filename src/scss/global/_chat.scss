@@ -14,6 +14,20 @@
         border: 1px solid $c-beige;
     }
 
+    .etr-die {
+        display: inline-block;
+        min-width: 24px;
+        line-height: 24px;
+        margin-right: 1px;
+        background-image: url(../assets/icons/d6-grey.svg);
+        background-repeat: no-repeat;
+        background-size: 24px 24px;
+        font-size: var(--font-size-16);
+        color: #000;
+        font-weight: bold;
+        text-align: center;
+    }
+
     // Increase specificity for dice state styles
     .message .etr-roll .dice-tooltip .dice .dice-rolls {
         .roll.d6 {
@@ -29,14 +43,14 @@
                 pointer-events: none; // Prevent clicks entirely
             }
 
-            &.allocated,
-            &.crossed-out {
-                // Common styles for marked dice (if any needed besides pseudo-element)
-            }
+            // &.allocated,
+            // &.crossed-out {
+            //     // Common styles for marked dice (if any needed besides pseudo-element)
+            // }
 
-            &.allocated {
-                // Specific styles for allocated (if needed)
-            }
+            // &.allocated {
+            //     // Specific styles for allocated (if needed)
+            // }
 
             &.crossed-out {
                 // Keep line-through for crossed-out

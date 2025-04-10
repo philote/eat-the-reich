@@ -130,7 +130,7 @@ export default class EatTheReichCharacterSheet extends EatTheReichActorSheet {
 				break;
 		}
 		const message = game.i18n.format("ETR.Actor.Character.injuries.rollMessage", {
-			category: game.i18n.localize("ETR.Actor.Character.injuries.oneTwo"),
+			dice: roll.total, category: category,
 		});
 
 		ui.notifications.info(message);

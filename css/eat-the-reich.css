@@ -332,6 +332,19 @@
   font-family: "TeX Gyre Cursor", "Courier New", monospace;
   color: var(--etr-c-dark);
 }
+#chat-log .etr-die {
+  display: inline-block;
+  min-width: 24px;
+  line-height: 24px;
+  margin-right: 1px;
+  background-image: url(../assets/icons/d6-grey.svg);
+  background-repeat: no-repeat;
+  background-size: 24px 24px;
+  font-size: var(--font-size-16);
+  color: #000;
+  font-weight: bold;
+  text-align: center;
+}
 #chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.d6 {
   cursor: pointer;
   transition: all 0.2s ease;
