@@ -136,6 +136,7 @@ export default class EatTheReichCharacterSheet extends EatTheReichActorSheet {
 		ui.notifications.info(message);
 		ChatMessage.create({
 			speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+			rolls: [roll],
 			flavor: game.i18n.localize("ETR.Actor.Character.injuries.label"),
 			content: message,
 		});
@@ -158,6 +159,7 @@ export default class EatTheReichCharacterSheet extends EatTheReichActorSheet {
 		ChatMessage.create({
 			speaker: ChatMessage.getSpeaker({ actor: this.actor }),
 			rollMode: game.settings.get("core", "rollMode"),
+			rolls: [roll],
 			flavor: lastStandName,
 			content: await renderTemplate(template, chatData),
 		});
@@ -269,6 +271,7 @@ export default class EatTheReichCharacterSheet extends EatTheReichActorSheet {
 
 					ChatMessage.create({
 						speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+						rolls: [roll],
 						rollMode: game.settings.get("core", "rollMode"),
 						content: await renderTemplate(template, chatData),
 					});

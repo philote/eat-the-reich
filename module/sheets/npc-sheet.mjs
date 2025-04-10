@@ -125,6 +125,7 @@ export default class EatTheReichNPCSheet extends EatTheReichActorSheet {
 
 			ChatMessage.create({
 				speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+				rolls: [roll],
 				rollMode: game.settings.get("core", "rollMode"),
 				content: await renderTemplate(template, chatData),
 			});
@@ -248,6 +249,7 @@ export default class EatTheReichNPCSheet extends EatTheReichActorSheet {
 
 					ChatMessage.create({
 						speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+						rolls: [roll],
 						rollMode: game.settings.get("core", "rollMode"),
 						content: await renderTemplate(template, chatData),
 					});
