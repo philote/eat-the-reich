@@ -54,6 +54,7 @@ https://github.com/philote/eat-the-reich/releases/latest/download/system.json
 - Item Sheets for [advance, bonus, description, equipment, objective]
 - Basic Dice Pool support
     - Dice can be marked as used in the chat
+    - flashback re-rolling
 - Supports light and dark modes
 
 ### TODO
@@ -63,7 +64,6 @@ Styling
     - Threats - Design change for ubermenschen?
     - GM rolls should be different style than player rolls in chat
     - custom dice images for Dice so Nice
-    - Chat messages: use different dice images for GM vs Player?
 - Macros
     - PC roll without stats
     - GM roll without Threat rating
@@ -73,8 +73,6 @@ Styling
     - create pre-made characters
     - Pre-gen Items
     - add map scene
-- chat messages
-    - add flashback re-rolling
 
 # License & Acknowledgements
 The ‘Eat The Reich’ game is copyright © 2023 Rowan, Rook and Decard. All artwork in the game is copyright © 2023 Will Kirkby. You can find out more and support these games at [rowanrookanddecard.com](https://rowanrookanddecard.com)
