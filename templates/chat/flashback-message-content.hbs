@@ -1,0 +1,30 @@
+<div class="etr-flashback-message">
+    <h3>{{localize "ETR.Flashback.RollMessage.title"}}</h3>
+  {{#if context}}
+    <div class="etr-flashback-context">
+      <strong>{{localize "ETR.Flashback.RollMessage.contextLabel"}} </strong>{{context}}
+    </div>
+  {{/if}}
+  
+  {{#if question}}
+    <div class="etr-flashback-question">
+      <strong>{{localize "ETR.Flashback.RollMessage.questionLabel"}}</strong> {{question}}
+    </div>
+  {{/if}}
+  
+  {{#if characterName}}
+    <div class="etr-flashback-character">
+      <strong>{{localize "ETR.Flashback.RollMessage.characterLabel"}}</strong> {{characterName}}
+    </div>
+  {{/if}}
+  
+  {{#if description}}
+    <div class="etr-flashback-description">
+      <strong>{{localize "ETR.Flashback.RollMessage.descriptionLabel"}}</strong> {{description}}
+    </div>
+  {{/if}}
+  
+  <div class="etr-flashback-bonus">
+    {{localize "ETR.Flashback.RollMessage.rollLabel"}}
+  </div>
+</div>

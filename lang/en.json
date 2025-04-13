@@ -197,7 +197,7 @@
 		"Flashback": {
 			"Title": "Flashback Triggered",
 			"Instructions": "Describe a brief scene from a past mission to gain 2 bonus dice on a re-roll.",
-			"Button": "Reroll with the Flashback!",
+			"Button": "Reroll with a Flashback!",
 			"SelectOption": "-- Select --",
 			"CustomOption": "-- Custom --",
 			"CustomPlaceholder": "Enter custom text...",
@@ -225,7 +225,14 @@
 			"Description": {
 				"Label": "Scene Notes"
 			},
-			"RollMessage": "<strong>Flashback: {context}</strong><br><em>{question}</em><br>Character Involved: {characterName}<br><hr>{description}<hr>Rolling again with +2 dice!"
+			"RollMessage": {
+				"title": "Flashback",
+				"contextLabel": "Context: ",
+				"questionLabel": "Question: ",
+				"characterLabel": "Character Involved: ",
+				"descriptionLabel": "Scene Notes: ",
+				"rollLabel": "Rolling again with +2 dice!"
+			}
 		}
 	}
 }

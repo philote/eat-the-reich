@@ -337,12 +337,15 @@ export class DiceAllocation {
 			"systems/eat-the-reich/templates/chat/die-pool-output.hbs";
 		const rollContent = await renderTemplate(chatTemplate, chatData);
 
-		const flashbackFlavor = game.i18n.format("ETR.Flashback.RollMessage", {
+		// Render the flashback message content using the template
+		const flashbackTemplate = "systems/eat-the-reich/templates/chat/flashback-message-content.hbs";
+		const flashbackData = {
 			context: game.i18n.localize(flashbackChoices.context),
 			question: game.i18n.localize(flashbackChoices.question),
 			characterName: flashbackChoices.character,
 			description: flashbackChoices.description,
-		});
+		};
+		const flashbackFlavor = await renderTemplate(flashbackTemplate, flashbackData);
 
 		await ChatMessage.create({
 			speaker: ChatMessage.getSpeaker({ actor: actor }),

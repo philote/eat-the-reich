@@ -2,7 +2,40 @@
 @use '../utils/typography' as *;
 
 #chat-log {
+    button {
+        // border: 1px dotted var(--etr-c-beige);
+        // background-color: var(--etr-c-faint);
+        // color: $c-black;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 0.5rem;
+        background: var(--button-background-color);
+        border: 1px solid var(--button-border-color);
+        border-radius: 4px;
+        color: var(--button-text-color);
+        text-decoration: none;
+        cursor: pointer;
+        font-size: var(--font-size-14);
+
+        &:hover {
+            background: var(--button-hover-background-color);
+            color: var(--button-hover-text-color);
+            border-color: var(--button-hover-border-color);
+            transition: background-color 0.5s, border-color 0.5s;
+        }
+    }
+
     .chat-message {
+        h1, h2, h3, h4, h5, h6 {
+            font-family: $font-header;
+            color: $c-black;
+            text-shadow: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            border: none;
+        }
+
         .message-header {
             font-family: $font-primary;
             color: $c-dark;
@@ -91,11 +124,25 @@
         .roll.critical {
             color: #000000;
             filter: $c-dice-crit-filter;
+
+            &:hover {
+                background: var(--button-hover-background-color);
+                color: var(--button-hover-text-color);
+                border-color: var(--button-hover-border-color);
+                transition: background-color 0.5s, border-color 0.5s;
+            }
         }
 
         .roll.success:not(.allocated) { // Don't apply filter if allocated
             color: #000000;
             filter: $c-dice-success-filter;
+
+            &:hover {
+                background: var(--button-hover-background-color);
+                color: var(--button-hover-text-color);
+                border-color: var(--button-hover-border-color);
+                transition: background-color 0.5s, border-color 0.5s;
+            }
         }
 
         .roll.discard:not(.disabled) { // Don't apply opacity if already disabled
@@ -103,6 +150,14 @@
             opacity: 0.7;
         }
     }
+}
+
+.etr-flashback-message {
+    border: dotted 1px $c-beige;
+    background-color: $c-faint-trans;
+    padding: 5px;
+    border-radius: 4px;
+    margin: 5px;
 }
 
 // Original .etr-roll structure (kept for reference, styles moved above)

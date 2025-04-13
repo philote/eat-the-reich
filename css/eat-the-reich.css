@@ -325,12 +325,39 @@
 
 /* Chat */
 /* Utilities. */
+#chat-log button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.5rem;
+  background: var(--button-background-color);
+  border: 1px solid var(--button-border-color);
+  border-radius: 4px;
+  color: var(--button-text-color);
+  text-decoration: none;
+  cursor: pointer;
+  font-size: var(--font-size-14);
+}
+#chat-log button:hover {
+  background: var(--button-hover-background-color);
+  color: var(--button-hover-text-color);
+  border-color: var(--button-hover-border-color);
+  transition: background-color 0.5s, border-color 0.5s;
+}
 #chat-log .chat-message {
   font-family: "TeX Gyre Cursor", "Courier New", monospace;
   color: var(--etr-c-dark);
   background: none;
   background-color: var(--etr-c-white);
   border: 1px solid var(--etr-c-beige);
+}
+#chat-log .chat-message h1, #chat-log .chat-message h2, #chat-log .chat-message h3, #chat-log .chat-message h4, #chat-log .chat-message h5, #chat-log .chat-message h6 {
+  font-family: Arial, sans-serif;
+  color: var(--etr-c-black);
+  text-shadow: none;
+  font-weight: bold;
+  text-transform: uppercase;
+  border: none;
 }
 #chat-log .chat-message .message-header {
   font-family: "TeX Gyre Cursor", "Courier New", monospace;
@@ -389,13 +416,33 @@
   color: #000000;
   filter: var(--etr-c-dice-crit-filter);
 }
+#chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.critical:hover {
+  background: var(--button-hover-background-color);
+  color: var(--button-hover-text-color);
+  border-color: var(--button-hover-border-color);
+  transition: background-color 0.5s, border-color 0.5s;
+}
 #chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.success:not(.allocated) {
   color: #000000;
   filter: var(--etr-c-dice-success-filter);
 }
+#chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.success:not(.allocated):hover {
+  background: var(--button-hover-background-color);
+  color: var(--button-hover-text-color);
+  border-color: var(--button-hover-border-color);
+  transition: background-color 0.5s, border-color 0.5s;
+}
 #chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.discard:not(.disabled) {
   color: #000000;
   opacity: 0.7;
+}
+
+.etr-flashback-message {
+  border: dotted 1px var(--etr-c-beige);
+  background-color: var(--etr-c-faint-trans);
+  padding: 5px;
+  border-radius: 4px;
+  margin: 5px;
 }
 
 .etr-roll .dice-tooltip {
