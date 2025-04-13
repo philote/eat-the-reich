@@ -59,18 +59,14 @@ https://github.com/philote/eat-the-reich/releases/latest/download/system.json
 ### TODO
 - Play/Edit mode for character sheets
 Styling
-    Different background for Threats & items
-    Threats - Design change for ubermenschen?
-    GM rolls should be different style than player rolls in chat
+    - Different background for Threats & items
+    - Threats - Design change for ubermenschen?
+    - GM rolls should be different style than player rolls in chat
+    - custom dice images for Dice so Nice
+    - Chat messages: use different dice images for GM vs Player?
 - Macros
     - PC roll without stats
     - GM roll without Threat rating
-- Chat messages
-    - use different dice images for GM vs Player?
-    - ~~add more messaging about the roll~~
-    - ~~Sort dice into categories~~
-    - ~~PC: make dice clickable to allocate them on chat messages~~
-    - ~~GM: make dice clickable to cross them out on chat messages~~
 - Rolls
     - Make Injuries effect the sheet/rolls automatically
 - Pre-made Compendiums

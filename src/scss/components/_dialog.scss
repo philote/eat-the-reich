@@ -1,3 +1,55 @@
+@use '../utils/colors' as *;
+.etr-dialog {
+	.dialog-content {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+	}
+
+	.random-field {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: 10px;
+
+		button {
+			flex: 1;
+			padding: 5px 10px;
+			align-items: center;
+
+			i {
+				margin: 0;
+			}
+		}
+	}
+
+	.form-footer {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-top: 10px;
+		gap: 10px;
+
+		button {
+			flex: 1;
+			padding: 5px 10px;
+			font-size: 1rem;
+
+			// &[type=submit] {
+			// 	background-color: #6fffd617;
+			// }
+
+			// &[type=cancel] {
+			// 	background-color: #ff727217;
+			// }
+		}
+	}
+
+	.form-group, .form-group-stacked {
+		gap: 5px;
+	}
+}
+
 .dialog {
 
 	#etr-roll-dialog {
@@ -10,8 +62,6 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-
-		
 	
 		label {
 			flex: 4;

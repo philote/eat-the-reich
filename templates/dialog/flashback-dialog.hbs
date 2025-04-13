@@ -1,0 +1,99 @@
+<div class="dialog-content">
+	<p>{{localize "ETR.Flashback.Instructions"}}</p>
+
+	{{! Context }}
+	<div class="form-group-stacked">
+		<label>{{localize "ETR.Flashback.Context.Label"}}</label>
+		<div class="random-field">
+			<button class="randomize-btn" data-action="randomize" data-target="context">
+				<i class="fa-solid fa-dice"></i>
+			</button>
+			<select name="flashback.context.selected">
+				{{selectOptions
+					flashback.context.options
+					blank=(localize "ETR.Flashback.SelectOption")
+					selected=flashback.context.selected
+					localize=true
+				}}
+			</select>
+		</div>
+		<input
+			type="text"
+			name="flashback.context.custom"
+			value="{{flashback.context.custom}}"
+			placeholder="{{localize 'ETR.Flashback.CustomPlaceholder'}}"
+			style="display: none;"
+		/>
+	</div>
+
+	{{! Question }}
+	<div class="form-group-stacked">
+		<label>{{localize "ETR.Flashback.Question.Label"}}</label>
+		<div class="random-field">
+			<button
+				class="randomize-btn"
+				data-action="randomize"
+				data-target="question"
+			><i class="fa-solid fa-dice"></i></button>
+			<select name="flashback.question.selected">
+				{{selectOptions
+					flashback.question.options
+					blank=(localize "ETR.Flashback.SelectOption")
+					selected=flashback.question.selected
+					localize=true
+				}}
+			</select>
+		</div>
+		<input
+			type="text"
+			name="flashback.question.custom"
+			value="{{flashback.question.custom}}"
+			placeholder="{{localize 'ETR.Flashback.CustomPlaceholder'}}"
+			style="display: none;"
+		/>
+	</div>
+
+	{{! Character }}
+	<div class="form-group-stacked">
+		<label>{{localize "ETR.Flashback.Character.Label"}}</label>
+		<div class="random-field">
+			<button
+				class="randomize-btn"
+				data-action="randomize"
+				data-target="character"
+			><i class="fa-solid fa-dice"></i></button>
+			<select name="flashback.character.selected">
+				{{selectOptions
+					flashback.character.options
+					blank=(localize "ETR.Flashback.SelectOption")
+					selected=flashback.character.selected
+					localize=true
+				}}
+			</select>
+		</div>
+		<input
+			type="text"
+			name="flashback.character.custom"
+			value="{{flashback.character.custom}}"
+			placeholder="{{localize 'ETR.Flashback.CustomPlaceholder'}}"
+			style="display: none;"
+		/>
+	</div>
+
+	{{! Description }}
+	<div class="form-group-stacked">
+		<label>{{localize "ETR.Flashback.Description.Label"}}</label>
+		<div class="form-fields">
+			<textarea
+				name="flashback.description"
+				rows="4"
+			>{{flashback.description}}</textarea>
+		</div>
+	</div>
+	<footer class="form-footer">
+		<button type="submit">
+			<i class="fa-solid fa-dice"></i>
+			{{localize "ETR.Flashback.Button"}}
+		</button>
+	</footer>
+</div>

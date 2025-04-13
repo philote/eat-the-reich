@@ -319,6 +319,10 @@
   text-align: center;
 }
 
+.hidden {
+  display: none !important;
+}
+
 /* Chat */
 /* Utilities. */
 #chat-log .chat-message {
@@ -425,6 +429,41 @@
 }
 
 /* Dialogs */
+.etr-dialog .dialog-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.etr-dialog .random-field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+.etr-dialog .random-field button {
+  flex: 1;
+  padding: 5px 10px;
+  align-items: center;
+}
+.etr-dialog .random-field button i {
+  margin: 0;
+}
+.etr-dialog .form-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  gap: 10px;
+}
+.etr-dialog .form-footer button {
+  flex: 1;
+  padding: 5px 10px;
+  font-size: 1rem;
+}
+.etr-dialog .form-group, .etr-dialog .form-group-stacked {
+  gap: 5px;
+}
+
 .dialog #etr-roll-dialog section.flexcol {
   gap: 20px;
 }

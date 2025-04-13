@@ -1,0 +1,70 @@
+<form>
+    <h2>{{localize "ETR.Flashback.Title"}}</h2>
+
+    <p>{{localize "ETR.Flashback.Instructions"}}</p>
+
+    {{!-- Context --}}
+    <div class="form-group">
+        <label>{{localize "ETR.Flashback.Context.Label"}}</label>
+        <div class="form-fields flashback-field">
+            <button type="button" class="randomize-btn" data-target="context"><i class="fas fa-dice-d6"></i></button>
+            <select name="contextSelect">
+                <option value="">{{localize "ETR.Flashback.SelectOption"}}</option>
+                {{#each contextOptions as |label key|}}
+                <option value="{{key}}">{{label}}</option>
+                {{/each}}
+                <option value="custom">{{localize "ETR.Flashback.CustomOption"}}</option>
+            </select>
+        </div>
+        <input type="text" name="contextCustom" placeholder="{{localize 'ETR.Flashback.CustomPlaceholder'}}" style="display: none; width: 100%; margin-top: 5px;"/>
+    </div>
+
+    {{!-- Question --}}
+    <div class="form-group">
+        <label>{{localize "ETR.Flashback.Question.Label"}}</label>
+        <div class="form-fields flashback-field">
+            <button type="button" class="randomize-btn" data-target="question"><i class="fas fa-dice-d6"></i></button>
+            <select name="questionSelect">
+                <option value="">{{localize "ETR.Flashback.SelectOption"}}</option>
+                {{#each questionOptions as |label key|}}
+                <option value="{{key}}">{{label}}</option>
+                {{/each}}
+                 <option value="custom">{{localize "ETR.Flashback.CustomOption"}}</option>
+           </select>
+        </div>
+        <input type="text" name="questionCustom" placeholder="{{localize 'ETR.Flashback.CustomPlaceholder'}}" style="display: none; width: 100%; margin-top: 5px;"/>
+    </div>
+
+    {{!-- Character --}}
+    <div class="form-group">
+        <label>{{localize "ETR.Flashback.Character.Label"}}</label>
+        <div class="form-fields flashback-field">
+             <button type="button" class="randomize-btn" data-target="character"><i class="fas fa-dice-d6"></i></button>
+            <select name="characterSelect">
+                <option value="">{{localize "ETR.Flashback.SelectOption"}}</option>
+                {{#each characterOptions as |name id|}}
+                <option value="{{id}}">{{name}}</option>
+                {{/each}}
+                 <option value="custom">{{localize "ETR.Flashback.CustomOption"}}</option>
+           </select>
+        </div>
+        <input type="text" name="characterCustom" placeholder="{{localize 'ETR.Flashback.CustomPlaceholder'}}" style="display: none; width: 100%; margin-top: 5px;"/>
+    </div>
+
+    {{!-- Description --}}
+    <div class="form-group">
+        <label>{{localize "ETR.Flashback.Description.Label"}}</label>
+        <div class="form-fields">
+            <textarea name="description" rows="4"></textarea>
+        </div>
+    </div>
+    <footer class="dialog-buttons">
+        <button type="button" data-action="confirm">
+            <i class="fas fa-check"></i> {{localize "ETR.Flashback.Button"}}
+        </button>
+        <button type="button" data-action="cancel">
+            <i class="fas fa-times"></i> {{localize "Cancel"}}
+        </button>
+    </footer>
+</form>
+</form>

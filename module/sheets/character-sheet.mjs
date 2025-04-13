@@ -274,6 +274,16 @@ export default class EatTheReichCharacterSheet extends EatTheReichActorSheet {
 						rolls: [roll],
 						rollMode: game.settings.get("core", "rollMode"),
 						content: await renderTemplate(template, chatData),
+						flags: {
+							"eat-the-reich": {
+								rollConfig: {
+									statValue: dicePool.object.stat,
+									equipmentDice: dicePool.object.equipment,
+									abilityDice: dicePool.object.abilities,
+									statLabel: statLabel
+								}
+							}
+						}
 					});
 				}
 			}

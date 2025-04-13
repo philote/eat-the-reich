@@ -1,186 +1,186 @@
 {
-  "TYPES": {
-    "Actor": {
-      "character": "Character",
-      "npc": "Threat",
-      "location": "Location"
-    },
-    "Item": {
-      "ability": "Ability",
-      "advance": "Advance",
-      "equipment": "Equipment",
-      "loot": "Loot",
-      "objective": "Objective",
-      "extraInfo": "Extra Info"
-    }
-  },
-  "ETR": {
-    "Placeholder": {
-      "name": "Name",
-      "penalty": "Penalty",
-      "description": "Description"
-    },
-    "Stats": {
-      "Brawl": "Brawl",
-      "Con": "Con",
-      "Fix": "Fix",
-      "Search": "Search",
-      "Shoot": "Shoot",
-      "Sneak": "Sneak",
-      "Terrify": "Terrify"
-    },
-    "SheetLabels": {
-      "Actor": "Eat The Reich Actor Sheet",
-      "NPC": "Eat The Reich Threat Sheet",
-      "Location": "Eat The Reich Location Sheet",
-      "Item": "Eat The Reich Item Sheet"
-    },
-    "Actor": {
-      "base": {
-        "FIELDS": {
-          "description": {
-            "label": "Description"
-          }
-        }
-      },
-      "Location": {
-        "objectives": "Objectives",
-        "secondaryObjectives": "Secondary Objectives",
-        "FIELDS": {
-          "enemies": {
-            "label": "Enemies"
-          }
-        }
-      },
-      "Character": {
-        "equipment": "Equipment",
-        "blood": "Blood",
-        "loot": "Loot",
-        "abilities": "Abilities",
-        "advancements": "Advancements",
-        "injuries": {
-          "label": "Injuries",
-          "rollMessage": "You rolled a <span class='etr-die'>{dice}</span> <br> <strong>GM Attack Dice < 3:</strong> Tick off the first unchecked box in the <strong>{category}</strong> category.<br><strong>GM Attack Dice >= 3:</strong> You are taken down. Mark off all available boxes in the <strong>{category}</strong> category.<hr><em>If both boxes are already marked, pick an alternate category.</em>",
-          "oneTwo": "1-2",
-          "threeFour": "3-4",
-          "fiveSix": "5-6"
-        },
-        "lastStand": "Last Stand",
-        "Stats": {
-          "label": "Stats",
-          "initial": "Init",
-          "current": "Cur"
-        }
-      },
-      "NPC": {
-        "extras": "Extra Info",
-        "reinforcements": "Reinforcements",
-        "reinforcementsArrival": "Reinforcements have arrived!",
-        "name": {
-          "label": "Name"
-        },
-        "FIELDS": {
-          "isUbermenschen": {
-            "label": "Ubermenschen"
-          },
-          "attack": {
-            "label": "Attack",
-            "description": "Attack Description"
-          },
-          "challenge": {
-            "label": "Challenge",
-            "description": "Challenge Description"
-          }
-        },
-        "rating": {
-          "label": "Rating"
-        }
-      }
-    },
-    "Dice": {
-      "title": "EAT THE REICH Roll",
-      "label": "Roll the Dice",
-      "dice": "Build Your Dice Pool",
-      "stat": "STAT: ",
-      "total": "Total",
-      "equipment": "Equipment Dice",
-      "abilities": "Abilities Dice",
-      "injuries": "Your Injuries",
-      "penalty": "Penalty:",
-      "gmRoll": "GM Roll",
-      "lastStandRoll": "Last Stand Roll",
-      "Categories": {
-        "Critical": "Critical (6)",
-        "Success": "Success (4-5)",
-        "Discarded": "Discarded (1-3)",
-        "BonusText": {
-          "Critical": "+2 damage OR +2 defense OR +2 Blood",
-          "Success": "+1 damage OR +1 defense OR +1 Blood",
-          "Discarded": "No effect"
-        }
-      }
-    },
-    "Item": {
-      "uses": {
-        "label": "Uses"
-      },
-      "name": {
-          "label": "Name"
-        },
-      "base": {
-        "FIELDS": {
-          "bonus": {
-            "label": "Bonus",
-            "hint": "This is the bonus value of the item"
-          },
-          "isActive": {
-            "label": "Active",
-            "hint": "This is the active status of the loot"
-          }
-        }
-      },
-      "objective": {
-        "FIELDS": {
-          "challenge": {
-            "label": "Challenge"
-          },
-          "description": {
-            "label": "Description"
-          },
-          "rating": {
-            "label": "Rating"
-          },
-          "isSecondary": {
-            "label": "Secondary Objective"
-          }
-        }
-      },
-      "extraInfo": {
-        "FIELDS": {
-          "description": {
-            "label": "Description"
-          }
-        }
-      },
-      "advance": {
-        "FIELDS": {
-          "description": {
-            "label": "Description"
-          },
-          "selected": {
-            "label": "Selected"
-          }
-        }
-      },
-      "ability": {
-        "FIELDS": {
-          "description": {
-            "label": "Description"
-          }
-        }
-      }
-    },
-    "Settings": {
+	"TYPES": {
+		"Actor": {
+			"character": "Character",
+			"npc": "Threat",
+			"location": "Location"
+		},
+		"Item": {
+			"ability": "Ability",
+			"advance": "Advance",
+			"equipment": "Equipment",
+			"loot": "Loot",
+			"objective": "Objective",
+			"extraInfo": "Extra Info"
+		}
+	},
+	"ETR": {
+		"Placeholder": {
+			"name": "Name",
+			"penalty": "Penalty",
+			"description": "Description"
+		},
+		"Stats": {
+			"Brawl": "Brawl",
+			"Con": "Con",
+			"Fix": "Fix",
+			"Search": "Search",
+			"Shoot": "Shoot",
+			"Sneak": "Sneak",
+			"Terrify": "Terrify"
+		},
+		"SheetLabels": {
+			"Actor": "Eat The Reich Actor Sheet",
+			"NPC": "Eat The Reich Threat Sheet",
+			"Location": "Eat The Reich Location Sheet",
+			"Item": "Eat The Reich Item Sheet"
+		},
+		"Actor": {
+			"base": {
+				"FIELDS": {
+					"description": {
+						"label": "Description"
+					}
+				}
+			},
+			"Location": {
+				"objectives": "Objectives",
+				"secondaryObjectives": "Secondary Objectives",
+				"FIELDS": {
+					"enemies": {
+						"label": "Enemies"
+					}
+				}
+			},
+			"Character": {
+				"equipment": "Equipment",
+				"blood": "Blood",
+				"loot": "Loot",
+				"abilities": "Abilities",
+				"advancements": "Advancements",
+				"injuries": {
+					"label": "Injuries",
+					"rollMessage": "You rolled a <span class='etr-die'>{dice}</span> <br> <strong>GM Attack Dice < 3:</strong> Tick off the first unchecked box in the <strong>{category}</strong> category.<br><strong>GM Attack Dice >= 3:</strong> You are taken down. Mark off all available boxes in the <strong>{category}</strong> category.<hr><em>If both boxes are already marked, pick an alternate category.</em>",
+					"oneTwo": "1-2",
+					"threeFour": "3-4",
+					"fiveSix": "5-6"
+				},
+				"lastStand": "Last Stand",
+				"Stats": {
+					"label": "Stats",
+					"initial": "Init",
+					"current": "Cur"
+				}
+			},
+			"NPC": {
+				"extras": "Extra Info",
+				"reinforcements": "Reinforcements",
+				"reinforcementsArrival": "Reinforcements have arrived!",
+				"name": {
+					"label": "Name"
+				},
+				"FIELDS": {
+					"isUbermenschen": {
+						"label": "Ubermenschen"
+					},
+					"attack": {
+						"label": "Attack",
+						"description": "Attack Description"
+					},
+					"challenge": {
+						"label": "Challenge",
+						"description": "Challenge Description"
+					}
+				},
+				"rating": {
+					"label": "Rating"
+				}
+			}
+		},
+		"Dice": {
+			"title": "EAT THE REICH Roll",
+			"label": "Roll the Dice",
+			"dice": "Build Your Dice Pool",
+			"stat": "STAT: ",
+			"total": "Total",
+			"equipment": "Equipment Dice",
+			"abilities": "Abilities Dice",
+			"injuries": "Your Injuries",
+			"penalty": "Penalty:",
+			"gmRoll": "GM Roll",
+			"lastStandRoll": "Last Stand Roll",
+			"Categories": {
+				"Critical": "Critical (6)",
+				"Success": "Success (4-5)",
+				"Discarded": "Discarded (1-3)",
+				"BonusText": {
+					"Critical": "+2 damage OR +2 defense OR +2 Blood",
+					"Success": "+1 damage OR +1 defense OR +1 Blood",
+					"Discarded": "No effect"
+				}
+			}
+		},
+		"Item": {
+			"uses": {
+				"label": "Uses"
+			},
+			"name": {
+				"label": "Name"
+			},
+			"base": {
+				"FIELDS": {
+					"bonus": {
+						"label": "Bonus",
+						"hint": "This is the bonus value of the item"
+					},
+					"isActive": {
+						"label": "Active",
+						"hint": "This is the active status of the loot"
+					}
+				}
+			},
+			"objective": {
+				"FIELDS": {
+					"challenge": {
+						"label": "Challenge"
+					},
+					"description": {
+						"label": "Description"
+					},
+					"rating": {
+						"label": "Rating"
+					},
+					"isSecondary": {
+						"label": "Secondary Objective"
+					}
+				}
+			},
+			"extraInfo": {
+				"FIELDS": {
+					"description": {
+						"label": "Description"
+					}
+				}
+			},
+			"advance": {
+				"FIELDS": {
+					"description": {
+						"label": "Description"
+					},
+					"selected": {
+						"label": "Selected"
+					}
+				}
+			},
+			"ability": {
+				"FIELDS": {
+					"description": {
+						"label": "Description"
+					}
+				}
+			}
+		},
+		"Settings": {
 			"game": {
 				"heading": "EAT THE REICH",
 				"publisher": {
@@ -193,6 +193,39 @@
 					"title": "Support me on Ko-fi"
 				}
 			}
+		},
+		"Flashback": {
+			"Title": "Flashback Triggered",
+			"Instructions": "Describe a brief scene from a past mission to gain 2 bonus dice on a re-roll.",
+			"Button": "Reroll with the Flashback!",
+			"SelectOption": "-- Select --",
+			"CustomOption": "-- Custom --",
+			"CustomPlaceholder": "Enter custom text...",
+			"Context": {
+				"Label": "Context",
+				"1": "On board a plummeting aeroplane",
+				"2": "Rescuing P.O.W.s in a thunderstorm",
+				"3": "Assassinating a nazi general at the opera",
+				"4": "Extracting a spy from behind enemy lines",
+				"5": "Stealing a cypher machine from a submarine",
+				"6": "Sabotaging a field gun with improvised explosives"
+			},
+			"Question": {
+				"Label": "Question",
+				"1": "You saved [character] from certain death. What nearly killed them?",
+				"2": "You recruited [character] to F.A.N.G. What did it take to get them on board?",
+				"3": "You owe your life to [character]. How did they save it?",
+				"4": "[character] taught you a few tricks. What was the most important lesson?",
+				"5": "You won't let [character] see you fail like this. What do you respect most about them?",
+				"6": "You won't let [character] see you fail like this. What do they most respect about you?"
+			},
+			"Character": {
+				"Label": "Character Involved"
+			},
+			"Description": {
+				"Label": "Scene Notes"
+			},
+			"RollMessage": "<strong>Flashback: {context}</strong><br><em>{question}</em><br>Character Involved: {characterName}<br><hr>{description}<hr>Rolling again with +2 dice!"
 		}
-  }
+	}
 }
