@@ -42,6 +42,7 @@ If you’ve enjoyed my work and find value in what I create, please consider sup
 ![Screenshot of the character sheet, item sheets, dice roll dialog](assets/screenshot.webp)
 ![Screenshot of the location sheet, threat sheet, GM dice roll dialog](assets/screenshot2.webp)
 ![Screenshot of the light mode of the character and item sheets](assets/screenshot3.webp)
+![Screenshot of the Flashback functionality](assets/screenshot4.webp)
 
 ## How to Install
 You can install the latest released version of the system by using this manifest link in Foundry VTT. [Instructions](https://foundryvtt.com/article/tutorial/): 
