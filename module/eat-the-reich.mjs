@@ -36,8 +36,8 @@ Hooks.on("renderChatMessage", (chatMessage, html, data) => {
 
 Hooks.on("renderChatLog", (chatLog, html, data) => {
 	// Apply styles to all messages on initial log render AND attach the single click listener
-	DiceAllocation.chatListeners(html); // Attach the main click listener to the log container
-	DiceAllocation.onRenderChatLog(chatLog, html, data); // Apply initial styles
+	DiceAllocation.chatListeners(html); 
+	DiceAllocation.onRenderChatLog(chatLog, html, data); 
 });
 
 Hooks.once("init", function () {
@@ -90,35 +90,18 @@ Hooks.once("init", function () {
 	});
 
 	utils.registerHandlebarsHelpers();
-
-	// NOTE: DiceAllocation initialization moved to the "ready" hook
 });
 
-// Hook once the game is ready
-// Hooks.once('ready', function() {
-// 	// Initialize dice allocation system
-// 	DiceAllocation.initialize();
-// });
-
 Hooks.on("renderSettings", (app, html) => {
-	if (foundry.utils.isNewerVersion(game.version, "13.0.0")) return;
-	// TODO add v13 version for this later
-
-	const header = document.createElement("h2");
-	header.innerText = game.i18n.localize("ETR.Settings.game.heading");
-
-	const pbtaSettings = document.createElement("div");
-
-	html[0].querySelector("#settings-game")?.after(header, pbtaSettings);
-
-	const buttons = [
+	// --- Button Creation Logic (Common for both versions) ---
+	const buttonsData = [
 		{
 			action: (ev) => {
 				ev.preventDefault();
 				window.open("https://rowanrookanddecard.com", "_blank");
 			},
 			iconClasses: ["fa-solid", "fa-book"],
-			label: game.i18n.localize("ETR.Settings.game.publisher.title"),
+			labelKey: "ETR.Settings.game.publisher.title",
 		},
 		{
 			action: (ev) => {
@@ -126,7 +109,7 @@ Hooks.on("renderSettings", (app, html) => {
 				window.open("https://github.com/philote/eat-the-reich", "_blank");
 			},
 			iconClasses: ["fab", "fa-github"],
-			label: game.i18n.localize(`ETR.Settings.game.github.title`),
+			labelKey: "ETR.Settings.game.github.title",
 		},
 		{
 			action: (ev) => {
@@ -134,21 +117,52 @@ Hooks.on("renderSettings", (app, html) => {
 				window.open("https://ko-fi.com/ephson", "_blank");
 			},
 			iconClasses: ["fa-solid", "fa-mug-hot"],
-			label: game.i18n.localize("ETR.Settings.game.kofi.title"),
+			labelKey: "ETR.Settings.game.kofi.title",
 		},
-	].map(({ action, iconClasses, label }) => {
+	];
+
+	const buttons = buttonsData.map(({ action, iconClasses, labelKey }) => {
 		const button = document.createElement("button");
 		button.type = "button";
 
 		const icon = document.createElement("i");
 		icon.classList.add(...iconClasses);
 
-		button.append(icon, game.i18n.localize(label));
+		button.append(icon, document.createTextNode(` ${game.i18n.localize(labelKey)}`));
 
 		button.addEventListener("click", action);
-
 		return button;
 	});
 
-	pbtaSettings.append(...buttons);
+	// --- Version Specific Logic ---
+	if (game.release.generation >= 13) {
+		// V13+ Logic: Append to the "Documentation" section
+		const documentationSection = html.querySelector("section.documentation");
+		if (documentationSection) {
+			const divider = document.createElement("h4");
+			divider.classList.add("divider");
+			// Using a more specific key might be better, but reusing for now
+			divider.textContent = game.i18n.localize("ETR.Settings.game.heading");
+
+			// Append divider and then the buttons
+			documentationSection.append(divider, ...buttons);
+		} else {
+			console.warn("Eat the Reich | Could not find 'section.documentation' in V13 settings panel.");
+		}
+	} else {
+		// V12 Logic: Insert after the "Game Settings" section
+		const gameSettingsSection = html.querySelector("#settings-game");
+		if (gameSettingsSection) {
+			const header = document.createElement("h2");
+			header.innerText = game.i18n.localize("ETR.Settings.game.heading");
+
+			const etrSettingsDiv = document.createElement("div");
+			etrSettingsDiv.append(...buttons);
+
+			// Insert the header and the div containing buttons after the game settings section
+			gameSettingsSection.after(header, etrSettingsDiv);
+		} else {
+			console.warn("Eat the Reich | Could not find '#settings-game' section in V12 settings panel.");
+		}
+	}
 });
