@@ -194,6 +194,13 @@
 				}
 			}
 		},
+		"Notifications": {
+			"FlashbackParentNotFound": "Could not find parent message element for flashback button.",
+			"FlashbackMessageIdNotFound": "Could not find message ID for flashback.",
+			"FlashbackMessageNotFound": "Could not find chat message for flashback.",
+			"FlashbackConfigNotFound": "No roll config found for flashback.",
+			"FlashbackActorNotFound": "Could not find actor for flashback."
+		},
 		"Flashback": {
 			"Title": "Flashback Triggered",
 			"Instructions": "Describe a brief scene from a past mission to gain 2 bonus dice on a re-roll.",
@@ -232,6 +239,11 @@
 				"characterLabel": "Character Involved: ",
 				"descriptionLabel": "Scene Notes: ",
 				"rollLabel": "Rolling again with +2 dice!"
+			}
+		},
+		"Dialog": {
+			"ThreatRoll": {
+				"attackRatingLabel": "Attack Rating"
 			}
 		}
 	}
