@@ -325,7 +325,10 @@
 
 /* Chat */
 /* Utilities. */
-#chat-log button {
+.chat-log .etr-flashback-btn, #chat-log .etr-flashback-btn {
+  color: var(--etr-c-dark);
+}
+.chat-log button, #chat-log button {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -338,20 +341,20 @@
   cursor: pointer;
   font-size: var(--font-size-14);
 }
-#chat-log button:hover {
+.chat-log button:hover, #chat-log button:hover {
   background: var(--button-hover-background-color);
   color: var(--button-hover-text-color);
   border-color: var(--button-hover-border-color);
   transition: background-color 0.5s, border-color 0.5s;
 }
-#chat-log .chat-message {
+.chat-log .chat-message, #chat-log .chat-message {
   font-family: "TeX Gyre Cursor", "Courier New", monospace;
   color: var(--etr-c-dark);
   background: none;
   background-color: var(--etr-c-white);
   border: 1px solid var(--etr-c-beige);
 }
-#chat-log .chat-message h1, #chat-log .chat-message h2, #chat-log .chat-message h3, #chat-log .chat-message h4, #chat-log .chat-message h5, #chat-log .chat-message h6 {
+.chat-log .chat-message h1, .chat-log .chat-message h2, .chat-log .chat-message h3, .chat-log .chat-message h4, .chat-log .chat-message h5, .chat-log .chat-message h6, #chat-log .chat-message h1, #chat-log .chat-message h2, #chat-log .chat-message h3, #chat-log .chat-message h4, #chat-log .chat-message h5, #chat-log .chat-message h6 {
   font-family: Arial, sans-serif;
   color: var(--etr-c-black);
   text-shadow: none;
@@ -359,11 +362,11 @@
   text-transform: uppercase;
   border: none;
 }
-#chat-log .chat-message .message-header {
+.chat-log .chat-message .message-header, #chat-log .chat-message .message-header {
   font-family: "TeX Gyre Cursor", "Courier New", monospace;
   color: var(--etr-c-dark);
 }
-#chat-log .etr-die {
+.chat-log .etr-die, #chat-log .etr-die {
   display: inline-block;
   min-width: 24px;
   line-height: 24px;
@@ -376,26 +379,26 @@
   font-weight: bold;
   text-align: center;
 }
-#chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.d6 {
+.chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.d6, #chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.d6 {
   cursor: pointer;
   transition: all 0.2s ease;
   position: relative;
   border: 1px solid transparent;
 }
-#chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.d6.disabled {
+.chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.d6.disabled, #chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.d6.disabled {
   cursor: not-allowed !important;
   opacity: 0.4 !important;
   filter: grayscale(80%);
   pointer-events: none;
 }
-#chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.d6.crossed-out {
+.chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.d6.crossed-out, #chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.d6.crossed-out {
   text-decoration: line-through;
   text-decoration-thickness: 2px;
   opacity: 0.8;
 }
-#chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.d6.allocated::before, #chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.d6.crossed-out::before {
+.chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.d6.allocated::before, .chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.d6.crossed-out::before, #chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.d6.allocated::before, #chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.d6.crossed-out::before {
   content: "\f54c";
-  font-family: "Font Awesome 5 Free";
+  font-family: var(--font-awesome);
   font-weight: 900;
   position: absolute;
   inset: 0;
@@ -409,30 +412,30 @@
   z-index: 1;
   pointer-events: none;
 }
-#chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.d6.crossed-out::before {
+.chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.d6.crossed-out::before, #chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.d6.crossed-out::before {
   content: "\f715";
 }
-#chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.critical {
+.chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.critical, #chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.critical {
   color: #000000;
   filter: var(--etr-c-dice-crit-filter);
 }
-#chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.critical:hover {
+.chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.critical:hover, #chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.critical:hover {
   background: var(--button-hover-background-color);
   color: var(--button-hover-text-color);
   border-color: var(--button-hover-border-color);
   transition: background-color 0.5s, border-color 0.5s;
 }
-#chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.success:not(.allocated) {
+.chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.success:not(.allocated), #chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.success:not(.allocated) {
   color: #000000;
   filter: var(--etr-c-dice-success-filter);
 }
-#chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.success:not(.allocated):hover {
+.chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.success:not(.allocated):hover, #chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.success:not(.allocated):hover {
   background: var(--button-hover-background-color);
   color: var(--button-hover-text-color);
   border-color: var(--button-hover-border-color);
   transition: background-color 0.5s, border-color 0.5s;
 }
-#chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.discard:not(.disabled) {
+.chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.discard:not(.disabled), #chat-log .message .etr-roll .dice-tooltip .dice .dice-rolls .roll.discard:not(.disabled) {
   color: #000000;
   opacity: 0.7;
 }
@@ -476,10 +479,17 @@
 }
 
 /* Dialogs */
+/* Utilities. */
+.etr-dialog {
+  font-family: "TeX Gyre Cursor", "Courier New", monospace;
+}
 .etr-dialog .dialog-content {
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+.etr-dialog .dialog-content textarea {
+  width: 100%;
 }
 .etr-dialog .random-field {
   display: flex;
@@ -507,9 +517,6 @@
   padding: 5px 10px;
   font-size: 1rem;
 }
-.etr-dialog .form-group, .etr-dialog .form-group-stacked {
-  gap: 5px;
-}
 
 .dialog #etr-roll-dialog section.flexcol {
   gap: 20px;
@@ -534,7 +541,7 @@
 }
 .dialog .etr-form-group input[type=number]:focus {
   outline: none;
-  border-color: #007BFF;
+  border-color: #007bff;
   box-shadow: 0 0 4px #ccc;
 }
 
@@ -567,6 +574,10 @@
 .eat-the-reich button:disabled {
   opacity: 0.75;
 }
+.eat-the-reich button.header-control {
+  background: var(--button-background-color);
+  border: none;
+}
 .eat-the-reich textarea {
   min-height: 20px;
   padding: 0.5rem;
@@ -575,9 +586,6 @@
   resize: none;
   align-content: center;
   border: 1px solid var(--etr-c-black-trans);
-}
-.eat-the-reich input[type=checkbox]::before {
-  color: var(--etr-c-dark-trans);
 }
 .eat-the-reich a:hover {
   color: var(--etr-c-link);

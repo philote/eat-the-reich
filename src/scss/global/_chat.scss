@@ -1,11 +1,12 @@
 @use '../utils/colors' as *;
 @use '../utils/typography' as *;
 
-#chat-log {
+.chat-log, #chat-log {
+    .etr-flashback-btn {
+        color: $c-dark;
+    }
+
     button {
-        // border: 1px dotted var(--etr-c-beige);
-        // background-color: var(--etr-c-faint);
-        // color: $c-black;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -70,10 +71,10 @@
             border: 1px solid transparent; // Base border
 
             &.disabled {
-                cursor: not-allowed !important; // Ensure override
-                opacity: 0.4 !important; // Ensure override
+                cursor: not-allowed !important;
+                opacity: 0.4 !important;
                 filter: grayscale(80%);
-                pointer-events: none; // Prevent clicks entirely
+                pointer-events: none;
             }
 
             // &.allocated,
@@ -86,10 +87,9 @@
             // }
 
             &.crossed-out {
-                // Keep line-through for crossed-out
                 text-decoration: line-through;
                 text-decoration-thickness: 2px;
-                opacity: 0.8; // Keep slight opacity difference
+                opacity: 0.8;
             }
 
             // Icon Overlay using ::before pseudo-element
@@ -98,8 +98,8 @@
                 content: '\f54c'; // Font Awesome icon for skull
                 // content: '\f715'; // Font Awesome icon for slash
                 // content: '\f00d'; // Font Awesome icon for x
-                font-family: 'Font Awesome 5 Free'; // Use the correct Font Awesome family name
-                font-weight: 900; // Solid style
+                font-family: var(--font-awesome);
+                font-weight: 900;
                 position: absolute;
                 inset: 0; // Cover the parent element
                 display: flex;

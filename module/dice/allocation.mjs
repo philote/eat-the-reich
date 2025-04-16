@@ -18,49 +18,12 @@ import { FlashbackDialogApp } from "../apps/flashback-dialog-app.mjs";
  */
 export class DiceAllocation {
 	/**
-	 * Attaches the primary click listener to the chat log container.
-	 * Should be called ONCE when the chat log is initially rendered.
-	 * @param {jQuery} html - The jQuery object representing the chat log container.
-	 */
-	static chatListeners(html) {
-	 const htmlElement = html[0]; // Get the native HTMLElement
-	 if (!htmlElement) return; // Guard against empty jQuery object
-		// Use .off first to prevent duplicate listeners if this somehow gets called multiple times
-		// Remove previous listeners if any (using a stored reference or a more robust method if needed)
-		// For simplicity here, we assume this is called once or managed elsewhere.
-		// A more robust approach might involve storing bound handlers on the class or element.
-
-		// Use event delegation on the container
-		htmlElement.addEventListener("click", (event) => { // Add listener to the native element
-			// Handle die clicks
-			const dieElement = event.target.closest(".message .roll.die.d6");
-			if (dieElement) {
-				// Check if the click originated within the chat log itself, not just any die
-				if (htmlElement.contains(dieElement)) { // Check containment on the native element
-					this._handleDieClick(event, dieElement); // Pass the element for convenience
-					return; // Stop further processing if it was a die click
-				}
-			}
-
-			// Handle flashback button clicks
-			const flashbackButton = event.target.closest(".etr-flashback-btn");
-			if (flashbackButton) {
-				// Check if the click originated within the chat log itself
-				if (htmlElement.contains(flashbackButton)) { // Check containment on the native element
-					this._handleFlashbackClick(event, flashbackButton); // Pass the element
-				}
-			}
-		});
-	}
-
-	/**
 	 * Handler for the 'renderChatMessage' hook. Applies styles to dice in a single message.
 	 * @param {ChatMessage} message - The ChatMessage document being rendered.
-	 * @param {jQuery} html - The jQuery object for the message's HTML.
+	 * @param {HTMLElement} html - The HTMLElement object for the message's HTML.
 	 * @param {object} data - Additional data provided by the hook.
 	 */
-	static onRenderChatMessage(message, html, data) {
-		const htmlElement = html[0]; // Get the native HTMLElement
+	static onRenderChatMessage(message, htmlElement, data) {
 		if (!htmlElement) return;
 
 		// Check if this message contains any attack dice
@@ -70,14 +33,16 @@ export class DiceAllocation {
 
 		// --- Flashback Button Logic ---
 		const flashbackBtn = htmlElement.querySelector(".etr-flashback-btn"); // Use native element
-		if (flashbackBtn) { // Check if the element exists
+		if (flashbackBtn) {
+			// Check if the element exists
 			// Determine if the button should be shown
 			let showButton = false;
 			if (!isAttackRoll) {
 				// Only for player rolls
 				const rollConfig = message.getFlag("eat-the-reich", "rollConfig");
 				// Get dice results from the DOM
-				const numSuccesses = htmlElement.querySelectorAll( // Use native element
+				const numSuccesses = htmlElement.querySelectorAll(
+					// Use native element
 					".roll.die.d6.success, .roll.die.d6.critical"
 				).length;
 
@@ -102,11 +67,11 @@ export class DiceAllocation {
 	 * @param {jQuery} html - The jQuery object for the chat log's outer HTML.
 	 * @param {object} data - Additional data provided by the hook.
 	 */
-	static onRenderChatLog(app, html, data) {
-		const htmlElement = html[0]; // Get the native HTMLElement
+	static onRenderChatLog(app, htmlElement, data) {
 		if (!htmlElement) return;
 
-		htmlElement.querySelectorAll(".message").forEach((msgElement) => { // Use native element
+		htmlElement.querySelectorAll(".message").forEach((msgElement) => {
+			// Use native element
 			const messageId = msgElement.dataset.messageId;
 			if (!messageId) return;
 			const message = game.messages.get(messageId);
@@ -135,11 +100,15 @@ export class DiceAllocation {
 			const dieValue = parseInt(dieElement.dataset.dieValue); // Use dataset
 
 			// Apply classes based on data attributes present in the HTML
-			const isAllocated = dieElement.dataset.allocated === "true"; // Use dataset
-			const isCrossedOut = dieElement.dataset.crossedOut === "true"; // Use dataset
+			const isAllocated = dieElement.dataset.allocated === "true";
+			const isCrossedOut = dieElement.dataset.crossedOut === "true";
 
-			if (isAllocated) dieElement.classList.add("allocated");
-			if (isCrossedOut) dieElement.classList.add("crossed-out");
+			if (isAllocated) {
+				dieElement.classList.add("allocated");
+			}
+			if (isCrossedOut) {
+				dieElement.classList.add("crossed-out");
+			}
 
 			// Apply disabled state based on value for non-GM rolls
 			if (!isAttack && !isNaN(dieValue) && dieValue < 4) {
@@ -153,25 +122,25 @@ export class DiceAllocation {
 	 * Updates the underlying message content HTML with data attributes reflecting the new state,
 	 * then triggers a message update. Also provides immediate visual feedback.
 	 * @param {Event} event - The click event.
-	 * @param {HTMLElement} dieElement - The clicked die element (passed from chatListeners).
 	 */
-	static async _handleDieClick(event, dieElement) {
-	 event.preventDefault();
-	 // dieElement is passed directly from the listener
+	static async _handleDieClick(event) {
+		const dieElement = event.currentTarget; // Get the element from the event
+		event.preventDefault();
 
-	 // Ensure the click is within the chat log specifically (already checked in listener, but double-check)
-	 if (!dieElement.closest("#chat-log")) return;
+		// Ensure the click is within the chat log specifically (Removed check for #chat-log as it might be V12 specific)
 
 		// Prevent action if the die is visually disabled
 		if (dieElement.classList.contains("disabled")) return;
 
 		const messageElement = dieElement.closest(".message");
-		if (!messageElement) { // Check if element exists
+		if (!messageElement) {
+			// Check if element exists
 			return;
 		}
 		const messageId = messageElement.dataset.messageId; // Use dataset
 		const message = game.messages.get(messageId);
 		if (!message) {
+			console.error("ETR | Message not found for ID:", messageId);
 			return;
 		}
 
@@ -186,17 +155,19 @@ export class DiceAllocation {
 		const isAttack = dieElement.dataset.isAttack === "true"; // Use dataset and check boolean
 
 		// --- Identify the clicked die uniquely within the message content ---
-		const clickedDieIndex = dieElement.dataset.dieIndex; // Use dataset
-		const clickedDieValueAttr = dieElement.dataset.dieValue; // Use dataset
-		let clickedCategory = "unknown"; // Determine category for selector
+		const clickedDieIndex = dieElement.dataset.dieIndex;
+		const clickedDieValueAttr = dieElement.dataset.dieValue;
+		let clickedCategory = "unknown";
 		if (dieElement.classList.contains("critical")) clickedCategory = "critical";
-		else if (dieElement.classList.contains("success")) clickedCategory = "success";
-		else if (dieElement.classList.contains("discard")) clickedCategory = "discard";
+		else if (dieElement.classList.contains("success"))
+			clickedCategory = "success";
+		else if (dieElement.classList.contains("discard"))
+			clickedCategory = "discard";
 		else {
 			// Fallback if class isn't present? Might happen during render timing issues.
 			// Log a warning, but proceed with the less specific selector for now.
 			console.warn(
-				`ETR-TEST | Could not determine category class for clicked die (Index: ${clickedDieIndex}, Value: ${clickedDieValueAttr}). Falling back to less specific selector.`
+				`ETR | Could not determine category class for clicked die (Index: ${clickedDieIndex}, Value: ${clickedDieValueAttr}). Falling back to less specific selector.`
 			);
 		}
 
@@ -216,7 +187,7 @@ export class DiceAllocation {
 			parsedDie = contentWrapper.querySelector(selector);
 			if (!parsedDie) {
 				console.warn(
-					`ETR-TEST | Specific selector "${selector}" failed. Trying fallback.`
+					`ETR | Specific selector "${selector}" failed. Trying fallback.`
 				);
 			}
 		}
@@ -225,30 +196,26 @@ export class DiceAllocation {
 		if (!parsedDie) {
 			const fallbackSelector = `.roll.die.d6[data-die-index="${clickedDieIndex}"][data-die-value="${clickedDieValueAttr}"]`;
 			parsedDie = contentWrapper.querySelector(fallbackSelector);
-			if (parsedDie) {
-				console.warn(
-					"ETR-TEST | Using fallback selector - might target wrong die if values/indices repeat across categories."
-				);
-			}
 		}
 
 		if (!parsedDie) {
 			console.error(
-				`ETR-TEST | Failed to find unique die in parsed HTML (Index: ${clickedDieIndex}, Value: ${clickedDieValueAttr}). Aborting update.`
+				`ETR | Failed to find unique die in parsed HTML (Index: ${clickedDieIndex}, Value: ${clickedDieValueAttr}). Aborting update.`
 			);
 			return; // Prevent incorrect update
 		}
 
 		// --- Toggle data attributes ---
 		let updateNeeded = false;
-		let newState; // To track the intended state for visual feedback
+		// To track the intended state for visual feedback
+		let newState;
 
 		if (isAttack) {
 			const isCrossedOut = parsedDie.getAttribute("data-crossed-out") === "true";
 			newState = !isCrossedOut;
 			if (newState) {
 				parsedDie.setAttribute("data-crossed-out", "true");
-				parsedDie.removeAttribute("data-allocated"); // Ensure mutual exclusivity
+				parsedDie.removeAttribute("data-allocated");
 			} else {
 				parsedDie.removeAttribute("data-crossed-out");
 			}
@@ -271,10 +238,10 @@ export class DiceAllocation {
 		// will be reapplied by the render hook after the update.
 		if (isAttack) {
 			dieElement.classList.toggle("crossed-out", newState);
-			dieElement.classList.remove("allocated"); // Ensure allocated is removed
+			dieElement.classList.remove("allocated");
 		} else {
 			dieElement.classList.toggle("allocated", newState);
-			dieElement.classList.remove("crossed-out"); // Ensure crossed-out is removed
+			dieElement.classList.remove("crossed-out");
 		}
 
 		// --- Update message content ---
@@ -283,7 +250,7 @@ export class DiceAllocation {
 			try {
 				await message.update({ content: newContent });
 			} catch (err) {
-				console.error("ETR-TEST | Error updating message content:", err);
+				console.error("ETR | Error updating message content:", err);
 				// Attempt to revert visual toggle on error to reflect failed save
 				if (isAttack) dieElement.classList.toggle("crossed-out", !newState);
 				else dieElement.classList.toggle("allocated", !newState);
@@ -294,29 +261,37 @@ export class DiceAllocation {
 	/**
 	 * Handle clicks on the Flashback button in chat messages.
 	 * @param {Event} event - The click event.
-	 * @param {HTMLElement} btnElement - The clicked button element (passed from chatListeners).
 	 */
-	static async _handleFlashbackClick(event, btnElement) {
-	 event.preventDefault();
-	 // btnElement is passed directly
-	 const messageElement = btnElement.closest(".message");
-	 if (!messageElement) { // Check element exists
-	 	ui.notifications.warn(game.i18n.localize("ETR.Notifications.FlashbackParentNotFound"));
-	 	return;
-	 }
-	 const messageId = messageElement.dataset.messageId; // Use dataset
+	static async _handleFlashbackClick(event) {
+		const btnElement = event.currentTarget;
+		event.preventDefault();
+		const messageElement = btnElement.closest(".message");
+		if (!messageElement) {
+			// Check element exists
+			ui.notifications.warn(
+				game.i18n.localize("ETR.Notifications.FlashbackParentNotFound")
+			);
+			return;
+		}
+		const messageId = messageElement.dataset.messageId;
 		if (!messageId) {
-			ui.notifications.warn(game.i18n.localize("ETR.Notifications.FlashbackMessageIdNotFound"));
+			ui.notifications.warn(
+				game.i18n.localize("ETR.Notifications.FlashbackMessageIdNotFound")
+			);
 			return;
 		}
 		const message = game.messages.get(messageId);
 		if (!message) {
-			ui.notifications.warn(game.i18n.localize("ETR.Notifications.FlashbackMessageNotFound"));
+			ui.notifications.warn(
+				game.i18n.localize("ETR.Notifications.FlashbackMessageNotFound")
+			);
 			return;
 		}
 		const rollConfig = message.getFlag("eat-the-reich", "rollConfig");
 		if (!rollConfig) {
-			ui.notifications.warn(game.i18n.localize("ETR.Notifications.FlashbackConfigNotFound"));
+			ui.notifications.warn(
+				game.i18n.localize("ETR.Notifications.FlashbackConfigNotFound")
+			);
 			return;
 		}
 		const speaker = message.speaker;
@@ -325,26 +300,34 @@ export class DiceAllocation {
 			actor = game.actors.get(speaker.actor);
 		}
 		if (!actor) {
-			ui.notifications.warn(game.i18n.localize("ETR.Notifications.FlashbackActorNotFound"));
+			ui.notifications.warn(
+				game.i18n.localize("ETR.Notifications.FlashbackActorNotFound")
+			);
 			return;
 		}
 
 		// --- Show Dialog using custom ApplicationV2 ---
 		const flashbackChoices = await FlashbackDialogApp.prompt({
 			context: {
-				actorId: actor.id
+				actorId: actor.id,
 			},
 		});
-		console.log(
-			"ETR-TEST | FlashbackDialogApp flashbackChoices:",
-			flashbackChoices
-		);
 
 		// --- Build the flashback chat message with Flashback Choices ---
-		this._buildFlashbackMessage(actor, rollConfig, messageId, flashbackChoices);
+		DiceAllocation._buildFlashbackMessage(
+			actor,
+			rollConfig,
+			messageId,
+			flashbackChoices
+		);
 	}
 
-	static async _buildFlashbackMessage(actor, rollConfig, messageId, flashbackChoices) {
+	static async _buildFlashbackMessage(
+		actor,
+		rollConfig,
+		messageId,
+		flashbackChoices
+	) {
 		// --- Perform Re-roll ---
 		const baseDice =
 			rollConfig.statValue + rollConfig.equipmentDice + rollConfig.abilityDice;
@@ -362,14 +345,18 @@ export class DiceAllocation {
 		const rollContent = await renderTemplate(chatTemplate, chatData);
 
 		// Render the flashback message content using the template
-		const flashbackTemplate = "systems/eat-the-reich/templates/chat/flashback-message-content.hbs";
+		const flashbackTemplate =
+			"systems/eat-the-reich/templates/chat/flashback-message-content.hbs";
 		const flashbackData = {
 			context: game.i18n.localize(flashbackChoices.context),
 			question: game.i18n.localize(flashbackChoices.question),
 			characterName: flashbackChoices.character,
 			description: flashbackChoices.description,
 		};
-		const flashbackFlavor = await renderTemplate(flashbackTemplate, flashbackData);
+		const flashbackFlavor = await renderTemplate(
+			flashbackTemplate,
+			flashbackData
+		);
 
 		await ChatMessage.create({
 			speaker: ChatMessage.getSpeaker({ actor: actor }),
@@ -386,4 +373,3 @@ export class DiceAllocation {
 		});
 	}
 }
-

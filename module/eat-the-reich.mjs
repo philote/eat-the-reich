@@ -29,15 +29,42 @@ globalThis.eat_the_reich = {
 	},
 };
 
-Hooks.on("renderChatMessage", (chatMessage, html, data) => {
-	// Apply styles and potentially other listeners for individual messages
-	DiceAllocation.onRenderChatMessage(chatMessage, html, data);
+Hooks.on("renderChatLog", (chatLog, html, data) => {
+	const htmlElement = game.release.generation >= 13 ? html : html[0];
+	DiceAllocation.onRenderChatLog(chatLog, htmlElement, data);
 });
 
-Hooks.on("renderChatLog", (chatLog, html, data) => {
-	// Apply styles to all messages on initial log render AND attach the single click listener
-	DiceAllocation.chatListeners(html); 
-	DiceAllocation.onRenderChatLog(chatLog, html, data); 
+Hooks.on("renderChatMessage", (chatMessage, html, data) => {
+	if (game.release.generation >= 13) return;
+	// Apply styles for individual messages
+	DiceAllocation.onRenderChatMessage(chatMessage, html[0], data);
+	for (const dieElement of html[0].querySelectorAll(".roll.die.d6")) {
+		dieElement.addEventListener("click", DiceAllocation._handleDieClick);
+	}
+	for (const flashbackButton of html[0].querySelectorAll(".etr-flashback-btn")) {
+		flashbackButton.addEventListener(
+			"click",
+			DiceAllocation._handleFlashbackClick
+		);
+	}
+});
+
+// Only called in V13+
+Hooks.on("renderChatMessageHTML", (chatMessage, html, data) => {
+	if (game.release.generation <= 12) return;
+
+	DiceAllocation.onRenderChatMessage(chatMessage, html, data);
+
+	// Apply listeners for individual messages
+	for (const dieElement of html.querySelectorAll(".roll.die.d6")) {
+		dieElement.addEventListener("click", DiceAllocation._handleDieClick);
+	}
+	for (const flashbackButton of html.querySelectorAll(".etr-flashback-btn")) {
+		flashbackButton.addEventListener(
+			"click",
+			DiceAllocation._handleFlashbackClick
+		);
+	}
 });
 
 Hooks.once("init", function () {
@@ -128,7 +155,10 @@ Hooks.on("renderSettings", (app, html) => {
 		const icon = document.createElement("i");
 		icon.classList.add(...iconClasses);
 
-		button.append(icon, document.createTextNode(` ${game.i18n.localize(labelKey)}`));
+		button.append(
+			icon,
+			document.createTextNode(` ${game.i18n.localize(labelKey)}`)
+		);
 
 		button.addEventListener("click", action);
 		return button;
@@ -146,12 +176,10 @@ Hooks.on("renderSettings", (app, html) => {
 
 			// Append divider and then the buttons
 			documentationSection.append(divider, ...buttons);
-		} else {
-			console.warn("Eat the Reich | Could not find 'section.documentation' in V13 settings panel.");
 		}
 	} else {
 		// V12 Logic: Insert after the "Game Settings" section
-		const gameSettingsSection = html.querySelector("#settings-game");
+		const gameSettingsSection = html[0].querySelector("#settings-game");
 		if (gameSettingsSection) {
 			const header = document.createElement("h2");
 			header.innerText = game.i18n.localize("ETR.Settings.game.heading");
@@ -161,8 +189,6 @@ Hooks.on("renderSettings", (app, html) => {
 
 			// Insert the header and the div containing buttons after the game settings section
 			gameSettingsSection.after(header, etrSettingsDiv);
-		} else {
-			console.warn("Eat the Reich | Could not find '#settings-game' section in V12 settings panel.");
 		}
 	}
 });

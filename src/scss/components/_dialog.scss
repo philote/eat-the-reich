@@ -1,9 +1,19 @@
-@use '../utils/colors' as *;
+@use "../utils/colors" as *;
+@use "../utils/typography" as *;
+
 .etr-dialog {
+	& {
+		font-family: $font-primary;
+	}
+
 	.dialog-content {
 		display: flex;
 		flex-direction: column;
 		gap: 10px;
+
+		textarea {
+			width: 100%;
+		}
 	}
 
 	.random-field {
@@ -44,14 +54,9 @@
 			// }
 		}
 	}
-
-	.form-group, .form-group-stacked {
-		gap: 5px;
-	}
 }
 
 .dialog {
-
 	#etr-roll-dialog {
 		section.flexcol {
 			gap: 20px;
@@ -62,25 +67,25 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-	
+
 		label {
 			flex: 4;
 			text-align: left;
 			margin-right: 10px;
 		}
-	
+
 		input[type="number"] {
 			flex: 1;
 			padding: 0 10px;
 			font-size: 1rem;
-			border: 1px solid #ccc;;
+			border: 1px solid #ccc;
 			border-radius: 4px;
 			text-align: right;
-	
+
 			&:focus {
 				outline: none;
-				border-color: #007BFF;
-				box-shadow: 0 0 4px #ccc;;
+				border-color: #007bff;
+				box-shadow: 0 0 4px #ccc;
 			}
 		}
 	}
