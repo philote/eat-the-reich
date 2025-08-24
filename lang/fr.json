@@ -1,0 +1,250 @@
+{
+	"TYPES": {
+		"Actor": {
+			"character": "Personnage",
+			"npc": "Menace",
+			"location": "Lieu"
+		},
+		"Item": {
+			"ability": "Aptitude",
+			"advance": "Promotion",
+			"equipment": "Équipement",
+			"loot": "Butin",
+			"objective": "Objectif",
+			"extraInfo": "Info supplémentaire"
+		}
+	},
+	"ETR": {
+		"Placeholder": {
+			"name": "Nom",
+			"penalty": "Pénalité",
+			"description": "Description"
+		},
+		"Stats": {
+			"Brawl": "Frapper",
+			"Con": "Tromper",
+			"Fix": "Réparer",
+			"Search": "Rechercher",
+			"Shoot": "Tirer",
+			"Sneak": "Se faufiler",
+			"Terrify": "Terrifier"
+		},
+		"SheetLabels": {
+			"Actor": "Fiche d'Acteur Eat The Reich",
+			"NPC": "Fiche de Menace Eat The Reich",
+			"Location": "Fiche de Lieu Eat The Reich",
+			"Item": "Fiche d'Objet Eat The Reich"
+		},
+		"Actor": {
+			"base": {
+				"FIELDS": {
+					"description": {
+						"label": "Description"
+					}
+				}
+			},
+			"Location": {
+				"objectives": "Objectifs",
+				"secondaryObjectives": "Objectifs secondaires",
+				"FIELDS": {
+					"enemies": {
+						"label": "Ennemis"
+					}
+				}
+			},
+			"Character": {
+				"equipment": "Équipement",
+				"blood": "Sang",
+				"loot": "Butin",
+				"abilities": "Aptitudes",
+				"advancements": "Promotions",
+				"injuries": {
+					"label": "Blessures",
+					"rollMessage": "Vous avez lancé un <span class='etr-die'>{dice}</span> <br> <strong>Dés d’attaque du MJ < 3:</strong> Cochez la première case non cochée dans la catégorie <strong>{category}</strong>.<br><strong>Dés d’attaque du MJ >= 3:</strong> Vous êtes mis hors de combat. Cochez toutes les cases disponibles dans la catégorie <strong>{category}</strong>.<hr><em>Si les deux cases sont déjà cochées, choisissez une autre catégorie.</em>",
+					"oneTwo": "1-2",
+					"threeFour": "3-4",
+					"fiveSix": "5-6"
+				},
+				"lastStand": "Barroud d'honneur",
+				"Stats": {
+					"label": "Stats",
+					"initial": "Init.",
+					"current": "Act."
+				}
+			},
+			"NPC": {
+				"extras": "Info supplémentaire",
+				"reinforcements": "Renforts",
+				"reinforcementsArrival": "Les Renforts sont arrivés !",
+				"name": {
+					"label": "Nom"
+				},
+				"FIELDS": {
+					"isUbermenschen": {
+						"label": "Ubermenschen"
+					},
+					"attack": {
+						"label": "Attaque",
+						"description": "Description de l'Attaque"
+					},
+					"challenge": {
+						"label": "Défi",
+						"description": "Description du Défi"
+					}
+				},
+				"rating": {
+					"label": "Score"
+				}
+			}
+		},
+		"Dice": {
+			"title": "Jet EAT THE REICH Roll",
+			"label": "Lancer les dés",
+			"dice": "Constituez votre réserve de dés",
+			"stat": "STAT : ",
+			"total": "Total",
+			"equipment": "Dés d’Équipements",
+			"abilities": "Dés d'Aptitudes",
+			"injuries": "Vos Blessures",
+			"penalty": "Pénalité : ",
+			"gmRoll": "Jet du MJ",
+			"lastStandRoll": "Jet de Barroud d'honneur",
+			"Categories": {
+				"Critical": "Critique (6)",
+				"Success": "Succès (4-5)",
+				"Discarded": "Écartés (1-3)",
+				"BonusText": {
+					"Critical": "+2 dégâts OU +2 défense OU +2 Sang",
+					"Success": "+1 dégât OU +1 défense OU +1 Sang",
+					"Discarded": "Aucun effet"
+				}
+			}
+		},
+		"Item": {
+			"uses": {
+				"label": "Utilisations"
+			},
+			"name": {
+				"label": "Nom"
+			},
+			"base": {
+				"FIELDS": {
+					"bonus": {
+						"label": "Bonus",
+						"hint": "Ceci est la valeur de bonus de l’objet"
+					},
+					"isActive": {
+						"label": "Actif",
+						"hint": "Ceci est l’état actif du butin"
+					}
+				}
+			},
+			"objective": {
+				"FIELDS": {
+					"challenge": {
+						"label": "Défi"
+					},
+					"description": {
+						"label": "Description"
+					},
+					"rating": {
+						"label": "Score"
+					},
+					"isSecondary": {
+						"label": "Objectif secondaire"
+					}
+				}
+			},
+			"extraInfo": {
+				"FIELDS": {
+					"description": {
+						"label": "Description"
+					}
+				}
+			},
+			"advance": {
+				"FIELDS": {
+					"description": {
+						"label": "Description"
+					},
+					"selected": {
+						"label": "Sélectionné"
+					}
+				}
+			},
+			"ability": {
+				"FIELDS": {
+					"description": {
+						"label": "Description"
+					}
+				}
+			}
+		},
+		"Settings": {
+			"game": {
+				"heading": "EAT THE REICH",
+				"publisher": {
+					"title": "Rowan, Rook and Decard"
+				},
+				"github": {
+					"title": "Dépôt du module"
+				},
+				"kofi": {
+					"title": "Soutenez-moi sur Ko-fi"
+				}
+			}
+		},
+		"Notifications": {
+			"FlashbackParentNotFound": "Impossible de trouver l’élément parent du message pour le bouton de flashback.",
+			"FlashbackMessageIdNotFound": "Impossible de trouver l’ID du message pour le flashback.",
+			"FlashbackMessageNotFound": "Impossible de trouver le message de discussion pour le flashback.",
+			"FlashbackConfigNotFound": "Aucune configuration de jet trouvée pour le flashback.",
+			"FlashbackActorNotFound": "Impossible de trouver l’acteur pour le flashback."
+		},
+		"Flashback": {
+			"Title": "Flashback déclenché",
+			"Instructions": "Décrivez une brève scène d’une mission passée pour gagner 2 dés bonus lors d’un nouveau jet.",
+			"Button": "Relancer avec un Flashback !",
+			"SelectOption": "-- Sélectionnez --",
+			"CustomOption": "-- Personnalisé --",
+			"CustomPlaceholder": "Entrez un texte personnalisé...",
+			"Context": {
+				"Label": "Contexte",
+				"1": "À bord d’un avion en chute libre",
+				"2": "En sauvant des prisonniers de guerre pendant un orage",
+				"3": "En assassinant un général nazi à l’opéra",
+				"4": "En exfiltrant un espion derrière les lignes ennemies",
+				"5": "En volant une machine de chiffrement dans un sous-marin",
+				"6": "En sabotant un canon de campagne avec des explosifs improvisés"
+			},
+			"Question": {
+				"Label": "Question",
+				"1": "Vous avez sauvé [character] d’une mort certaine. Qu’est-ce qui a failli le tuer ?",
+				"2": "Vous avez recruté [character] au F.A.N.G. Qu’a-t-il fallu pour le/la convaincre ?",
+				"3": "Vous devez la vie à [character]. Comment vous a-t-il/elle sauvé(e) ?",
+				"4": "[character] vous a appris quelques astuces. Quelle a été la leçon la plus importante ?",
+				"5": "Vous ne laisserez pas [character] vous voir échouer ainsi. Qu’est-ce que vous respectez le plus chez lui/elle ?",
+				"6": "Vous ne laisserez pas [character] vous voir échouer ainsi. Qu’est-ce qu’il/elle respecte le plus chez vous ?"
+			},
+			"Character": {
+				"Label": "Personnage impliqué"
+			},
+			"Description": {
+				"Label": "Notes de scène"
+			},
+			"RollMessage": {
+				"title": "Flashback",
+				"contextLabel": "Contexte : ",
+				"questionLabel": "Question : ",
+				"characterLabel": "Personnage impliqué : ",
+				"descriptionLabel": "Notes de scène : ",
+				"rollLabel": "Nouveau jet avec +2 dés !"
+			}
+		},
+		"Dialog": {
+			"ThreatRoll": {
+				"attackRatingLabel": "Score d'Attaque"
+			}
+		}
+	}
+}
