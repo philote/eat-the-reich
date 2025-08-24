@@ -162,6 +162,7 @@
 
     .document-name {
       line-height: 0;
+      margin-top: 0;
 
       input[type="text"] {
         margin: 0;
@@ -172,61 +173,66 @@
         height: 42px;
       }
     }
-  
-    .stat-group {
-      flex: 0;
-      .stats {
-      
-        .stat {
-          display: grid;
-          grid-column: span 4 / span 4;
-          grid-template-columns: 60px 40px 5px 40px;
-          gap: 5px;
-          margin: 1px 0;
-          padding: 0;
-          align-items: center;
-          text-align: center;
-  
-          .resource-label {
-            font-family: $font-primary;
-            font-weight: bold;
-          }
-  
-          input[type=number] {
-            height: 1.3rem;
-            font-weight: bold;
-            text-align: center;
-          }
-        }
-      }
-    }
-  
+
     .header-fields {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 5px;
 
       .stat h4 {
         margin: 0;
         border: none;
       }
-      
-      .flexrow {
-        display: flex;
-        gap: 10px;
-      }
   
       textarea {
         text-align: center;
-        min-height: 180px;
+        min-height: 195px;
         font-family: $font-secondary;
         font-size: var(--font-size-16);
+      }
+
+      .header-attr {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+
+        .stat-group {
+          flex: 1;
+
+          .stats {
+
+            .stat {
+              display: grid;
+              grid-column: span 4 / span 4;
+              grid-template-columns: minmax(min-content, 2fr) minmax(25px, 1fr) 5px minmax(25px, 1fr);
+              gap: 5px;
+              margin: 2px 0;
+              padding: 0;
+              align-items: center;
+              text-align: center;
+      
+              .resource-label {
+                font-family: $font-primary;
+                font-weight: bold;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+              }
+      
+              input[type=number] {
+                height: 1.3rem;
+                font-weight: bold;
+                text-align: center;
+              }
+            }
+          }
+        }
       }
     }
   
     .profile-img {
       flex: 0 0 175px;
-      height: 233px;
+      height: 250px;
       object-fit: cover;
       margin: 0;
       border: 2px solid $c-beige;

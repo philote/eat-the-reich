@@ -5,7 +5,7 @@
 	"version": "#{VERSION}#",
 	"compatibility": {
 		"minimum": 12,
-		"verified": 13.344,
+		"verified": 13.346,
 		"maximum": 13
 	},
 	"authors": [
@@ -75,9 +75,9 @@
 	"background": "systems/eat-the-reich/assets/cover.webp",
 	"media": [
 		{
-			"type": "setup",
-			"url": "systems/eat-the-reich/assets/cover.webp",
-			"thumbnail": "systems/eat-the-reich/assets/cover.webp"
+			"type": "cover",
+			"loop": false,
+			"url": "systems/eat-the-reich/assets/cover.webp"
 		},
 		{
 			"type": "screenshot",

@@ -677,6 +677,7 @@
 }
 .eat-the-reich header.sheet-header .document-name {
   line-height: 0;
+  margin-top: 0;
 }
 .eat-the-reich header.sheet-header .document-name input[type=text] {
   margin: 0;
@@ -686,50 +687,54 @@
   text-align: center;
   height: 42px;
 }
-.eat-the-reich header.sheet-header .stat-group {
-  flex: 0;
-}
-.eat-the-reich header.sheet-header .stat-group .stats .stat {
-  display: grid;
-  grid-column: span 4/span 4;
-  grid-template-columns: 60px 40px 5px 40px;
-  gap: 5px;
-  margin: 1px 0;
-  padding: 0;
-  align-items: center;
-  text-align: center;
-}
-.eat-the-reich header.sheet-header .stat-group .stats .stat .resource-label {
-  font-family: "TeX Gyre Cursor", "Courier New", monospace;
-  font-weight: bold;
-}
-.eat-the-reich header.sheet-header .stat-group .stats .stat input[type=number] {
-  height: 1.3rem;
-  font-weight: bold;
-  text-align: center;
-}
 .eat-the-reich header.sheet-header .header-fields {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 5px;
 }
 .eat-the-reich header.sheet-header .header-fields .stat h4 {
   margin: 0;
   border: none;
 }
-.eat-the-reich header.sheet-header .header-fields .flexrow {
-  display: flex;
-  gap: 10px;
-}
 .eat-the-reich header.sheet-header .header-fields textarea {
   text-align: center;
-  min-height: 180px;
+  min-height: 195px;
   font-family: "Yonkers", serif;
   font-size: var(--font-size-16);
 }
+.eat-the-reich header.sheet-header .header-fields .header-attr {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.eat-the-reich header.sheet-header .header-fields .header-attr .stat-group {
+  flex: 1;
+}
+.eat-the-reich header.sheet-header .header-fields .header-attr .stat-group .stats .stat {
+  display: grid;
+  grid-column: span 4/span 4;
+  grid-template-columns: minmax(min-content, 2fr) minmax(25px, 1fr) 5px minmax(25px, 1fr);
+  gap: 5px;
+  margin: 2px 0;
+  padding: 0;
+  align-items: center;
+  text-align: center;
+}
+.eat-the-reich header.sheet-header .header-fields .header-attr .stat-group .stats .stat .resource-label {
+  font-family: "TeX Gyre Cursor", "Courier New", monospace;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.eat-the-reich header.sheet-header .header-fields .header-attr .stat-group .stats .stat input[type=number] {
+  height: 1.3rem;
+  font-weight: bold;
+  text-align: center;
+}
 .eat-the-reich header.sheet-header .profile-img {
   flex: 0 0 175px;
-  height: 233px;
+  height: 250px;
   object-fit: cover;
   margin: 0;
   border: 2px solid var(--etr-c-beige);
