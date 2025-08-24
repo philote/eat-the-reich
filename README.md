@@ -58,10 +58,11 @@ https://github.com/philote/eat-the-reich/releases/latest/download/system.json
     - Dice can be marked as used in the chat
     - flashback re-rolling
 - Supports light and dark modes
+- [Nicoloye](https://github.com/Nicoloye) added a French translation
 
 ### TODO
 - Play/Edit mode for character sheets
-Styling
+- Styling
     - Different background for Threats & items
     - Threats - Design change for ubermenschen?
     - GM rolls should be different style than player rolls in chat

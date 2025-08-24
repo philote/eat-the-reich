@@ -5,7 +5,7 @@
 	"version": "#{VERSION}#",
 	"compatibility": {
 		"minimum": 12,
-		"verified": 13.346,
+		"verified": 13.347,
 		"maximum": 13
 	},
 	"authors": [
@@ -14,6 +14,10 @@
 			"url": "https://github.com/philote",
 			"discord": "ephson",
 			"reddit": "u/ephson"
+		},
+		{
+			"name": "Nicoloye",
+			"url": "https://github.com/Nicoloye"
 		}
 	],
 	"documentTypes": {
