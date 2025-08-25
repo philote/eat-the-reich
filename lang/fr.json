@@ -81,7 +81,7 @@
 				},
 				"FIELDS": {
 					"isUbermenschen": {
-						"label": "Ubermenschen"
+						"label": "Übermensch"
 					},
 					"attack": {
 						"label": "Attaque",
@@ -93,7 +93,7 @@
 					}
 				},
 				"rating": {
-					"label": "Score"
+					"label": "Menace"
 				}
 			}
 		},
