@@ -21,13 +21,13 @@
 			"description": "Description"
 		},
 		"Stats": {
-			"Brawl": "Frapper",
-			"Con": "Tromper",
-			"Fix": "Réparer",
-			"Search": "Rechercher",
-			"Shoot": "Tirer",
-			"Sneak": "Se faufiler",
-			"Terrify": "Terrifier"
+			"Brawl": "Brawl",
+			"Con": "Con",
+			"Fix": "Fix",
+			"Search": "Search",
+			"Shoot": "Shoot",
+			"Sneak": "Sneak",
+			"Terrify": "Terrify"
 		},
 		"SheetLabels": {
 			"Actor": "Eat The Reich Actor Sheet",
