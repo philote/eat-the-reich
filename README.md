@@ -44,6 +44,7 @@ If you’ve enjoyed my work and find value in what I create, please consider sup
 ![Screenshot of the location sheet, threat sheet, GM dice roll dialog](assets/screenshot2.webp)
 ![Screenshot of the light mode of the character and item sheets](assets/screenshot3.webp)
 ![Screenshot of the Flashback functionality](assets/screenshot4.webp)
+![Screenshot of Character tokens](assets/screenshot5.webp)
 
 ## How to Install
 You can install the latest released version of the system by using this manifest link in Foundry VTT. [Instructions](https://foundryvtt.com/article/tutorial/): 
@@ -59,27 +60,24 @@ https://github.com/philote/eat-the-reich/releases/latest/download/system.json
     - flashback re-rolling
 - Supports light and dark modes
 - [Nicoloye](https://github.com/Nicoloye) added a French translation
+- Compendium:
+    - Pre-made characters with their items
+    - Paris map scene
 
 ### TODO
-- Play/Edit mode for character sheets
 - Styling
-    - Different background for Threats & items
-    - Threats - Design change for ubermenschen?
     - GM rolls should be different style than player rolls in chat
     - custom dice images for Dice so Nice
 - Macros
     - PC roll without stats
     - GM roll without Threat rating
 - Rolls
-    - Make Injuries effect the sheet/rolls automatically
-- Pre-made Compendiums
-    - create pre-made characters
-    - Pre-gen Items
-    - add map scene
+    - Make Injuries effect the sheet/rolls automatically somehow...
 
 # License & Acknowledgements
 The ‘Eat The Reich’ game is copyright © 2023 Rowan, Rook and Decard. All artwork in the game is copyright © 2023 Will Kirkby. You can find out more and support these games at [rowanrookanddecard.com](https://rowanrookanddecard.com)
 
+Eat the Reich Images are used from the community RRD:
 https://rowanrookanddecard.com/rrd-community-licence
 
 ### Icons used
