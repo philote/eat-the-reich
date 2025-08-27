@@ -65,7 +65,30 @@
 			"path": "lang/fr.json"
 		}
 	],
-	"packs": [],
+	"packs": [
+		{
+			"name": "characters",
+			"label": "Characters",
+			"path": "packs/characters",
+			"type": "Actor",
+			"system": "eat-the-reich",
+			"ownership": {
+				"PLAYER": "OBSERVER",
+				"ASSISTANT": "OWNER"
+			}
+		},
+		{
+			"name": "scenes",
+			"label": "Scenes",
+			"path": "packs/scenes",
+			"type": "Scene",
+			"system": "eat-the-reich",
+			"ownership": {
+				"PLAYER": "OBSERVER",
+				"ASSISTANT": "OWNER"
+			}
+		}
+	],
 	"packFolders": [],
 	"url": "#{URL}#",
 	"manifest": "#{MANIFEST}#",
