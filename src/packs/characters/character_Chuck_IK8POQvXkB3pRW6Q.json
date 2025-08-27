@@ -83,8 +83,8 @@
   },
   "prototypeToken": {
     "name": "Chuck",
-    "displayName": 0,
-    "actorLink": false,
+    "displayName": 50,
+    "actorLink": true,
     "width": 1,
     "height": 1,
     "texture": {
@@ -104,7 +104,7 @@
     "rotation": 0,
     "alpha": 1,
     "disposition": -1,
-    "displayBars": 0,
+    "displayBars": 50,
     "bar1": {
       "attribute": "blood"
     },
@@ -191,7 +191,7 @@
     "systemId": "eat-the-reich",
     "systemVersion": "#{VERSION}#",
     "createdTime": 1756266540260,
-    "modifiedTime": 1756266542015,
+    "modifiedTime": 1756268699085,
     "lastModifiedBy": "fjrX5cSTDBHGMEul"
   },
   "_id": "IK8POQvXkB3pRW6Q",

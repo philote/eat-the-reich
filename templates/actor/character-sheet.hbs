@@ -110,7 +110,11 @@
 						>
 							<div class="item-info {{#if (eq system.uses.max system.uses.value)}}used{{/if}}">
 								<span class="item-name">{{item.name}}</span>
-								<span class="item-bounus">{{item.system.bonus.value}}</span>
+								<span class="item-bonus">
+									{{#if item.system.bonus.value}}
+										({{item.system.bonus.value}})
+									{{/if}}
+								</span>
 							</div>
 							<div class="uses clock-widget clock-list-item">
 								<div class="boxes uses">
@@ -175,7 +179,11 @@
 						>
 							<div class="item-info">
 								<span class="item-name">{{item.name}}</span>
-								<span class="item-bounus">{{item.system.bonus.value}}</span>
+								<span class="item-bonus">
+									{{#if item.system.bonus.value}}
+										({{item.system.bonus.value}})
+									{{/if}}
+								</span>
 							</div>
 							<div class="uses clock-widget clock-list-item">
 								<div class="boxes uses">
@@ -241,7 +249,11 @@
 							<div class="item-info">
 								<span class="item-name">{{item.name}}</span>
 								<span class="item-description">{{item.system.description.value}}</span>
-								<span class="item-bounus">{{item.system.bonus.value}}</span>
+								<span class="item-bonus">
+									{{#if item.system.bonus.value}}
+										({{item.system.bonus.value}})
+									{{/if}}
+								</span>
 							</div>
 							<div class="item-controls">
 								<a
@@ -300,7 +312,11 @@
 							<div class="item-info {{#if (eq system.selected.value false)}}used{{/if}}">
 								<span class="item-name">{{item.name}}</span>
 								<span class="item-description">{{item.system.description.value}}</span>
-								<span class="item-bounus">{{item.system.bonus.value}}</span>
+								<span class="item-bonus">
+									{{#if item.system.bonus.value}}
+										({{item.system.bonus.value}})
+									{{/if}}
+								</span>
 							</div>
 							<div class="item-controls">
 								<a

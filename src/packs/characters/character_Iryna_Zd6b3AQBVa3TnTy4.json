@@ -6,35 +6,35 @@
     "description": {
       "value": ""
     },
-    "shortDescription": "",
+    "shortDescription": "Old Money undead occultist and bonne vivante* Black sheep of a well-established vampyr clan Ancestral home (and family) torn apart by nazis Providing a significant portion of F.A.N.G. funding",
     "stats": {
       "Brawl": {
-        "value": 1,
-        "current": 1
+        "value": 2,
+        "current": 2
       },
       "Con": {
-        "value": 1,
-        "current": 1
+        "value": 4,
+        "current": 4
       },
       "Fix": {
-        "value": 1,
-        "current": 1
+        "value": 2,
+        "current": 2
       },
       "Search": {
-        "value": 1,
-        "current": 1
+        "value": 2,
+        "current": 2
       },
       "Shoot": {
-        "value": 1,
-        "current": 1
+        "value": 3,
+        "current": 3
       },
       "Sneak": {
         "value": 1,
         "current": 1
       },
       "Terrify": {
-        "value": 1,
-        "current": 1
+        "value": 3,
+        "current": 3
       }
     },
     "blood": {
@@ -44,47 +44,47 @@
     "injuries": {
       "oneTwo": {
         "first": {
-          "name": "",
+          "name": "SUIT TORN",
           "selected": false
         },
         "second": {
-          "name": "",
+          "name": "ABDOMINAL PUNCTURE",
           "selected": false,
-          "penalty": ""
+          "penalty": "Can’t use + dice"
         }
       },
       "threeFour": {
         "first": {
-          "name": "",
+          "name": "HAIR RUINED",
           "selected": false
         },
         "second": {
-          "name": "",
+          "name": "HEADSHOT",
           "selected": false,
-          "penalty": ""
+          "penalty": "+2\nBRAWL, -2 CON"
         }
       },
       "fiveSix": {
         "first": {
-          "name": "",
+          "name": "SHOULDER INJURY",
           "selected": false
         },
         "second": {
-          "name": "",
+          "name": "ARM REMOVED",
           "selected": false,
-          "penalty": ""
+          "penalty": "May only use 1\nitem per turn"
         }
       }
     },
     "lastStand": {
-      "name": "",
+      "name": "FORBIDDEN SORCERIES",
       "dice": 8
     }
   },
   "prototypeToken": {
     "name": "Iryna",
-    "displayName": 0,
-    "actorLink": false,
+    "displayName": 50,
+    "actorLink": true,
     "width": 1,
     "height": 1,
     "texture": {
@@ -104,7 +104,7 @@
     "rotation": 0,
     "alpha": 1,
     "disposition": -1,
-    "displayBars": 0,
+    "displayBars": 50,
     "bar1": {
       "attribute": "blood"
     },
@@ -175,7 +175,361 @@
     "appendNumber": false,
     "prependAdjective": false
   },
-  "items": [],
+  "items": [
+    {
+      "name": "Exquisite hunting rifle",
+      "type": "equipment",
+      "_id": "dOOSQZ4OFceNLHZL",
+      "img": "systems/eat-the-reich/assets/icons/backpack.svg",
+      "system": {
+        "bonus": {
+          "value": "+elevated position"
+        },
+        "uses": {
+          "value": 0,
+          "max": 5
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "fjrX5cSTDBHGMEul": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.347",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1756267537997,
+        "modifiedTime": 1756267564255,
+        "lastModifiedBy": "fjrX5cSTDBHGMEul"
+      },
+      "_key": "!actors.items!Zd6b3AQBVa3TnTy4.dOOSQZ4OFceNLHZL"
+    },
+    {
+      "name": "Magic cavalry sabre",
+      "type": "equipment",
+      "_id": "qE1a5yP09xWyptn7",
+      "img": "systems/eat-the-reich/assets/icons/backpack.svg",
+      "system": {
+        "bonus": {
+          "value": "+charge!"
+        },
+        "uses": {
+          "value": 0,
+          "max": 5
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "fjrX5cSTDBHGMEul": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.347",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1756267569893,
+        "modifiedTime": 1756267589599,
+        "lastModifiedBy": "fjrX5cSTDBHGMEul"
+      },
+      "_key": "!actors.items!Zd6b3AQBVa3TnTy4.qE1a5yP09xWyptn7"
+    },
+    {
+      "name": "Explosive runes",
+      "type": "equipment",
+      "_id": "sCiL2ISKrijzhKk9",
+      "img": "systems/eat-the-reich/assets/icons/backpack.svg",
+      "system": {
+        "bonus": {
+          "value": "++concealed"
+        },
+        "uses": {
+          "value": 0,
+          "max": 3
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "fjrX5cSTDBHGMEul": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.347",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1756267613180,
+        "modifiedTime": 1756267624582,
+        "lastModifiedBy": "fjrX5cSTDBHGMEul"
+      },
+      "_key": "!actors.items!Zd6b3AQBVa3TnTy4.sCiL2ISKrijzhKk9"
+    },
+    {
+      "name": "Cigarettes taken from the pockets of hanged men",
+      "type": "equipment",
+      "_id": "luaXIXwGkr6ehiHE",
+      "img": "systems/eat-the-reich/assets/icons/backpack.svg",
+      "system": {
+        "bonus": {
+          "value": "mark to regain 2 Blood"
+        },
+        "uses": {
+          "value": 0,
+          "max": 3
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "fjrX5cSTDBHGMEul": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.347",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1756267627383,
+        "modifiedTime": 1756267640314,
+        "lastModifiedBy": "fjrX5cSTDBHGMEul"
+      },
+      "_key": "!actors.items!Zd6b3AQBVa3TnTy4.luaXIXwGkr6ehiHE"
+    },
+    {
+      "name": "DARK GLAMOUR",
+      "type": "ability",
+      "_id": "VFdHVOsw544DmuZU",
+      "img": "systems/eat-the-reich/assets/icons/skills.svg",
+      "system": {
+        "bonus": {
+          "value": "+beautiful surroundings"
+        },
+        "description": {
+          "value": "Spend 1 Blood: those nearby are mesmerised by your unearthly visage."
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "fjrX5cSTDBHGMEul": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.347",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1756267682146,
+        "modifiedTime": 1756267705924,
+        "lastModifiedBy": "fjrX5cSTDBHGMEul"
+      },
+      "_key": "!actors.items!Zd6b3AQBVa3TnTy4.VFdHVOsw544DmuZU"
+    },
+    {
+      "name": "NIGHT’S WILLING SERVANTS",
+      "type": "ability",
+      "_id": "2J4yUEkBE5m2CF2X",
+      "img": "systems/eat-the-reich/assets/icons/skills.svg",
+      "system": {
+        "bonus": {
+          "value": "+old buildings"
+        },
+        "description": {
+          "value": "Spend 1 Blood: summon a swarm of bats under your control."
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "fjrX5cSTDBHGMEul": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.347",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1756267722011,
+        "modifiedTime": 1756267741955,
+        "lastModifiedBy": "fjrX5cSTDBHGMEul"
+      },
+      "_key": "!actors.items!Zd6b3AQBVa3TnTy4.2J4yUEkBE5m2CF2X"
+    },
+    {
+      "name": "DEADEYE SHOT",
+      "type": "ability",
+      "_id": "hfKb9vB4Y0Sfypao",
+      "img": "systems/eat-the-reich/assets/icons/skills.svg",
+      "system": {
+        "bonus": {
+          "value": ""
+        },
+        "description": {
+          "value": "When you use a ranged weapon, SPECIAL: Reduce a Threat’s Attack rating by 1."
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "fjrX5cSTDBHGMEul": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.347",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1756267743261,
+        "modifiedTime": 1756267757967,
+        "lastModifiedBy": "fjrX5cSTDBHGMEul"
+      },
+      "_key": "!actors.items!Zd6b3AQBVa3TnTy4.hfKb9vB4Y0Sfypao"
+    },
+    {
+      "name": "HELL’S RAVENOUS FIRE",
+      "type": "advance",
+      "_id": "FPM2DOAHgq70H2OK",
+      "img": "systems/eat-the-reich/assets/icons/upgrade.svg",
+      "system": {
+        "bonus": {
+          "value": ""
+        },
+        "description": {
+          "value": "Spend 1 Blood: ignore Challenge on your next action against a Threat."
+        },
+        "selected": {
+          "value": false
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "fjrX5cSTDBHGMEul": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.347",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1756267801751,
+        "modifiedTime": 1756267815792,
+        "lastModifiedBy": "fjrX5cSTDBHGMEul"
+      },
+      "_key": "!actors.items!Zd6b3AQBVa3TnTy4.FPM2DOAHgq70H2OK"
+    },
+    {
+      "name": "ENERVATION OF THE SOUL",
+      "type": "advance",
+      "_id": "Ot43MaPvzcypSDFy",
+      "img": "systems/eat-the-reich/assets/icons/upgrade.svg",
+      "system": {
+        "bonus": {
+          "value": ""
+        },
+        "description": {
+          "value": "Spend 1 Blood. On your next roll, gain the SPECIAL: inflict 4 damage to an Übermensch."
+        },
+        "selected": {
+          "value": false
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "fjrX5cSTDBHGMEul": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.347",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1756267817390,
+        "modifiedTime": 1756267829598,
+        "lastModifiedBy": "fjrX5cSTDBHGMEul"
+      },
+      "_key": "!actors.items!Zd6b3AQBVa3TnTy4.Ot43MaPvzcypSDFy"
+    },
+    {
+      "name": "MANTLE OF THE FELL BEAST",
+      "type": "advance",
+      "_id": "laXWmdTnz9HsXHBQ",
+      "img": "systems/eat-the-reich/assets/icons/upgrade.svg",
+      "system": {
+        "bonus": {
+          "value": ""
+        },
+        "description": {
+          "value": "Spend 2 Blood. BRAWL and TERRIFY become 4, all other stats are set to 1, and you cannot use items. Lasts until the Objective is completed."
+        },
+        "selected": {
+          "value": false
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "fjrX5cSTDBHGMEul": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.347",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1756267831833,
+        "modifiedTime": 1756267844373,
+        "lastModifiedBy": "fjrX5cSTDBHGMEul"
+      },
+      "_key": "!actors.items!Zd6b3AQBVa3TnTy4.laXWmdTnz9HsXHBQ"
+    }
+  ],
   "effects": [],
   "folder": null,
   "ownership": {
@@ -191,7 +545,7 @@
     "systemId": "eat-the-reich",
     "systemVersion": "#{VERSION}#",
     "createdTime": 1756266543906,
-    "modifiedTime": 1756266543906,
+    "modifiedTime": 1756268757336,
     "lastModifiedBy": "fjrX5cSTDBHGMEul"
   },
   "_id": "Zd6b3AQBVa3TnTy4",

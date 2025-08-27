@@ -1,40 +1,41 @@
 {
-  "name": "Flint",
+  "name": "Cosgrave",
   "type": "character",
-  "img": "systems/eat-the-reich/assets/characters/Flint.webp",
+  "_id": "4aXvDt63CihdNdzP",
+  "img": "systems/eat-the-reich/assets/characters/Cosgrove.webp",
   "system": {
     "description": {
       "value": ""
     },
-    "shortDescription": "",
+    "shortDescription": "Hackney necromancer, taught by your aunt Medically dead, but can still walk around and that On the run from East London’s undead mafia Crooked as a three bob note, but charming with it Lots of weird black magic tricks",
     "stats": {
       "Brawl": {
-        "value": 1,
-        "current": 1
+        "value": 2,
+        "current": 2
       },
       "Con": {
-        "value": 1,
-        "current": 1
+        "value": 3,
+        "current": 3
       },
       "Fix": {
-        "value": 1,
-        "current": 1
+        "value": 3,
+        "current": 3
       },
       "Search": {
-        "value": 1,
-        "current": 1
+        "value": 2,
+        "current": 2
       },
       "Shoot": {
-        "value": 1,
-        "current": 1
+        "value": 2,
+        "current": 2
       },
       "Sneak": {
-        "value": 1,
-        "current": 1
+        "value": 3,
+        "current": 3
       },
       "Terrify": {
-        "value": 1,
-        "current": 1
+        "value": 2,
+        "current": 2
       }
     },
     "blood": {
@@ -82,13 +83,13 @@
     }
   },
   "prototypeToken": {
-    "name": "Flint",
+    "name": "Cosgrave",
     "displayName": 50,
     "actorLink": true,
     "width": 1,
     "height": 1,
     "texture": {
-      "src": "systems/eat-the-reich/assets/characters/Flint.webp",
+      "src": "systems/eat-the-reich/assets/characters/Cosgrove.webp",
       "anchorX": 0.5,
       "anchorY": 0.5,
       "offsetX": 0,
@@ -160,7 +161,7 @@
       "effects": 1,
       "subject": {
         "scale": 1,
-        "texture": "systems/eat-the-reich/assets/characters/Flint-dynamic-512.webp"
+        "texture": "systems/eat-the-reich/assets/characters/Cosgrove-dynamic-512.webp"
       }
     },
     "turnMarker": {
@@ -178,6 +179,7 @@
   "items": [],
   "effects": [],
   "folder": null,
+  "sort": 0,
   "ownership": {
     "default": 0,
     "fjrX5cSTDBHGMEul": 3
@@ -190,11 +192,9 @@
     "coreVersion": "13.347",
     "systemId": "eat-the-reich",
     "systemVersion": "#{VERSION}#",
-    "createdTime": 1756266541994,
-    "modifiedTime": 1756268775234,
+    "createdTime": 1756268408602,
+    "modifiedTime": 1756268838219,
     "lastModifiedBy": "fjrX5cSTDBHGMEul"
   },
-  "_id": "SeVgdgl2hb23Zq7u",
-  "sort": 200000,
-  "_key": "!actors!SeVgdgl2hb23Zq7u"
+  "_key": "!actors!4aXvDt63CihdNdzP"
 }

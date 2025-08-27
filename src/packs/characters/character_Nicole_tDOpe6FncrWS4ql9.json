@@ -6,35 +6,35 @@
     "description": {
       "value": ""
     },
-    "shortDescription": "",
+    "shortDescription": "Resistance guerrilla fighter and demolitions expert Packing more heat than a whole platoon Lost your cell to nazi purges, bitter about it Bitten by your (now dead) vampire girlfriend Desperate to meet a glorious end in battle",
     "stats": {
       "Brawl": {
-        "value": 1,
-        "current": 1
+        "value": 2,
+        "current": 2
       },
       "Con": {
-        "value": 1,
-        "current": 1
+        "value": 2,
+        "current": 2
       },
       "Fix": {
         "value": 1,
         "current": 1
       },
       "Search": {
-        "value": 1,
-        "current": 1
+        "value": 2,
+        "current": 2
       },
       "Shoot": {
-        "value": 1,
-        "current": 1
+        "value": 4,
+        "current": 4
       },
       "Sneak": {
-        "value": 1,
-        "current": 1
+        "value": 3,
+        "current": 3
       },
       "Terrify": {
-        "value": 1,
-        "current": 1
+        "value": 3,
+        "current": 3
       }
     },
     "blood": {
@@ -44,47 +44,47 @@
     "injuries": {
       "oneTwo": {
         "first": {
-          "name": "",
+          "name": "DAZED",
           "selected": false
         },
         "second": {
-          "name": "",
+          "name": "HEADSHOT",
           "selected": false,
-          "penalty": ""
+          "penalty": "Can’t trigger Specials"
         }
       },
       "threeFour": {
         "first": {
-          "name": "",
+          "name": "JUST A GRAZE",
           "selected": false
         },
         "second": {
-          "name": "",
+          "name": "BLEEDING OUT",
           "selected": false,
-          "penalty": ""
+          "penalty": "Spend 1 Blood at the start of your turn"
         }
       },
       "fiveSix": {
         "first": {
-          "name": "",
+          "name": "HAND INJURY",
           "selected": false
         },
         "second": {
-          "name": "",
+          "name": "LOST AN ARM",
           "selected": false,
-          "penalty": ""
+          "penalty": "May only use 1 item per turn"
         }
       }
     },
     "lastStand": {
-      "name": "",
+      "name": "RIGGED TO BLOW",
       "dice": 8
     }
   },
   "prototypeToken": {
     "name": "Nicole",
-    "displayName": 0,
-    "actorLink": false,
+    "displayName": 50,
+    "actorLink": true,
     "width": 1,
     "height": 1,
     "texture": {
@@ -104,7 +104,7 @@
     "rotation": 0,
     "alpha": 1,
     "disposition": -1,
-    "displayBars": 0,
+    "displayBars": 50,
     "bar1": {
       "attribute": "blood"
     },
@@ -175,7 +175,431 @@
     "appendNumber": false,
     "prependAdjective": false
   },
-  "items": [],
+  "items": [
+    {
+      "name": "M3 submachine gun",
+      "type": "equipment",
+      "_id": "Ahu8Ae7aspZuKhJI",
+      "img": "systems/eat-the-reich/assets/icons/backpack.svg",
+      "system": {
+        "bonus": {
+          "value": "+flanking"
+        },
+        "uses": {
+          "value": 0,
+          "max": 4
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "fjrX5cSTDBHGMEul": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.347",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1756268025829,
+        "modifiedTime": 1756268041207,
+        "lastModifiedBy": "fjrX5cSTDBHGMEul"
+      },
+      "_key": "!actors.items!tDOpe6FncrWS4ql9.Ahu8Ae7aspZuKhJI"
+    },
+    {
+      "name": "Cut-down Lee Enfield rifle",
+      "type": "equipment",
+      "_id": "6xoUcaAUD1E89pai",
+      "img": "systems/eat-the-reich/assets/icons/backpack.svg",
+      "system": {
+        "bonus": {
+          "value": "+close quarters"
+        },
+        "uses": {
+          "value": 0,
+          "max": 4
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "fjrX5cSTDBHGMEul": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.347",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1756268047523,
+        "modifiedTime": 1756268057857,
+        "lastModifiedBy": "fjrX5cSTDBHGMEul"
+      },
+      "_key": "!actors.items!tDOpe6FncrWS4ql9.6xoUcaAUD1E89pai"
+    },
+    {
+      "name": "Smoke grenades",
+      "type": "equipment",
+      "_id": "YEuNbAsbO5U2UT2R",
+      "img": "systems/eat-the-reich/assets/icons/backpack.svg",
+      "system": {
+        "bonus": {
+          "value": "+cover advances"
+        },
+        "uses": {
+          "value": 0,
+          "max": 3
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "fjrX5cSTDBHGMEul": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.347",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1756268060766,
+        "modifiedTime": 1756268074026,
+        "lastModifiedBy": "fjrX5cSTDBHGMEul"
+      },
+      "_key": "!actors.items!tDOpe6FncrWS4ql9.YEuNbAsbO5U2UT2R"
+    },
+    {
+      "name": "Firebombs",
+      "type": "equipment",
+      "_id": "BeSKlfdzzq02bYj4",
+      "img": "systems/eat-the-reich/assets/icons/backpack.svg",
+      "system": {
+        "bonus": {
+          "value": "++firetrap"
+        },
+        "uses": {
+          "value": 0,
+          "max": 2
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "fjrX5cSTDBHGMEul": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.347",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1756268076168,
+        "modifiedTime": 1756268088224,
+        "lastModifiedBy": "fjrX5cSTDBHGMEul"
+      },
+      "_key": "!actors.items!tDOpe6FncrWS4ql9.BeSKlfdzzq02bYj4"
+    },
+    {
+      "name": "Panzerfaust",
+      "type": "equipment",
+      "_id": "m8lsG79B2I7M0Tsd",
+      "img": "systems/eat-the-reich/assets/icons/backpack.svg",
+      "system": {
+        "bonus": {
+          "value": "+++armoured target"
+        },
+        "uses": {
+          "value": 0,
+          "max": 1
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "fjrX5cSTDBHGMEul": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.347",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1756268090638,
+        "modifiedTime": 1756268102102,
+        "lastModifiedBy": "fjrX5cSTDBHGMEul"
+      },
+      "_key": "!actors.items!tDOpe6FncrWS4ql9.m8lsG79B2I7M0Tsd"
+    },
+    {
+      "name": "Dynamite",
+      "type": "equipment",
+      "_id": "acf6KSLRjOQvq7SQ",
+      "img": "systems/eat-the-reich/assets/icons/backpack.svg",
+      "system": {
+        "bonus": {
+          "value": "++++demolitions"
+        },
+        "uses": {
+          "value": 0,
+          "max": 1
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "fjrX5cSTDBHGMEul": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.347",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1756268107408,
+        "modifiedTime": 1756268119614,
+        "lastModifiedBy": "fjrX5cSTDBHGMEul"
+      },
+      "_key": "!actors.items!tDOpe6FncrWS4ql9.acf6KSLRjOQvq7SQ"
+    },
+    {
+      "name": "SCAVENGER",
+      "type": "ability",
+      "_id": "RO2F1LplSpeEpojr",
+      "img": "systems/eat-the-reich/assets/icons/skills.svg",
+      "system": {
+        "bonus": {
+          "value": ""
+        },
+        "description": {
+          "value": "SPECIAL: Roll a D6 and restore 1 use of the weapon rolled."
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "fjrX5cSTDBHGMEul": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.347",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1756268127276,
+        "modifiedTime": 1756268171570,
+        "lastModifiedBy": "fjrX5cSTDBHGMEul"
+      },
+      "_key": "!actors.items!tDOpe6FncrWS4ql9.RO2F1LplSpeEpojr"
+    },
+    {
+      "name": "SAPPER",
+      "type": "ability",
+      "_id": "0gaNVeS14biANxmo",
+      "img": "systems/eat-the-reich/assets/icons/skills.svg",
+      "system": {
+        "bonus": {
+          "value": ""
+        },
+        "description": {
+          "value": "When you use explosives, SPECIAL: reduce an Objective or Threat’s Challenge by 1."
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "fjrX5cSTDBHGMEul": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.347",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1756268173876,
+        "modifiedTime": 1756268189575,
+        "lastModifiedBy": "fjrX5cSTDBHGMEul"
+      },
+      "_key": "!actors.items!tDOpe6FncrWS4ql9.0gaNVeS14biANxmo"
+    },
+    {
+      "name": "BLINK",
+      "type": "ability",
+      "_id": "app2DO5VUigdfSmd",
+      "img": "systems/eat-the-reich/assets/icons/skills.svg",
+      "system": {
+        "bonus": {
+          "value": "+infiltration"
+        },
+        "description": {
+          "value": "Spend 1 Blood to burst into shadows and reform a few feet away."
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "fjrX5cSTDBHGMEul": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.347",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1756268190557,
+        "modifiedTime": 1756268212453,
+        "lastModifiedBy": "fjrX5cSTDBHGMEul"
+      },
+      "_key": "!actors.items!tDOpe6FncrWS4ql9.app2DO5VUigdfSmd"
+    },
+    {
+      "name": "RAT SWARM",
+      "type": "advance",
+      "_id": "l8I8tIAjkn2ljigm",
+      "img": "systems/eat-the-reich/assets/icons/upgrade.svg",
+      "system": {
+        "bonus": {
+          "value": "++filth"
+        },
+        "description": {
+          "value": "Spend 1 Blood to summon a swarm of rats under your control."
+        },
+        "selected": {
+          "value": false
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "fjrX5cSTDBHGMEul": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.347",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1756268243662,
+        "modifiedTime": 1756268265107,
+        "lastModifiedBy": "fjrX5cSTDBHGMEul"
+      },
+      "_key": "!actors.items!tDOpe6FncrWS4ql9.l8I8tIAjkn2ljigm"
+    },
+    {
+      "name": "FEED ON FEAR",
+      "type": "advance",
+      "_id": "dELNdLlTzfCYOOhv",
+      "img": "systems/eat-the-reich/assets/icons/upgrade.svg",
+      "system": {
+        "bonus": {
+          "value": ""
+        },
+        "description": {
+          "value": "When you reduce a Threat to 0 rating, gain 3 Blood."
+        },
+        "selected": {
+          "value": false
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "fjrX5cSTDBHGMEul": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.347",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1756268243964,
+        "modifiedTime": 1756268291937,
+        "lastModifiedBy": "fjrX5cSTDBHGMEul"
+      },
+      "_key": "!actors.items!tDOpe6FncrWS4ql9.dELNdLlTzfCYOOhv"
+    },
+    {
+      "name": "PITCH BLACK",
+      "type": "advance",
+      "_id": "1iqsbF1dxoVI4Bp0",
+      "img": "systems/eat-the-reich/assets/icons/upgrade.svg",
+      "system": {
+        "bonus": {
+          "value": "++ambush"
+        },
+        "description": {
+          "value": "Spend 1 Blood to plunge the area around you into shadow; you can see fine."
+        },
+        "selected": {
+          "value": false
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "fjrX5cSTDBHGMEul": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.347",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1756268244564,
+        "modifiedTime": 1756268309935,
+        "lastModifiedBy": "fjrX5cSTDBHGMEul"
+      },
+      "_key": "!actors.items!tDOpe6FncrWS4ql9.1iqsbF1dxoVI4Bp0"
+    }
+  ],
   "effects": [],
   "folder": null,
   "ownership": {
@@ -191,7 +615,7 @@
     "systemId": "eat-the-reich",
     "systemVersion": "#{VERSION}#",
     "createdTime": 1756266545523,
-    "modifiedTime": 1756266545523,
+    "modifiedTime": 1756268744726,
     "lastModifiedBy": "fjrX5cSTDBHGMEul"
   },
   "_id": "tDOpe6FncrWS4ql9",
