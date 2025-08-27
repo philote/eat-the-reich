@@ -1,0 +1,119 @@
+{
+  "name": "Paris",
+  "navigation": false,
+  "background": {
+    "src": "systems/eat-the-reich/assets/scenes/paris-map.webp",
+    "anchorX": 0,
+    "anchorY": 0,
+    "offsetX": 0,
+    "offsetY": 0,
+    "fit": "fill",
+    "scaleX": 1,
+    "scaleY": 1,
+    "rotation": 0,
+    "tint": "#ffffff",
+    "alphaThreshold": 0
+  },
+  "foreground": null,
+  "foregroundElevation": null,
+  "thumb": "worlds/eat-the-reich/assets/scenes/MjWgvS8UGtR8So0v-thumb.webp",
+  "width": 3840,
+  "height": 2374,
+  "padding": 0.25,
+  "initial": {
+    "x": 3060,
+    "y": 1811,
+    "scale": 0.3439672091177253
+  },
+  "backgroundColor": "#000000",
+  "grid": {
+    "type": 0,
+    "size": 100,
+    "style": "solidLines",
+    "thickness": 1,
+    "color": "#000000",
+    "alpha": 0.2,
+    "distance": 1,
+    "units": ""
+  },
+  "tokenVision": false,
+  "fog": {
+    "exploration": true,
+    "overlay": null,
+    "colors": {
+      "explored": null,
+      "unexplored": null
+    }
+  },
+  "environment": {
+    "darknessLevel": 0,
+    "darknessLock": false,
+    "globalLight": {
+      "enabled": false,
+      "alpha": 0.5,
+      "bright": false,
+      "color": null,
+      "coloration": 1,
+      "luminosity": 0,
+      "saturation": 0,
+      "contrast": 0,
+      "shadows": 0,
+      "darkness": {
+        "min": 0,
+        "max": 1
+      }
+    },
+    "cycle": true,
+    "base": {
+      "hue": 0,
+      "intensity": 0,
+      "luminosity": 0,
+      "saturation": 0,
+      "shadows": 0
+    },
+    "dark": {
+      "hue": 0.7138888888888889,
+      "intensity": 0,
+      "luminosity": -0.25,
+      "saturation": 0,
+      "shadows": 0
+    }
+  },
+  "drawings": [],
+  "tokens": [],
+  "lights": [],
+  "notes": [],
+  "sounds": [],
+  "regions": [],
+  "templates": [],
+  "tiles": [],
+  "walls": [],
+  "playlist": null,
+  "playlistSound": null,
+  "journal": null,
+  "journalEntryPage": null,
+  "weather": "",
+  "folder": null,
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.347",
+    "systemId": "eat-the-reich",
+    "systemVersion": "#{VERSION}#",
+    "createdTime": 1756266599256,
+    "modifiedTime": 1756266599256,
+    "lastModifiedBy": "fjrX5cSTDBHGMEul"
+  },
+  "navName": "",
+  "ownership": {
+    "default": 0,
+    "fjrX5cSTDBHGMEul": 3
+  },
+  "navOrder": 0,
+  "_id": "xMQesGOQ9uQ3hV5h",
+  "active": false,
+  "sort": 0,
+  "_key": "!scenes!xMQesGOQ9uQ3hV5h"
+}
