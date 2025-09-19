@@ -1,0 +1,250 @@
+{
+	"TYPES": {
+		"Actor": {
+			"character": "Personaje",
+			"npc": "Amenaza",
+			"location": "Ubicación"
+		},
+		"Item": {
+			"ability": "Habilidad",
+			"advance": "Avance",
+			"equipment": "Equipamiento",
+			"loot": "Botín",
+			"objective": "Objetivo",
+			"extraInfo": "Información Extra"
+		}
+	},
+	"ETR": {
+		"Placeholder": {
+			"name": "Nombre",
+			"penalty": "Penalización",
+			"description": "Descripción"
+		},
+		"Stats": {
+			"Brawl": "Pelear",
+			"Con": "Estafar",
+			"Fix": "Reparar",
+			"Search": "Buscar",
+			"Shoot": "Disparar",
+			"Sneak": "Sigilo",
+			"Terrify": "Aterrorizar"
+		},
+		"SheetLabels": {
+			"Actor": "Hoja de Actor de Eat The Reich",
+			"NPC": "Hoja de Amenaza de Eat The Reich",
+			"Location": "Hoja de Ubicación de Eat The Reich",
+			"Item": "Hoja de Objeto de Eat The Reich"
+		},
+		"Actor": {
+			"base": {
+				"FIELDS": {
+					"description": {
+						"label": "Descripción"
+					}
+				}
+			},
+			"Location": {
+				"objectives": "Objetivos",
+				"secondaryObjectives": "Objetivos Secundarios",
+				"FIELDS": {
+					"enemies": {
+						"label": "Enemigos"
+					}
+				}
+			},
+			"Character": {
+				"equipment": "Equipamiento",
+				"blood": "Sangre",
+				"loot": "Botín",
+				"abilities": "Habilidades",
+				"advancements": "Avances",
+				"injuries": {
+					"label": "Heridas",
+					"rollMessage": "Tiraste un <span class='etr-die'>{dice}</span> <br> <strong>Dados de Ataque del DJ < 3:</strong> Marca la primera casilla sin marcar en la categoría <strong>{category}</strong>.<br><strong>Dados de Ataque del DJ >= 3:</strong> Has sido derribado. Marca todas las casillas disponibles en la categoría <strong>{category}</strong>.<hr> <em>Si ambas casillas ya están marcadas, elige una categoría alternativa.</em>",
+					"oneTwo": "1-2",
+					"threeFour": "3-4",
+					"fiveSix": "5-6"
+				},
+				"lastStand": "Última Resistencia",
+				"Stats": {
+					"label": "Estadísticas",
+					"initial": "Inic",
+					"current": "Act"
+				}
+			},
+			"NPC": {
+				"extras": "Información Extra",
+				"reinforcements": "Refuerzos",
+				"reinforcementsArrival": "¡Han llegado los refuerzos!",
+				"name": {
+					"label": "Nombre"
+				},
+				"FIELDS": {
+					"isUbermenschen": {
+						"label": "Übermensch"
+					},
+					"attack": {
+						"label": "Ataque",
+						"description": "Descripción del Ataque"
+					},
+					"challenge": {
+						"label": "Desafío",
+						"description": "Descripción del Desafío"
+					}
+				},
+				"rating": {
+					"label": "Nivel"
+				}
+			}
+		},
+		"Dice": {
+			"title": "Tirada de EAT THE REICH",
+			"label": "Tirar los Dados",
+			"dice": "Construye tu Reserva de Dados",
+			"stat": "ESTADÍSTICA: ",
+			"total": "Total",
+			"equipment": "Dados de Equipamiento",
+			"abilities": "Dados de Habilidades",
+			"injuries": "Tus Heridas",
+			"penalty": "Penalización:",
+			"gmRoll": "Tirada del DJ",
+			"lastStandRoll": "Tirada de Última Resistencia",
+			"Categories": {
+				"Critical": "Crítico (6)",
+				"Success": "Éxito (4-5)",
+				"Discarded": "Descartados (1-3)",
+				"BonusText": {
+					"Critical": "+2 daño O +2 defensa O +2 Sangre",
+					"Success": "+1 daño O +1 defensa O +1 Sangre",
+					"Discarded": "Sin efecto"
+				}
+			}
+		},
+		"Item": {
+			"uses": {
+				"label": "Usos"
+			},
+			"name": {
+				"label": "Nombre"
+			},
+			"base": {
+				"FIELDS": {
+					"bonus": {
+						"label": "Bonificación",
+						"hint": "Este es el valor de bonificación del objeto"
+					},
+					"isActive": {
+						"label": "Activo",
+						"hint": "Este es el estado activo del botín"
+					}
+				}
+			},
+			"objective": {
+				"FIELDS": {
+					"challenge": {
+						"label": "Desafío"
+					},
+					"description": {
+						"label": "Descripción"
+					},
+					"rating": {
+						"label": "Nivel"
+					},
+					"isSecondary": {
+						"label": "Objetivo Secundario"
+					}
+				}
+			},
+			"extraInfo": {
+				"FIELDS": {
+					"description": {
+						"label": "Descripción"
+					}
+				}
+			},
+			"advance": {
+				"FIELDS": {
+					"description": {
+						"label": "Descripción"
+					},
+					"selected": {
+						"label": "Seleccionado"
+					}
+				}
+			},
+			"ability": {
+				"FIELDS": {
+					"description": {
+						"label": "Descripción"
+					}
+				}
+			}
+		},
+		"Settings": {
+			"game": {
+				"heading": "EAT THE REICH",
+				"publisher": {
+					"title": "Rowan, Rook and Decard"
+				},
+				"github": {
+					"title": "Repositorio del Módulo"
+				},
+				"kofi": {
+					"title": "Apóyame en Ko-fi"
+				}
+			}
+		},
+		"Notifications": {
+			"FlashbackParentNotFound": "No se pudo encontrar el elemento padre del mensaje para el botón de flashback.",
+			"FlashbackMessageIdNotFound": "No se pudo encontrar el ID del mensaje para el flashback.",
+			"FlashbackMessageNotFound": "No se pudo encontrar el mensaje de chat para el flashback.",
+			"FlashbackConfigNotFound": "No se encontró configuración de tirada para el flashback.",
+			"FlashbackActorNotFound": "No se pudo encontrar el actor para el flashback."
+		},
+		"Flashback": {
+			"Title": "Flashback Activado",
+			"Instructions": "Describe una breve escena de una misión pasada para ganar 2 dados adicionales en una nueva tirada.",
+			"Button": "¡Volver a tirar con un Flashback!",
+			"SelectOption": "-- Seleccionar --",
+			"CustomOption": "-- Personalizado --",
+			"CustomPlaceholder": "Introduce texto personalizado...",
+			"Context": {
+				"Label": "Contexto",
+				"1": "A bordo de un avión en caída libre",
+				"2": "Rescatando prisioneros de guerra durante una tormenta",
+				"3": "Asesinando a un general nazi en la ópera",
+				"4": "Extrayendo a un espía tras las líneas enemigas",
+				"5": "Robando una máquina de cifrado de un submarino",
+				"6": "Saboteando un cañón de campo con explosivos improvisados"
+			},
+			"Question": {
+				"Label": "Pregunta",
+				"1": "Salvaste a [character] de una muerte segura. ¿Qué estuvo a punto de matarle?",
+				"2": "Reclutaste a [character] para F.A.N.G. ¿Qué hizo falta para conseguir que se uniera?",
+				"3": "Le debes la vida a [character]. ¿Cómo te la salvó?",
+				"4": "[character] te enseñó algunos trucos. ¿Cuál fue la lección más importante?",
+				"5": "No vas a permitir que [character] te vea fallar así. ¿Qué es lo que más respetas de él/ella?",
+				"6": "No vas a permitir que [character] te vea fallar así. ¿Qué es lo que más respeta de ti?"
+			},
+			"Character": {
+				"Label": "Personaje Involucrado"
+			},
+			"Description": {
+				"Label": "Notas de la Escena"
+			},
+			"RollMessage": {
+				"title": "Flashback",
+				"contextLabel": "Contexto: ",
+				"questionLabel": "Pregunta: ",
+				"characterLabel": "Personaje Involucrado: ",
+				"descriptionLabel": "Notas de la Escena: ",
+				"rollLabel": "¡Tirando de nuevo con +2 dados!"
+			}
+		},
+		"Dialog": {
+			"ThreatRoll": {
+				"attackRatingLabel": "Nivel de Ataque"
+			}
+		}
+	}
+}

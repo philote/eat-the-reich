@@ -1,0 +1,250 @@
+{
+	"TYPES": {
+		"Actor": {
+			"character": "Personagem",
+			"npc": "Ameaça",
+			"location": "Local"
+		},
+		"Item": {
+			"ability": "Habilidade",
+			"advance": "Avanço",
+			"equipment": "Equipamento",
+			"loot": "Saque",
+			"objective": "Objetivo",
+			"extraInfo": "Info Extra"
+		}
+	},
+	"ETR": {
+		"Placeholder": {
+			"name": "Nome",
+			"penalty": "Penalidade",
+			"description": "Descrição"
+		},
+		"Stats": {
+			"Brawl": "Briga",
+			"Con": "Golpe",
+			"Fix": "Consertar",
+			"Search": "Procurar",
+			"Shoot": "Atirar",
+			"Sneak": "Furtividade",
+			"Terrify": "Aterrorizar"
+		},
+		"SheetLabels": {
+			"Actor": "Ficha de Ator do Eat The Reich",
+			"NPC": "Ficha de Ameaça do Eat The Reich",
+			"Location": "Ficha de Local do Eat The Reich",
+			"Item": "Ficha de Item do Eat The Reich"
+		},
+		"Actor": {
+			"base": {
+				"FIELDS": {
+					"description": {
+						"label": "Descrição"
+					}
+				}
+			},
+			"Location": {
+				"objectives": "Objetivos",
+				"secondaryObjectives": "Objetivos Secundários",
+				"FIELDS": {
+					"enemies": {
+						"label": "Inimigos"
+					}
+				}
+			},
+			"Character": {
+				"equipment": "Equipamento",
+				"blood": "Sangue",
+				"loot": "Saque",
+				"abilities": "Habilidades",
+				"advancements": "Avanços",
+				"injuries": {
+					"label": "Ferimentos",
+					"rollMessage": "Você rolou um <span class='etr-die'>{dice}</span> <br> <strong>Dados de Ataque do Mestre < 3:</strong> Marque a primeira caixa desmarcada na categoria <strong>{category}</strong>.<br><strong>Dados de Ataque do Mestre >= 3:</strong> Você foi derrubado. Marque todas as caixas disponíveis na categoria <strong>{category}</strong>.<hr> <em>Se ambas as caixas já estão marcadas, escolha uma categoria alternativa.</em>",
+					"oneTwo": "1-2",
+					"threeFour": "3-4",
+					"fiveSix": "5-6"
+				},
+				"lastStand": "Última Resistência",
+				"Stats": {
+					"label": "Atributos",
+					"initial": "Inic",
+					"current": "Atual"
+				}
+			},
+			"NPC": {
+				"extras": "Info Extra",
+				"reinforcements": "Reforços",
+				"reinforcementsArrival": "Os reforços chegaram!",
+				"name": {
+					"label": "Nome"
+				},
+				"FIELDS": {
+					"isUbermenschen": {
+						"label": "Übermensch"
+					},
+					"attack": {
+						"label": "Ataque",
+						"description": "Descrição do Ataque"
+					},
+					"challenge": {
+						"label": "Desafio",
+						"description": "Descrição do Desafio"
+					}
+				},
+				"rating": {
+					"label": "Nível"
+				}
+			}
+		},
+		"Dice": {
+			"title": "Rolagem do EAT THE REICH",
+			"label": "Rolar os Dados",
+			"dice": "Monte sua Reserva de Dados",
+			"stat": "ATRIBUTO: ",
+			"total": "Total",
+			"equipment": "Dados de Equipamento",
+			"abilities": "Dados de Habilidades",
+			"injuries": "Seus Ferimentos",
+			"penalty": "Penalidade:",
+			"gmRoll": "Rolagem do Mestre",
+			"lastStandRoll": "Rolagem de Última Resistência",
+			"Categories": {
+				"Critical": "Crítico (6)",
+				"Success": "Sucesso (4-5)",
+				"Discarded": "Descartados (1-3)",
+				"BonusText": {
+					"Critical": "+2 dano OU +2 defesa OU +2 Sangue",
+					"Success": "+1 dano OU +1 defesa OU +1 Sangue",
+					"Discarded": "Sem efeito"
+				}
+			}
+		},
+		"Item": {
+			"uses": {
+				"label": "Usos"
+			},
+			"name": {
+				"label": "Nome"
+			},
+			"base": {
+				"FIELDS": {
+					"bonus": {
+						"label": "Bônus",
+						"hint": "Este é o valor de bônus do item"
+					},
+					"isActive": {
+						"label": "Ativo",
+						"hint": "Este é o status ativo do saque"
+					}
+				}
+			},
+			"objective": {
+				"FIELDS": {
+					"challenge": {
+						"label": "Desafio"
+					},
+					"description": {
+						"label": "Descrição"
+					},
+					"rating": {
+						"label": "Nível"
+					},
+					"isSecondary": {
+						"label": "Objetivo Secundário"
+					}
+				}
+			},
+			"extraInfo": {
+				"FIELDS": {
+					"description": {
+						"label": "Descrição"
+					}
+				}
+			},
+			"advance": {
+				"FIELDS": {
+					"description": {
+						"label": "Descrição"
+					},
+					"selected": {
+						"label": "Selecionado"
+					}
+				}
+			},
+			"ability": {
+				"FIELDS": {
+					"description": {
+						"label": "Descrição"
+					}
+				}
+			}
+		},
+		"Settings": {
+			"game": {
+				"heading": "EAT THE REICH",
+				"publisher": {
+					"title": "Rowan, Rook and Decard"
+				},
+				"github": {
+					"title": "Repositório do Módulo"
+				},
+				"kofi": {
+					"title": "Me apoie no Ko-fi"
+				}
+			}
+		},
+		"Notifications": {
+			"FlashbackParentNotFound": "Não foi possível encontrar o elemento pai da mensagem para o botão de flashback.",
+			"FlashbackMessageIdNotFound": "Não foi possível encontrar o ID da mensagem para o flashback.",
+			"FlashbackMessageNotFound": "Não foi possível encontrar a mensagem do chat para o flashback.",
+			"FlashbackConfigNotFound": "Nenhuma configuração de rolagem encontrada para o flashback.",
+			"FlashbackActorNotFound": "Não foi possível encontrar o ator para o flashback."
+		},
+		"Flashback": {
+			"Title": "Flashback Ativado",
+			"Instructions": "Descreva uma breve cena de uma missão passada para ganhar 2 dados bônus numa nova rolagem.",
+			"Button": "Rolar novamente com um Flashback!",
+			"SelectOption": "-- Selecionar --",
+			"CustomOption": "-- Personalizado --",
+			"CustomPlaceholder": "Digite um texto personalizado...",
+			"Context": {
+				"Label": "Contexto",
+				"1": "A bordo de um avião despencando",
+				"2": "Resgatando prisioneiros de guerra durante uma tempestade",
+				"3": "Assassinando um general nazista na ópera",
+				"4": "Extraindo um espião por trás das linhas inimigas",
+				"5": "Roubando uma máquina de cifra de um submarino",
+				"6": "Sabotando um canhão de campo com explosivos improvisados"
+			},
+			"Question": {
+				"Label": "Pergunta",
+				"1": "Você salvou [character] de morte certa. O que quase o/a matou?",
+				"2": "Você recrutou [character] para F.A.N.G. O que foi preciso para convencê-lo/a?",
+				"3": "Você deve sua vida a [character]. Como ele/a te salvou?",
+				"4": "[character] te ensinou alguns truques. Qual foi a lição mais importante?",
+				"5": "Você não vai deixar [character] te ver falhar assim. O que você mais respeita nele/a?",
+				"6": "Você não vai deixar [character] te ver falhar assim. O que ele/a mais respeita em você?"
+			},
+			"Character": {
+				"Label": "Personagem Envolvido"
+			},
+			"Description": {
+				"Label": "Notas da Cena"
+			},
+			"RollMessage": {
+				"title": "Flashback",
+				"contextLabel": "Contexto: ",
+				"questionLabel": "Pergunta: ",
+				"characterLabel": "Personagem Envolvido: ",
+				"descriptionLabel": "Notas da Cena: ",
+				"rollLabel": "Rolando novamente com +2 dados!"
+			}
+		},
+		"Dialog": {
+			"ThreatRoll": {
+				"attackRatingLabel": "Nível de Ataque"
+			}
+		}
+	}
+}

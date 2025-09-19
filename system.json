@@ -59,10 +59,31 @@
 			"name": "English",
 			"path": "lang/en.json"
 		},
-  {
+		{
 			"lang": "fr",
 			"name": "Français",
 			"path": "lang/fr.json"
+		},
+		{
+			"lang": "es",
+			"name": "Español",
+			"path": "lang/es.json"
+		},
+
+		{
+			"lang": "pl",
+			"name": "Polski",
+			"path": "lang/pl.json"
+		},
+		{
+			"lang": "pt-BR",
+			"name": "Português (Brasil)",
+			"path": "lang/pt-BR.json"
+		},
+		{
+			"lang": "it",
+			"name": "Italiano",
+			"path": "lang/it.json"
 		}
 	],
 	"packs": [
@@ -112,9 +133,9 @@
 			"caption": "Eat the Reich character sheet screenshot from Foundry VTT."
 		},
 		{
-		  "type": "setup",
-		  "url": "systems/eat-the-reich/assets/package_image.webp",
-		  "thumbnail": "systems/eat-the-reich/assets/package_image_thumb.webp"
+			"type": "setup",
+			"url": "systems/eat-the-reich/assets/package_image.webp",
+			"thumbnail": "systems/eat-the-reich/assets/package_image_thumb.webp"
 		}
 	]
 }

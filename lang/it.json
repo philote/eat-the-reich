@@ -1,0 +1,250 @@
+{
+	"TYPES": {
+		"Actor": {
+			"character": "Personaggio",
+			"npc": "Minaccia",
+			"location": "Luogo"
+		},
+		"Item": {
+			"ability": "Abilità",
+			"advance": "Avanzamento",
+			"equipment": "Equipaggiamento",
+			"loot": "Bottino",
+			"objective": "Obiettivo",
+			"extraInfo": "Info Extra"
+		}
+	},
+	"ETR": {
+		"Placeholder": {
+			"name": "Nome",
+			"penalty": "Penalità",
+			"description": "Descrizione"
+		},
+		"Stats": {
+			"Brawl": "Rissa",
+			"Con": "Truffa",
+			"Fix": "Riparare",
+			"Search": "Cercare",
+			"Shoot": "Sparare",
+			"Sneak": "Furtività",
+			"Terrify": "Terrorizzare"
+		},
+		"SheetLabels": {
+			"Actor": "Scheda Attore di Eat The Reich",
+			"NPC": "Scheda Minaccia di Eat The Reich",
+			"Location": "Scheda Luogo di Eat The Reich",
+			"Item": "Scheda Oggetto di Eat The Reich"
+		},
+		"Actor": {
+			"base": {
+				"FIELDS": {
+					"description": {
+						"label": "Descrizione"
+					}
+				}
+			},
+			"Location": {
+				"objectives": "Obiettivi",
+				"secondaryObjectives": "Obiettivi Secondari",
+				"FIELDS": {
+					"enemies": {
+						"label": "Nemici"
+					}
+				}
+			},
+			"Character": {
+				"equipment": "Equipaggiamento",
+				"blood": "Sangue",
+				"loot": "Bottino",
+				"abilities": "Abilità",
+				"advancements": "Avanzamenti",
+				"injuries": {
+					"label": "Ferite",
+					"rollMessage": "Hai tirato un <span class='etr-die'>{dice}</span> <br> <strong>Dadi Attacco del GM < 3:</strong> Segna la prima casella non segnata nella categoria <strong>{category}</strong>.<br><strong>Dadi Attacco del GM >= 3:</strong> Sei stato abbattuto. Segna tutte le caselle disponibili nella categoria <strong>{category}</strong>.<hr> <em>Se entrambe le caselle sono già segnate, scegli una categoria alternativa.</em>",
+					"oneTwo": "1-2",
+					"threeFour": "3-4",
+					"fiveSix": "5-6"
+				},
+				"lastStand": "Ultima Resistenza",
+				"Stats": {
+					"label": "Statistiche",
+					"initial": "Iniz",
+					"current": "Att"
+				}
+			},
+			"NPC": {
+				"extras": "Info Extra",
+				"reinforcements": "Rinforzi",
+				"reinforcementsArrival": "I rinforzi sono arrivati!",
+				"name": {
+					"label": "Nome"
+				},
+				"FIELDS": {
+					"isUbermenschen": {
+						"label": "Übermensch"
+					},
+					"attack": {
+						"label": "Attacco",
+						"description": "Descrizione dell'Attacco"
+					},
+					"challenge": {
+						"label": "Sfida",
+						"description": "Descrizione della Sfida"
+					}
+				},
+				"rating": {
+					"label": "Livello"
+				}
+			}
+		},
+		"Dice": {
+			"title": "Tiro di EAT THE REICH",
+			"label": "Tira i Dadi",
+			"dice": "Costruisci la Tua Riserva di Dadi",
+			"stat": "STATISTICA: ",
+			"total": "Totale",
+			"equipment": "Dadi Equipaggiamento",
+			"abilities": "Dadi Abilità",
+			"injuries": "Le Tue Ferite",
+			"penalty": "Penalità:",
+			"gmRoll": "Tiro del GM",
+			"lastStandRoll": "Tiro di Ultima Resistenza",
+			"Categories": {
+				"Critical": "Critico (6)",
+				"Success": "Successo (4-5)",
+				"Discarded": "Scartati (1-3)",
+				"BonusText": {
+					"Critical": "+2 danni O +2 difesa O +2 Sangue",
+					"Success": "+1 danno O +1 difesa O +1 Sangue",
+					"Discarded": "Nessun effetto"
+				}
+			}
+		},
+		"Item": {
+			"uses": {
+				"label": "Usi"
+			},
+			"name": {
+				"label": "Nome"
+			},
+			"base": {
+				"FIELDS": {
+					"bonus": {
+						"label": "Bonus",
+						"hint": "Questo è il valore bonus dell'oggetto"
+					},
+					"isActive": {
+						"label": "Attivo",
+						"hint": "Questo è lo stato attivo del bottino"
+					}
+				}
+			},
+			"objective": {
+				"FIELDS": {
+					"challenge": {
+						"label": "Sfida"
+					},
+					"description": {
+						"label": "Descrizione"
+					},
+					"rating": {
+						"label": "Livello"
+					},
+					"isSecondary": {
+						"label": "Obiettivo Secondario"
+					}
+				}
+			},
+			"extraInfo": {
+				"FIELDS": {
+					"description": {
+						"label": "Descrizione"
+					}
+				}
+			},
+			"advance": {
+				"FIELDS": {
+					"description": {
+						"label": "Descrizione"
+					},
+					"selected": {
+						"label": "Selezionato"
+					}
+				}
+			},
+			"ability": {
+				"FIELDS": {
+					"description": {
+						"label": "Descrizione"
+					}
+				}
+			}
+		},
+		"Settings": {
+			"game": {
+				"heading": "EAT THE REICH",
+				"publisher": {
+					"title": "Rowan, Rook and Decard"
+				},
+				"github": {
+					"title": "Repository del Modulo"
+				},
+				"kofi": {
+					"title": "Sostienimi su Ko-fi"
+				}
+			}
+		},
+		"Notifications": {
+			"FlashbackParentNotFound": "Impossibile trovare l'elemento padre del messaggio per il pulsante flashback.",
+			"FlashbackMessageIdNotFound": "Impossibile trovare l'ID del messaggio per il flashback.",
+			"FlashbackMessageNotFound": "Impossibile trovare il messaggio della chat per il flashback.",
+			"FlashbackConfigNotFound": "Nessuna configurazione di tiro trovata per il flashback.",
+			"FlashbackActorNotFound": "Impossibile trovare l'attore per il flashback."
+		},
+		"Flashback": {
+			"Title": "Flashback Attivato",
+			"Instructions": "Descrivi una breve scena da una missione passata per ottenere 2 dadi bonus su un nuovo tiro.",
+			"Button": "Tira di nuovo con un Flashback!",
+			"SelectOption": "-- Seleziona --",
+			"CustomOption": "-- Personalizzato --",
+			"CustomPlaceholder": "Inserisci testo personalizzato...",
+			"Context": {
+				"Label": "Contesto",
+				"1": "A bordo di un aereo in precipitazione",
+				"2": "Salvando prigionieri di guerra durante un temporale",
+				"3": "Assassinando un generale nazista all'opera",
+				"4": "Estraendo una spia dietro le linee nemiche",
+				"5": "Rubando una macchina cifrante da un sottomarino",
+				"6": "Sabotando un cannone da campo con esplosivi improvvisati"
+			},
+			"Question": {
+				"Label": "Domanda",
+				"1": "Hai salvato [character] da morte certa. Cosa stava per ucciderlo/a?",
+				"2": "Hai reclutato [character] per F.A.N.G. Cosa ci è voluto per convincerlo/a?",
+				"3": "Devi la vita a [character]. Come ti ha salvato/a?",
+				"4": "[character] ti ha insegnato alcuni trucchi. Qual è stata la lezione più importante?",
+				"5": "Non permetterai a [character] di vederti fallire così. Cosa rispetti di più in lui/lei?",
+				"6": "Non permetterai a [character] di vederti fallire così. Cosa rispetta di più di te?"
+			},
+			"Character": {
+				"Label": "Personaggio Coinvolto"
+			},
+			"Description": {
+				"Label": "Note della Scena"
+			},
+			"RollMessage": {
+				"title": "Flashback",
+				"contextLabel": "Contesto: ",
+				"questionLabel": "Domanda: ",
+				"characterLabel": "Personaggio Coinvolto: ",
+				"descriptionLabel": "Note della Scena: ",
+				"rollLabel": "Tirando di nuovo con +2 dadi!"
+			}
+		},
+		"Dialog": {
+			"ThreatRoll": {
+				"attackRatingLabel": "Livello di Attacco"
+			}
+		}
+	}
+}

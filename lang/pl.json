@@ -1,0 +1,250 @@
+{
+	"TYPES": {
+		"Actor": {
+			"character": "Postać",
+			"npc": "Zagrożenie",
+			"location": "Lokacja"
+		},
+		"Item": {
+			"ability": "Umiejętność",
+			"advance": "Postęp",
+			"equipment": "Wyposażenie",
+			"loot": "Łup",
+			"objective": "Cel",
+			"extraInfo": "Dodatkowe Info"
+		}
+	},
+	"ETR": {
+		"Placeholder": {
+			"name": "Nazwa",
+			"penalty": "Kara",
+			"description": "Opis"
+		},
+		"Stats": {
+			"Brawl": "Bijatyka",
+			"Con": "Oszustwo",
+			"Fix": "Naprawa",
+			"Search": "Szukanie",
+			"Shoot": "Strzał",
+			"Sneak": "Skradanie",
+			"Terrify": "Zastraszanie"
+		},
+		"SheetLabels": {
+			"Actor": "Karta Aktora Eat The Reich",
+			"NPC": "Karta Zagrożenia Eat The Reich",
+			"Location": "Karta Lokacji Eat The Reich",
+			"Item": "Karta Przedmiotu Eat The Reich"
+		},
+		"Actor": {
+			"base": {
+				"FIELDS": {
+					"description": {
+						"label": "Opis"
+					}
+				}
+			},
+			"Location": {
+				"objectives": "Cele",
+				"secondaryObjectives": "Cele Drugorzędne",
+				"FIELDS": {
+					"enemies": {
+						"label": "Wrogowie"
+					}
+				}
+			},
+			"Character": {
+				"equipment": "Wyposażenie",
+				"blood": "Krew",
+				"loot": "Łup",
+				"abilities": "Umiejętności",
+				"advancements": "Postępy",
+				"injuries": {
+					"label": "Rany",
+					"rollMessage": "Wyrzuciłeś <span class='etr-die'>{dice}</span> <br> <strong>Kości Ataku MG < 3:</strong> Zaznacz pierwsze niezaznaczone pole w kategorii <strong>{category}</strong>.<br><strong>Kości Ataku MG >= 3:</strong> Zostałeś pokonany. Zaznacz wszystkie dostępne pola w kategorii <strong>{category}</strong>.<hr> <em>Jeśli oba pola są już zaznaczone, wybierz alternatywną kategorię.</em>",
+					"oneTwo": "1-2",
+					"threeFour": "3-4",
+					"fiveSix": "5-6"
+				},
+				"lastStand": "Ostatnia Walka",
+				"Stats": {
+					"label": "Statystyki",
+					"initial": "Pocz",
+					"current": "Obec"
+				}
+			},
+			"NPC": {
+				"extras": "Dodatkowe Info",
+				"reinforcements": "Posiłki",
+				"reinforcementsArrival": "Posiłki nadeszły!",
+				"name": {
+					"label": "Nazwa"
+				},
+				"FIELDS": {
+					"isUbermenschen": {
+						"label": "Nadczłowiek"
+					},
+					"attack": {
+						"label": "Atak",
+						"description": "Opis Ataku"
+					},
+					"challenge": {
+						"label": "Wyzwanie",
+						"description": "Opis Wyzwania"
+					}
+				},
+				"rating": {
+					"label": "Poziom"
+				}
+			}
+		},
+		"Dice": {
+			"title": "Rzut EAT THE REICH",
+			"label": "Rzuć Kośćmi",
+			"dice": "Zbuduj Swoją Pulę Kości",
+			"stat": "STATYSTYKA: ",
+			"total": "Suma",
+			"equipment": "Kości Wyposażenia",
+			"abilities": "Kości Umiejętności",
+			"injuries": "Twoje Rany",
+			"penalty": "Kara:",
+			"gmRoll": "Rzut MG",
+			"lastStandRoll": "Rzut Ostatniej Walki",
+			"Categories": {
+				"Critical": "Krytyczny (6)",
+				"Success": "Sukces (4-5)",
+				"Discarded": "Odrzucone (1-3)",
+				"BonusText": {
+					"Critical": "+2 obrażenia LUB +2 obrona LUB +2 Krew",
+					"Success": "+1 obrażenie LUB +1 obrona LUB +1 Krew",
+					"Discarded": "Brak efektu"
+				}
+			}
+		},
+		"Item": {
+			"uses": {
+				"label": "Użycia"
+			},
+			"name": {
+				"label": "Nazwa"
+			},
+			"base": {
+				"FIELDS": {
+					"bonus": {
+						"label": "Bonus",
+						"hint": "To jest wartość bonusu przedmiotu"
+					},
+					"isActive": {
+						"label": "Aktywny",
+						"hint": "To jest status aktywności łupu"
+					}
+				}
+			},
+			"objective": {
+				"FIELDS": {
+					"challenge": {
+						"label": "Wyzwanie"
+					},
+					"description": {
+						"label": "Opis"
+					},
+					"rating": {
+						"label": "Poziom"
+					},
+					"isSecondary": {
+						"label": "Cel Drugorzędny"
+					}
+				}
+			},
+			"extraInfo": {
+				"FIELDS": {
+					"description": {
+						"label": "Opis"
+					}
+				}
+			},
+			"advance": {
+				"FIELDS": {
+					"description": {
+						"label": "Opis"
+					},
+					"selected": {
+						"label": "Wybrany"
+					}
+				}
+			},
+			"ability": {
+				"FIELDS": {
+					"description": {
+						"label": "Opis"
+					}
+				}
+			}
+		},
+		"Settings": {
+			"game": {
+				"heading": "EAT THE REICH",
+				"publisher": {
+					"title": "Rowan, Rook and Decard"
+				},
+				"github": {
+					"title": "Repozytorium Modułu"
+				},
+				"kofi": {
+					"title": "Wspomóż mnie na Ko-fi"
+				}
+			}
+		},
+		"Notifications": {
+			"FlashbackParentNotFound": "Nie można znaleźć elementu nadrzędnego wiadomości dla przycisku retrospekcji.",
+			"FlashbackMessageIdNotFound": "Nie można znaleźć ID wiadomości dla retrospekcji.",
+			"FlashbackMessageNotFound": "Nie można znaleźć wiadomości czatu dla retrospekcji.",
+			"FlashbackConfigNotFound": "Nie znaleziono konfiguracji rzutu dla retrospekcji.",
+			"FlashbackActorNotFound": "Nie można znaleźć aktora dla retrospekcji."
+		},
+		"Flashback": {
+			"Title": "Retrospekcja Aktywowana",
+			"Instructions": "Opisz krótką scenę z przeszłej misji, aby otrzymać 2 dodatkowe kości w ponownym rzucie.",
+			"Button": "Rzuć ponownie z Retrospekcją!",
+			"SelectOption": "-- Wybierz --",
+			"CustomOption": "-- Własne --",
+			"CustomPlaceholder": "Wprowadź własny tekst...",
+			"Context": {
+				"Label": "Kontekst",
+				"1": "Na pokładzie spadającego samolotu",
+				"2": "Ratując jeńców wojennych podczas burzy",
+				"3": "Zabijając nazistowskiego generała w operze",
+				"4": "Ewakuując szpiega zza linii wroga",
+				"5": "Kradnąc maszynę szyfrującą z okrętu podwodnego",
+				"6": "Sabotując armatę polową improwizowanymi materiałami wybuchowymi"
+			},
+			"Question": {
+				"Label": "Pytanie",
+				"1": "Uratowałeś [character] przed pewną śmiercią. Co niemal go/ją zabiło?",
+				"2": "Zwerbowałeś [character] do F.A.N.G. Co było potrzebne, żeby się zgodził/a?",
+				"3": "Zawdzięczasz życie [character]. Jak cię uratował/a?",
+				"4": "[character] nauczył/a cię kilku sztuczek. Jaka była najważniejsza lekcja?",
+				"5": "Nie pozwolisz [character] zobaczyć swojej porażki. Co najbardziej szanujesz w nim/niej?",
+				"6": "Nie pozwolisz [character] zobaczyć swojej porażki. Co on/ona najbardziej szanuje w tobie?"
+			},
+			"Character": {
+				"Label": "Zaangażowana Postać"
+			},
+			"Description": {
+				"Label": "Notatki Sceny"
+			},
+			"RollMessage": {
+				"title": "Retrospekcja",
+				"contextLabel": "Kontekst: ",
+				"questionLabel": "Pytanie: ",
+				"characterLabel": "Zaangażowana Postać: ",
+				"descriptionLabel": "Notatki Sceny: ",
+				"rollLabel": "Rzucam ponownie z +2 kości!"
+			}
+		},
+		"Dialog": {
+			"ThreatRoll": {
+				"attackRatingLabel": "Poziom Ataku"
+			}
+		}
+	}
+}
