@@ -60,7 +60,7 @@
 				"advancements": "Advancements",
 				"injuries": {
 					"label": "Injuries",
-					"rollMessage": "You rolled a <span class='etr-die'>{dice}</span> <br> <strong>GM Attack Dice < 3:</strong> Tick off the first unchecked box in the <strong>{category}</strong> category.<br><strong>GM Attack Dice >= 3:</strong> You are taken down. Mark off all available boxes in the <strong>{category}</strong> category.<hr><em>If both boxes are already marked, pick an alternate category.</em>",
+					"rollMessage": "You rolled a <span class='etr-die'>{dice}</span> <br> <strong>GM Attack Dice < 3:</strong> Tick off the first unchecked box in the <strong>{category}</strong> category.<br><strong>GM Attack Dice >= 3:</strong> You are taken down. Mark off all available boxes in the <strong>{category}</strong> category.<hr> <em>If both boxes are already marked, pick an alternate category.</em>",
 					"oneTwo": "1-2",
 					"threeFour": "3-4",
 					"fiveSix": "5-6"
