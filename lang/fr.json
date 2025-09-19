@@ -68,8 +68,8 @@
 				"lastStand": "Barroud d'honneur",
 				"Stats": {
 					"label": "Stats",
-					"initial": "Init.",
-					"current": "Act."
+					"initial": "Init",
+					"current": "Act"
 				}
 			},
 			"NPC": {
@@ -81,7 +81,7 @@
 				},
 				"FIELDS": {
 					"isUbermenschen": {
-						"label": "Übermensch"
+						"label": "Übermenschen"
 					},
 					"attack": {
 						"label": "Attaque",
@@ -106,7 +106,7 @@
 			"equipment": "Dés d’Équipements",
 			"abilities": "Dés d'Aptitudes",
 			"injuries": "Vos Blessures",
-			"penalty": "Pénalité : ",
+			"penalty": "Pénalité:",
 			"gmRoll": "Jet du MJ",
 			"lastStandRoll": "Jet de Barroud d'honneur",
 			"Categories": {
