@@ -59,14 +59,20 @@ https://github.com/philote/eat-the-reich/releases/latest/download/system.json
     - Dice can be marked as used in the chat
     - flashback re-rolling
 - Supports light and dark modes
-- [Nicoloye](https://github.com/Nicoloye) added a French translation
+- Languages:
+    - English
+    - [Nicoloye](https://github.com/Nicoloye) added a French translation
+    - Español
+    - Polski
+    - Português (Brasil)
+    - Italiano
 - Compendium:
     - Pre-made characters with their items
     - Paris map scene
 
 ### TODO
 - Styling
-    - GM rolls should be different style than player rolls in chat
+    - GM rolls could be a different style than player rolls in chat
     - custom dice images for Dice so Nice
 - Macros
     - PC roll without stats
