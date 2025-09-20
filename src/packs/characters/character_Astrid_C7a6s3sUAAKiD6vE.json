@@ -6,35 +6,35 @@
     "description": {
       "value": ""
     },
-    "shortDescription": "",
+    "shortDescription": "Ex-fighter pilot, bitten by something after a crash in the frozen taiga The parasite soul of a wild predator is nestled around your heart Now ancient magic flows in your blood and wild spirits bow to you (But in case that fails, you also have a machine gun)",
     "stats": {
       "Brawl": {
-        "value": 1,
-        "current": 1
+        "value": 3,
+        "current": 3
       },
       "Con": {
         "value": 1,
         "current": 1
       },
       "Fix": {
-        "value": 1,
-        "current": 1
+        "value": 2,
+        "current": 2
       },
       "Search": {
-        "value": 1,
-        "current": 1
+        "value": 3,
+        "current": 3
       },
       "Shoot": {
-        "value": 1,
-        "current": 1
+        "value": 2,
+        "current": 2
       },
       "Sneak": {
-        "value": 1,
-        "current": 1
+        "value": 2,
+        "current": 2
       },
       "Terrify": {
-        "value": 1,
-        "current": 1
+        "value": 4,
+        "current": 4
       }
     },
     "blood": {
@@ -44,40 +44,40 @@
     "injuries": {
       "oneTwo": {
         "first": {
-          "name": "",
+          "name": "SPIRITS COWED",
           "selected": false
         },
         "second": {
-          "name": "",
+          "name": "SPIRITS CAST OUT",
           "selected": false,
-          "penalty": ""
+          "penalty": "(Can't trigger Specials)"
         }
       },
       "threeFour": {
         "first": {
-          "name": "",
+          "name": "BLOW TO THE HEAD",
           "selected": false
         },
         "second": {
-          "name": "",
+          "name": "BLEEDING OUT",
           "selected": false,
-          "penalty": ""
+          "penalty": "(+2 SNEAK, -2 TERRIFY)"
         }
       },
       "fiveSix": {
         "first": {
-          "name": "",
+          "name": "LIMPING",
           "selected": false
         },
         "second": {
-          "name": "",
+          "name": "RUINED LEG",
           "selected": false,
-          "penalty": ""
+          "penalty": "(-1 to all stats)"
         }
       }
     },
     "lastStand": {
-      "name": "",
+      "name": "UNLEASH THE SPIRITS",
       "dice": 8
     }
   },
@@ -175,7 +175,361 @@
     "appendNumber": false,
     "prependAdjective": false
   },
-  "items": [],
+  "items": [
+    {
+      "name": "Machine Gun",
+      "type": "equipment",
+      "_id": "H9xLiZWk8R6Wh5KY",
+      "img": "systems/eat-the-reich/assets/icons/backpack.svg",
+      "system": {
+        "bonus": {
+          "value": "+enemies in cover"
+        },
+        "uses": {
+          "value": 0,
+          "max": 4
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "aV8AFqIR9pchMMhe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.348",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1758331439157,
+        "modifiedTime": 1758331462403,
+        "lastModifiedBy": "aV8AFqIR9pchMMhe"
+      },
+      "_key": "!actors.items!C7a6s3sUAAKiD6vE.H9xLiZWk8R6Wh5KY"
+    },
+    {
+      "name": "Greatspear",
+      "type": "equipment",
+      "_id": "Vjf8bLYpvsWnDZSS",
+      "img": "systems/eat-the-reich/assets/icons/backpack.svg",
+      "system": {
+        "bonus": {
+          "value": "+receive a charge"
+        },
+        "uses": {
+          "value": 0,
+          "max": 4
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "aV8AFqIR9pchMMhe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.348",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1758331465332,
+        "modifiedTime": 1758331479204,
+        "lastModifiedBy": "aV8AFqIR9pchMMhe"
+      },
+      "_key": "!actors.items!C7a6s3sUAAKiD6vE.Vjf8bLYpvsWnDZSS"
+    },
+    {
+      "name": "Fragmentation Grenades",
+      "type": "equipment",
+      "_id": "CZGKbkWd3N4RPfD6",
+      "img": "systems/eat-the-reich/assets/icons/backpack.svg",
+      "system": {
+        "bonus": {
+          "value": "++enclosed spaces"
+        },
+        "uses": {
+          "value": 0,
+          "max": 2
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "aV8AFqIR9pchMMhe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.348",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1758331482140,
+        "modifiedTime": 1758331495248,
+        "lastModifiedBy": "aV8AFqIR9pchMMhe"
+      },
+      "_key": "!actors.items!C7a6s3sUAAKiD6vE.CZGKbkWd3N4RPfD6"
+    },
+    {
+      "name": "Spirit Fetters",
+      "type": "equipment",
+      "_id": "ZX063lICWvfyo45D",
+      "img": "systems/eat-the-reich/assets/icons/backpack.svg",
+      "system": {
+        "bonus": {
+          "value": "++animals"
+        },
+        "uses": {
+          "value": 0,
+          "max": 2
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "aV8AFqIR9pchMMhe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.348",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1758331497308,
+        "modifiedTime": 1758331510871,
+        "lastModifiedBy": "aV8AFqIR9pchMMhe"
+      },
+      "_key": "!actors.items!C7a6s3sUAAKiD6vE.ZX063lICWvfyo45D"
+    },
+    {
+      "name": "APEX PREDATOR",
+      "type": "ability",
+      "_id": "ghzZqJNHCEmMwNF6",
+      "img": "systems/eat-the-reich/assets/icons/skills.svg",
+      "system": {
+        "bonus": {
+          "value": ""
+        },
+        "description": {
+          "value": "SPECIAL: Reduce a Threat's rating by 3."
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "aV8AFqIR9pchMMhe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.348",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1758331568960,
+        "modifiedTime": 1758331581631,
+        "lastModifiedBy": "aV8AFqIR9pchMMhe"
+      },
+      "_key": "!actors.items!C7a6s3sUAAKiD6vE.ghzZqJNHCEmMwNF6"
+    },
+    {
+      "name": "UNNATURAL ENDURANCE",
+      "type": "ability",
+      "_id": "cNibhG4DrLUsPwEQ",
+      "img": "systems/eat-the-reich/assets/icons/skills.svg",
+      "system": {
+        "bonus": {
+          "value": ""
+        },
+        "description": {
+          "value": "SPECIAL: Reduce the GM's Attack dice by 3."
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "aV8AFqIR9pchMMhe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.348",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1758331591007,
+        "modifiedTime": 1758331600795,
+        "lastModifiedBy": "aV8AFqIR9pchMMhe"
+      },
+      "_key": "!actors.items!C7a6s3sUAAKiD6vE.cNibhG4DrLUsPwEQ"
+    },
+    {
+      "name": "BLOODHUNT",
+      "type": "ability",
+      "_id": "ROxbNZPOdlbG0Z8n",
+      "img": "systems/eat-the-reich/assets/icons/skills.svg",
+      "system": {
+        "bonus": {
+          "value": "+target fleein"
+        },
+        "description": {
+          "value": "Spend 1 Blood; track targets or search for things using your sense of smell."
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "aV8AFqIR9pchMMhe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.348",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1758331607708,
+        "modifiedTime": 1758331622700,
+        "lastModifiedBy": "aV8AFqIR9pchMMhe"
+      },
+      "_key": "!actors.items!C7a6s3sUAAKiD6vE.ROxbNZPOdlbG0Z8n"
+    },
+    {
+      "name": "NIGHTMARE REGENERATION",
+      "type": "advance",
+      "_id": "b9TVJFsicMeFgTd9",
+      "img": "systems/eat-the-reich/assets/icons/upgrade.svg",
+      "system": {
+        "bonus": {
+          "value": ""
+        },
+        "description": {
+          "value": "SPECIAL: Clear a marked injury."
+        },
+        "selected": {
+          "value": false
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "aV8AFqIR9pchMMhe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.348",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1758331634829,
+        "modifiedTime": 1758331645352,
+        "lastModifiedBy": "aV8AFqIR9pchMMhe"
+      },
+      "_key": "!actors.items!C7a6s3sUAAKiD6vE.b9TVJFsicMeFgTd9"
+    },
+    {
+      "name": "SPIRIT STORM",
+      "type": "advance",
+      "_id": "rROMwmLIIlvSNnOg",
+      "img": "systems/eat-the-reich/assets/icons/upgrade.svg",
+      "system": {
+        "bonus": {
+          "value": "++something sharp AND heavy"
+        },
+        "description": {
+          "value": "Spend 1 Blood; hurl items like a poltergeist."
+        },
+        "selected": {
+          "value": false
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "aV8AFqIR9pchMMhe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.348",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1758331647406,
+        "modifiedTime": 1758331665148,
+        "lastModifiedBy": "aV8AFqIR9pchMMhe"
+      },
+      "_key": "!actors.items!C7a6s3sUAAKiD6vE.rROMwmLIIlvSNnOg"
+    },
+    {
+      "name": "TETHERED PHANTOM",
+      "type": "advance",
+      "_id": "hh9hafq6NzZJzLjt",
+      "img": "systems/eat-the-reich/assets/icons/upgrade.svg",
+      "system": {
+        "bonus": {
+          "value": ""
+        },
+        "description": {
+          "value": "Spend 1 Blood; reduce an Objective or Threat's Challenge by 1 until the end of the round."
+        },
+        "selected": {
+          "value": false
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "aV8AFqIR9pchMMhe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.348",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1758331667001,
+        "modifiedTime": 1758331681643,
+        "lastModifiedBy": "aV8AFqIR9pchMMhe"
+      },
+      "_key": "!actors.items!C7a6s3sUAAKiD6vE.hh9hafq6NzZJzLjt"
+    }
+  ],
   "effects": [],
   "folder": null,
   "ownership": {
@@ -187,12 +541,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.347",
+    "coreVersion": "13.348",
     "systemId": "eat-the-reich",
     "systemVersion": "#{VERSION}#",
     "createdTime": 1756266538176,
-    "modifiedTime": 1756268571421,
-    "lastModifiedBy": "fjrX5cSTDBHGMEul"
+    "modifiedTime": 1758331744646,
+    "lastModifiedBy": "aV8AFqIR9pchMMhe"
   },
   "_id": "C7a6s3sUAAKiD6vE",
   "sort": 100000,

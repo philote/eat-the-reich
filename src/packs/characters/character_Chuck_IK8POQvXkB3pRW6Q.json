@@ -6,35 +6,35 @@
     "description": {
       "value": ""
     },
-    "shortDescription": "",
+    "shortDescription": "Grew up on the wrong side of the tracks, buried a sibling or two You love cowboy movies, honest work, human liver and the wide open plains You're a genuinely decent guy, apart from the \"eating people\" bit F.A.N.G. pulled you out of jail after you ate a county sheriff and half his deputy Now you're fighting for freedom, rather than just to survive",
     "stats": {
       "Brawl": {
-        "value": 1,
-        "current": 1
+        "value": 3,
+        "current": 3
       },
       "Con": {
         "value": 1,
         "current": 1
       },
       "Fix": {
-        "value": 1,
-        "current": 1
+        "value": 4,
+        "current": 4
       },
       "Search": {
-        "value": 1,
-        "current": 1
+        "value": 2,
+        "current": 2
       },
       "Shoot": {
-        "value": 1,
-        "current": 1
+        "value": 3,
+        "current": 3
       },
       "Sneak": {
-        "value": 1,
-        "current": 1
+        "value": 2,
+        "current": 2
       },
       "Terrify": {
-        "value": 1,
-        "current": 1
+        "value": 2,
+        "current": 2
       }
     },
     "blood": {
@@ -44,40 +44,40 @@
     "injuries": {
       "oneTwo": {
         "first": {
-          "name": "",
+          "name": "FLESH WOUND",
           "selected": false
         },
         "second": {
-          "name": "",
+          "name": "SHOT FULLA HOLES",
           "selected": false,
-          "penalty": ""
+          "penalty": "(Spend 1 Blood at the start of your turn)"
         }
       },
       "threeFour": {
         "first": {
-          "name": "",
+          "name": "LIMPING",
           "selected": false
         },
         "second": {
-          "name": "",
+          "name": "CRAWLING",
           "selected": false,
-          "penalty": ""
+          "penalty": "(-1 to all stats)"
         }
       },
       "fiveSix": {
         "first": {
-          "name": "",
+          "name": "MAULED",
           "selected": false
         },
         "second": {
-          "name": "",
+          "name": "EVISCERATED",
           "selected": false,
-          "penalty": ""
+          "penalty": "(Can't gain + dice)"
         }
       }
     },
     "lastStand": {
-      "name": "",
+      "name": "GO DOWN SHOOTING",
       "dice": 8
     }
   },
@@ -175,7 +175,326 @@
     "appendNumber": false,
     "prependAdjective": false
   },
-  "items": [],
+  "items": [
+    {
+      "name": "Paired revolvers, Betsy and Maria",
+      "type": "equipment",
+      "_id": "82UGQ1vU3COVh35q",
+      "img": "systems/eat-the-reich/assets/icons/backpack.svg",
+      "system": {
+        "bonus": {
+          "value": "+duel"
+        },
+        "uses": {
+          "value": 0,
+          "max": 5
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "aV8AFqIR9pchMMhe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.348",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1758331086013,
+        "modifiedTime": 1758331111237,
+        "lastModifiedBy": "aV8AFqIR9pchMMhe"
+      },
+      "_key": "!actors.items!IK8POQvXkB3pRW6Q.82UGQ1vU3COVh35q"
+    },
+    {
+      "name": "Tool Belt",
+      "type": "equipment",
+      "_id": "PAUAqPvThhPYsy73",
+      "img": "systems/eat-the-reich/assets/icons/backpack.svg",
+      "system": {
+        "bonus": {
+          "value": "+Jerry-rigging"
+        },
+        "uses": {
+          "value": 0,
+          "max": 4
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "aV8AFqIR9pchMMhe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.348",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1758331116137,
+        "modifiedTime": 1758331138891,
+        "lastModifiedBy": "aV8AFqIR9pchMMhe"
+      },
+      "_key": "!actors.items!IK8POQvXkB3pRW6Q.PAUAqPvThhPYsy73"
+    },
+    {
+      "name": "Cowboy Hat",
+      "type": "equipment",
+      "_id": "WKyoL0xQryLi4jqM",
+      "img": "systems/eat-the-reich/assets/icons/backpack.svg",
+      "system": {
+        "bonus": {
+          "value": "mark to ignore an Injury or being Downed; hat is destroyed"
+        },
+        "uses": {
+          "value": 0,
+          "max": 1
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "aV8AFqIR9pchMMhe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.348",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1758331141374,
+        "modifiedTime": 1758331164563,
+        "lastModifiedBy": "aV8AFqIR9pchMMhe"
+      },
+      "_key": "!actors.items!IK8POQvXkB3pRW6Q.WKyoL0xQryLi4jqM"
+    },
+    {
+      "name": "ACID SPIT",
+      "type": "ability",
+      "_id": "kznSBQ7t1kMEM05w",
+      "img": "systems/eat-the-reich/assets/icons/skills.svg",
+      "system": {
+        "bonus": {
+          "value": "++vs metal"
+        },
+        "description": {
+          "value": "Spend 1 Blood; hawk up a gutful of fierce acid."
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "aV8AFqIR9pchMMhe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.348",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1758331195173,
+        "modifiedTime": 1758331212238,
+        "lastModifiedBy": "aV8AFqIR9pchMMhe"
+      },
+      "_key": "!actors.items!IK8POQvXkB3pRW6Q.kznSBQ7t1kMEM05w"
+    },
+    {
+      "name": "SPIDER SCURRY",
+      "type": "ability",
+      "_id": "LsRncrqHg0YSTETL",
+      "img": "systems/eat-the-reich/assets/icons/skills.svg",
+      "system": {
+        "bonus": {
+          "value": "+low ceilings"
+        },
+        "description": {
+          "value": "Spend 1 Blood; skitter across ceilings and up walls."
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "aV8AFqIR9pchMMhe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.348",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1758331215117,
+        "modifiedTime": 1758331234661,
+        "lastModifiedBy": "aV8AFqIR9pchMMhe"
+      },
+      "_key": "!actors.items!IK8POQvXkB3pRW6Q.LsRncrqHg0YSTETL"
+    },
+    {
+      "name": "CORPSE EATER",
+      "type": "ability",
+      "_id": "ty1whHxgC3hu8gYH",
+      "img": "systems/eat-the-reich/assets/icons/skills.svg",
+      "system": {
+        "bonus": {
+          "value": ""
+        },
+        "description": {
+          "value": "Before you discard dice after you roll your pool, gain 1 Blood if you rolled any 1s."
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "aV8AFqIR9pchMMhe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.348",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1758331242328,
+        "modifiedTime": 1758331251743,
+        "lastModifiedBy": "aV8AFqIR9pchMMhe"
+      },
+      "_key": "!actors.items!IK8POQvXkB3pRW6Q.ty1whHxgC3hu8gYH"
+    },
+    {
+      "name": "ELBOW GREASE",
+      "type": "advance",
+      "_id": "9Gb6r67khPFCNvTT",
+      "img": "systems/eat-the-reich/assets/icons/upgrade.svg",
+      "system": {
+        "bonus": {
+          "value": ""
+        },
+        "description": {
+          "value": "When you roll up your sleeves and take on an Objective single-handed with the FIX skill, gain SPECIAL: reduce the Objective's rating by 4."
+        },
+        "selected": {
+          "value": false
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "aV8AFqIR9pchMMhe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.348",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1758331257079,
+        "modifiedTime": 1758331269919,
+        "lastModifiedBy": "aV8AFqIR9pchMMhe"
+      },
+      "_key": "!actors.items!IK8POQvXkB3pRW6Q.9Gb6r67khPFCNvTT"
+    },
+    {
+      "name": "CORROSIVE FLUIDS",
+      "type": "advance",
+      "_id": "gKoNYehSYJEBtwBr",
+      "img": "systems/eat-the-reich/assets/icons/upgrade.svg",
+      "system": {
+        "bonus": {
+          "value": ""
+        },
+        "description": {
+          "value": "When you mark an Injury, reduce the rating of a Threat you're engaged with by 2."
+        },
+        "selected": {
+          "value": false
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "aV8AFqIR9pchMMhe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.348",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1758331278313,
+        "modifiedTime": 1758331288925,
+        "lastModifiedBy": "aV8AFqIR9pchMMhe"
+      },
+      "_key": "!actors.items!IK8POQvXkB3pRW6Q.gKoNYehSYJEBtwBr"
+    },
+    {
+      "name": "LASHING TONGUE",
+      "type": "advance",
+      "_id": "ec5VgFnbjwstbHl6",
+      "img": "systems/eat-the-reich/assets/icons/upgrade.svg",
+      "system": {
+        "bonus": {
+          "value": "+restrain"
+        },
+        "description": {
+          "value": "Spend 1 Blood: your strong, prehensile tongue extends several yards out of your mouth."
+        },
+        "selected": {
+          "value": false
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "aV8AFqIR9pchMMhe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.348",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1758331290909,
+        "modifiedTime": 1758331308750,
+        "lastModifiedBy": "aV8AFqIR9pchMMhe"
+      },
+      "_key": "!actors.items!IK8POQvXkB3pRW6Q.ec5VgFnbjwstbHl6"
+    }
+  ],
   "effects": [],
   "folder": null,
   "ownership": {
@@ -187,12 +506,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.347",
+    "coreVersion": "13.348",
     "systemId": "eat-the-reich",
     "systemVersion": "#{VERSION}#",
     "createdTime": 1756266540260,
-    "modifiedTime": 1756268699085,
-    "lastModifiedBy": "fjrX5cSTDBHGMEul"
+    "modifiedTime": 1758331367150,
+    "lastModifiedBy": "aV8AFqIR9pchMMhe"
   },
   "_id": "IK8POQvXkB3pRW6Q",
   "sort": 300000,

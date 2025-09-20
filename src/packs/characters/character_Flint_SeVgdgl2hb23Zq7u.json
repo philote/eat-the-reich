@@ -6,35 +6,35 @@
     "description": {
       "value": ""
     },
-    "shortDescription": "",
+    "shortDescription": "Born in a cave, driven out by nazis Half-bat, half-human, all nightmare Monstrous hunter with a taste for blood May or may not be able to talk (possibly just shy)",
     "stats": {
       "Brawl": {
-        "value": 1,
-        "current": 1
+        "value": 4,
+        "current": 4
       },
       "Con": {
-        "value": 1,
-        "current": 1
+        "value": 2,
+        "current": 2
       },
       "Fix": {
-        "value": 1,
-        "current": 1
+        "value": 2,
+        "current": 2
       },
       "Search": {
-        "value": 1,
-        "current": 1
+        "value": 2,
+        "current": 2
       },
       "Shoot": {
         "value": 1,
         "current": 1
       },
       "Sneak": {
-        "value": 1,
-        "current": 1
+        "value": 3,
+        "current": 3
       },
       "Terrify": {
-        "value": 1,
-        "current": 1
+        "value": 3,
+        "current": 3
       }
     },
     "blood": {
@@ -44,40 +44,40 @@
     "injuries": {
       "oneTwo": {
         "first": {
-          "name": "",
+          "name": "TEETH SMASHED",
           "selected": false
         },
         "second": {
-          "name": "",
+          "name": "JAW BROKEN",
           "selected": false,
-          "penalty": ""
+          "penalty": "(Can't gain Blood from nazis)"
         }
       },
       "threeFour": {
         "first": {
-          "name": "",
+          "name": "SPOOKED",
           "selected": false
         },
         "second": {
-          "name": "",
+          "name": "BROKEN",
           "selected": false,
-          "penalty": ""
+          "penalty": "(+2 SEARCH, -2 BRAWL)"
         }
       },
       "fiveSix": {
         "first": {
-          "name": "",
+          "name": "MAULED",
           "selected": false
         },
         "second": {
-          "name": "",
+          "name": "EVISCERATED",
           "selected": false,
-          "penalty": ""
+          "penalty": "(Can't gain + dice)"
         }
       }
     },
     "lastStand": {
-      "name": "",
+      "name": "FINAL FORM",
       "dice": 8
     }
   },
@@ -175,7 +175,325 @@
     "appendNumber": false,
     "prependAdjective": false
   },
-  "items": [],
+  "items": [
+    {
+      "name": "Steel gouging claws",
+      "type": "equipment",
+      "_id": "AzUPpJEPzdghSptW",
+      "img": "systems/eat-the-reich/assets/icons/backpack.svg",
+      "system": {
+        "bonus": {
+          "value": "+ambush"
+        },
+        "uses": {
+          "value": 0,
+          "max": 4
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "aV8AFqIR9pchMMhe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.348",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1758331893617,
+        "modifiedTime": 1758331908387,
+        "lastModifiedBy": "aV8AFqIR9pchMMhe"
+      },
+      "_key": "!actors.items!SeVgdgl2hb23Zq7u.AzUPpJEPzdghSptW"
+    },
+    {
+      "name": "Grappling hook",
+      "type": "equipment",
+      "_id": "gqk4q6xaXZMI0n0W",
+      "img": "systems/eat-the-reich/assets/icons/backpack.svg",
+      "system": {
+        "bonus": {
+          "value": "++three or more storeys"
+        },
+        "uses": {
+          "value": 0,
+          "max": 3
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "aV8AFqIR9pchMMhe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.348",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1758331910938,
+        "modifiedTime": 1758331925804,
+        "lastModifiedBy": "aV8AFqIR9pchMMhe"
+      },
+      "_key": "!actors.items!SeVgdgl2hb23Zq7u.gqk4q6xaXZMI0n0W"
+    },
+    {
+      "name": "RAVENOUS",
+      "type": "ability",
+      "_id": "DNTXP4qJLq5tBvFU",
+      "img": "systems/eat-the-reich/assets/icons/skills.svg",
+      "system": {
+        "bonus": {
+          "value": ""
+        },
+        "description": {
+          "value": "When you're in melee combat, SPECIAL: gain 3 Blood."
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "aV8AFqIR9pchMMhe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.348",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1758331937102,
+        "modifiedTime": 1758331945114,
+        "lastModifiedBy": "aV8AFqIR9pchMMhe"
+      },
+      "_key": "!actors.items!SeVgdgl2hb23Zq7u.DNTXP4qJLq5tBvFU"
+    },
+    {
+      "name": "SENSE HEARTBEAT",
+      "type": "ability",
+      "_id": "yg2NnrJQCywyOYoX",
+      "img": "systems/eat-the-reich/assets/icons/skills.svg",
+      "system": {
+        "bonus": {
+          "value": "+dense cover"
+        },
+        "description": {
+          "value": "Spend 1 Blood: you can see the heartbeats of living beings through walls and other obstacles."
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "aV8AFqIR9pchMMhe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.348",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1758331947396,
+        "modifiedTime": 1758331963794,
+        "lastModifiedBy": "aV8AFqIR9pchMMhe"
+      },
+      "_key": "!actors.items!SeVgdgl2hb23Zq7u.yg2NnrJQCywyOYoX"
+    },
+    {
+      "name": "IMPROVISED PROJECTILE",
+      "type": "ability",
+      "_id": "4FW3n69u4IsSznaP",
+      "img": "systems/eat-the-reich/assets/icons/skills.svg",
+      "system": {
+        "bonus": {
+          "value": "+aerodynamic"
+        },
+        "description": {
+          "value": "Spend 1 Blood; chuck something large and heavy a surprising distance."
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "aV8AFqIR9pchMMhe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.348",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1758331965596,
+        "modifiedTime": 1758331980534,
+        "lastModifiedBy": "aV8AFqIR9pchMMhe"
+      },
+      "_key": "!actors.items!SeVgdgl2hb23Zq7u.4FW3n69u4IsSznaP"
+    },
+    {
+      "name": "WINGS",
+      "type": "ability",
+      "_id": "GEaWif3XFK5jQ1Tn",
+      "img": "systems/eat-the-reich/assets/icons/skills.svg",
+      "system": {
+        "bonus": {
+          "value": "+aerial combat"
+        },
+        "description": {
+          "value": "Spend 1 Blood: you can fly."
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "aV8AFqIR9pchMMhe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.348",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1758331987705,
+        "modifiedTime": 1758332000093,
+        "lastModifiedBy": "aV8AFqIR9pchMMhe"
+      },
+      "_key": "!actors.items!SeVgdgl2hb23Zq7u.GEaWif3XFK5jQ1Tn"
+    },
+    {
+      "name": "HELLISH SCREECH",
+      "type": "advance",
+      "_id": "Sd6bU4fx9OO6b8gi",
+      "img": "systems/eat-the-reich/assets/icons/upgrade.svg",
+      "system": {
+        "bonus": {
+          "value": ""
+        },
+        "description": {
+          "value": "Spend 2 Blood; reduce a Threat's Difficulty by 1."
+        },
+        "selected": {
+          "value": false
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "aV8AFqIR9pchMMhe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.348",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1758332013912,
+        "modifiedTime": 1758332023300,
+        "lastModifiedBy": "aV8AFqIR9pchMMhe"
+      },
+      "_key": "!actors.items!SeVgdgl2hb23Zq7u.Sd6bU4fx9OO6b8gi"
+    },
+    {
+      "name": "BONE ARMOUR",
+      "type": "advance",
+      "_id": "vlNe34W4Gz22UkpK",
+      "img": "systems/eat-the-reich/assets/icons/upgrade.svg",
+      "system": {
+        "bonus": {
+          "value": ""
+        },
+        "description": {
+          "value": "Before you discard dice after you roll your pool, reduce the GM's successful attack dice by 1 for each 1 you rolled."
+        },
+        "selected": {
+          "value": false
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "aV8AFqIR9pchMMhe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.348",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1758332024333,
+        "modifiedTime": 1758332038047,
+        "lastModifiedBy": "aV8AFqIR9pchMMhe"
+      },
+      "_key": "!actors.items!SeVgdgl2hb23Zq7u.vlNe34W4Gz22UkpK"
+    },
+    {
+      "name": "OOZE FORM",
+      "type": "advance",
+      "_id": "BsfBKzucZmeHeCmi",
+      "img": "systems/eat-the-reich/assets/icons/upgrade.svg",
+      "system": {
+        "bonus": {
+          "value": "+it's in the walls!"
+        },
+        "description": {
+          "value": "Spend 1 Blood: squeeze through gaps, glop around, etc."
+        },
+        "selected": {
+          "value": false
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "aV8AFqIR9pchMMhe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.348",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1758332040030,
+        "modifiedTime": 1758332057024,
+        "lastModifiedBy": "aV8AFqIR9pchMMhe"
+      },
+      "_key": "!actors.items!SeVgdgl2hb23Zq7u.BsfBKzucZmeHeCmi"
+    }
+  ],
   "effects": [],
   "folder": null,
   "ownership": {
@@ -187,12 +505,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.347",
+    "coreVersion": "13.348",
     "systemId": "eat-the-reich",
     "systemVersion": "#{VERSION}#",
     "createdTime": 1756266541994,
-    "modifiedTime": 1756268775234,
-    "lastModifiedBy": "fjrX5cSTDBHGMEul"
+    "modifiedTime": 1758332113505,
+    "lastModifiedBy": "aV8AFqIR9pchMMhe"
   },
   "_id": "SeVgdgl2hb23Zq7u",
   "sort": 200000,

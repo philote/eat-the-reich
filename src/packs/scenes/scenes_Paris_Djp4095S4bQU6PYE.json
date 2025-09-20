@@ -16,7 +16,7 @@
   },
   "foreground": null,
   "foregroundElevation": null,
-  "thumb": "worlds/eat-the-reich/assets/scenes/MjWgvS8UGtR8So0v-thumb.webp",
+  "thumb": "worlds/etr/assets/scenes/d5DcLEev1VKwa5Lt-thumb.webp",
   "width": 3840,
   "height": 2374,
   "padding": 0.25,
@@ -99,21 +99,21 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.347",
+    "coreVersion": "13.348",
     "systemId": "eat-the-reich",
     "systemVersion": "#{VERSION}#",
-    "createdTime": 1756266599256,
-    "modifiedTime": 1756266599256,
-    "lastModifiedBy": "fjrX5cSTDBHGMEul"
+    "createdTime": 1758332210500,
+    "modifiedTime": 1758332210500,
+    "lastModifiedBy": "aV8AFqIR9pchMMhe"
   },
   "navName": "",
   "ownership": {
     "default": 0,
-    "fjrX5cSTDBHGMEul": 3
+    "aV8AFqIR9pchMMhe": 3
   },
   "navOrder": 0,
-  "_id": "xMQesGOQ9uQ3hV5h",
+  "_id": "Djp4095S4bQU6PYE",
   "active": false,
   "sort": 0,
-  "_key": "!scenes!xMQesGOQ9uQ3hV5h"
+  "_key": "!scenes!Djp4095S4bQU6PYE"
 }

@@ -45,40 +45,40 @@
     "injuries": {
       "oneTwo": {
         "first": {
-          "name": "",
+          "name": "LOST SOME FINGERS",
           "selected": false
         },
         "second": {
-          "name": "",
+          "name": "ARM RIPPED OFF",
           "selected": false,
-          "penalty": ""
+          "penalty": "(-1 to all stats)"
         }
       },
       "threeFour": {
         "first": {
-          "name": "",
+          "name": "SUCKING CHEST WOUND",
           "selected": false
         },
         "second": {
-          "name": "",
+          "name": "SHOT IN THE FACE",
           "selected": false,
-          "penalty": ""
+          "penalty": "(+2 TERRIFY, -2 CON)"
         }
       },
       "fiveSix": {
         "first": {
-          "name": "",
+          "name": "GRIMOIRE DAMAGED",
           "selected": false
         },
         "second": {
-          "name": "",
+          "name": "WARDS COMPROMISED",
           "selected": false,
-          "penalty": ""
+          "penalty": "(Can't spend Blood to use abilities)"
         }
       }
     },
     "lastStand": {
-      "name": "",
+      "name": "UNDEAD HORDE",
       "dice": 8
     }
   },
@@ -176,7 +176,361 @@
     "appendNumber": false,
     "prependAdjective": false
   },
-  "items": [],
+  "items": [
+    {
+      "name": "Enormous knife",
+      "type": "equipment",
+      "_id": "ta9VQy5oFUotUpOE",
+      "img": "systems/eat-the-reich/assets/icons/backpack.svg",
+      "system": {
+        "bonus": {
+          "value": "+never saw you coming"
+        },
+        "uses": {
+          "value": 0,
+          "max": 4
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "aV8AFqIR9pchMMhe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.348",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1758330539716,
+        "modifiedTime": 1758330781523,
+        "lastModifiedBy": "aV8AFqIR9pchMMhe"
+      },
+      "_key": "!actors.items!4aXvDt63CihdNdzP.ta9VQy5oFUotUpOE"
+    },
+    {
+      "name": "Sawn-off shotgun",
+      "type": "equipment",
+      "_id": "JmrzshRND0u9B0dN",
+      "img": "systems/eat-the-reich/assets/icons/backpack.svg",
+      "system": {
+        "bonus": {
+          "value": "++point-blank"
+        },
+        "uses": {
+          "value": 0,
+          "max": 3
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "aV8AFqIR9pchMMhe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.348",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1758330586690,
+        "modifiedTime": 1758330790664,
+        "lastModifiedBy": "aV8AFqIR9pchMMhe"
+      },
+      "_key": "!actors.items!4aXvDt63CihdNdzP.JmrzshRND0u9B0dN"
+    },
+    {
+      "name": "Bottled Ghosts",
+      "type": "equipment",
+      "_id": "mmyJyJmrzE1pemNg",
+      "img": "systems/eat-the-reich/assets/icons/backpack.svg",
+      "system": {
+        "bonus": {
+          "value": "++pass through walls"
+        },
+        "uses": {
+          "value": 0,
+          "max": 2
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "aV8AFqIR9pchMMhe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.348",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1758330640157,
+        "modifiedTime": 1758330796481,
+        "lastModifiedBy": "aV8AFqIR9pchMMhe"
+      },
+      "_key": "!actors.items!4aXvDt63CihdNdzP.mmyJyJmrzE1pemNg"
+    },
+    {
+      "name": "Mother Millicent's stolen soul jar",
+      "type": "equipment",
+      "_id": "fEA86GA8m3h0NkPu",
+      "img": "systems/eat-the-reich/assets/icons/backpack.svg",
+      "system": {
+        "bonus": {
+          "value": "+++any"
+        },
+        "uses": {
+          "value": 0,
+          "max": 1
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "aV8AFqIR9pchMMhe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.348",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1758330663320,
+        "modifiedTime": 1758330802130,
+        "lastModifiedBy": "aV8AFqIR9pchMMhe"
+      },
+      "_key": "!actors.items!4aXvDt63CihdNdzP.fEA86GA8m3h0NkPu"
+    },
+    {
+      "name": "DANSE MACABRE",
+      "type": "ability",
+      "_id": "HFL3ETIqWsiuY3zT",
+      "img": "systems/eat-the-reich/assets/icons/skills.svg",
+      "system": {
+        "bonus": {
+          "value": "+\"Hans, are you okay?\""
+        },
+        "description": {
+          "value": "Spend 1 Blood to gain full control of a corpse for around a minute, after which it falls apart."
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "aV8AFqIR9pchMMhe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.348",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1758330739912,
+        "modifiedTime": 1758330767751,
+        "lastModifiedBy": "aV8AFqIR9pchMMhe"
+      },
+      "_key": "!actors.items!4aXvDt63CihdNdzP.HFL3ETIqWsiuY3zT"
+    },
+    {
+      "name": "BACK-POCKET HEX",
+      "type": "ability",
+      "_id": "eTMRfbd45fDGQCkT",
+      "img": "systems/eat-the-reich/assets/icons/skills.svg",
+      "system": {
+        "bonus": {
+          "value": ""
+        },
+        "description": {
+          "value": "SPECIAL: Reduce a Threat's Attack rating by 1."
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "aV8AFqIR9pchMMhe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.348",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1758330823950,
+        "modifiedTime": 1758330838461,
+        "lastModifiedBy": "aV8AFqIR9pchMMhe"
+      },
+      "_key": "!actors.items!4aXvDt63CihdNdzP.eTMRfbd45fDGQCkT"
+    },
+    {
+      "name": "PHANTASMAGORIA",
+      "type": "ability",
+      "_id": "DntyShkn1zboWaZS",
+      "img": "systems/eat-the-reich/assets/icons/skills.svg",
+      "system": {
+        "bonus": {
+          "value": "+incorporates the background in a clever way"
+        },
+        "description": {
+          "value": "Spend 1 Blood to conjure nightmare illusions in the area immediately around you."
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "aV8AFqIR9pchMMhe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.348",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1758330840881,
+        "modifiedTime": 1758330857974,
+        "lastModifiedBy": "aV8AFqIR9pchMMhe"
+      },
+      "_key": "!actors.items!4aXvDt63CihdNdzP.DntyShkn1zboWaZS"
+    },
+    {
+      "name": "MEMORY ROT",
+      "type": "advance",
+      "_id": "CynU0VarYiflSCDD",
+      "img": "systems/eat-the-reich/assets/icons/upgrade.svg",
+      "system": {
+        "bonus": {
+          "value": "+you were never here"
+        },
+        "description": {
+          "value": "Spend 1 Blood to remove or implant memories from someone you lock eyes with."
+        },
+        "selected": {
+          "value": false
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "aV8AFqIR9pchMMhe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.348",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1758330869760,
+        "modifiedTime": 1758330888580,
+        "lastModifiedBy": "aV8AFqIR9pchMMhe"
+      },
+      "_key": "!actors.items!4aXvDt63CihdNdzP.CynU0VarYiflSCDD"
+    },
+    {
+      "name": "DEATH BURST",
+      "type": "advance",
+      "_id": "1gaCgxYrc7NjrWnx",
+      "img": "systems/eat-the-reich/assets/icons/upgrade.svg",
+      "system": {
+        "bonus": {
+          "value": "++enclosed spaces"
+        },
+        "description": {
+          "value": "Spend 1 Blood to curse a nazi within arm's reach to explode when they die"
+        },
+        "selected": {
+          "value": false
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "aV8AFqIR9pchMMhe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.348",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1758330891414,
+        "modifiedTime": 1758330908761,
+        "lastModifiedBy": "aV8AFqIR9pchMMhe"
+      },
+      "_key": "!actors.items!4aXvDt63CihdNdzP.1gaCgxYrc7NjrWnx"
+    },
+    {
+      "name": "DEAD MAN'S LUCK",
+      "type": "advance",
+      "_id": "vpHvp8pSKiJaur7S",
+      "img": "systems/eat-the-reich/assets/icons/upgrade.svg",
+      "system": {
+        "bonus": {
+          "value": ""
+        },
+        "description": {
+          "value": "Before you discard dice after you roll your pool, reduce the GM's successful Attack dice by 1 for each 1 you rolled."
+        },
+        "selected": {
+          "value": false
+        }
+      },
+      "effects": [],
+      "folder": null,
+      "sort": 0,
+      "ownership": {
+        "default": 0,
+        "aV8AFqIR9pchMMhe": 3
+      },
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.348",
+        "systemId": "eat-the-reich",
+        "systemVersion": "#{VERSION}#",
+        "createdTime": 1758330911407,
+        "modifiedTime": 1758330922914,
+        "lastModifiedBy": "aV8AFqIR9pchMMhe"
+      },
+      "_key": "!actors.items!4aXvDt63CihdNdzP.vpHvp8pSKiJaur7S"
+    }
+  ],
   "effects": [],
   "folder": null,
   "sort": 0,
@@ -189,12 +543,12 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.347",
+    "coreVersion": "13.348",
     "systemId": "eat-the-reich",
     "systemVersion": "#{VERSION}#",
     "createdTime": 1756268408602,
-    "modifiedTime": 1756268838219,
-    "lastModifiedBy": "fjrX5cSTDBHGMEul"
+    "modifiedTime": 1758330995321,
+    "lastModifiedBy": "aV8AFqIR9pchMMhe"
   },
   "_key": "!actors!4aXvDt63CihdNdzP"
 }
