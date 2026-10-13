@@ -1,21 +1,6 @@
 {
   "name": "Paris",
   "navigation": false,
-  "background": {
-    "src": "systems/eat-the-reich/assets/scenes/paris-map.webp",
-    "anchorX": 0,
-    "anchorY": 0,
-    "offsetX": 0,
-    "offsetY": 0,
-    "fit": "fill",
-    "scaleX": 1,
-    "scaleY": 1,
-    "rotation": 0,
-    "tint": "#ffffff",
-    "alphaThreshold": 0
-  },
-  "foreground": null,
-  "foregroundElevation": null,
   "thumb": "systems/eat-the-reich/assets/scenes/paris-map-thumb.webp",
   "width": 3840,
   "height": 2374,
@@ -23,9 +8,8 @@
   "initial": {
     "x": 3060,
     "y": 1811,
-    "scale": 0.3439672091177253
+    "scale": 0.344
   },
-  "backgroundColor": "#000000",
   "grid": {
     "type": 0,
     "size": 100,
@@ -38,12 +22,11 @@
   },
   "tokenVision": false,
   "fog": {
-    "exploration": true,
-    "overlay": null,
     "colors": {
       "explored": null,
       "unexplored": null
-    }
+    },
+    "mode": 1
   },
   "environment": {
     "darknessLevel": 0,
@@ -85,7 +68,6 @@
   "notes": [],
   "sounds": [],
   "regions": [],
-  "templates": [],
   "tiles": [],
   "walls": [],
   "playlist": null,
@@ -99,11 +81,11 @@
     "compendiumSource": null,
     "duplicateSource": null,
     "exportSource": null,
-    "coreVersion": "13.348",
+    "coreVersion": "14.369",
     "systemId": "eat-the-reich",
     "systemVersion": "#{VERSION}#",
     "createdTime": 1758332210500,
-    "modifiedTime": 1758332210500,
+    "modifiedTime": 1791932721808,
     "lastModifiedBy": "aV8AFqIR9pchMMhe"
   },
   "navName": "",
@@ -115,5 +97,54 @@
   "_id": "Djp4095S4bQU6PYE",
   "active": false,
   "sort": 0,
-  "_key": "!scenes!Djp4095S4bQU6PYE"
+  "levels": [
+    {
+      "_id": "defaultLevel0000",
+      "name": "Paris",
+      "background": {
+        "color": "#000000",
+        "src": "systems/eat-the-reich/assets/scenes/paris-map.webp",
+        "tint": "#ffffff",
+        "alphaThreshold": 0.75
+      },
+      "elevation": {
+        "bottom": 0,
+        "top": null
+      },
+      "foreground": {
+        "src": null,
+        "tint": "#ffffff",
+        "alphaThreshold": 0.75
+      },
+      "fog": {
+        "src": null
+      },
+      "textures": {
+        "anchorX": 0.5,
+        "anchorY": 0.5,
+        "offsetX": 0,
+        "offsetY": 0,
+        "fit": "fill",
+        "scaleX": 1,
+        "scaleY": 1,
+        "rotation": 0
+      },
+      "visibility": {
+        "levels": []
+      },
+      "sort": 0,
+      "flags": {},
+      "_key": "!scenes.levels!Djp4095S4bQU6PYE.defaultLevel0000"
+    }
+  ],
+  "shiftX": 0,
+  "shiftY": 0,
+  "initialLevel": "defaultLevel0000",
+  "transition": {
+    "type": null,
+    "duration": 1500,
+    "activeOnly": false
+  },
+  "_key": "!scenes!Djp4095S4bQU6PYE",
+  "templates": []
 }

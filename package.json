@@ -16,7 +16,7 @@
   "license": "MIT",
   "private": true,
   "devDependencies": {
-    "@foundryvtt/foundryvtt-cli": "^1.0.3",
+    "@foundryvtt/foundryvtt-cli": "^3.0.5",
     "sass": "^1.53.0"
   }
 }
