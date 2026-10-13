@@ -4,8 +4,7 @@
 </p>
 
 <p align="center">
-    <img alt="Foundry Version 12 support" src="https://img.shields.io/badge/Foundry-v12-informational">
-    <img alt="Foundry Version 13 support" src="https://img.shields.io/badge/Foundry-v13-informational">
+    <img alt="Foundry Version 14 support" src="https://img.shields.io/badge/Foundry-v14-informational">
     <img alt="Latest Release Download Count" src="https://img.shields.io/github/downloads/philote/eat-the-reich/latest/total"> 
     <img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/philote/eat-the-reich">
     <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/philote/eat-the-reich">
@@ -49,6 +48,10 @@ If you’ve enjoyed my work and find value in what I create, please consider sup
 ## How to Install
 You can install the latest released version of the system by using this manifest link in Foundry VTT. [Instructions](https://foundryvtt.com/article/tutorial/): 
 https://github.com/philote/eat-the-reich/releases/latest/download/system.json
+
+### Foundry v12 and v13
+Version 2.0.0 and later require Foundry v14. If you're on Foundry v12 or v13, install version 1.5.2 with this manifest link instead:
+https://github.com/philote/eat-the-reich/releases/download/1.5.2/system.json
 
 ## Features
 - Character Sheet

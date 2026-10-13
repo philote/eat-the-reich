@@ -8,7 +8,7 @@
     }
   },
   "exclude": ["node_modules", "**/node_modules/*"],
-  "include": ["module/fellowship-pbta.mjs", "foundry/client/client.mjs", "foundry/client/global.d.mts", "foundry/common/primitives/global.d.mts"],
+  "include": ["module/eat-the-reich.mjs", "foundry/client/client.mjs", "foundry/client/global.d.mts", "foundry/common/global.d.mts"],
   "typeAcquisition": {
     "include": ["jquery"]
   }

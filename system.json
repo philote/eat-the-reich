@@ -117,7 +117,7 @@
 	"license": "LICENSE.txt",
 	"readme": "README.md",
 	"bugs": "https://github.com/philote/eat-the-reich/issues",
-	"changelog": "CHANGELOG.md",
+	"changelog": "https://github.com/philote/eat-the-reich/releases",
 	"primaryTokenAttribute": "blood",
 	"secondaryTokenAttribute": null,
 	"background": "systems/eat-the-reich/assets/cover.webp",
