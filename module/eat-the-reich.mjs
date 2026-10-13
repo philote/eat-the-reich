@@ -29,30 +29,7 @@ globalThis.eat_the_reich = {
 	},
 };
 
-Hooks.on("renderChatLog", (chatLog, html, data) => {
-	const htmlElement = game.release.generation >= 13 ? html : html[0];
-	DiceAllocation.onRenderChatLog(chatLog, htmlElement, data);
-});
-
-Hooks.on("renderChatMessage", (chatMessage, html, data) => {
-	if (game.release.generation >= 13) return;
-	// Apply styles for individual messages
-	DiceAllocation.onRenderChatMessage(chatMessage, html[0], data);
-	for (const dieElement of html[0].querySelectorAll(".roll.die.d6")) {
-		dieElement.addEventListener("click", DiceAllocation._handleDieClick);
-	}
-	for (const flashbackButton of html[0].querySelectorAll(".etr-flashback-btn")) {
-		flashbackButton.addEventListener(
-			"click",
-			DiceAllocation._handleFlashbackClick
-		);
-	}
-});
-
-// Only called in V13+
 Hooks.on("renderChatMessageHTML", (chatMessage, html, data) => {
-	if (game.release.generation <= 12) return;
-
 	DiceAllocation.onRenderChatMessage(chatMessage, html, data);
 
 	// Apply listeners for individual messages
@@ -94,7 +71,7 @@ Hooks.once("init", function () {
 	};
 
 	// Register sheet application classes
-	Actors.unregisterSheet("core", ActorSheet);
+	const { Actors, Items } = foundry.documents.collections;
 	Actors.registerSheet("eat-the-reich", applications.EatTheReichCharacterSheet, {
 		types: ["character"],
 		makeDefault: true,
@@ -110,7 +87,6 @@ Hooks.once("init", function () {
 		makeDefault: true,
 		label: "ETR.SheetLabels.Location",
 	});
-	Items.unregisterSheet("core", ItemSheet);
 	Items.registerSheet("eat-the-reich", applications.EatTheReichItemSheet, {
 		makeDefault: true,
 		label: "ETR.SheetLabels.Item",
@@ -120,7 +96,7 @@ Hooks.once("init", function () {
 });
 
 Hooks.on("renderSettings", (app, html) => {
-	// --- Button Creation Logic (Common for both versions) ---
+	// --- Button Creation Logic ---
 	const buttonsData = [
 		{
 			action: (ev) => {
@@ -164,31 +140,15 @@ Hooks.on("renderSettings", (app, html) => {
 		return button;
 	});
 
-	// --- Version Specific Logic ---
-	if (game.release.generation >= 13) {
-		// V13+ Logic: Append to the "Documentation" section
-		const documentationSection = html.querySelector("section.documentation");
-		if (documentationSection) {
-			const divider = document.createElement("h4");
-			divider.classList.add("divider");
-			// Using a more specific key might be better, but reusing for now
-			divider.textContent = game.i18n.localize("ETR.Settings.game.heading");
+	// Append to the "Documentation" section
+	const documentationSection = html.querySelector("section.documentation");
+	if (documentationSection) {
+		const divider = document.createElement("h4");
+		divider.classList.add("divider");
+		// Using a more specific key might be better, but reusing for now
+		divider.textContent = game.i18n.localize("ETR.Settings.game.heading");
 
-			// Append divider and then the buttons
-			documentationSection.append(divider, ...buttons);
-		}
-	} else {
-		// V12 Logic: Insert after the "Game Settings" section
-		const gameSettingsSection = html[0].querySelector("#settings-game");
-		if (gameSettingsSection) {
-			const header = document.createElement("h2");
-			header.innerText = game.i18n.localize("ETR.Settings.game.heading");
-
-			const etrSettingsDiv = document.createElement("div");
-			etrSettingsDiv.append(...buttons);
-
-			// Insert the header and the div containing buttons after the game settings section
-			gameSettingsSection.after(header, etrSettingsDiv);
-		}
+		// Append divider and then the buttons
+		documentationSection.append(divider, ...buttons);
 	}
 });

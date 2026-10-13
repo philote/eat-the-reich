@@ -50,7 +50,7 @@ export default class EatTheReichCharacterSheet extends EatTheReichActorSheet {
 	/** @override */
 	async _preparePartContext(partId, context) {
 		// Enrich Description info for display
-		context.enrichedDescription = await TextEditor.enrichHTML(
+		context.enrichedDescription = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
 			this.actor.system.description,
 			{
 				// Whether to show secret blocks in the finished html
@@ -161,7 +161,7 @@ export default class EatTheReichCharacterSheet extends EatTheReichActorSheet {
 			rollMode: game.settings.get("core", "rollMode"),
 			rolls: [roll],
 			flavor: lastStandName,
-			content: await renderTemplate(template, chatData),
+			content: await foundry.applications.handlebars.renderTemplate(template, chatData),
 		});
 	}
 
@@ -229,7 +229,7 @@ export default class EatTheReichCharacterSheet extends EatTheReichActorSheet {
 				);
 				const hasSeriousInjury = Object.keys(selectedSeriousInjuries).length > 0;
 
-				const content = await renderTemplate(
+				const content = await foundry.applications.handlebars.renderTemplate(
 					"systems/eat-the-reich/templates/dialog/stat-roll.hbs",
 					{
 						stat: statValue,
@@ -248,7 +248,7 @@ export default class EatTheReichCharacterSheet extends EatTheReichActorSheet {
 						{
 							label: "ETR.Dice.label",
 							action: "roll",
-							callback: (event, button, dialog) => new FormDataExtended(button.form),
+							callback: (event, button, dialog) => new foundry.applications.ux.FormDataExtended(button.form),
 						},
 					],
 					rejectClose: false,
@@ -273,7 +273,7 @@ export default class EatTheReichCharacterSheet extends EatTheReichActorSheet {
 						speaker: ChatMessage.getSpeaker({ actor: this.actor }),
 						rolls: [roll],
 						rollMode: game.settings.get("core", "rollMode"),
-						content: await renderTemplate(template, chatData),
+						content: await foundry.applications.handlebars.renderTemplate(template, chatData),
 						flags: {
 							"eat-the-reich": {
 								rollConfig: {

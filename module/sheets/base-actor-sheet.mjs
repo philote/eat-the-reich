@@ -23,7 +23,6 @@ export default class EatTheReichActorSheet extends api.HandlebarsApplicationMixi
 			resizable: true,
 		},
 		actions: {
-			onEditImage: this._onEditImage,
 			viewDoc: this._viewDoc,
 			createDoc: this._createDoc,
 			deleteDoc: this._deleteDoc,
@@ -144,7 +143,7 @@ export default class EatTheReichActorSheet extends api.HandlebarsApplicationMixi
 				dragover: this._onDragOver.bind(this),
 				drop: this._onDrop.bind(this),
 			};
-			return new DragDrop(d);
+			return new foundry.applications.ux.DragDrop.implementation(d);
 		});
 	}
 
@@ -153,34 +152,6 @@ export default class EatTheReichActorSheet extends api.HandlebarsApplicationMixi
 	 *   ACTIONS
 	 *
 	 **************/
-
-	/**
-	 * Handle changing a Document's image.
-	 *
-	 * @this EatTheReichCharacterSheet
-	 * @param {PointerEvent} event   The originating click event
-	 * @param {HTMLElement} target   The capturing HTML element which defined a [data-action]
-	 * @returns {Promise}
-	 * @protected
-	 */
-	static async _onEditImage(event, target) {
-		const attr = target.dataset.edit;
-		const current = foundry.utils.getProperty(this.document, attr);
-		const { img } =
-			this.document.constructor.getDefaultArtwork?.(this.document.toObject()) ??
-			{};
-		const fp = new FilePicker({
-			current,
-			type: "image",
-			redirectToRoot: img ? [img] : [],
-			callback: (path) => {
-				this.document.update({ [attr]: path });
-			},
-			top: this.position.top + 40,
-			left: this.position.left + 10,
-		});
-		return fp.browse();
-	}
 
 	/**
 	 * Toggle Edit vs. Play mode
@@ -334,7 +305,7 @@ export default class EatTheReichActorSheet extends api.HandlebarsApplicationMixi
 	 * @protected
 	 */
 	async _onDrop(event) {
-		const data = TextEditor.getDragEventData(event);
+		const data = foundry.applications.ux.TextEditor.implementation.getDragEventData(event);
 		const actor = this.actor;
 		const allowed = Hooks.call("dropActorSheetData", actor, this, data);
 		if (allowed === false) return;
@@ -442,7 +413,7 @@ export default class EatTheReichActorSheet extends api.HandlebarsApplicationMixi
 		}
 
 		// Perform the sort
-		const sortUpdates = SortingHelpers.performIntegerSort(item, {
+		const sortUpdates = foundry.utils.performIntegerSort(item, {
 			target,
 			siblings,
 		});

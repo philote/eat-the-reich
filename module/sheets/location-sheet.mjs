@@ -50,7 +50,7 @@ export default class EatTheReichLocationSheet extends EatTheReichActorSheet {
 	/** @override */
 	async _preparePartContext(partId, context) {
 		// Enrich Description info for display
-		context.enrichedDescription = await TextEditor.enrichHTML(
+		context.enrichedDescription = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
 			this.actor.system.description.value,
 			{
 				secrets: this.document.isOwner,
@@ -58,7 +58,7 @@ export default class EatTheReichLocationSheet extends EatTheReichActorSheet {
 				relativeTo: this.actor,
 			}
 		);
-		context.enrichedEnemies = await TextEditor.enrichHTML(
+		context.enrichedEnemies = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
 			this.actor.system.enemies.value,
 			{
 				secrets: this.document.isOwner,
@@ -182,7 +182,7 @@ export default class EatTheReichLocationSheet extends EatTheReichActorSheet {
 				);
 				const hasSeriousInjury = Object.keys(selectedSeriousInjuries).length > 0;
 
-				const content = await renderTemplate(
+				const content = await foundry.applications.handlebars.renderTemplate(
 					"systems/eat-the-reich/templates/dialog/stat-roll.hbs",
 					{
 						stat: statValue,
@@ -201,7 +201,7 @@ export default class EatTheReichLocationSheet extends EatTheReichActorSheet {
 						{
 							label: "ETR.Dice.label",
 							action: "roll",
-							callback: (event, button, dialog) => new FormDataExtended(button.form),
+							callback: (event, button, dialog) => new foundry.applications.ux.FormDataExtended(button.form),
 						},
 					],
 					rejectClose: false,
@@ -226,7 +226,7 @@ export default class EatTheReichLocationSheet extends EatTheReichActorSheet {
 						speaker: ChatMessage.getSpeaker({ actor: this.actor }),
 						rolls: [roll],
 						rollMode: game.settings.get("core", "rollMode"),
-						content: await renderTemplate(template, chatData),
+						content: await foundry.applications.handlebars.renderTemplate(template, chatData),
 					});
 				}
 			}

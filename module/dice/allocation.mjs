@@ -4,21 +4,21 @@ import { FlashbackDialogApp } from "../apps/flashback-dialog-app.mjs";
  * @class DiceAllocation
  * Handles allocation/crossing-out of dice shown in chat messages for the Eat the Reich system.
  * It works by:
- * 1. Attaching a single click listener to the chat log container (`renderChatLog` hook).
+ * 1. Attaching click listeners to each message's dice (`renderChatMessageHTML` hook).
  * 2. When a die is clicked (`_handleDieClick`):
  *    - It parses the message's HTML content.
  *    - Finds the corresponding die element within the parsed HTML using specific attributes/classes.
  *    - Toggles data attributes (`data-allocated`, `data-crossed-out`) on the parsed element.
  *    - Updates the message's content (`message.update({ content: ... })`) with the modified HTML.
  *    - Provides immediate visual feedback by toggling CSS classes on the clicked element.
- * 3. When messages render (`renderChatMessage`, `renderChatLog` hooks):
+ * 3. When messages render (`renderChatMessageHTML` hook):
  *    - It reads the `data-allocated` and `data-crossed-out` attributes from the dice HTML.
  *    - Applies the corresponding CSS classes (`.allocated`, `.crossed-out`, `.disabled`) for styling.
  * This approach ensures persistence by storing state in the message content itself.
  */
 export class DiceAllocation {
 	/**
-	 * Handler for the 'renderChatMessage' hook. Applies styles to dice in a single message.
+	 * Handler for the 'renderChatMessageHTML' hook. Applies styles to dice in a single message.
 	 * @param {ChatMessage} message - The ChatMessage document being rendered.
 	 * @param {HTMLElement} html - The HTMLElement object for the message's HTML.
 	 * @param {object} data - Additional data provided by the hook.
@@ -59,30 +59,6 @@ export class DiceAllocation {
 				flashbackBtn.classList.add("hidden");
 			}
 		}
-	}
-
-	/**
-	 * Handler for the 'renderChatLog' hook. Applies styles to all messages within the log.
-	 * @param {Application} app - The ChatLog application instance.
-	 * @param {jQuery} html - The jQuery object for the chat log's outer HTML.
-	 * @param {object} data - Additional data provided by the hook.
-	 */
-	static onRenderChatLog(app, htmlElement, data) {
-		if (!htmlElement) return;
-
-		htmlElement.querySelectorAll(".message").forEach((msgElement) => {
-			// Use native element
-			const messageId = msgElement.dataset.messageId;
-			if (!messageId) return;
-			const message = game.messages.get(messageId);
-			if (message) {
-				// Check if this message contains any attack dice by querying within the specific message element
-				const isAttackRoll =
-					msgElement.querySelector('.roll.die.d6[data-is-attack="true"]') !== null;
-				// Pass the message's DOM element directly
-				this._applyStylesFromAttributes(msgElement, isAttackRoll);
-			}
-		});
 	}
 
 	/**
@@ -342,7 +318,7 @@ export class DiceAllocation {
 		};
 		const chatTemplate =
 			"systems/eat-the-reich/templates/chat/die-pool-output.hbs";
-		const rollContent = await renderTemplate(chatTemplate, chatData);
+		const rollContent = await foundry.applications.handlebars.renderTemplate(chatTemplate, chatData);
 
 		// Render the flashback message content using the template
 		const flashbackTemplate =
@@ -353,7 +329,7 @@ export class DiceAllocation {
 			characterName: flashbackChoices.character,
 			description: flashbackChoices.description,
 		};
-		const flashbackFlavor = await renderTemplate(
+		const flashbackFlavor = await foundry.applications.handlebars.renderTemplate(
 			flashbackTemplate,
 			flashbackData
 		);

@@ -52,7 +52,7 @@ export default class EatTheReichNPCSheet extends EatTheReichActorSheet {
 	/** @override */
 	async _preparePartContext(partId, context) {
 		// Enrich Description info for display
-		context.enrichedDescription = await TextEditor.enrichHTML(
+		context.enrichedDescription = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
 			this.actor.system.description.value,
 			{
 				secrets: this.document.isOwner,
@@ -93,7 +93,7 @@ export default class EatTheReichNPCSheet extends EatTheReichActorSheet {
 		event.preventDefault();
 		const attackValue = this.actor.system.attack.value;
 
-		const content = await renderTemplate("systems/eat-the-reich/templates/dialog/threat-roll.hbs", {
+		const content = await foundry.applications.handlebars.renderTemplate("systems/eat-the-reich/templates/dialog/threat-roll.hbs", {
 			attack: attackValue,
 		});
 
@@ -106,7 +106,7 @@ export default class EatTheReichNPCSheet extends EatTheReichActorSheet {
 				{
 					label: "ETR.Dice.label",
 					action: "roll",
-					callback: (event, button, dialog) => new FormDataExtended(button.form)
+					callback: (event, button, dialog) => new foundry.applications.ux.FormDataExtended(button.form)
 				}
 			],
 			rejectClose: false
@@ -127,7 +127,7 @@ export default class EatTheReichNPCSheet extends EatTheReichActorSheet {
 				speaker: ChatMessage.getSpeaker({ actor: this.actor }),
 				rolls: [roll],
 				rollMode: game.settings.get("core", "rollMode"),
-				content: await renderTemplate(template, chatData),
+				content: await foundry.applications.handlebars.renderTemplate(template, chatData),
 			});
 			
 			// If the GM rolls zero successes on their Attack dice, increase the Threat’s Attack by 1
@@ -214,7 +214,7 @@ export default class EatTheReichNPCSheet extends EatTheReichActorSheet {
 				);
 				const hasSeriousInjury = Object.keys(selectedSeriousInjuries).length > 0;
 
-				const content = await renderTemplate("systems/eat-the-reich/templates/dialog/stat-roll.hbs", {
+				const content = await foundry.applications.handlebars.renderTemplate("systems/eat-the-reich/templates/dialog/stat-roll.hbs", {
 					stat: statValue,
 					label: statLabel,
 					injuries: selectedSeriousInjuries,
@@ -230,7 +230,7 @@ export default class EatTheReichNPCSheet extends EatTheReichActorSheet {
 						{
 							label: "ETR.Dice.label",
 							action: "roll",
-							callback: (event, button, dialog) => new FormDataExtended(button.form)
+							callback: (event, button, dialog) => new foundry.applications.ux.FormDataExtended(button.form)
 						}
 					],
 					rejectClose: false
@@ -251,7 +251,7 @@ export default class EatTheReichNPCSheet extends EatTheReichActorSheet {
 						speaker: ChatMessage.getSpeaker({ actor: this.actor }),
 						rolls: [roll],
 						rollMode: game.settings.get("core", "rollMode"),
-						content: await renderTemplate(template, chatData),
+						content: await foundry.applications.handlebars.renderTemplate(template, chatData),
 					});
 				}
 			}

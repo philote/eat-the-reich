@@ -11,24 +11,6 @@ export class EatTheReichActor extends Actor {
     super.prepareData();
   }
 
-  /** @override */
-  prepareBaseData() {
-    // Data modifications in this step occur before processing embedded
-    // documents or derived data.
-  }
-
-  /**
-   * @override
-   * Augment the actor source data with additional dynamic data that isn't
-   * handled by the actor's DataModel. Data calculated in this step should be
-   * available both inside and outside of character sheets (such as if an actor
-   * is queried and has a roll executed directly from it).
-   */
-  prepareDerivedData() {
-    const actorData = this;
-    const flags = actorData.flags.eatTheReich || {};
-  }
-
   /**
    *
    * @override

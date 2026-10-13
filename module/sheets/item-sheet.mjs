@@ -16,7 +16,6 @@ export default class EatTheReichItemSheet extends api.HandlebarsApplicationMixin
 	static DEFAULT_OPTIONS = {
 		classes: ["eat-the-reich", "item"],
 		actions: {
-			onEditImage: this._onEditImage,
 			onClockUpdate: this._onClockUpdate,
 		},
 		position: {
@@ -115,7 +114,7 @@ export default class EatTheReichItemSheet extends api.HandlebarsApplicationMixin
 	async _preparePartContext(partId, context) {
 		switch (partId) {
 			case "description":
-				context.enrichedDescription = await TextEditor.enrichHTML(
+				context.enrichedDescription = await foundry.applications.ux.TextEditor.implementation.enrichHTML(
 					this.item.system.description.value,
 					{
 						secrets: this.document.isOwner,
@@ -180,34 +179,6 @@ export default class EatTheReichItemSheet extends api.HandlebarsApplicationMixin
 		await this.item.update({ [property]: clockProp });
 	}
 
-	/**
-	 * Handle changing a Document's image.
-	 *
-	 * @this EatTheReichItemSheet
-	 * @param {PointerEvent} event   The originating click event
-	 * @param {HTMLElement} target   The capturing HTML element which defined a [data-action]
-	 * @returns {Promise}
-	 * @protected
-	 */
-	static async _onEditImage(event, target) {
-		const attr = target.dataset.edit;
-		const current = foundry.utils.getProperty(this.document, attr);
-		const { img } =
-			this.document.constructor.getDefaultArtwork?.(this.document.toObject()) ??
-			{};
-		const fp = new FilePicker({
-			current,
-			type: "image",
-			redirectToRoot: img ? [img] : [],
-			callback: (path) => {
-				this.document.update({ [attr]: path });
-			},
-			top: this.position.top + 40,
-			left: this.position.left + 10,
-		});
-		return fp.browse();
-	}
-
 	/** Helper Functions */
 
 	/**
@@ -268,7 +239,7 @@ export default class EatTheReichItemSheet extends api.HandlebarsApplicationMixin
 	 * @protected
 	 */
 	async _onDrop(event) {
-		const data = TextEditor.getDragEventData(event);
+		const data = foundry.applications.ux.TextEditor.implementation.getDragEventData(event);
 		const item = this.item;
 		const allowed = Hooks.call("dropItemSheetData", item, this, data);
 		if (allowed === false) return;
@@ -355,7 +326,7 @@ export default class EatTheReichItemSheet extends api.HandlebarsApplicationMixin
 				dragover: this._onDragOver.bind(this),
 				drop: this._onDrop.bind(this),
 			};
-			return new DragDrop(d);
+			return new foundry.applications.ux.DragDrop.implementation(d);
 		});
 	}
 }

@@ -89,7 +89,7 @@ export class FlashbackDialogApp extends HandlebarsApplicationMixin(
 	_onChangeForm(formConfig, event) {
 		super._onChangeForm(formConfig, event);
 		const formData = foundry.utils.expandObject(
-			new FormDataExtended(this.element).object
+			new foundry.applications.ux.FormDataExtended(this.element).object
 		);
 
 		// convince variables
@@ -149,7 +149,7 @@ export class FlashbackDialogApp extends HandlebarsApplicationMixin(
 	 */
 	async _onSubmitForm(formConfig, event) {
 		const formData = foundry.utils.expandObject(
-			new FormDataExtended(this.element).object
+			new foundry.applications.ux.FormDataExtended(this.element).object
 		);
 
 		const flashbackForm = formData.flashback;
