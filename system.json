@@ -4,9 +4,9 @@
 	"description": "The Eat the Reich system for FoundryVTT",
 	"version": "#{VERSION}#",
 	"compatibility": {
-		"minimum": 12,
-		"verified": 13.348,
-		"maximum": 13
+		"minimum": 14,
+		"verified": 14.369,
+		"maximum": 14
 	},
 	"authors": [
 		{
