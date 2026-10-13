@@ -139,7 +139,7 @@ export default class EatTheReichCharacterSheet extends EatTheReichActorSheet {
 			rolls: [roll],
 			flavor: game.i18n.localize("ETR.Actor.Character.injuries.label"),
 			content: message,
-		});
+		}, { messageMode: game.settings.get("core", "messageMode") });
 	}
 
 	static async _onLastStandRoll(event, target) {
@@ -158,11 +158,10 @@ export default class EatTheReichCharacterSheet extends EatTheReichActorSheet {
 
 		ChatMessage.create({
 			speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-			rollMode: game.settings.get("core", "rollMode"),
 			rolls: [roll],
 			flavor: lastStandName,
 			content: await foundry.applications.handlebars.renderTemplate(template, chatData),
-		});
+		}, { messageMode: game.settings.get("core", "messageMode") });
 	}
 
 	static async _onAdvanceSelected(event, target) {
@@ -272,7 +271,6 @@ export default class EatTheReichCharacterSheet extends EatTheReichActorSheet {
 					ChatMessage.create({
 						speaker: ChatMessage.getSpeaker({ actor: this.actor }),
 						rolls: [roll],
-						rollMode: game.settings.get("core", "rollMode"),
 						content: await foundry.applications.handlebars.renderTemplate(template, chatData),
 						flags: {
 							"eat-the-reich": {
@@ -284,7 +282,7 @@ export default class EatTheReichCharacterSheet extends EatTheReichActorSheet {
 								}
 							}
 						}
-					});
+					}, { messageMode: game.settings.get("core", "messageMode") });
 				}
 			}
 		}

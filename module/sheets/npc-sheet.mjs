@@ -126,9 +126,8 @@ export default class EatTheReichNPCSheet extends EatTheReichActorSheet {
 			ChatMessage.create({
 				speaker: ChatMessage.getSpeaker({ actor: this.actor }),
 				rolls: [roll],
-				rollMode: game.settings.get("core", "rollMode"),
 				content: await foundry.applications.handlebars.renderTemplate(template, chatData),
-			});
+			}, { messageMode: game.settings.get("core", "messageMode") });
 			
 			// If the GM rolls zero successes on their Attack dice, increase the Threat’s Attack by 1
 			const successes = results.filter(r => r.result >= 4);
@@ -250,9 +249,8 @@ export default class EatTheReichNPCSheet extends EatTheReichActorSheet {
 					ChatMessage.create({
 						speaker: ChatMessage.getSpeaker({ actor: this.actor }),
 						rolls: [roll],
-						rollMode: game.settings.get("core", "rollMode"),
 						content: await foundry.applications.handlebars.renderTemplate(template, chatData),
-					});
+					}, { messageMode: game.settings.get("core", "messageMode") });
 				}
 			}
 		}

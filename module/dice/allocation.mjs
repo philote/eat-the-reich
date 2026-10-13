@@ -339,13 +339,12 @@ export class DiceAllocation {
 			flavor: flashbackFlavor,
 			content: rollContent,
 			rolls: [roll],
-			rollMode: game.settings.get("core", "rollMode"),
 			flags: {
 				"eat-the-reich": {
 					isFlashback: true,
 					originalMessageId: messageId,
 				},
 			}, // Optional: Link back
-		});
+		}, { messageMode: game.settings.get("core", "messageMode") });
 	}
 }

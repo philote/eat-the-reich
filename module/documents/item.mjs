@@ -39,17 +39,15 @@ export class EatTheReichItem extends Item {
 
     // Initialize chat data.
     const speaker = ChatMessage.getSpeaker({ actor: this.actor });
-    const rollMode = game.settings.get('core', 'rollMode');
     const label = `[${item.type}] ${item.name}`;
 
     // If there's no roll data, send a chat message.
     if (!this.system.formula) {
       ChatMessage.create({
         speaker: speaker,
-        rollMode: rollMode,
         flavor: label,
         content: item.system.description ?? '',
-      });
+      }, { messageMode: game.settings.get('core', 'messageMode') });
     }
     // Otherwise, create a roll and send a chat message from it.
     else {
@@ -62,7 +60,6 @@ export class EatTheReichItem extends Item {
       // const result = await roll.evaluate();
       roll.toMessage({
         speaker: speaker,
-        rollMode: rollMode,
         flavor: label,
       });
       return roll;
