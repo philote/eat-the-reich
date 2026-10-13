@@ -64,7 +64,7 @@
                 }}
                 {{localize "ETR.Actor.NPC.FIELDS.isUbermenschen.label"}}
             </label>
-            <button data-action="reinforcements"
+            <button type="button" data-action="reinforcements"
             {{#if system.isUbermenschen.value}}
                 disabled
             {{else if (lt system.threatRating.value system.threatRating.max)}}
@@ -84,7 +84,7 @@
                 value=system.attack.value
                 label=systemFields.attack.label 
             }}
-            <button data-action="attack"
+            <button type="button" data-action="attack"
                 {{#if (eq system.attack.value 0)}}
                     disabled
                 {{/if}}>
@@ -126,6 +126,7 @@
                 <div class="item-controls">
                     {{#if @root.editable}}
                         <button
+                            type="button"
                             class="item-control item-create icon"
                             title="{{localize 'DOCUMENT.Create' type="Item"}}"
                             data-action="createDoc"
@@ -140,9 +141,8 @@
             <ol class="items-list">
                 {{#each extraInfo as |item id|}}
                     <li
-                        class="item"
+                        class="item draggable"
                         data-item-id="{{item._id}}"
-                        data-drag="true"
                         data-document-class="Item"
                     >
                         <div class="flexrow">

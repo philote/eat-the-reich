@@ -132,10 +132,7 @@ export default class EatTheReichLocationSheet extends EatTheReichActorSheet {
 			}),
 		};
 		// If subtype is secondaryObjective, set the isSecondary flag to true
-		if (
-			target.dataset.subtype &&
-			(target.dataset.subtype = "secondaryObjective")
-		) {
+		if (target.dataset.subtype === "secondaryObjective") {
 			let system = {
 				isSecondary: {
 					value: true,

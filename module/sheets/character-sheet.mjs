@@ -215,6 +215,8 @@ export default class EatTheReichCharacterSheet extends EatTheReichActorSheet {
 	 */
 	static async _onRoll(event, target) {
 		event.preventDefault();
+		// Labels aren't form controls, so they stay clickable on read-only sheets
+		if (!this.isEditable) return;
 		const dataset = target.dataset;
 		const stat = dataset.stat;
 		switch (dataset.rollType) {

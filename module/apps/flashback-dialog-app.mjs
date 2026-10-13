@@ -55,14 +55,14 @@ export class FlashbackDialogApp extends HandlebarsApplicationMixin(
 		const customSelector = {
 			custom: game.i18n.localize("ETR.Flashback.CustomOption"),
 		};
-		const contextOptions = Object.assign(
-			CONFIG.ETR.flashbackContext,
-			customSelector
-		);
-		const questionOptions = Object.assign(
-			CONFIG.ETR.flashbackQuestion,
-			customSelector
-		);
+		const contextOptions = {
+			...CONFIG.ETR.flashbackContext,
+			...customSelector,
+		};
+		const questionOptions = {
+			...CONFIG.ETR.flashbackQuestion,
+			...customSelector,
+		};
 		const characters = game.actors
 			.filter(
 				(a) =>

@@ -36,6 +36,7 @@
                 <div class="item-controls">
                     {{#if @root.editable}}
                         <button
+                            type="button"
                             class="item-control item-create icon"
                             title="{{localize 'DOCUMENT.Create' type="Item"}}"
                             data-action="createDoc"
@@ -50,9 +51,8 @@
             <ol class="items-list">
                 {{#each objectives as |item id|}}
                     <li
-                        class="item flexrow"
+                        class="item flexrow draggable"
                         data-item-id="{{item._id}}"
-                        data-drag="true"
                         data-document-class="Item"
                     >
                         <div class="item-info">
@@ -85,6 +85,7 @@
                 {{localize "ETR.Actor.Character.loot"}}
                 <div class="item-controls">
                     <button
+                        type="button"
                         class="item-control item-create icon"
                         title="{{localize 'DOCUMENT.Create' type="Item"}}"
                         data-action="createDoc"
@@ -98,9 +99,8 @@
             <ol class="items-list">
                 {{#each loot as |item id|}}
                     <li
-                        class="item flexrow"
+                        class="item flexrow draggable"
                         data-item-id="{{item._id}}"
-                        data-drag="true"
                         data-document-class="Item"
                     >
                         <div class="item-info">
@@ -143,6 +143,7 @@
                 <div class="item-controls">
                     {{#if @root.editable}}
                         <button
+                            type="button"
                             class="item-control item-create icon"
                             title="{{localize 'DOCUMENT.Create' type="Item"}}"
                             data-action="createDoc"
@@ -158,9 +159,8 @@
             <ol class="items-list">
                 {{#each secondaryObjectives as |item id|}}
                     <li
-                        class="item flexrow"
+                        class="item flexrow draggable"
                         data-item-id="{{item._id}}"
-                        data-drag="true"
                         data-document-class="Item"
                     >
                         <div class="item-info">
@@ -194,6 +194,7 @@
                 <div class="item-controls">
                     {{#if @root.editable}}
                         <button
+                            type="button"
                             class="item-control item-create icon"
                             title="{{localize 'DOCUMENT.Create' type="Item"}}"
                             data-action="createDoc"
@@ -208,9 +209,8 @@
             <ol class="items-list">
                 {{#each equipment as |item id|}}
                     <li
-                        class="item flexrow"
+                        class="item flexrow draggable"
                         data-item-id="{{item._id}}"
-                        data-drag="true"
                         data-document-class="Item"
                     >
                         <div class="item-info {{#if (eq system.uses.max system.uses.value)}}used{{/if}}">

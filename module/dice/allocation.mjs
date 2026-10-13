@@ -288,6 +288,8 @@ export class DiceAllocation {
 				actorId: actor.id,
 			},
 		});
+		// Dialog closed without submitting
+		if (!flashbackChoices) return;
 
 		// --- Build the flashback chat message with Flashback Choices ---
 		DiceAllocation._buildFlashbackMessage(
